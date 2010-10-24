@@ -1,0 +1,61 @@
+// les type de bases sount déclarés en datatype pour être agnostique quand à la technique de sérialisation csv,flat,old xml,xml xsd
+
+datatype InvoiceNumber
+datatype CustNumber
+datatype Name
+datatype Phone
+datatype Description 
+datatype StreetLine 
+datatype City
+datatype State
+datatype Province
+datatype Zip
+datatype Month
+datatype Day
+datatype Year
+datatype Price
+datatype Discount
+
+enumeration O_N [ N = 0 ; O = 1 ; ]
+
+// structure d'accueil de type complexe
+entity Date {
+	day : Day
+	month : Month
+	year : Year	
+}
+
+// description d'une structure à urbaniser
+
+entity Invoice {
+	header : Header 
+	items : Item *
+}
+
+entity Header {
+	date : Date
+	billTo : BillTo
+}
+
+entity Item {
+	description : Description *
+	price : Price
+	discount : Discount
+}
+
+entity BillTo {
+	customerNumber : CustNumber
+	name : Name
+	maried : O_N
+	phone : Phone
+	address : Address
+}
+
+entity Address {
+	street1 : StreetLine
+	street2 : StreetLine ?
+	city : City
+	state : State
+	province : Province
+	zip : Zip
+}
