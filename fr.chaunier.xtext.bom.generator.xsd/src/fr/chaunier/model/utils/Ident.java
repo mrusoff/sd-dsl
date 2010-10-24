@@ -1,4 +1,4 @@
-package fr.telintrans.model.utils;
+package fr.chaunier.model.utils;
 
 
 
