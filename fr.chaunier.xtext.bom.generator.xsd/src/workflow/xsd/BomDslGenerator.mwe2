@@ -2,7 +2,7 @@ module workflow.BomDslGenerator
 
 import org.eclipse.emf.mwe.utils.*
 
-var targetDir = "src-gen1"
+var targetDir = "src-gen"
 var fileEncoding = "Cp1252"
 var modelPath = "src/model"
 
