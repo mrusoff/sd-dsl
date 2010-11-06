@@ -1,9 +1,0 @@
-import ecore;
-
-/**
-  * java extensions are just mappings
-  */
-String getIndentation(int i) : JAVA fr.chaunier.model.utils.Ident.getIndentation(java.lang.Integer);
-/**
-  * java extensions are just mappings
-  */
