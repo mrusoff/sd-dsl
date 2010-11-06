@@ -5,6 +5,12 @@ generate bomDsl "http://www.chaunier.fr/xtext/bom/BomDsl"
 DomainModel:
 	(elements+=AbstractElement)*;
 
+//CartridgeLine:
+//	 'line' line=STRING ;
+
+//FileFormat:
+//	'format' format = 'XSD' | 'DTD' | 'FLAT' | 'CSV' ;
+
 AbstractElement:
 	PackageDeclaration | Type | Import;
 
@@ -12,7 +18,9 @@ Import:
 	'import' importedNamespace=QualifiedNameWithWildCard;
 
 PackageDeclaration:
+//	(fileFormat=FileFormat
 	'package' name=QualifiedName ('prefix' prefix=QualifiedName) ('namespace' namespace=STRING) '{'
+		('line' lines+=STRING)* 
 		(elements+=AbstractElement)*
 	'}';
 
@@ -81,7 +89,7 @@ BoolConstraint:
 
 StringConstraint:
     constraint="string" //dataType=[DataType]
-    (hasDefault?="default" defaultValue=STRING)?
+    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
     ("minLen" minLength=INT)? ("maxLen" maxLength=INT)? ("fixeLen" fixeLength=INT)?  
     ("regexp" regularExpression=STRING)?
     ;
@@ -100,13 +108,13 @@ enum DateTimeAccuracy:
 
 IntegerConstraint:
     constraint="integer" 
-    (hasDefault?="default" defaultValue=INT)?
+    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)?
     ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? 
     ;
 
 DecimalConstraint:
     constraint="decimal" 
-//                 (hasDefault?="default" defaultValue=INT)?
+    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=STRING)?
     ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?  
     ;
 
@@ -128,5 +136,4 @@ EnumerationConstraint:
     'enum' (usage=EnumUsage) 
     (hasDefault?="default" defaultValueAsString=ID)?
     ; 
-
 	
