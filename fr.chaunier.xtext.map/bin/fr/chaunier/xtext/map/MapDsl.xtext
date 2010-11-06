@@ -1,0 +1,53 @@
+grammar fr.chaunier.xtext.map.MapDsl with org.eclipse.xtext.common.Terminals
+
+import  "platform:/resource/fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore" as mm 
+
+generate mapDsl "http://www.chaunier.fr/xtext/map/MapDsl"
+
+Model:
+	mappingModules+=MappingModule*
+;
+
+Import :
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+MappingModule: 
+	'module' name=QualifiedName
+	'{'
+		(imports+=Import)* // allow imports11111
+		mappings+=Mapping*
+	'}';
+
+
+/*
+Mapping:
+	'mapper' (name=STRING)? 'between' leftClass=[mm::Entity|QID] 'and' rightClass=[mm::Entity|QID]
+	'{'
+		importsFrom+=Import*
+		(mappedFeatures += FeatureMap ';'?)*
+    '}';
+	'mapClass' (name=STRING)? 'between' leftClass=[mm::Entity|QID] 'and' rightPackage=[mm::PackageDeclaration] '.' rightClass=[mm::Entity|QID] (documentation=STRING)?
+
+*/
+
+Mapping:
+	'mapClass' (name=STRING)? 'between' leftClass=[mm::Entity|QualifiedName] 'and'  rightClass=[mm::Entity|QualifiedName] (documentation=STRING)?
+	'{'
+		(mappedFeatures += FeatureMap ';'?)*
+    '}';
+
+FeatureMap:
+	'map' leftField=[mm::Attribute] '=>' rightField=[mm::Attribute] (rule=STRING)?  
+	| 'set left' setLeftField=[mm::Attribute] '=' valLeft=STRING
+	| 'set right' setRightField=[mm::Attribute] '=' valRight=STRING
+	| 'ignore left' ignoreLeftField=[mm::Attribute] 
+	(documentation=STRING)?
+	;
+
+
