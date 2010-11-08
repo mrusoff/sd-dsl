@@ -1,0 +1,37 @@
+grammar fr.chaunier.xtext.simplemap.SMapDsl with org.eclipse.xtext.common.Terminals
+
+import  "platform:/resource/fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore" as mm 
+
+generate sMapDsl "http://www.chaunier.fr/xtext/simplemap/SMapDsl"
+
+
+Model:
+
+//	(imports+=Import)* // allow imports
+	mappingModules+=MappingModule*
+;
+
+//Import :
+//	'import' importedNamespace=QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+MappingModule: 
+	'module' name=QualifiedName
+	'{'
+		(mappedFeatures += FeatureMap ';'?)*
+	'}';
+
+FeatureMap:
+	'map' leftField=[mm::Attribute|QualifiedName] '=>' rightField=[mm::Attribute|QualifiedName] (rule=STRING)?  
+	| 'set left' setLeftField=[mm::Attribute|QualifiedName] '=' valLeft=STRING
+	| 'set right' setRightField=[mm::Attribute|QualifiedName] '=' valRight=STRING
+	| 'ignore left' ignoreLeftField=[mm::Attribute|QualifiedName] 
+	(documentation=STRING)?
+	;
+
+
