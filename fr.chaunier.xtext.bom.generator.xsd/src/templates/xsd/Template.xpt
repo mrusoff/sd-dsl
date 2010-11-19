@@ -1,0 +1,177 @@
+«IMPORT fr::chaunier::xtext::bom::bomDsl»
+
+«DEFINE main FOR PackageDeclaration»
+«FILE name+".xsd"-»
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:«prefix»="«namespace»" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="«namespace»"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+«FOREACH  elements AS element-»
+«EXPAND dump(prefix) FOR element-»
+«ENDFOREACH-»
+</xsd:schema>  
+«ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR AbstractElement-»
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR DataType-»
+    <xsd:annotation>
+      <xsd:documentation>datatype «name»</xsd:documentation>
+    </xsd:annotation>
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR Enumeration-»
+  	<xsd:simpleType name="«name»Enum">
+    	<xsd:restriction base="xsd:string">
+«FOREACH enumerationLiterals AS enumLiteral-»
+«EXPAND enumLeteral FOR enumLiteral-»
+«ENDFOREACH-»		
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+1»"/> 
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+2»"/> 
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+3»"/> 
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+4»"/> 
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+5»"/> 
+			<xsd:enumeration value="INCONNU_«enumerationLiterals.size+6»"/> 
+    	</xsd:restriction>
+  	</xsd:simpleType>
+  
+«ENDDEFINE»
+
+
+«DEFINE enumLeteral FOR EnumerationLiteral-»
+			<xsd:enumeration value="«name»"/>
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR Entity-»
+  <xsd:complexType name="«name»Type">
+    <xsd:annotation>
+      <xsd:documentation>«description»</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+«FOREACH features AS feature-»
+«EXPAND dump(prefix) FOR feature-»
+«ENDFOREACH»
+       </xsd:sequence>
+	</xsd:complexType>  
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR Feature-»
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR Attribute-»
+«IF constraint == null-»
+          <xsd:element name="«name»" «EXPAND minMax FOR type» «EXPAND typeOfRef(prefix) FOR type.referenced-»>
+		    <xsd:annotation>
+      			<xsd:documentation>«this.description»</xsd:documentation>
+    		</xsd:annotation>
+«ELSE-» 
+«EXPAND const FOR constraint-»
+«ENDIF-» 
+          </xsd:element>
+«ENDDEFINE»
+
+«DEFINE typeOfRef(String prefix) FOR Type-»
+«ENDDEFINE»
+
+«DEFINE typeOfRef(String prefix) FOR Entity-»
+ type="«prefix»:«name»Type" 
+«ENDDEFINE»
+
+«DEFINE typeOfRef(String prefix) FOR DataType-»
+ type="xsd:string" 
+«ENDDEFINE»
+
+«DEFINE typeOfRef(String prefix) FOR Enumeration-»
+ type="«prefix»:«name»Enum" 
+«ENDDEFINE»
+
+«DEFINE minMax FOR TypeRef-»
+«IF option »minOccurs="0" «ENDIF-»
+«IF multi »maxOccurs="unbounded" «ENDIF-»
+«ENDDEFINE»
+
+«DEFINE const FOR Constraint-»
+«ENDDEFINE»
+
+«DEFINE const FOR BoolConstraint-»
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:boolean" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+		    <xsd:annotation>
+      			<xsd:documentation>«((Attribute)eContainer()).description»</xsd:documentation>
+    		</xsd:annotation>
+«ENDDEFINE»
+
+«DEFINE const FOR StringConstraint-»
+«IF minLength!=0 || maxLength != 0 || fixeLength != 0-» 
+    	<xsd:element name="«((Attribute)eContainer()).name»" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+		    <xsd:annotation>
+      			<xsd:documentation>«((Attribute)eContainer()).description»</xsd:documentation>
+    		</xsd:annotation>
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:string">
+						«EXPAND stringConst FOR this»    				
+    				</xsd:restriction>
+    			</xsd:simpleType>
+«ELSE-»    			
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:string" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+«ENDIF-»          
+«ENDDEFINE»
+
+«DEFINE stringConst FOR StringConstraint-»
+					«IF minLength != 0» <xsd:minLength value= "«minLength»" />«ENDIF-»
+					«IF maxLength != 0» <xsd:maxLength value= "«maxLength»" />«ENDIF-»
+					«IF fixeLength != 0» <xsd:minLength value= "«fixeLength»"/> <xsd:maxLength value= "«fixeLength»"/> «ENDIF-»
+«ENDDEFINE»
+ 
+«DEFINE stringConst FOR IntegerConstraint-»
+					«IF minValue != 0» <xsd:minLength value= "«minValue»" />«ENDIF-»
+					«IF maxValue != 0» <xsd:maxLength value= "«maxValue»" />«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE stringConst FOR DecimalConstraint-»
+					«IF minValue != 0» <xsd:minLength value= "«minValue»" />«ENDIF-»
+					«IF maxValue != 0» <xsd:maxLength value= "«maxValue»" />«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE const FOR DateTimeConstraint-»
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:datetime" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+«ENDDEFINE»
+
+«DEFINE const FOR EnumerationConstraint-»
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:string" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+«ENDDEFINE»
+
+«DEFINE const FOR IntegerConstraint-»
+«IF minValue!=0 || minValue != 0-» 
+    	<xsd:element name="«((Attribute)eContainer()).name»">
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:integer" «EXPAND minMax FOR ((Attribute)eContainer()).type» «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+«EXPAND stringConst FOR this»    				
+    				</xsd:restriction>
+    			</xsd:simpleType>
+«ELSE-»    			
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:integer" >
+«ENDIF»          
+«ENDDEFINE»
+
+«DEFINE const FOR DecimalConstraint-»
+«IF minValue!=0 || minValue != 0-» 
+    	<xsd:element name="«((Attribute)eContainer()).name»" «EXPAND minMax FOR ((Attribute)eContainer()).type-»>
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:integer" >
+«EXPAND stringConst FOR this»    				
+    				</xsd:restriction>
+    			</xsd:simpleType>
+«ELSE-»    			
+          <xsd:element name="«((Attribute)eContainer()).name»" type="xsd:integer" >
+«ENDIF»          
+«ENDDEFINE»
+
+«DEFINE dump(String prefix) FOR Reference-»
+«name»
+«ENDDEFINE»
