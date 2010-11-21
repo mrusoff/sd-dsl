@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,6 +36,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getFormat <em>Format</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getDelimiter <em>Delimiter</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getLines <em>Lines</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.PackageDeclarationImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
@@ -102,6 +106,56 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
    * @ordered
    */
   protected String namespace = NAMESPACE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFormat() <em>Format</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFormat()
+   * @generated
+   * @ordered
+   */
+  protected static final String FORMAT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFormat()
+   * @generated
+   * @ordered
+   */
+  protected String format = FORMAT_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDelimiter() <em>Delimiter</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDelimiter()
+   * @generated
+   * @ordered
+   */
+  protected static final String DELIMITER_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDelimiter() <em>Delimiter</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDelimiter()
+   * @generated
+   * @ordered
+   */
+  protected String delimiter = DELIMITER_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLines() <em>Lines</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLines()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> lines;
 
   /**
    * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
@@ -208,6 +262,66 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFormat()
+  {
+    return format;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFormat(String newFormat)
+  {
+    String oldFormat = format;
+    format = newFormat;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.PACKAGE_DECLARATION__FORMAT, oldFormat, format));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDelimiter()
+  {
+    return delimiter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDelimiter(String newDelimiter)
+  {
+    String oldDelimiter = delimiter;
+    delimiter = newDelimiter;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.PACKAGE_DECLARATION__DELIMITER, oldDelimiter, delimiter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getLines()
+  {
+    if (lines == null)
+    {
+      lines = new EDataTypeEList<String>(String.class, this, BomDslPackage.PACKAGE_DECLARATION__LINES);
+    }
+    return lines;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AbstractElement> getElements()
   {
     if (elements == null)
@@ -249,6 +363,12 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
         return getPrefix();
       case BomDslPackage.PACKAGE_DECLARATION__NAMESPACE:
         return getNamespace();
+      case BomDslPackage.PACKAGE_DECLARATION__FORMAT:
+        return getFormat();
+      case BomDslPackage.PACKAGE_DECLARATION__DELIMITER:
+        return getDelimiter();
+      case BomDslPackage.PACKAGE_DECLARATION__LINES:
+        return getLines();
       case BomDslPackage.PACKAGE_DECLARATION__ELEMENTS:
         return getElements();
     }
@@ -274,6 +394,16 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
         return;
       case BomDslPackage.PACKAGE_DECLARATION__NAMESPACE:
         setNamespace((String)newValue);
+        return;
+      case BomDslPackage.PACKAGE_DECLARATION__FORMAT:
+        setFormat((String)newValue);
+        return;
+      case BomDslPackage.PACKAGE_DECLARATION__DELIMITER:
+        setDelimiter((String)newValue);
+        return;
+      case BomDslPackage.PACKAGE_DECLARATION__LINES:
+        getLines().clear();
+        getLines().addAll((Collection<? extends String>)newValue);
         return;
       case BomDslPackage.PACKAGE_DECLARATION__ELEMENTS:
         getElements().clear();
@@ -302,6 +432,15 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
       case BomDslPackage.PACKAGE_DECLARATION__NAMESPACE:
         setNamespace(NAMESPACE_EDEFAULT);
         return;
+      case BomDslPackage.PACKAGE_DECLARATION__FORMAT:
+        setFormat(FORMAT_EDEFAULT);
+        return;
+      case BomDslPackage.PACKAGE_DECLARATION__DELIMITER:
+        setDelimiter(DELIMITER_EDEFAULT);
+        return;
+      case BomDslPackage.PACKAGE_DECLARATION__LINES:
+        getLines().clear();
+        return;
       case BomDslPackage.PACKAGE_DECLARATION__ELEMENTS:
         getElements().clear();
         return;
@@ -325,6 +464,12 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
         return PREFIX_EDEFAULT == null ? prefix != null : !PREFIX_EDEFAULT.equals(prefix);
       case BomDslPackage.PACKAGE_DECLARATION__NAMESPACE:
         return NAMESPACE_EDEFAULT == null ? namespace != null : !NAMESPACE_EDEFAULT.equals(namespace);
+      case BomDslPackage.PACKAGE_DECLARATION__FORMAT:
+        return FORMAT_EDEFAULT == null ? format != null : !FORMAT_EDEFAULT.equals(format);
+      case BomDslPackage.PACKAGE_DECLARATION__DELIMITER:
+        return DELIMITER_EDEFAULT == null ? delimiter != null : !DELIMITER_EDEFAULT.equals(delimiter);
+      case BomDslPackage.PACKAGE_DECLARATION__LINES:
+        return lines != null && !lines.isEmpty();
       case BomDslPackage.PACKAGE_DECLARATION__ELEMENTS:
         return elements != null && !elements.isEmpty();
     }
@@ -348,6 +493,12 @@ public class PackageDeclarationImpl extends AbstractElementImpl implements Packa
     result.append(prefix);
     result.append(", namespace: ");
     result.append(namespace);
+    result.append(", format: ");
+    result.append(format);
+    result.append(", delimiter: ");
+    result.append(delimiter);
+    result.append(", lines: ");
+    result.append(lines);
     result.append(')');
     return result.toString();
   }

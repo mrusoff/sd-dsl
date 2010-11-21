@@ -23,11 +23,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getConstraint <em>Constraint</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getDefaultValue <em>Default Value</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getMinLength <em>Min Length</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getMaxLength <em>Max Length</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getFixeLength <em>Fixe Length</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#isIsFixed <em>Is Fixed</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getFixedValue <em>Fixed Value</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getMinLen <em>Min Len</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getMaxLen <em>Max Len</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getFixeLen <em>Fixe Len</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#isIsXSDAtt <em>Is XSD Att</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl#getRegularExpression <em>Regular Expression</em>}</li>
  * </ul>
  * </p>
@@ -57,26 +59,6 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
   protected String constraint = CONSTRAINT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean HAS_DEFAULT_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
-
-  /**
    * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -97,64 +79,124 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
   protected String defaultValue = DEFAULT_VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+   * The default value of the '{@link #isIsFixed() <em>Is Fixed</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMinLength()
+   * @see #isIsFixed()
    * @generated
    * @ordered
    */
-  protected static final int MIN_LENGTH_EDEFAULT = 0;
+  protected static final boolean IS_FIXED_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getMinLength() <em>Min Length</em>}' attribute.
+   * The cached value of the '{@link #isIsFixed() <em>Is Fixed</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMinLength()
+   * @see #isIsFixed()
    * @generated
    * @ordered
    */
-  protected int minLength = MIN_LENGTH_EDEFAULT;
+  protected boolean isFixed = IS_FIXED_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+   * The default value of the '{@link #getFixedValue() <em>Fixed Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMaxLength()
+   * @see #getFixedValue()
    * @generated
    * @ordered
    */
-  protected static final int MAX_LENGTH_EDEFAULT = 0;
+  protected static final String FIXED_VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getMaxLength() <em>Max Length</em>}' attribute.
+   * The cached value of the '{@link #getFixedValue() <em>Fixed Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMaxLength()
+   * @see #getFixedValue()
    * @generated
    * @ordered
    */
-  protected int maxLength = MAX_LENGTH_EDEFAULT;
+  protected String fixedValue = FIXED_VALUE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getFixeLength() <em>Fixe Length</em>}' attribute.
+   * The default value of the '{@link #getMinLen() <em>Min Len</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFixeLength()
+   * @see #getMinLen()
    * @generated
    * @ordered
    */
-  protected static final int FIXE_LENGTH_EDEFAULT = 0;
+  protected static final int MIN_LEN_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getFixeLength() <em>Fixe Length</em>}' attribute.
+   * The cached value of the '{@link #getMinLen() <em>Min Len</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFixeLength()
+   * @see #getMinLen()
    * @generated
    * @ordered
    */
-  protected int fixeLength = FIXE_LENGTH_EDEFAULT;
+  protected int minLen = MIN_LEN_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getMaxLen() <em>Max Len</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaxLen()
+   * @generated
+   * @ordered
+   */
+  protected static final int MAX_LEN_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getMaxLen() <em>Max Len</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMaxLen()
+   * @generated
+   * @ordered
+   */
+  protected int maxLen = MAX_LEN_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getFixeLen() <em>Fixe Len</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFixeLen()
+   * @generated
+   * @ordered
+   */
+  protected static final int FIXE_LEN_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getFixeLen() <em>Fixe Len</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFixeLen()
+   * @generated
+   * @ordered
+   */
+  protected int fixeLen = FIXE_LEN_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isIsXSDAtt() <em>Is XSD Att</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsXSDAtt()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean IS_XSD_ATT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isIsXSDAtt() <em>Is XSD Att</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isIsXSDAtt()
+   * @generated
+   * @ordered
+   */
+  protected boolean isXSDAtt = IS_XSD_ATT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getRegularExpression() <em>Regular Expression</em>}' attribute.
@@ -225,29 +267,6 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHasDefault()
-  {
-    return hasDefault;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHasDefault(boolean newHasDefault)
-  {
-    boolean oldHasDefault = hasDefault;
-    hasDefault = newHasDefault;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__HAS_DEFAULT, oldHasDefault, hasDefault));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getDefaultValue()
   {
     return defaultValue;
@@ -271,9 +290,9 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMinLength()
+  public boolean isIsFixed()
   {
-    return minLength;
+    return isFixed;
   }
 
   /**
@@ -281,12 +300,12 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMinLength(int newMinLength)
+  public void setIsFixed(boolean newIsFixed)
   {
-    int oldMinLength = minLength;
-    minLength = newMinLength;
+    boolean oldIsFixed = isFixed;
+    isFixed = newIsFixed;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__MIN_LENGTH, oldMinLength, minLength));
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__IS_FIXED, oldIsFixed, isFixed));
   }
 
   /**
@@ -294,9 +313,9 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getMaxLength()
+  public String getFixedValue()
   {
-    return maxLength;
+    return fixedValue;
   }
 
   /**
@@ -304,12 +323,12 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setMaxLength(int newMaxLength)
+  public void setFixedValue(String newFixedValue)
   {
-    int oldMaxLength = maxLength;
-    maxLength = newMaxLength;
+    String oldFixedValue = fixedValue;
+    fixedValue = newFixedValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__MAX_LENGTH, oldMaxLength, maxLength));
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__FIXED_VALUE, oldFixedValue, fixedValue));
   }
 
   /**
@@ -317,9 +336,9 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getFixeLength()
+  public int getMinLen()
   {
-    return fixeLength;
+    return minLen;
   }
 
   /**
@@ -327,12 +346,81 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFixeLength(int newFixeLength)
+  public void setMinLen(int newMinLen)
   {
-    int oldFixeLength = fixeLength;
-    fixeLength = newFixeLength;
+    int oldMinLen = minLen;
+    minLen = newMinLen;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__FIXE_LENGTH, oldFixeLength, fixeLength));
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__MIN_LEN, oldMinLen, minLen));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getMaxLen()
+  {
+    return maxLen;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setMaxLen(int newMaxLen)
+  {
+    int oldMaxLen = maxLen;
+    maxLen = newMaxLen;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__MAX_LEN, oldMaxLen, maxLen));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getFixeLen()
+  {
+    return fixeLen;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFixeLen(int newFixeLen)
+  {
+    int oldFixeLen = fixeLen;
+    fixeLen = newFixeLen;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__FIXE_LEN, oldFixeLen, fixeLen));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isIsXSDAtt()
+  {
+    return isXSDAtt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setIsXSDAtt(boolean newIsXSDAtt)
+  {
+    boolean oldIsXSDAtt = isXSDAtt;
+    isXSDAtt = newIsXSDAtt;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.STRING_CONSTRAINT__IS_XSD_ATT, oldIsXSDAtt, isXSDAtt));
   }
 
   /**
@@ -370,16 +458,20 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
     {
       case BomDslPackage.STRING_CONSTRAINT__CONSTRAINT:
         return getConstraint();
-      case BomDslPackage.STRING_CONSTRAINT__HAS_DEFAULT:
-        return isHasDefault();
       case BomDslPackage.STRING_CONSTRAINT__DEFAULT_VALUE:
         return getDefaultValue();
-      case BomDslPackage.STRING_CONSTRAINT__MIN_LENGTH:
-        return getMinLength();
-      case BomDslPackage.STRING_CONSTRAINT__MAX_LENGTH:
-        return getMaxLength();
-      case BomDslPackage.STRING_CONSTRAINT__FIXE_LENGTH:
-        return getFixeLength();
+      case BomDslPackage.STRING_CONSTRAINT__IS_FIXED:
+        return isIsFixed();
+      case BomDslPackage.STRING_CONSTRAINT__FIXED_VALUE:
+        return getFixedValue();
+      case BomDslPackage.STRING_CONSTRAINT__MIN_LEN:
+        return getMinLen();
+      case BomDslPackage.STRING_CONSTRAINT__MAX_LEN:
+        return getMaxLen();
+      case BomDslPackage.STRING_CONSTRAINT__FIXE_LEN:
+        return getFixeLen();
+      case BomDslPackage.STRING_CONSTRAINT__IS_XSD_ATT:
+        return isIsXSDAtt();
       case BomDslPackage.STRING_CONSTRAINT__REGULAR_EXPRESSION:
         return getRegularExpression();
     }
@@ -399,20 +491,26 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
       case BomDslPackage.STRING_CONSTRAINT__CONSTRAINT:
         setConstraint((String)newValue);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault((Boolean)newValue);
-        return;
       case BomDslPackage.STRING_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue((String)newValue);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__MIN_LENGTH:
-        setMinLength((Integer)newValue);
+      case BomDslPackage.STRING_CONSTRAINT__IS_FIXED:
+        setIsFixed((Boolean)newValue);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__MAX_LENGTH:
-        setMaxLength((Integer)newValue);
+      case BomDslPackage.STRING_CONSTRAINT__FIXED_VALUE:
+        setFixedValue((String)newValue);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__FIXE_LENGTH:
-        setFixeLength((Integer)newValue);
+      case BomDslPackage.STRING_CONSTRAINT__MIN_LEN:
+        setMinLen((Integer)newValue);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__MAX_LEN:
+        setMaxLen((Integer)newValue);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__FIXE_LEN:
+        setFixeLen((Integer)newValue);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__IS_XSD_ATT:
+        setIsXSDAtt((Boolean)newValue);
         return;
       case BomDslPackage.STRING_CONSTRAINT__REGULAR_EXPRESSION:
         setRegularExpression((String)newValue);
@@ -434,20 +532,26 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
       case BomDslPackage.STRING_CONSTRAINT__CONSTRAINT:
         setConstraint(CONSTRAINT_EDEFAULT);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault(HAS_DEFAULT_EDEFAULT);
-        return;
       case BomDslPackage.STRING_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue(DEFAULT_VALUE_EDEFAULT);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__MIN_LENGTH:
-        setMinLength(MIN_LENGTH_EDEFAULT);
+      case BomDslPackage.STRING_CONSTRAINT__IS_FIXED:
+        setIsFixed(IS_FIXED_EDEFAULT);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__MAX_LENGTH:
-        setMaxLength(MAX_LENGTH_EDEFAULT);
+      case BomDslPackage.STRING_CONSTRAINT__FIXED_VALUE:
+        setFixedValue(FIXED_VALUE_EDEFAULT);
         return;
-      case BomDslPackage.STRING_CONSTRAINT__FIXE_LENGTH:
-        setFixeLength(FIXE_LENGTH_EDEFAULT);
+      case BomDslPackage.STRING_CONSTRAINT__MIN_LEN:
+        setMinLen(MIN_LEN_EDEFAULT);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__MAX_LEN:
+        setMaxLen(MAX_LEN_EDEFAULT);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__FIXE_LEN:
+        setFixeLen(FIXE_LEN_EDEFAULT);
+        return;
+      case BomDslPackage.STRING_CONSTRAINT__IS_XSD_ATT:
+        setIsXSDAtt(IS_XSD_ATT_EDEFAULT);
         return;
       case BomDslPackage.STRING_CONSTRAINT__REGULAR_EXPRESSION:
         setRegularExpression(REGULAR_EXPRESSION_EDEFAULT);
@@ -468,16 +572,20 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
     {
       case BomDslPackage.STRING_CONSTRAINT__CONSTRAINT:
         return CONSTRAINT_EDEFAULT == null ? constraint != null : !CONSTRAINT_EDEFAULT.equals(constraint);
-      case BomDslPackage.STRING_CONSTRAINT__HAS_DEFAULT:
-        return hasDefault != HAS_DEFAULT_EDEFAULT;
       case BomDslPackage.STRING_CONSTRAINT__DEFAULT_VALUE:
         return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
-      case BomDslPackage.STRING_CONSTRAINT__MIN_LENGTH:
-        return minLength != MIN_LENGTH_EDEFAULT;
-      case BomDslPackage.STRING_CONSTRAINT__MAX_LENGTH:
-        return maxLength != MAX_LENGTH_EDEFAULT;
-      case BomDslPackage.STRING_CONSTRAINT__FIXE_LENGTH:
-        return fixeLength != FIXE_LENGTH_EDEFAULT;
+      case BomDslPackage.STRING_CONSTRAINT__IS_FIXED:
+        return isFixed != IS_FIXED_EDEFAULT;
+      case BomDslPackage.STRING_CONSTRAINT__FIXED_VALUE:
+        return FIXED_VALUE_EDEFAULT == null ? fixedValue != null : !FIXED_VALUE_EDEFAULT.equals(fixedValue);
+      case BomDslPackage.STRING_CONSTRAINT__MIN_LEN:
+        return minLen != MIN_LEN_EDEFAULT;
+      case BomDslPackage.STRING_CONSTRAINT__MAX_LEN:
+        return maxLen != MAX_LEN_EDEFAULT;
+      case BomDslPackage.STRING_CONSTRAINT__FIXE_LEN:
+        return fixeLen != FIXE_LEN_EDEFAULT;
+      case BomDslPackage.STRING_CONSTRAINT__IS_XSD_ATT:
+        return isXSDAtt != IS_XSD_ATT_EDEFAULT;
       case BomDslPackage.STRING_CONSTRAINT__REGULAR_EXPRESSION:
         return REGULAR_EXPRESSION_EDEFAULT == null ? regularExpression != null : !REGULAR_EXPRESSION_EDEFAULT.equals(regularExpression);
     }
@@ -497,16 +605,20 @@ public class StringConstraintImpl extends ConstraintImpl implements StringConstr
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (constraint: ");
     result.append(constraint);
-    result.append(", hasDefault: ");
-    result.append(hasDefault);
     result.append(", defaultValue: ");
     result.append(defaultValue);
-    result.append(", minLength: ");
-    result.append(minLength);
-    result.append(", maxLength: ");
-    result.append(maxLength);
-    result.append(", fixeLength: ");
-    result.append(fixeLength);
+    result.append(", isFixed: ");
+    result.append(isFixed);
+    result.append(", fixedValue: ");
+    result.append(fixedValue);
+    result.append(", minLen: ");
+    result.append(minLen);
+    result.append(", maxLen: ");
+    result.append(maxLen);
+    result.append(", fixeLen: ");
+    result.append(fixeLen);
+    result.append(", isXSDAtt: ");
+    result.append(isXSDAtt);
     result.append(", regularExpression: ");
     result.append(regularExpression);
     result.append(')');

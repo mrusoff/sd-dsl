@@ -13,7 +13,6 @@ import fr.chaunier.xtext.bom.bomDsl.BomDslPackage;
 import fr.chaunier.xtext.bom.bomDsl.BoolConstraint;
 import fr.chaunier.xtext.bom.bomDsl.Constraint;
 import fr.chaunier.xtext.bom.bomDsl.DataType;
-import fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy;
 import fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint;
 import fr.chaunier.xtext.bom.bomDsl.DecimalConstraint;
 import fr.chaunier.xtext.bom.bomDsl.DomainModel;
@@ -33,7 +32,6 @@ import fr.chaunier.xtext.bom.bomDsl.StructuralFeature;
 import fr.chaunier.xtext.bom.bomDsl.Type;
 import fr.chaunier.xtext.bom.bomDsl.TypeRef;
 import fr.chaunier.xtext.bom.bomDsl.TypedElement;
-import fr.chaunier.xtext.bom.bomDsl.Visibility;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -133,6 +131,20 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass enumerationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass enumerationLiteralEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass parameterEClass = null;
 
   /**
@@ -196,35 +208,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass enumerationEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass enumerationLiteralEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass enumerationConstraintEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum visibilityEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum dateTimeAccuracyEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -391,9 +375,39 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getPackageDeclaration_Format()
+  {
+    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackageDeclaration_Delimiter()
+  {
+    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPackageDeclaration_Lines()
+  {
+    return (EAttribute)packageDeclarationEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getPackageDeclaration_Elements()
   {
-    return (EReference)packageDeclarationEClass.getEStructuralFeatures().get(3);
+    return (EReference)packageDeclarationEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -561,6 +575,56 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getEnumeration()
+  {
+    return enumerationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getEnumeration_EnumerationLiterals()
+  {
+    return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getEnumerationLiteral()
+  {
+    return enumerationLiteralEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEnumerationLiteral_Name()
+  {
+    return (EAttribute)enumerationLiteralEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getEnumerationLiteral_PersistedValue()
+  {
+    return (EAttribute)enumerationLiteralEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getParameter()
   {
     return parameterEClass;
@@ -651,6 +715,16 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getConstraint_HasDefault()
+  {
+    return (EAttribute)constraintEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getBoolConstraint()
   {
     return boolConstraintEClass;
@@ -671,19 +745,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBoolConstraint_HasDefault()
-  {
-    return (EAttribute)boolConstraintEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getBoolConstraint_DefaultValue()
   {
-    return (EAttribute)boolConstraintEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)boolConstraintEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -711,7 +775,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_HasDefault()
+  public EAttribute getStringConstraint_DefaultValue()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(1);
   }
@@ -721,7 +785,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_DefaultValue()
+  public EAttribute getStringConstraint_IsFixed()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(2);
   }
@@ -731,7 +795,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_MinLength()
+  public EAttribute getStringConstraint_FixedValue()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(3);
   }
@@ -741,7 +805,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_MaxLength()
+  public EAttribute getStringConstraint_MinLen()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(4);
   }
@@ -751,7 +815,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_FixeLength()
+  public EAttribute getStringConstraint_MaxLen()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(5);
   }
@@ -761,9 +825,29 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getStringConstraint_RegularExpression()
+  public EAttribute getStringConstraint_FixeLen()
   {
     return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringConstraint_IsXSDAtt()
+  {
+    return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringConstraint_RegularExpression()
+  {
+    return (EAttribute)stringConstraintEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -801,19 +885,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDateTimeConstraint_HasDefault()
-  {
-    return (EAttribute)dateTimeConstraintEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EAttribute getDateTimeConstraint_DefaultValue()
   {
-    return (EAttribute)dateTimeConstraintEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)dateTimeConstraintEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -841,7 +915,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_HasDefault()
+  public EAttribute getIntegerConstraint_DefaultValue()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(1);
   }
@@ -851,7 +925,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_DefaultValue()
+  public EAttribute getIntegerConstraint_IsFixed()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(2);
   }
@@ -861,7 +935,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_MinValue()
+  public EAttribute getIntegerConstraint_FixedValue()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(3);
   }
@@ -871,7 +945,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_MaxValue()
+  public EAttribute getIntegerConstraint_MinValue()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(4);
   }
@@ -881,7 +955,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_MaxLen()
+  public EAttribute getIntegerConstraint_MaxValue()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(5);
   }
@@ -891,7 +965,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_FixeLen()
+  public EAttribute getIntegerConstraint_MaxLen()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(6);
   }
@@ -901,9 +975,29 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getIntegerConstraint_Paddle()
+  public EAttribute getIntegerConstraint_FixeLen()
   {
     return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIntegerConstraint_Paddle()
+  {
+    return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getIntegerConstraint_IsXSDAtt()
+  {
+    return (EAttribute)integerConstraintEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -931,7 +1025,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecimalConstraint_MinValue()
+  public EAttribute getDecimalConstraint_DefaultValue()
   {
     return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(1);
   }
@@ -941,7 +1035,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecimalConstraint_MaxValue()
+  public EAttribute getDecimalConstraint_IsFixed()
   {
     return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(2);
   }
@@ -951,7 +1045,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecimalConstraint_MaxLen()
+  public EAttribute getDecimalConstraint_FixedValue()
   {
     return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(3);
   }
@@ -961,7 +1055,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecimalConstraint_FixeLen()
+  public EAttribute getDecimalConstraint_MinValue()
   {
     return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(4);
   }
@@ -971,7 +1065,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDecimalConstraint_Paddle()
+  public EAttribute getDecimalConstraint_MaxValue()
   {
     return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(5);
   }
@@ -981,9 +1075,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumeration()
+  public EAttribute getDecimalConstraint_MaxLen()
   {
-    return enumerationEClass;
+    return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -991,9 +1085,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEnumeration_EnumerationLiterals()
+  public EAttribute getDecimalConstraint_FixeLen()
   {
-    return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -1001,9 +1095,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumerationLiteral()
+  public EAttribute getDecimalConstraint_Paddle()
   {
-    return enumerationLiteralEClass;
+    return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(8);
   }
 
   /**
@@ -1011,19 +1105,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnumerationLiteral_Name()
+  public EAttribute getDecimalConstraint_IsXSDAtt()
   {
-    return (EAttribute)enumerationLiteralEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getEnumerationLiteral_PersistedValue()
-  {
-    return (EAttribute)enumerationLiteralEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)decimalConstraintEClass.getEStructuralFeatures().get(9);
   }
 
   /**
@@ -1051,7 +1135,7 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getEnumerationConstraint_HasDefault()
+  public EAttribute getEnumerationConstraint_FixeLen()
   {
     return (EAttribute)enumerationConstraintEClass.getEStructuralFeatures().get(1);
   }
@@ -1064,26 +1148,6 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
   public EAttribute getEnumerationConstraint_DefaultValueAsString()
   {
     return (EAttribute)enumerationConstraintEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getVisibility()
-  {
-    return visibilityEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getDateTimeAccuracy()
-  {
-    return dateTimeAccuracyEEnum;
   }
 
   /**
@@ -1138,6 +1202,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__NAME);
     createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__PREFIX);
     createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__NAMESPACE);
+    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__FORMAT);
+    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__DELIMITER);
+    createEAttribute(packageDeclarationEClass, PACKAGE_DECLARATION__LINES);
     createEReference(packageDeclarationEClass, PACKAGE_DECLARATION__ELEMENTS);
 
     typeEClass = createEClass(TYPE);
@@ -1163,6 +1230,13 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__OPPOSITE);
 
+    enumerationEClass = createEClass(ENUMERATION);
+    createEReference(enumerationEClass, ENUMERATION__ENUMERATION_LITERALS);
+
+    enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
+    createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__NAME);
+    createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__PERSISTED_VALUE);
+
     parameterEClass = createEClass(PARAMETER);
     createEAttribute(parameterEClass, PARAMETER__NAME);
     createEReference(parameterEClass, PARAMETER__TYPE);
@@ -1175,60 +1249,58 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     createEAttribute(typeRefEClass, TYPE_REF__OPTION);
 
     constraintEClass = createEClass(CONSTRAINT);
+    createEAttribute(constraintEClass, CONSTRAINT__HAS_DEFAULT);
 
     boolConstraintEClass = createEClass(BOOL_CONSTRAINT);
     createEAttribute(boolConstraintEClass, BOOL_CONSTRAINT__CONSTRAINT);
-    createEAttribute(boolConstraintEClass, BOOL_CONSTRAINT__HAS_DEFAULT);
     createEAttribute(boolConstraintEClass, BOOL_CONSTRAINT__DEFAULT_VALUE);
 
     stringConstraintEClass = createEClass(STRING_CONSTRAINT);
     createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__CONSTRAINT);
-    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__HAS_DEFAULT);
     createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__DEFAULT_VALUE);
-    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__MIN_LENGTH);
-    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__MAX_LENGTH);
-    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__FIXE_LENGTH);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__IS_FIXED);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__FIXED_VALUE);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__MIN_LEN);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__MAX_LEN);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__FIXE_LEN);
+    createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__IS_XSD_ATT);
     createEAttribute(stringConstraintEClass, STRING_CONSTRAINT__REGULAR_EXPRESSION);
 
     dateTimeConstraintEClass = createEClass(DATE_TIME_CONSTRAINT);
     createEAttribute(dateTimeConstraintEClass, DATE_TIME_CONSTRAINT__CONSTRAINT);
     createEReference(dateTimeConstraintEClass, DATE_TIME_CONSTRAINT__DATA_TYPE);
-    createEAttribute(dateTimeConstraintEClass, DATE_TIME_CONSTRAINT__HAS_DEFAULT);
     createEAttribute(dateTimeConstraintEClass, DATE_TIME_CONSTRAINT__DEFAULT_VALUE);
 
     integerConstraintEClass = createEClass(INTEGER_CONSTRAINT);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__CONSTRAINT);
-    createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__HAS_DEFAULT);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__DEFAULT_VALUE);
+    createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__IS_FIXED);
+    createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__FIXED_VALUE);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__MIN_VALUE);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__MAX_VALUE);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__MAX_LEN);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__FIXE_LEN);
     createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__PADDLE);
+    createEAttribute(integerConstraintEClass, INTEGER_CONSTRAINT__IS_XSD_ATT);
 
     decimalConstraintEClass = createEClass(DECIMAL_CONSTRAINT);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__CONSTRAINT);
+    createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__DEFAULT_VALUE);
+    createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__IS_FIXED);
+    createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__FIXED_VALUE);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__MIN_VALUE);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__MAX_VALUE);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__MAX_LEN);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__FIXE_LEN);
     createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__PADDLE);
-
-    enumerationEClass = createEClass(ENUMERATION);
-    createEReference(enumerationEClass, ENUMERATION__ENUMERATION_LITERALS);
-
-    enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
-    createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__NAME);
-    createEAttribute(enumerationLiteralEClass, ENUMERATION_LITERAL__PERSISTED_VALUE);
+    createEAttribute(decimalConstraintEClass, DECIMAL_CONSTRAINT__IS_XSD_ATT);
 
     enumerationConstraintEClass = createEClass(ENUMERATION_CONSTRAINT);
     createEAttribute(enumerationConstraintEClass, ENUMERATION_CONSTRAINT__USAGE);
-    createEAttribute(enumerationConstraintEClass, ENUMERATION_CONSTRAINT__HAS_DEFAULT);
+    createEAttribute(enumerationConstraintEClass, ENUMERATION_CONSTRAINT__FIXE_LEN);
     createEAttribute(enumerationConstraintEClass, ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING);
 
     // Create enums
-    visibilityEEnum = createEEnum(VISIBILITY);
-    dateTimeAccuracyEEnum = createEEnum(DATE_TIME_ACCURACY);
     enumUsageEEnum = createEEnum(ENUM_USAGE);
   }
 
@@ -1270,13 +1342,13 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     structuralFeatureEClass.getESuperTypes().add(this.getFeature());
     attributeEClass.getESuperTypes().add(this.getStructuralFeature());
     referenceEClass.getESuperTypes().add(this.getStructuralFeature());
+    enumerationEClass.getESuperTypes().add(this.getType());
     parameterEClass.getESuperTypes().add(this.getTypedElement());
     boolConstraintEClass.getESuperTypes().add(this.getConstraint());
     stringConstraintEClass.getESuperTypes().add(this.getConstraint());
     dateTimeConstraintEClass.getESuperTypes().add(this.getConstraint());
     integerConstraintEClass.getESuperTypes().add(this.getConstraint());
     decimalConstraintEClass.getESuperTypes().add(this.getConstraint());
-    enumerationEClass.getESuperTypes().add(this.getType());
     enumerationConstraintEClass.getESuperTypes().add(this.getConstraint());
 
     // Initialize classes and features; add operations and parameters
@@ -1292,6 +1364,9 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     initEAttribute(getPackageDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPackageDeclaration_Prefix(), ecorePackage.getEString(), "prefix", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPackageDeclaration_Namespace(), ecorePackage.getEString(), "namespace", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackageDeclaration_Format(), ecorePackage.getEString(), "format", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackageDeclaration_Delimiter(), ecorePackage.getEString(), "delimiter", null, 0, 1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPackageDeclaration_Lines(), ecorePackage.getEString(), "lines", null, 0, -1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackageDeclaration_Elements(), this.getAbstractElement(), null, "elements", null, 0, -1, PackageDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1317,6 +1392,13 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Opposite(), this.getReference(), null, "opposite", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getEnumeration_EnumerationLiterals(), this.getEnumerationLiteral(), null, "enumerationLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getEnumerationLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEnumerationLiteral_PersistedValue(), ecorePackage.getEInt(), "persistedValue", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getParameter_Type(), this.getTypeRef(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1329,72 +1411,58 @@ public class BomDslPackageImpl extends EPackageImpl implements BomDslPackage
     initEAttribute(getTypeRef_Option(), ecorePackage.getEBoolean(), "option", null, 0, 1, TypeRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(boolConstraintEClass, BoolConstraint.class, "BoolConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBoolConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, BoolConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getBoolConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, BoolConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getBoolConstraint_DefaultValue(), ecorePackage.getEBoolean(), "defaultValue", null, 0, 1, BoolConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stringConstraintEClass, StringConstraint.class, "StringConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStringConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStringConstraint_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStringConstraint_MinLength(), ecorePackage.getEInt(), "minLength", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStringConstraint_MaxLength(), ecorePackage.getEInt(), "maxLength", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getStringConstraint_FixeLength(), ecorePackage.getEInt(), "fixeLength", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_IsFixed(), ecorePackage.getEBoolean(), "isFixed", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_FixedValue(), ecorePackage.getEString(), "fixedValue", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_MinLen(), ecorePackage.getEInt(), "minLen", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_MaxLen(), ecorePackage.getEInt(), "maxLen", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_FixeLen(), ecorePackage.getEInt(), "fixeLen", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getStringConstraint_IsXSDAtt(), ecorePackage.getEBoolean(), "isXSDAtt", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getStringConstraint_RegularExpression(), ecorePackage.getEString(), "regularExpression", null, 0, 1, StringConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dateTimeConstraintEClass, DateTimeConstraint.class, "DateTimeConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDateTimeConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, DateTimeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDateTimeConstraint_DataType(), this.getDataType(), null, "dataType", null, 0, 1, DateTimeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getDateTimeConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, DateTimeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDateTimeConstraint_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, DateTimeConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(integerConstraintEClass, IntegerConstraint.class, "IntegerConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getIntegerConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getIntegerConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_DefaultValue(), ecorePackage.getEInt(), "defaultValue", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntegerConstraint_IsFixed(), ecorePackage.getEBoolean(), "isFixed", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntegerConstraint_FixedValue(), ecorePackage.getEInt(), "fixedValue", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_MinValue(), ecorePackage.getEInt(), "minValue", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_MaxValue(), ecorePackage.getEInt(), "maxValue", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_MaxLen(), ecorePackage.getEInt(), "maxLen", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_FixeLen(), ecorePackage.getEInt(), "fixeLen", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getIntegerConstraint_Paddle(), ecorePackage.getEString(), "paddle", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getIntegerConstraint_IsXSDAtt(), ecorePackage.getEBoolean(), "isXSDAtt", null, 0, 1, IntegerConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(decimalConstraintEClass, DecimalConstraint.class, "DecimalConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getDecimalConstraint_Constraint(), ecorePackage.getEString(), "constraint", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecimalConstraint_DefaultValue(), ecorePackage.getEString(), "defaultValue", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecimalConstraint_IsFixed(), ecorePackage.getEBoolean(), "isFixed", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecimalConstraint_FixedValue(), ecorePackage.getEString(), "fixedValue", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecimalConstraint_MinValue(), ecorePackage.getEInt(), "minValue", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecimalConstraint_MaxValue(), ecorePackage.getEInt(), "maxValue", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecimalConstraint_MaxLen(), ecorePackage.getEInt(), "maxLen", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecimalConstraint_FixeLen(), ecorePackage.getEInt(), "fixeLen", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getDecimalConstraint_Paddle(), ecorePackage.getEString(), "paddle", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEnumeration_EnumerationLiterals(), this.getEnumerationLiteral(), null, "enumerationLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getEnumerationLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnumerationLiteral_PersistedValue(), ecorePackage.getEInt(), "persistedValue", null, 0, 1, EnumerationLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDecimalConstraint_IsXSDAtt(), ecorePackage.getEBoolean(), "isXSDAtt", null, 0, 1, DecimalConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumerationConstraintEClass, EnumerationConstraint.class, "EnumerationConstraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getEnumerationConstraint_Usage(), this.getEnumUsage(), "usage", null, 0, 1, EnumerationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getEnumerationConstraint_HasDefault(), ecorePackage.getEBoolean(), "hasDefault", null, 0, 1, EnumerationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getEnumerationConstraint_FixeLen(), ecorePackage.getEInt(), "fixeLen", null, 0, 1, EnumerationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getEnumerationConstraint_DefaultValueAsString(), ecorePackage.getEString(), "defaultValueAsString", null, 0, 1, EnumerationConstraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(visibilityEEnum, Visibility.class, "Visibility");
-    addEEnumLiteral(visibilityEEnum, Visibility.PUBLIC);
-    addEEnumLiteral(visibilityEEnum, Visibility.PRIVATE);
-    addEEnumLiteral(visibilityEEnum, Visibility.PROTECTED);
-
-    initEEnum(dateTimeAccuracyEEnum, DateTimeAccuracy.class, "DateTimeAccuracy");
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.MONTH);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.YEAR);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.DAY);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.HOUR);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.MINUTE);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.SECOND);
-    addEEnumLiteral(dateTimeAccuracyEEnum, DateTimeAccuracy.MILLISECOND);
-
     initEEnum(enumUsageEEnum, EnumUsage.class, "EnumUsage");
     addEEnumLiteral(enumUsageEEnum, EnumUsage.AS_STRING);
     addEEnumLiteral(enumUsageEEnum, EnumUsage.AS_BOOLEAN);

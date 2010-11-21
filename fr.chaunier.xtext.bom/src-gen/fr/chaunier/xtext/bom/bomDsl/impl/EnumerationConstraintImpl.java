@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl#getUsage <em>Usage</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl#isHasDefault <em>Has Default</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl#getFixeLen <em>Fixe Len</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl#getDefaultValueAsString <em>Default Value As String</em>}</li>
  * </ul>
  * </p>
@@ -54,24 +54,24 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
   protected EnumUsage usage = USAGE_EDEFAULT;
 
   /**
-   * The default value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
+   * The default value of the '{@link #getFixeLen() <em>Fixe Len</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHasDefault()
+   * @see #getFixeLen()
    * @generated
    * @ordered
    */
-  protected static final boolean HAS_DEFAULT_EDEFAULT = false;
+  protected static final int FIXE_LEN_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
+   * The cached value of the '{@link #getFixeLen() <em>Fixe Len</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHasDefault()
+   * @see #getFixeLen()
    * @generated
    * @ordered
    */
-  protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
+  protected int fixeLen = FIXE_LEN_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDefaultValueAsString() <em>Default Value As String</em>}' attribute.
@@ -142,9 +142,9 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHasDefault()
+  public int getFixeLen()
   {
-    return hasDefault;
+    return fixeLen;
   }
 
   /**
@@ -152,12 +152,12 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHasDefault(boolean newHasDefault)
+  public void setFixeLen(int newFixeLen)
   {
-    boolean oldHasDefault = hasDefault;
-    hasDefault = newHasDefault;
+    int oldFixeLen = fixeLen;
+    fixeLen = newFixeLen;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.ENUMERATION_CONSTRAINT__HAS_DEFAULT, oldHasDefault, hasDefault));
+      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.ENUMERATION_CONSTRAINT__FIXE_LEN, oldFixeLen, fixeLen));
   }
 
   /**
@@ -195,8 +195,8 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
     {
       case BomDslPackage.ENUMERATION_CONSTRAINT__USAGE:
         return getUsage();
-      case BomDslPackage.ENUMERATION_CONSTRAINT__HAS_DEFAULT:
-        return isHasDefault();
+      case BomDslPackage.ENUMERATION_CONSTRAINT__FIXE_LEN:
+        return getFixeLen();
       case BomDslPackage.ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING:
         return getDefaultValueAsString();
     }
@@ -216,8 +216,8 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
       case BomDslPackage.ENUMERATION_CONSTRAINT__USAGE:
         setUsage((EnumUsage)newValue);
         return;
-      case BomDslPackage.ENUMERATION_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault((Boolean)newValue);
+      case BomDslPackage.ENUMERATION_CONSTRAINT__FIXE_LEN:
+        setFixeLen((Integer)newValue);
         return;
       case BomDslPackage.ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING:
         setDefaultValueAsString((String)newValue);
@@ -239,8 +239,8 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
       case BomDslPackage.ENUMERATION_CONSTRAINT__USAGE:
         setUsage(USAGE_EDEFAULT);
         return;
-      case BomDslPackage.ENUMERATION_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault(HAS_DEFAULT_EDEFAULT);
+      case BomDslPackage.ENUMERATION_CONSTRAINT__FIXE_LEN:
+        setFixeLen(FIXE_LEN_EDEFAULT);
         return;
       case BomDslPackage.ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING:
         setDefaultValueAsString(DEFAULT_VALUE_AS_STRING_EDEFAULT);
@@ -261,8 +261,8 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
     {
       case BomDslPackage.ENUMERATION_CONSTRAINT__USAGE:
         return usage != USAGE_EDEFAULT;
-      case BomDslPackage.ENUMERATION_CONSTRAINT__HAS_DEFAULT:
-        return hasDefault != HAS_DEFAULT_EDEFAULT;
+      case BomDslPackage.ENUMERATION_CONSTRAINT__FIXE_LEN:
+        return fixeLen != FIXE_LEN_EDEFAULT;
       case BomDslPackage.ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING:
         return DEFAULT_VALUE_AS_STRING_EDEFAULT == null ? defaultValueAsString != null : !DEFAULT_VALUE_AS_STRING_EDEFAULT.equals(defaultValueAsString);
     }
@@ -282,8 +282,8 @@ public class EnumerationConstraintImpl extends ConstraintImpl implements Enumera
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (usage: ");
     result.append(usage);
-    result.append(", hasDefault: ");
-    result.append(hasDefault);
+    result.append(", fixeLen: ");
+    result.append(fixeLen);
     result.append(", defaultValueAsString: ");
     result.append(defaultValueAsString);
     result.append(')');

@@ -16,13 +16,15 @@ package fr.chaunier.xtext.bom.bomDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getConstraint <em>Constraint</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getDefaultValue <em>Default Value</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsFixed <em>Is Fixed</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getFixedValue <em>Fixed Value</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getMinValue <em>Min Value</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getMaxValue <em>Max Value</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getMaxLen <em>Max Len</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getFixeLen <em>Fixe Len</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getPaddle <em>Paddle</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsXSDAtt <em>Is XSD Att</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,32 +61,6 @@ public interface IntegerConstraint extends Constraint
   void setConstraint(String value);
 
   /**
-   * Returns the value of the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Has Default</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Has Default</em>' attribute.
-   * @see #setHasDefault(boolean)
-   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getIntegerConstraint_HasDefault()
-   * @model
-   * @generated
-   */
-  boolean isHasDefault();
-
-  /**
-   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isHasDefault <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Has Default</em>' attribute.
-   * @see #isHasDefault()
-   * @generated
-   */
-  void setHasDefault(boolean value);
-
-  /**
    * Returns the value of the '<em><b>Default Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
@@ -109,6 +85,58 @@ public interface IntegerConstraint extends Constraint
    * @generated
    */
   void setDefaultValue(int value);
+
+  /**
+   * Returns the value of the '<em><b>Is Fixed</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is Fixed</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Fixed</em>' attribute.
+   * @see #setIsFixed(boolean)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getIntegerConstraint_IsFixed()
+   * @model
+   * @generated
+   */
+  boolean isIsFixed();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsFixed <em>Is Fixed</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Fixed</em>' attribute.
+   * @see #isIsFixed()
+   * @generated
+   */
+  void setIsFixed(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Fixed Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Fixed Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Fixed Value</em>' attribute.
+   * @see #setFixedValue(int)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getIntegerConstraint_FixedValue()
+   * @model
+   * @generated
+   */
+  int getFixedValue();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getFixedValue <em>Fixed Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Fixed Value</em>' attribute.
+   * @see #getFixedValue()
+   * @generated
+   */
+  void setFixedValue(int value);
 
   /**
    * Returns the value of the '<em><b>Min Value</b></em>' attribute.
@@ -239,5 +267,31 @@ public interface IntegerConstraint extends Constraint
    * @generated
    */
   void setPaddle(String value);
+
+  /**
+   * Returns the value of the '<em><b>Is XSD Att</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Is XSD Att</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is XSD Att</em>' attribute.
+   * @see #setIsXSDAtt(boolean)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getIntegerConstraint_IsXSDAtt()
+   * @model
+   * @generated
+   */
+  boolean isIsXSDAtt();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsXSDAtt <em>Is XSD Att</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is XSD Att</em>' attribute.
+   * @see #isIsXSDAtt()
+   * @generated
+   */
+  void setIsXSDAtt(boolean value);
 
 } // IntegerConstraint

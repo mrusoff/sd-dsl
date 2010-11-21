@@ -23,7 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.BoolConstraintImpl#getConstraint <em>Constraint</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.BoolConstraintImpl#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.BoolConstraintImpl#isDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
@@ -51,26 +50,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
    * @ordered
    */
   protected String constraint = CONSTRAINT_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean HAS_DEFAULT_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
 
   /**
    * The default value of the '{@link #isDefaultValue() <em>Default Value</em>}' attribute.
@@ -141,29 +120,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHasDefault()
-  {
-    return hasDefault;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHasDefault(boolean newHasDefault)
-  {
-    boolean oldHasDefault = hasDefault;
-    hasDefault = newHasDefault;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.BOOL_CONSTRAINT__HAS_DEFAULT, oldHasDefault, hasDefault));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public boolean isDefaultValue()
   {
     return defaultValue;
@@ -194,8 +150,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
     {
       case BomDslPackage.BOOL_CONSTRAINT__CONSTRAINT:
         return getConstraint();
-      case BomDslPackage.BOOL_CONSTRAINT__HAS_DEFAULT:
-        return isHasDefault();
       case BomDslPackage.BOOL_CONSTRAINT__DEFAULT_VALUE:
         return isDefaultValue();
     }
@@ -214,9 +168,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
     {
       case BomDslPackage.BOOL_CONSTRAINT__CONSTRAINT:
         setConstraint((String)newValue);
-        return;
-      case BomDslPackage.BOOL_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault((Boolean)newValue);
         return;
       case BomDslPackage.BOOL_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue((Boolean)newValue);
@@ -238,9 +189,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
       case BomDslPackage.BOOL_CONSTRAINT__CONSTRAINT:
         setConstraint(CONSTRAINT_EDEFAULT);
         return;
-      case BomDslPackage.BOOL_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault(HAS_DEFAULT_EDEFAULT);
-        return;
       case BomDslPackage.BOOL_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue(DEFAULT_VALUE_EDEFAULT);
         return;
@@ -260,8 +208,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
     {
       case BomDslPackage.BOOL_CONSTRAINT__CONSTRAINT:
         return CONSTRAINT_EDEFAULT == null ? constraint != null : !CONSTRAINT_EDEFAULT.equals(constraint);
-      case BomDslPackage.BOOL_CONSTRAINT__HAS_DEFAULT:
-        return hasDefault != HAS_DEFAULT_EDEFAULT;
       case BomDslPackage.BOOL_CONSTRAINT__DEFAULT_VALUE:
         return defaultValue != DEFAULT_VALUE_EDEFAULT;
     }
@@ -281,8 +227,6 @@ public class BoolConstraintImpl extends ConstraintImpl implements BoolConstraint
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (constraint: ");
     result.append(constraint);
-    result.append(", hasDefault: ");
-    result.append(hasDefault);
     result.append(", defaultValue: ");
     result.append(defaultValue);
     result.append(')');
