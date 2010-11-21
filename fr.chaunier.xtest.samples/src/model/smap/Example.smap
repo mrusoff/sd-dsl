@@ -1,0 +1,13 @@
+model Test
+
+module Test {
+	
+	map invoice_dtd.BillTo.address => invoice_dtd.Header.billTo,invoice_dtd.Address.city rule "aggrgate" "Documentation"
+	ignore left invoice_dtd.BillTo.address,invoice_dtd.BillTo.maried rule "ignore 2 items" "Documentation" 
+	ignore right invoice_dtd.BillTo.address,invoice_dtd.BillTo.name rule "simple map" "Documentation"
+	set left invoice_dtd.Address.street1 = "Value src"	"Documentation"
+	set right invoice_dtd.Address.street2 = "Value dest" "Documentation"
+		
+}
+
+root Test "Documentation"
