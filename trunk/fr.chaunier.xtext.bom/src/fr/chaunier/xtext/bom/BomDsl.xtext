@@ -8,8 +8,6 @@ DomainModel:
 //CartridgeLine:
 //	 'line' line=STRING ;
 
-//FileFormat:
-//	'format' format = 'XSD' | 'DTD' | 'FLAT' | 'CSV' ;
 
 AbstractElement:
 	PackageDeclaration | Type | Import;
@@ -20,7 +18,8 @@ Import:
 PackageDeclaration:
 //	(fileFormat=FileFormat
 	'package' name=QualifiedName ('prefix' prefix=QualifiedName) ('namespace' namespace=STRING) '{'
-		('line' lines+=STRING)* 
+		('format' format= 'XSD' | 'DTD' | 'FLAT' | 'CSV' | 'DB' )? ('delimiter' delimiter = STRING )?
+		('lineSpec' lines+=STRING)* 
 		(elements+=AbstractElement)*
 	'}';
 
@@ -49,6 +48,14 @@ Attribute:
 Reference:
 	'ref' name=ID ':' type=TypeRef ('opposite' opposite=[Reference])? ;
 
+Enumeration:
+    "enumeration" name= ID 
+    "[" (enumerationLiterals += EnumerationLiteral)+ "]"
+    ;
+
+EnumerationLiteral:
+    name=ID ("=" persistedValue=INT) ";" 
+    ;
 //Operation:
 //	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
 
@@ -61,8 +68,8 @@ TypedElement:
 TypeRef:
 	referenced=[Type|QualifiedName] (multi?='*')? (option?='?')?  ;
 
-enum Visibility:
-	public="public" | private="private" | protected="protected";
+//enum Visibility:
+//	public="public" | private="private" | protected="protected";
 
 QualifiedNameWithWildCard:
 	QualifiedName '.*'?;
@@ -74,8 +81,7 @@ QualifiedName:
 Constraint :
 
     (BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint |
-	 DecimalConstraint 
-	 | EnumerationConstraint 
+	 DecimalConstraint | EnumerationConstraint 
 //	 | QualifiedName 
 //	(nullable?="nullable")?
 //	(derived?="derived" (writable?="writable")?)?
@@ -90,7 +96,7 @@ BoolConstraint:
 StringConstraint:
     constraint="string" //dataType=[DataType]
     (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
-    ("minLen" minLength=INT)? ("maxLen" maxLength=INT)? ("fixeLen" fixeLength=INT)?  
+    ("minLen" minLen=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? (isXSDAtt?="xsd Att.")? 
     ("regexp" regularExpression=STRING)?
     ;
 
@@ -101,39 +107,29 @@ DateTimeConstraint:
     (hasDefault?="default" defaultValue=STRING)?
     ;
 
-enum DateTimeAccuracy:
-    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
-    Second = "second" | Millisecond = "millisecond"
-    ;
+//enum DateTimeAccuracy:
+//    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
+//    Second = "second" | Millisecond = "millisecond"
+//    ;
 
 IntegerConstraint:
     constraint="integer" 
     (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)?
-    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? 
+    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? (isXSDAtt?="xsd Att.")? 
     ;
 
 DecimalConstraint:
     constraint="decimal" 
-    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=STRING)?
-    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?  
-    ;
-
-Enumeration:
-    "enumeration" name= ID 
-    "[" (enumerationLiterals += EnumerationLiteral)+ "]"
-    ;
-
-EnumerationLiteral:
-    name=ID ("=" persistedValue=INT) ";" 
+    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
+    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? (isXSDAtt?="xsd Att.")? 
     ;
 
 enum EnumUsage:
 	asString="as String" | asBoolean="as bool String" | asValue="as Value" | asBoolValue="as bool Value" ;
 
 EnumerationConstraint:
-// 'map' leftField=[types::JvmFeature|ID]
-//    'enum' enumRef=[Enumeration] (usage=EnumUsage) 
-    'enum' (usage=EnumUsage) 
+//   'enum' enumRef=[Enumeration] (usage=EnumUsage) 
+   'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
     (hasDefault?="default" defaultValueAsString=ID)?
     ; 
-	
+		
