@@ -7,12 +7,11 @@ generate sMapDsl "http://www.chaunier.fr/xtext/simplemap/SMapDsl"
 
 Model:
 
-//	(imports+=Import)* // allow imports
+	'model' name=QualifiedName (documentation=STRING)?
+	
 	mappingModules+=MappingModule*
+	roots += RootModule*
 ;
-
-//Import :
-//	'import' importedNamespace=QualifiedNameWithWildCard;
 
 QualifiedNameWithWildCard:
 	QualifiedName '.*'?;
@@ -20,18 +19,27 @@ QualifiedNameWithWildCard:
 QualifiedName:
 	ID ('.' ID)*;
 
+RootModule: 
+	'root' rootRef=[MappingModule] (documentation=STRING)?
+;
+
 MappingModule: 
-	'module' name=QualifiedName
+	'module' name=QualifiedName (documentation=STRING)?
 	'{'
 		(mappedFeatures += FeatureMap ';'?)*
 	'}';
 
-FeatureMap:
-	'map' leftField=[mm::Attribute|QualifiedName] '=>' rightField=[mm::Attribute|QualifiedName] (rule=STRING)?  
-	| 'set left' setLeftField=[mm::Attribute|QualifiedName] '=' valLeft=STRING
-	| 'set right' setRightField=[mm::Attribute|QualifiedName] '=' valRight=STRING
-	| 'ignore left' ignoreLeftField=[mm::Attribute|QualifiedName] 
-	(documentation=STRING)?
+FeatureMap :
+	( 'map' leftFields+=[mm::Attribute|QualifiedName](','leftFields+=[mm::Attribute|QualifiedName])* '=>' 
+		rightFields+=[mm::Attribute|QualifiedName](","rightFields+=[mm::Attribute|QualifiedName])*   
+	| 'set left' setLeftField=[mm::Attribute|QualifiedName] '=' expr=Expression
+	| 'set right' setRightField=[mm::Attribute|QualifiedName] '=' expr=Expression
+	| 'ignore left' leftFields+=[mm::Attribute|QualifiedName] (','leftFields+=[mm::Attribute|QualifiedName])* 
+	| 'ignore right' rightFields+=[mm::Attribute|QualifiedName] (','rightFields+=[mm::Attribute|QualifiedName])* 
+	| 'call module' module=[MappingModule] ) 
+	('rule' rules+=STRING (","rules+=STRING)*)? (documentation=STRING)?
 	;
 
+Expression:
+	 value=STRING | intValue=INT;
 
