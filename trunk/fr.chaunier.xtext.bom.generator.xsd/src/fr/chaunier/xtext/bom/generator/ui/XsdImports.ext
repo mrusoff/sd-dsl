@@ -1,0 +1,10 @@
+import fr::chaunier::xtext::bom::generator::ui;
+
+String addImportsHere() :
+ getImportsTool().addImportsHere();
+ 
+String registerImport(String name) :
+ getImportsTool().registerImport(name);
+
+private XSDImportsTool getImportsTool() :
+   GLOBALVAR __xsdImportTool;
