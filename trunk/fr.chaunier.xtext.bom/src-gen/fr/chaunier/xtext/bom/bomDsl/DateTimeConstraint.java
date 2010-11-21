@@ -17,7 +17,6 @@ package fr.chaunier.xtext.bom.bomDsl;
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#getDataType <em>Data Type</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
@@ -79,32 +78,6 @@ public interface DateTimeConstraint extends Constraint
    * @generated
    */
   void setDataType(DataType value);
-
-  /**
-   * Returns the value of the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Has Default</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Has Default</em>' attribute.
-   * @see #setHasDefault(boolean)
-   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getDateTimeConstraint_HasDefault()
-   * @model
-   * @generated
-   */
-  boolean isHasDefault();
-
-  /**
-   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#isHasDefault <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Has Default</em>' attribute.
-   * @see #isHasDefault()
-   * @generated
-   */
-  void setHasDefault(boolean value);
 
   /**
    * Returns the value of the '<em><b>Default Value</b></em>' attribute.

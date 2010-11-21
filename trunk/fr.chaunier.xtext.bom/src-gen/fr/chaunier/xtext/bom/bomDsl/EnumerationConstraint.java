@@ -16,7 +16,7 @@ package fr.chaunier.xtext.bom.bomDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getUsage <em>Usage</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#isHasDefault <em>Has Default</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getFixeLen <em>Fixe Len</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getDefaultValueAsString <em>Default Value As String</em>}</li>
  * </ul>
  * </p>
@@ -57,30 +57,30 @@ public interface EnumerationConstraint extends Constraint
   void setUsage(EnumUsage value);
 
   /**
-   * Returns the value of the '<em><b>Has Default</b></em>' attribute.
+   * Returns the value of the '<em><b>Fixe Len</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Has Default</em>' attribute isn't clear,
+   * If the meaning of the '<em>Fixe Len</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Has Default</em>' attribute.
-   * @see #setHasDefault(boolean)
-   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getEnumerationConstraint_HasDefault()
+   * @return the value of the '<em>Fixe Len</em>' attribute.
+   * @see #setFixeLen(int)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getEnumerationConstraint_FixeLen()
    * @model
    * @generated
    */
-  boolean isHasDefault();
+  int getFixeLen();
 
   /**
-   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#isHasDefault <em>Has Default</em>}' attribute.
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getFixeLen <em>Fixe Len</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Has Default</em>' attribute.
-   * @see #isHasDefault()
+   * @param value the new value of the '<em>Fixe Len</em>' attribute.
+   * @see #getFixeLen()
    * @generated
    */
-  void setHasDefault(boolean value);
+  void setFixeLen(int value);
 
   /**
    * Returns the value of the '<em><b>Default Value As String</b></em>' attribute.

@@ -19,6 +19,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getName <em>Name</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getPrefix <em>Prefix</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getNamespace <em>Namespace</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getFormat <em>Format</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getDelimiter <em>Delimiter</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getLines <em>Lines</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
@@ -106,6 +109,74 @@ public interface PackageDeclaration extends AbstractElement
    * @generated
    */
   void setNamespace(String value);
+
+  /**
+   * Returns the value of the '<em><b>Format</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Format</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Format</em>' attribute.
+   * @see #setFormat(String)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getPackageDeclaration_Format()
+   * @model
+   * @generated
+   */
+  String getFormat();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getFormat <em>Format</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Format</em>' attribute.
+   * @see #getFormat()
+   * @generated
+   */
+  void setFormat(String value);
+
+  /**
+   * Returns the value of the '<em><b>Delimiter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Delimiter</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Delimiter</em>' attribute.
+   * @see #setDelimiter(String)
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getPackageDeclaration_Delimiter()
+   * @model
+   * @generated
+   */
+  String getDelimiter();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getDelimiter <em>Delimiter</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Delimiter</em>' attribute.
+   * @see #getDelimiter()
+   * @generated
+   */
+  void setDelimiter(String value);
+
+  /**
+   * Returns the value of the '<em><b>Lines</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lines</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lines</em>' attribute list.
+   * @see fr.chaunier.xtext.bom.bomDsl.BomDslPackage#getPackageDeclaration_Lines()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getLines();
 
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.

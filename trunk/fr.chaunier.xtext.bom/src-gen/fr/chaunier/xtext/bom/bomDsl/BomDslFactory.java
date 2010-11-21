@@ -126,6 +126,24 @@ public interface BomDslFactory extends EFactory
   Reference createReference();
 
   /**
+   * Returns a new object of class '<em>Enumeration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumeration</em>'.
+   * @generated
+   */
+  Enumeration createEnumeration();
+
+  /**
+   * Returns a new object of class '<em>Enumeration Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Enumeration Literal</em>'.
+   * @generated
+   */
+  EnumerationLiteral createEnumerationLiteral();
+
+  /**
    * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -205,24 +223,6 @@ public interface BomDslFactory extends EFactory
    * @generated
    */
   DecimalConstraint createDecimalConstraint();
-
-  /**
-   * Returns a new object of class '<em>Enumeration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enumeration</em>'.
-   * @generated
-   */
-  Enumeration createEnumeration();
-
-  /**
-   * Returns a new object of class '<em>Enumeration Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enumeration Literal</em>'.
-   * @generated
-   */
-  EnumerationLiteral createEnumerationLiteral();
 
   /**
    * Returns a new object of class '<em>Enumeration Constraint</em>'.

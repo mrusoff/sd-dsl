@@ -174,13 +174,40 @@ public interface BomDslPackage extends EPackage
   int PACKAGE_DECLARATION__NAMESPACE = ABSTRACT_ELEMENT_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Format</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_DECLARATION__FORMAT = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The feature id for the '<em><b>Delimiter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_DECLARATION__DELIMITER = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Lines</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE_DECLARATION__LINES = ABSTRACT_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE_DECLARATION__ELEMENTS = ABSTRACT_ELEMENT_FEATURE_COUNT + 3;
+  int PACKAGE_DECLARATION__ELEMENTS = ABSTRACT_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The number of structural features of the '<em>Package Declaration</em>' class.
@@ -189,7 +216,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_DECLARATION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 4;
+  int PACKAGE_DECLARATION_FEATURE_COUNT = ABSTRACT_ELEMENT_FEATURE_COUNT + 7;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.TypeImpl <em>Type</em>}' class.
@@ -310,7 +337,7 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getTypedElement()
    * @generated
    */
-  int TYPED_ELEMENT = 12;
+  int TYPED_ELEMENT = 14;
 
   /**
    * The number of structural features of the '<em>Typed Element</em>' class.
@@ -515,6 +542,80 @@ public interface BomDslPackage extends EPackage
   int REFERENCE_FEATURE_COUNT = STRUCTURAL_FEATURE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl
+   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumeration()
+   * @generated
+   */
+  int ENUMERATION = 11;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION__NAME = TYPE__NAME;
+
+  /**
+   * The feature id for the '<em><b>Enumeration Literals</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION__ENUMERATION_LITERALS = TYPE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Enumeration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl
+   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumerationLiteral()
+   * @generated
+   */
+  int ENUMERATION_LITERAL = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION_LITERAL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Persisted Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION_LITERAL__PERSISTED_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Enumeration Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION_LITERAL_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -522,7 +623,7 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 11;
+  int PARAMETER = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -559,7 +660,7 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getTypeRef()
    * @generated
    */
-  int TYPE_REF = 13;
+  int TYPE_REF = 15;
 
   /**
    * The feature id for the '<em><b>Referenced</b></em>' reference.
@@ -605,7 +706,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 14;
+  int CONSTRAINT = 16;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__HAS_DEFAULT = 0;
 
   /**
    * The number of structural features of the '<em>Constraint</em>' class.
@@ -614,7 +724,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONSTRAINT_FEATURE_COUNT = 0;
+  int CONSTRAINT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.BoolConstraintImpl <em>Bool Constraint</em>}' class.
@@ -624,7 +734,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getBoolConstraint()
    * @generated
    */
-  int BOOL_CONSTRAINT = 15;
+  int BOOL_CONSTRAINT = 17;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BOOL_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -636,22 +755,13 @@ public interface BomDslPackage extends EPackage
   int BOOL_CONSTRAINT__CONSTRAINT = CONSTRAINT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BOOL_CONSTRAINT__HAS_DEFAULT = CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Default Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BOOL_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 2;
+  int BOOL_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Bool Constraint</em>' class.
@@ -660,7 +770,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BOOL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 3;
+  int BOOL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.StringConstraintImpl <em>String Constraint</em>}' class.
@@ -670,7 +780,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getStringConstraint()
    * @generated
    */
-  int STRING_CONSTRAINT = 16;
+  int STRING_CONSTRAINT = 18;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -682,49 +801,67 @@ public interface BomDslPackage extends EPackage
   int STRING_CONSTRAINT__CONSTRAINT = CONSTRAINT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STRING_CONSTRAINT__HAS_DEFAULT = CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Default Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 2;
+  int STRING_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Min Length</b></em>' attribute.
+   * The feature id for the '<em><b>Is Fixed</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT__MIN_LENGTH = CONSTRAINT_FEATURE_COUNT + 3;
+  int STRING_CONSTRAINT__IS_FIXED = CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
-   * The feature id for the '<em><b>Max Length</b></em>' attribute.
+   * The feature id for the '<em><b>Fixed Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT__MAX_LENGTH = CONSTRAINT_FEATURE_COUNT + 4;
+  int STRING_CONSTRAINT__FIXED_VALUE = CONSTRAINT_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Fixe Length</b></em>' attribute.
+   * The feature id for the '<em><b>Min Len</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT__FIXE_LENGTH = CONSTRAINT_FEATURE_COUNT + 5;
+  int STRING_CONSTRAINT__MIN_LEN = CONSTRAINT_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Max Len</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_CONSTRAINT__MAX_LEN = CONSTRAINT_FEATURE_COUNT + 5;
+
+  /**
+   * The feature id for the '<em><b>Fixe Len</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 6;
+
+  /**
+   * The feature id for the '<em><b>Is XSD Att</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_CONSTRAINT__IS_XSD_ATT = CONSTRAINT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Regular Expression</b></em>' attribute.
@@ -733,7 +870,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT__REGULAR_EXPRESSION = CONSTRAINT_FEATURE_COUNT + 6;
+  int STRING_CONSTRAINT__REGULAR_EXPRESSION = CONSTRAINT_FEATURE_COUNT + 8;
 
   /**
    * The number of structural features of the '<em>String Constraint</em>' class.
@@ -742,7 +879,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STRING_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 7;
+  int STRING_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 9;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.DateTimeConstraintImpl <em>Date Time Constraint</em>}' class.
@@ -752,7 +889,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getDateTimeConstraint()
    * @generated
    */
-  int DATE_TIME_CONSTRAINT = 17;
+  int DATE_TIME_CONSTRAINT = 19;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATE_TIME_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -773,22 +919,13 @@ public interface BomDslPackage extends EPackage
   int DATE_TIME_CONSTRAINT__DATA_TYPE = CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
-   * The feature id for the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DATE_TIME_CONSTRAINT__HAS_DEFAULT = CONSTRAINT_FEATURE_COUNT + 2;
-
-  /**
    * The feature id for the '<em><b>Default Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DATE_TIME_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 3;
+  int DATE_TIME_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Date Time Constraint</em>' class.
@@ -797,7 +934,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATE_TIME_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 4;
+  int DATE_TIME_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.IntegerConstraintImpl <em>Integer Constraint</em>}' class.
@@ -807,7 +944,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getIntegerConstraint()
    * @generated
    */
-  int INTEGER_CONSTRAINT = 18;
+  int INTEGER_CONSTRAINT = 20;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -819,22 +965,31 @@ public interface BomDslPackage extends EPackage
   int INTEGER_CONSTRAINT__CONSTRAINT = CONSTRAINT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Has Default</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INTEGER_CONSTRAINT__HAS_DEFAULT = CONSTRAINT_FEATURE_COUNT + 1;
-
-  /**
    * The feature id for the '<em><b>Default Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 2;
+  int INTEGER_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Is Fixed</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_CONSTRAINT__IS_FIXED = CONSTRAINT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fixed Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_CONSTRAINT__FIXED_VALUE = CONSTRAINT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Min Value</b></em>' attribute.
@@ -843,7 +998,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__MIN_VALUE = CONSTRAINT_FEATURE_COUNT + 3;
+  int INTEGER_CONSTRAINT__MIN_VALUE = CONSTRAINT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -852,7 +1007,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__MAX_VALUE = CONSTRAINT_FEATURE_COUNT + 4;
+  int INTEGER_CONSTRAINT__MAX_VALUE = CONSTRAINT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Max Len</b></em>' attribute.
@@ -861,7 +1016,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__MAX_LEN = CONSTRAINT_FEATURE_COUNT + 5;
+  int INTEGER_CONSTRAINT__MAX_LEN = CONSTRAINT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Fixe Len</b></em>' attribute.
@@ -870,7 +1025,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 6;
+  int INTEGER_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Paddle</b></em>' attribute.
@@ -879,7 +1034,16 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT__PADDLE = CONSTRAINT_FEATURE_COUNT + 7;
+  int INTEGER_CONSTRAINT__PADDLE = CONSTRAINT_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Is XSD Att</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTEGER_CONSTRAINT__IS_XSD_ATT = CONSTRAINT_FEATURE_COUNT + 9;
 
   /**
    * The number of structural features of the '<em>Integer Constraint</em>' class.
@@ -888,7 +1052,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTEGER_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 8;
+  int INTEGER_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 10;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.DecimalConstraintImpl <em>Decimal Constraint</em>}' class.
@@ -898,7 +1062,16 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getDecimalConstraint()
    * @generated
    */
-  int DECIMAL_CONSTRAINT = 19;
+  int DECIMAL_CONSTRAINT = 21;
+
+  /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
 
   /**
    * The feature id for the '<em><b>Constraint</b></em>' attribute.
@@ -910,13 +1083,40 @@ public interface BomDslPackage extends EPackage
   int DECIMAL_CONSTRAINT__CONSTRAINT = CONSTRAINT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Default Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_CONSTRAINT__DEFAULT_VALUE = CONSTRAINT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Is Fixed</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_CONSTRAINT__IS_FIXED = CONSTRAINT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Fixed Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_CONSTRAINT__FIXED_VALUE = CONSTRAINT_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Min Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT__MIN_VALUE = CONSTRAINT_FEATURE_COUNT + 1;
+  int DECIMAL_CONSTRAINT__MIN_VALUE = CONSTRAINT_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Max Value</b></em>' attribute.
@@ -925,7 +1125,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT__MAX_VALUE = CONSTRAINT_FEATURE_COUNT + 2;
+  int DECIMAL_CONSTRAINT__MAX_VALUE = CONSTRAINT_FEATURE_COUNT + 5;
 
   /**
    * The feature id for the '<em><b>Max Len</b></em>' attribute.
@@ -934,7 +1134,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT__MAX_LEN = CONSTRAINT_FEATURE_COUNT + 3;
+  int DECIMAL_CONSTRAINT__MAX_LEN = CONSTRAINT_FEATURE_COUNT + 6;
 
   /**
    * The feature id for the '<em><b>Fixe Len</b></em>' attribute.
@@ -943,7 +1143,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 4;
+  int DECIMAL_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 7;
 
   /**
    * The feature id for the '<em><b>Paddle</b></em>' attribute.
@@ -952,7 +1152,16 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT__PADDLE = CONSTRAINT_FEATURE_COUNT + 5;
+  int DECIMAL_CONSTRAINT__PADDLE = CONSTRAINT_FEATURE_COUNT + 8;
+
+  /**
+   * The feature id for the '<em><b>Is XSD Att</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECIMAL_CONSTRAINT__IS_XSD_ATT = CONSTRAINT_FEATURE_COUNT + 9;
 
   /**
    * The number of structural features of the '<em>Decimal Constraint</em>' class.
@@ -961,81 +1170,7 @@ public interface BomDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECIMAL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 6;
-
-  /**
-   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumeration()
-   * @generated
-   */
-  int ENUMERATION = 20;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION__NAME = TYPE__NAME;
-
-  /**
-   * The feature id for the '<em><b>Enumeration Literals</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION__ENUMERATION_LITERALS = TYPE_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Enumeration</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumerationLiteral()
-   * @generated
-   */
-  int ENUMERATION_LITERAL = 21;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION_LITERAL__NAME = 0;
-
-  /**
-   * The feature id for the '<em><b>Persisted Value</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION_LITERAL__PERSISTED_VALUE = 1;
-
-  /**
-   * The number of structural features of the '<em>Enumeration Literal</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENUMERATION_LITERAL_FEATURE_COUNT = 2;
+  int DECIMAL_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 10;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl <em>Enumeration Constraint</em>}' class.
@@ -1048,6 +1183,15 @@ public interface BomDslPackage extends EPackage
   int ENUMERATION_CONSTRAINT = 22;
 
   /**
+   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENUMERATION_CONSTRAINT__HAS_DEFAULT = CONSTRAINT__HAS_DEFAULT;
+
+  /**
    * The feature id for the '<em><b>Usage</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1057,13 +1201,13 @@ public interface BomDslPackage extends EPackage
   int ENUMERATION_CONSTRAINT__USAGE = CONSTRAINT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Has Default</b></em>' attribute.
+   * The feature id for the '<em><b>Fixe Len</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMERATION_CONSTRAINT__HAS_DEFAULT = CONSTRAINT_FEATURE_COUNT + 1;
+  int ENUMERATION_CONSTRAINT__FIXE_LEN = CONSTRAINT_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Default Value As String</b></em>' attribute.
@@ -1084,26 +1228,6 @@ public interface BomDslPackage extends EPackage
   int ENUMERATION_CONSTRAINT_FEATURE_COUNT = CONSTRAINT_FEATURE_COUNT + 3;
 
   /**
-   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.Visibility <em>Visibility</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.chaunier.xtext.bom.bomDsl.Visibility
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getVisibility()
-   * @generated
-   */
-  int VISIBILITY = 23;
-
-  /**
-   * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy <em>Date Time Accuracy</em>}' enum.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy
-   * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getDateTimeAccuracy()
-   * @generated
-   */
-  int DATE_TIME_ACCURACY = 24;
-
-  /**
    * The meta object id for the '{@link fr.chaunier.xtext.bom.bomDsl.EnumUsage <em>Enum Usage</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1111,7 +1235,7 @@ public interface BomDslPackage extends EPackage
    * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumUsage()
    * @generated
    */
-  int ENUM_USAGE = 25;
+  int ENUM_USAGE = 23;
 
 
   /**
@@ -1208,6 +1332,39 @@ public interface BomDslPackage extends EPackage
    * @generated
    */
   EAttribute getPackageDeclaration_Namespace();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getFormat <em>Format</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Format</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getFormat()
+   * @see #getPackageDeclaration()
+   * @generated
+   */
+  EAttribute getPackageDeclaration_Format();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getDelimiter <em>Delimiter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Delimiter</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getDelimiter()
+   * @see #getPackageDeclaration()
+   * @generated
+   */
+  EAttribute getPackageDeclaration_Delimiter();
+
+  /**
+   * Returns the meta object for the attribute list '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getLines <em>Lines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Lines</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getLines()
+   * @see #getPackageDeclaration()
+   * @generated
+   */
+  EAttribute getPackageDeclaration_Lines();
 
   /**
    * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.bom.bomDsl.PackageDeclaration#getElements <em>Elements</em>}'.
@@ -1390,6 +1547,59 @@ public interface BomDslPackage extends EPackage
   EReference getReference_Opposite();
 
   /**
+   * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.Enumeration <em>Enumeration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enumeration</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.Enumeration
+   * @generated
+   */
+  EClass getEnumeration();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.bom.bomDsl.Enumeration#getEnumerationLiterals <em>Enumeration Literals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Enumeration Literals</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.Enumeration#getEnumerationLiterals()
+   * @see #getEnumeration()
+   * @generated
+   */
+  EReference getEnumeration_EnumerationLiterals();
+
+  /**
+   * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Enumeration Literal</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral
+   * @generated
+   */
+  EClass getEnumerationLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getName()
+   * @see #getEnumerationLiteral()
+   * @generated
+   */
+  EAttribute getEnumerationLiteral_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getPersistedValue <em>Persisted Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Persisted Value</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getPersistedValue()
+   * @see #getEnumerationLiteral()
+   * @generated
+   */
+  EAttribute getEnumerationLiteral_PersistedValue();
+
+  /**
    * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.Parameter <em>Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1485,6 +1695,17 @@ public interface BomDslPackage extends EPackage
   EClass getConstraint();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.Constraint#isHasDefault <em>Has Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Has Default</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.Constraint#isHasDefault()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_HasDefault();
+
+  /**
    * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.BoolConstraint <em>Bool Constraint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1504,17 +1725,6 @@ public interface BomDslPackage extends EPackage
    * @generated
    */
   EAttribute getBoolConstraint_Constraint();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.BoolConstraint#isHasDefault <em>Has Default</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Default</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.BoolConstraint#isHasDefault()
-   * @see #getBoolConstraint()
-   * @generated
-   */
-  EAttribute getBoolConstraint_HasDefault();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.BoolConstraint#isDefaultValue <em>Default Value</em>}'.
@@ -1549,17 +1759,6 @@ public interface BomDslPackage extends EPackage
   EAttribute getStringConstraint_Constraint();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#isHasDefault <em>Has Default</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Default</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#isHasDefault()
-   * @see #getStringConstraint()
-   * @generated
-   */
-  EAttribute getStringConstraint_HasDefault();
-
-  /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getDefaultValue <em>Default Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1571,37 +1770,70 @@ public interface BomDslPackage extends EPackage
   EAttribute getStringConstraint_DefaultValue();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMinLength <em>Min Length</em>}'.
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#isIsFixed <em>Is Fixed</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Min Length</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMinLength()
+   * @return the meta object for the attribute '<em>Is Fixed</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#isIsFixed()
    * @see #getStringConstraint()
    * @generated
    */
-  EAttribute getStringConstraint_MinLength();
+  EAttribute getStringConstraint_IsFixed();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMaxLength <em>Max Length</em>}'.
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixedValue <em>Fixed Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Max Length</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMaxLength()
+   * @return the meta object for the attribute '<em>Fixed Value</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixedValue()
    * @see #getStringConstraint()
    * @generated
    */
-  EAttribute getStringConstraint_MaxLength();
+  EAttribute getStringConstraint_FixedValue();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixeLength <em>Fixe Length</em>}'.
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMinLen <em>Min Len</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Fixe Length</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixeLength()
+   * @return the meta object for the attribute '<em>Min Len</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMinLen()
    * @see #getStringConstraint()
    * @generated
    */
-  EAttribute getStringConstraint_FixeLength();
+  EAttribute getStringConstraint_MinLen();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMaxLen <em>Max Len</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Max Len</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getMaxLen()
+   * @see #getStringConstraint()
+   * @generated
+   */
+  EAttribute getStringConstraint_MaxLen();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixeLen <em>Fixe Len</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fixe Len</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#getFixeLen()
+   * @see #getStringConstraint()
+   * @generated
+   */
+  EAttribute getStringConstraint_FixeLen();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#isIsXSDAtt <em>Is XSD Att</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is XSD Att</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.StringConstraint#isIsXSDAtt()
+   * @see #getStringConstraint()
+   * @generated
+   */
+  EAttribute getStringConstraint_IsXSDAtt();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.StringConstraint#getRegularExpression <em>Regular Expression</em>}'.
@@ -1647,17 +1879,6 @@ public interface BomDslPackage extends EPackage
   EReference getDateTimeConstraint_DataType();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#isHasDefault <em>Has Default</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Default</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#isHasDefault()
-   * @see #getDateTimeConstraint()
-   * @generated
-   */
-  EAttribute getDateTimeConstraint_HasDefault();
-
-  /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeConstraint#getDefaultValue <em>Default Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1690,17 +1911,6 @@ public interface BomDslPackage extends EPackage
   EAttribute getIntegerConstraint_Constraint();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isHasDefault <em>Has Default</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Default</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isHasDefault()
-   * @see #getIntegerConstraint()
-   * @generated
-   */
-  EAttribute getIntegerConstraint_HasDefault();
-
-  /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getDefaultValue <em>Default Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1710,6 +1920,28 @@ public interface BomDslPackage extends EPackage
    * @generated
    */
   EAttribute getIntegerConstraint_DefaultValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsFixed <em>Is Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Fixed</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsFixed()
+   * @see #getIntegerConstraint()
+   * @generated
+   */
+  EAttribute getIntegerConstraint_IsFixed();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getFixedValue <em>Fixed Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fixed Value</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getFixedValue()
+   * @see #getIntegerConstraint()
+   * @generated
+   */
+  EAttribute getIntegerConstraint_FixedValue();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#getMinValue <em>Min Value</em>}'.
@@ -1767,6 +1999,17 @@ public interface BomDslPackage extends EPackage
   EAttribute getIntegerConstraint_Paddle();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsXSDAtt <em>Is XSD Att</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is XSD Att</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.IntegerConstraint#isIsXSDAtt()
+   * @see #getIntegerConstraint()
+   * @generated
+   */
+  EAttribute getIntegerConstraint_IsXSDAtt();
+
+  /**
    * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint <em>Decimal Constraint</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1786,6 +2029,39 @@ public interface BomDslPackage extends EPackage
    * @generated
    */
   EAttribute getDecimalConstraint_Constraint();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#getDefaultValue <em>Default Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Default Value</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#getDefaultValue()
+   * @see #getDecimalConstraint()
+   * @generated
+   */
+  EAttribute getDecimalConstraint_DefaultValue();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#isIsFixed <em>Is Fixed</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Fixed</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#isIsFixed()
+   * @see #getDecimalConstraint()
+   * @generated
+   */
+  EAttribute getDecimalConstraint_IsFixed();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#getFixedValue <em>Fixed Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Fixed Value</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#getFixedValue()
+   * @see #getDecimalConstraint()
+   * @generated
+   */
+  EAttribute getDecimalConstraint_FixedValue();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#getMinValue <em>Min Value</em>}'.
@@ -1843,57 +2119,15 @@ public interface BomDslPackage extends EPackage
   EAttribute getDecimalConstraint_Paddle();
 
   /**
-   * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.Enumeration <em>Enumeration</em>}'.
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#isIsXSDAtt <em>Is XSD Att</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enumeration</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.Enumeration
+   * @return the meta object for the attribute '<em>Is XSD Att</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.DecimalConstraint#isIsXSDAtt()
+   * @see #getDecimalConstraint()
    * @generated
    */
-  EClass getEnumeration();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.bom.bomDsl.Enumeration#getEnumerationLiterals <em>Enumeration Literals</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Enumeration Literals</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.Enumeration#getEnumerationLiterals()
-   * @see #getEnumeration()
-   * @generated
-   */
-  EReference getEnumeration_EnumerationLiterals();
-
-  /**
-   * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enumeration Literal</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral
-   * @generated
-   */
-  EClass getEnumerationLiteral();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getName()
-   * @see #getEnumerationLiteral()
-   * @generated
-   */
-  EAttribute getEnumerationLiteral_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getPersistedValue <em>Persisted Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Persisted Value</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationLiteral#getPersistedValue()
-   * @see #getEnumerationLiteral()
-   * @generated
-   */
-  EAttribute getEnumerationLiteral_PersistedValue();
+  EAttribute getDecimalConstraint_IsXSDAtt();
 
   /**
    * Returns the meta object for class '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint <em>Enumeration Constraint</em>}'.
@@ -1917,15 +2151,15 @@ public interface BomDslPackage extends EPackage
   EAttribute getEnumerationConstraint_Usage();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#isHasDefault <em>Has Default</em>}'.
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getFixeLen <em>Fixe Len</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Has Default</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#isHasDefault()
+   * @return the meta object for the attribute '<em>Fixe Len</em>'.
+   * @see fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getFixeLen()
    * @see #getEnumerationConstraint()
    * @generated
    */
-  EAttribute getEnumerationConstraint_HasDefault();
+  EAttribute getEnumerationConstraint_FixeLen();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.bom.bomDsl.EnumerationConstraint#getDefaultValueAsString <em>Default Value As String</em>}'.
@@ -1937,26 +2171,6 @@ public interface BomDslPackage extends EPackage
    * @generated
    */
   EAttribute getEnumerationConstraint_DefaultValueAsString();
-
-  /**
-   * Returns the meta object for enum '{@link fr.chaunier.xtext.bom.bomDsl.Visibility <em>Visibility</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Visibility</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.Visibility
-   * @generated
-   */
-  EEnum getVisibility();
-
-  /**
-   * Returns the meta object for enum '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy <em>Date Time Accuracy</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Date Time Accuracy</em>'.
-   * @see fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy
-   * @generated
-   */
-  EEnum getDateTimeAccuracy();
 
   /**
    * Returns the meta object for enum '{@link fr.chaunier.xtext.bom.bomDsl.EnumUsage <em>Enum Usage</em>}'.
@@ -2070,6 +2284,30 @@ public interface BomDslPackage extends EPackage
      * @generated
      */
     EAttribute PACKAGE_DECLARATION__NAMESPACE = eINSTANCE.getPackageDeclaration_Namespace();
+
+    /**
+     * The meta object literal for the '<em><b>Format</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE_DECLARATION__FORMAT = eINSTANCE.getPackageDeclaration_Format();
+
+    /**
+     * The meta object literal for the '<em><b>Delimiter</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE_DECLARATION__DELIMITER = eINSTANCE.getPackageDeclaration_Delimiter();
+
+    /**
+     * The meta object literal for the '<em><b>Lines</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE_DECLARATION__LINES = eINSTANCE.getPackageDeclaration_Lines();
 
     /**
      * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -2222,6 +2460,50 @@ public interface BomDslPackage extends EPackage
     EReference REFERENCE__OPPOSITE = eINSTANCE.getReference_Opposite();
 
     /**
+     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl
+     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumeration()
+     * @generated
+     */
+    EClass ENUMERATION = eINSTANCE.getEnumeration();
+
+    /**
+     * The meta object literal for the '<em><b>Enumeration Literals</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENUMERATION__ENUMERATION_LITERALS = eINSTANCE.getEnumeration_EnumerationLiterals();
+
+    /**
+     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl
+     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumerationLiteral()
+     * @generated
+     */
+    EClass ENUMERATION_LITERAL = eINSTANCE.getEnumerationLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUMERATION_LITERAL__NAME = eINSTANCE.getEnumerationLiteral_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Persisted Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ENUMERATION_LITERAL__PERSISTED_VALUE = eINSTANCE.getEnumerationLiteral_PersistedValue();
+
+    /**
      * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.ParameterImpl <em>Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2302,6 +2584,14 @@ public interface BomDslPackage extends EPackage
     EClass CONSTRAINT = eINSTANCE.getConstraint();
 
     /**
+     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__HAS_DEFAULT = eINSTANCE.getConstraint_HasDefault();
+
+    /**
      * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.BoolConstraintImpl <em>Bool Constraint</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2318,14 +2608,6 @@ public interface BomDslPackage extends EPackage
      * @generated
      */
     EAttribute BOOL_CONSTRAINT__CONSTRAINT = eINSTANCE.getBoolConstraint_Constraint();
-
-    /**
-     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BOOL_CONSTRAINT__HAS_DEFAULT = eINSTANCE.getBoolConstraint_HasDefault();
 
     /**
      * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
@@ -2354,14 +2636,6 @@ public interface BomDslPackage extends EPackage
     EAttribute STRING_CONSTRAINT__CONSTRAINT = eINSTANCE.getStringConstraint_Constraint();
 
     /**
-     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute STRING_CONSTRAINT__HAS_DEFAULT = eINSTANCE.getStringConstraint_HasDefault();
-
-    /**
      * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2370,28 +2644,52 @@ public interface BomDslPackage extends EPackage
     EAttribute STRING_CONSTRAINT__DEFAULT_VALUE = eINSTANCE.getStringConstraint_DefaultValue();
 
     /**
-     * The meta object literal for the '<em><b>Min Length</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Is Fixed</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_CONSTRAINT__MIN_LENGTH = eINSTANCE.getStringConstraint_MinLength();
+    EAttribute STRING_CONSTRAINT__IS_FIXED = eINSTANCE.getStringConstraint_IsFixed();
 
     /**
-     * The meta object literal for the '<em><b>Max Length</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Fixed Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_CONSTRAINT__MAX_LENGTH = eINSTANCE.getStringConstraint_MaxLength();
+    EAttribute STRING_CONSTRAINT__FIXED_VALUE = eINSTANCE.getStringConstraint_FixedValue();
 
     /**
-     * The meta object literal for the '<em><b>Fixe Length</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Min Len</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STRING_CONSTRAINT__FIXE_LENGTH = eINSTANCE.getStringConstraint_FixeLength();
+    EAttribute STRING_CONSTRAINT__MIN_LEN = eINSTANCE.getStringConstraint_MinLen();
+
+    /**
+     * The meta object literal for the '<em><b>Max Len</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_CONSTRAINT__MAX_LEN = eINSTANCE.getStringConstraint_MaxLen();
+
+    /**
+     * The meta object literal for the '<em><b>Fixe Len</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_CONSTRAINT__FIXE_LEN = eINSTANCE.getStringConstraint_FixeLen();
+
+    /**
+     * The meta object literal for the '<em><b>Is XSD Att</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_CONSTRAINT__IS_XSD_ATT = eINSTANCE.getStringConstraint_IsXSDAtt();
 
     /**
      * The meta object literal for the '<em><b>Regular Expression</b></em>' attribute feature.
@@ -2428,14 +2726,6 @@ public interface BomDslPackage extends EPackage
     EReference DATE_TIME_CONSTRAINT__DATA_TYPE = eINSTANCE.getDateTimeConstraint_DataType();
 
     /**
-     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute DATE_TIME_CONSTRAINT__HAS_DEFAULT = eINSTANCE.getDateTimeConstraint_HasDefault();
-
-    /**
      * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2462,20 +2752,28 @@ public interface BomDslPackage extends EPackage
     EAttribute INTEGER_CONSTRAINT__CONSTRAINT = eINSTANCE.getIntegerConstraint_Constraint();
 
     /**
-     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INTEGER_CONSTRAINT__HAS_DEFAULT = eINSTANCE.getIntegerConstraint_HasDefault();
-
-    /**
      * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute INTEGER_CONSTRAINT__DEFAULT_VALUE = eINSTANCE.getIntegerConstraint_DefaultValue();
+
+    /**
+     * The meta object literal for the '<em><b>Is Fixed</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTEGER_CONSTRAINT__IS_FIXED = eINSTANCE.getIntegerConstraint_IsFixed();
+
+    /**
+     * The meta object literal for the '<em><b>Fixed Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTEGER_CONSTRAINT__FIXED_VALUE = eINSTANCE.getIntegerConstraint_FixedValue();
 
     /**
      * The meta object literal for the '<em><b>Min Value</b></em>' attribute feature.
@@ -2518,6 +2816,14 @@ public interface BomDslPackage extends EPackage
     EAttribute INTEGER_CONSTRAINT__PADDLE = eINSTANCE.getIntegerConstraint_Paddle();
 
     /**
+     * The meta object literal for the '<em><b>Is XSD Att</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INTEGER_CONSTRAINT__IS_XSD_ATT = eINSTANCE.getIntegerConstraint_IsXSDAtt();
+
+    /**
      * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.DecimalConstraintImpl <em>Decimal Constraint</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2534,6 +2840,30 @@ public interface BomDslPackage extends EPackage
      * @generated
      */
     EAttribute DECIMAL_CONSTRAINT__CONSTRAINT = eINSTANCE.getDecimalConstraint_Constraint();
+
+    /**
+     * The meta object literal for the '<em><b>Default Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECIMAL_CONSTRAINT__DEFAULT_VALUE = eINSTANCE.getDecimalConstraint_DefaultValue();
+
+    /**
+     * The meta object literal for the '<em><b>Is Fixed</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECIMAL_CONSTRAINT__IS_FIXED = eINSTANCE.getDecimalConstraint_IsFixed();
+
+    /**
+     * The meta object literal for the '<em><b>Fixed Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DECIMAL_CONSTRAINT__FIXED_VALUE = eINSTANCE.getDecimalConstraint_FixedValue();
 
     /**
      * The meta object literal for the '<em><b>Min Value</b></em>' attribute feature.
@@ -2576,48 +2906,12 @@ public interface BomDslPackage extends EPackage
     EAttribute DECIMAL_CONSTRAINT__PADDLE = eINSTANCE.getDecimalConstraint_Paddle();
 
     /**
-     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationImpl
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumeration()
-     * @generated
-     */
-    EClass ENUMERATION = eINSTANCE.getEnumeration();
-
-    /**
-     * The meta object literal for the '<em><b>Enumeration Literals</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Is XSD Att</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENUMERATION__ENUMERATION_LITERALS = eINSTANCE.getEnumeration_EnumerationLiterals();
-
-    /**
-     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.EnumerationLiteralImpl
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getEnumerationLiteral()
-     * @generated
-     */
-    EClass ENUMERATION_LITERAL = eINSTANCE.getEnumerationLiteral();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUMERATION_LITERAL__NAME = eINSTANCE.getEnumerationLiteral_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Persisted Value</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute ENUMERATION_LITERAL__PERSISTED_VALUE = eINSTANCE.getEnumerationLiteral_PersistedValue();
+    EAttribute DECIMAL_CONSTRAINT__IS_XSD_ATT = eINSTANCE.getDecimalConstraint_IsXSDAtt();
 
     /**
      * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.impl.EnumerationConstraintImpl <em>Enumeration Constraint</em>}' class.
@@ -2638,12 +2932,12 @@ public interface BomDslPackage extends EPackage
     EAttribute ENUMERATION_CONSTRAINT__USAGE = eINSTANCE.getEnumerationConstraint_Usage();
 
     /**
-     * The meta object literal for the '<em><b>Has Default</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Fixe Len</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ENUMERATION_CONSTRAINT__HAS_DEFAULT = eINSTANCE.getEnumerationConstraint_HasDefault();
+    EAttribute ENUMERATION_CONSTRAINT__FIXE_LEN = eINSTANCE.getEnumerationConstraint_FixeLen();
 
     /**
      * The meta object literal for the '<em><b>Default Value As String</b></em>' attribute feature.
@@ -2652,26 +2946,6 @@ public interface BomDslPackage extends EPackage
      * @generated
      */
     EAttribute ENUMERATION_CONSTRAINT__DEFAULT_VALUE_AS_STRING = eINSTANCE.getEnumerationConstraint_DefaultValueAsString();
-
-    /**
-     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.Visibility <em>Visibility</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.chaunier.xtext.bom.bomDsl.Visibility
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getVisibility()
-     * @generated
-     */
-    EEnum VISIBILITY = eINSTANCE.getVisibility();
-
-    /**
-     * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy <em>Date Time Accuracy</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see fr.chaunier.xtext.bom.bomDsl.DateTimeAccuracy
-     * @see fr.chaunier.xtext.bom.bomDsl.impl.BomDslPackageImpl#getDateTimeAccuracy()
-     * @generated
-     */
-    EEnum DATE_TIME_ACCURACY = eINSTANCE.getDateTimeAccuracy();
 
     /**
      * The meta object literal for the '{@link fr.chaunier.xtext.bom.bomDsl.EnumUsage <em>Enum Usage</em>}' enum.

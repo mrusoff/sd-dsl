@@ -80,6 +80,8 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
       case BomDslPackage.STRUCTURAL_FEATURE: return createStructuralFeature();
       case BomDslPackage.ATTRIBUTE: return createAttribute();
       case BomDslPackage.REFERENCE: return createReference();
+      case BomDslPackage.ENUMERATION: return createEnumeration();
+      case BomDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
       case BomDslPackage.PARAMETER: return createParameter();
       case BomDslPackage.TYPED_ELEMENT: return createTypedElement();
       case BomDslPackage.TYPE_REF: return createTypeRef();
@@ -89,8 +91,6 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
       case BomDslPackage.DATE_TIME_CONSTRAINT: return createDateTimeConstraint();
       case BomDslPackage.INTEGER_CONSTRAINT: return createIntegerConstraint();
       case BomDslPackage.DECIMAL_CONSTRAINT: return createDecimalConstraint();
-      case BomDslPackage.ENUMERATION: return createEnumeration();
-      case BomDslPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
       case BomDslPackage.ENUMERATION_CONSTRAINT: return createEnumerationConstraint();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -107,10 +107,6 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case BomDslPackage.VISIBILITY:
-        return createVisibilityFromString(eDataType, initialValue);
-      case BomDslPackage.DATE_TIME_ACCURACY:
-        return createDateTimeAccuracyFromString(eDataType, initialValue);
       case BomDslPackage.ENUM_USAGE:
         return createEnumUsageFromString(eDataType, initialValue);
       default:
@@ -128,10 +124,6 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case BomDslPackage.VISIBILITY:
-        return convertVisibilityToString(eDataType, instanceValue);
-      case BomDslPackage.DATE_TIME_ACCURACY:
-        return convertDateTimeAccuracyToString(eDataType, instanceValue);
       case BomDslPackage.ENUM_USAGE:
         return convertEnumUsageToString(eDataType, instanceValue);
       default:
@@ -265,6 +257,28 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Enumeration createEnumeration()
+  {
+    EnumerationImpl enumeration = new EnumerationImpl();
+    return enumeration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EnumerationLiteral createEnumerationLiteral()
+  {
+    EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
+    return enumerationLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Parameter createParameter()
   {
     ParameterImpl parameter = new ParameterImpl();
@@ -364,76 +378,10 @@ public class BomDslFactoryImpl extends EFactoryImpl implements BomDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Enumeration createEnumeration()
-  {
-    EnumerationImpl enumeration = new EnumerationImpl();
-    return enumeration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EnumerationLiteral createEnumerationLiteral()
-  {
-    EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
-    return enumerationLiteral;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EnumerationConstraint createEnumerationConstraint()
   {
     EnumerationConstraintImpl enumerationConstraint = new EnumerationConstraintImpl();
     return enumerationConstraint;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Visibility createVisibilityFromString(EDataType eDataType, String initialValue)
-  {
-    Visibility result = Visibility.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertVisibilityToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DateTimeAccuracy createDateTimeAccuracyFromString(EDataType eDataType, String initialValue)
-  {
-    DateTimeAccuracy result = DateTimeAccuracy.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertDateTimeAccuracyToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

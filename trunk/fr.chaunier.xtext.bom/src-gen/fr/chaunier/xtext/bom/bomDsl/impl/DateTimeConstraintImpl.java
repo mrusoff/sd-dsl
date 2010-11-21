@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.DateTimeConstraintImpl#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.DateTimeConstraintImpl#getDataType <em>Data Type</em>}</li>
- *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.DateTimeConstraintImpl#isHasDefault <em>Has Default</em>}</li>
  *   <li>{@link fr.chaunier.xtext.bom.bomDsl.impl.DateTimeConstraintImpl#getDefaultValue <em>Default Value</em>}</li>
  * </ul>
  * </p>
@@ -64,26 +63,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
    * @ordered
    */
   protected DataType dataType;
-
-  /**
-   * The default value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean HAS_DEFAULT_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isHasDefault() <em>Has Default</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isHasDefault()
-   * @generated
-   * @ordered
-   */
-  protected boolean hasDefault = HAS_DEFAULT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getDefaultValue() <em>Default Value</em>}' attribute.
@@ -197,29 +176,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHasDefault()
-  {
-    return hasDefault;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setHasDefault(boolean newHasDefault)
-  {
-    boolean oldHasDefault = hasDefault;
-    hasDefault = newHasDefault;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, BomDslPackage.DATE_TIME_CONSTRAINT__HAS_DEFAULT, oldHasDefault, hasDefault));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public String getDefaultValue()
   {
     return defaultValue;
@@ -253,8 +209,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
       case BomDslPackage.DATE_TIME_CONSTRAINT__DATA_TYPE:
         if (resolve) return getDataType();
         return basicGetDataType();
-      case BomDslPackage.DATE_TIME_CONSTRAINT__HAS_DEFAULT:
-        return isHasDefault();
       case BomDslPackage.DATE_TIME_CONSTRAINT__DEFAULT_VALUE:
         return getDefaultValue();
     }
@@ -276,9 +230,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
         return;
       case BomDslPackage.DATE_TIME_CONSTRAINT__DATA_TYPE:
         setDataType((DataType)newValue);
-        return;
-      case BomDslPackage.DATE_TIME_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault((Boolean)newValue);
         return;
       case BomDslPackage.DATE_TIME_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue((String)newValue);
@@ -303,9 +254,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
       case BomDslPackage.DATE_TIME_CONSTRAINT__DATA_TYPE:
         setDataType((DataType)null);
         return;
-      case BomDslPackage.DATE_TIME_CONSTRAINT__HAS_DEFAULT:
-        setHasDefault(HAS_DEFAULT_EDEFAULT);
-        return;
       case BomDslPackage.DATE_TIME_CONSTRAINT__DEFAULT_VALUE:
         setDefaultValue(DEFAULT_VALUE_EDEFAULT);
         return;
@@ -327,8 +275,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
         return CONSTRAINT_EDEFAULT == null ? constraint != null : !CONSTRAINT_EDEFAULT.equals(constraint);
       case BomDslPackage.DATE_TIME_CONSTRAINT__DATA_TYPE:
         return dataType != null;
-      case BomDslPackage.DATE_TIME_CONSTRAINT__HAS_DEFAULT:
-        return hasDefault != HAS_DEFAULT_EDEFAULT;
       case BomDslPackage.DATE_TIME_CONSTRAINT__DEFAULT_VALUE:
         return DEFAULT_VALUE_EDEFAULT == null ? defaultValue != null : !DEFAULT_VALUE_EDEFAULT.equals(defaultValue);
     }
@@ -348,8 +294,6 @@ public class DateTimeConstraintImpl extends ConstraintImpl implements DateTimeCo
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (constraint: ");
     result.append(constraint);
-    result.append(", hasDefault: ");
-    result.append(hasDefault);
     result.append(", defaultValue: ");
     result.append(defaultValue);
     result.append(')');
