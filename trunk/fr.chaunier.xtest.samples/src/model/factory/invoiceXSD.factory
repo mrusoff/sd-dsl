@@ -1,0 +1,29 @@
+import address.*
+import address.Asdress.*
+
+import invoice_xsd.*
+import invoice_xsd.Invoice.*
+import invoice_xsd.BillTo.*
+import invoice_xsd.Invoice1.Header.*
+import invoice_xsd.Invoice1.Item.*
+
+Invoice test {
+		
+		header = Header {
+
+		// set the bill to info
+	
+	
+		address = Address {
+//			city = "dd"
+//			countryCode = ""				
+		}
+		
+		customerNumber = ""
+	}
+	
+	
+	items += Item {
+				
+	}
+}

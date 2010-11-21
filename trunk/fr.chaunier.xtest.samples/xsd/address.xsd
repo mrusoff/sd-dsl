@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:add="http://www.p.chaunier.fr/add" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.p.chaunier.fr/add"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+    <xsd:annotation>
+      <xsd:documentation>datatype Libelle</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype Ville</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype PostalCode</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype CountryCode</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype MailFormat</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype PhoneFormat</xsd:documentation>
+    </xsd:annotation>
+    <xsd:annotation>
+      <xsd:documentation>datatype City</xsd:documentation>
+    </xsd:annotation>
+  	<xsd:simpleType name="TypeOfGoodEnum">
+    	<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="ELECTRONIC"/>
+			<xsd:enumeration value="GADGET"/>
+			<xsd:enumeration value="INCONNU_3"/> 
+			<xsd:enumeration value="INCONNU_4"/> 
+			<xsd:enumeration value="INCONNU_5"/> 
+			<xsd:enumeration value="INCONNU_6"/> 
+			<xsd:enumeration value="INCONNU_7"/> 
+			<xsd:enumeration value="INCONNU_8"/> 
+    	</xsd:restriction>
+  	</xsd:simpleType>
+  
+  	<xsd:simpleType name="CivilityEnum">
+    	<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="M"/>
+			<xsd:enumeration value="Ms"/>
+			<xsd:enumeration value="Miss"/>
+			<xsd:enumeration value="INCONNU_4"/> 
+			<xsd:enumeration value="INCONNU_5"/> 
+			<xsd:enumeration value="INCONNU_6"/> 
+			<xsd:enumeration value="INCONNU_7"/> 
+			<xsd:enumeration value="INCONNU_8"/> 
+			<xsd:enumeration value="INCONNU_9"/> 
+    	</xsd:restriction>
+  	</xsd:simpleType>
+  
+  	<xsd:simpleType name="SituationEnum">
+    	<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SINGLE"/>
+			<xsd:enumeration value="MARIED"/>
+			<xsd:enumeration value="INCONNU_3"/> 
+			<xsd:enumeration value="INCONNU_4"/> 
+			<xsd:enumeration value="INCONNU_5"/> 
+			<xsd:enumeration value="INCONNU_6"/> 
+			<xsd:enumeration value="INCONNU_7"/> 
+			<xsd:enumeration value="INCONNU_8"/> 
+    	</xsd:restriction>
+  	</xsd:simpleType>
+  
+  <xsd:complexType name="PostalAddressType">
+    <xsd:annotation>
+      <xsd:documentation>address Postal definition composed of Tiers Address and Contacts</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="tier" maxOccurs="unbounded"   Tier
+ type="add:TierType" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>le ou les tiers concerné par l'adresse</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="adresse" minOccurs="0"   Address
+ type="add:AddressType" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>adresse</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="phone" minOccurs="0"   Phone
+ type="add:PhoneType" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="contacts" maxOccurs="unbounded"   Contact
+ type="add:ContactType" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>elements de contact additionnel mail , mobile tel </xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="SiteType">
+    <xsd:annotation>
+      <xsd:documentation>abstraction site</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="ContactType">
+    <xsd:annotation>
+      <xsd:documentation>abstraction contact</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="TierType">
+    <xsd:annotation>
+      <xsd:documentation>abstraction tier</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="PhoneType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="numero"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="MobilePhoneType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="numero"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="FaxType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="numero"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="MailType">
+    <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="mail"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="AddressType">
+    <xsd:annotation>
+      <xsd:documentation>definition adresse geographique</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+    	<xsd:element name="line1" minOccurs="0" >
+		    <xsd:annotation>
+      			<xsd:documentation>Premiére ligne d'adresse</xsd:documentation>
+    		</xsd:annotation>
+    			<xsd:simpleType>
+    				<xsd:restriction base="xsd:string">
+					 <xsd:maxLength value= "38" />					    				
+    				</xsd:restriction>
+    			</xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="line2" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="line3" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="line4" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="postalCode" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>code postal</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="city" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="countryCode" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="coutry" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation></xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="OrganisationType">
+    <xsd:annotation>
+      <xsd:documentation>definition organisation</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="raisonSociale" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>dénomination de la raison sociale</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+  <xsd:complexType name="PersonType">
+    <xsd:annotation>
+      <xsd:documentation>definition d'une personne</xsd:documentation>
+    </xsd:annotation>
+       <xsd:sequence>
+          <xsd:element name="civility" minOccurs="0"   type="add:CivilityEnum" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>civilité</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="firstName" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>prenom</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="secondName" minOccurs="0"   type="xsd:string" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>nom</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+          <xsd:element name="gender"   type="add:SituationEnum" 
+>
+		    <xsd:annotation>
+      			<xsd:documentation>situation familiale</xsd:documentation>
+    		</xsd:annotation>
+          </xsd:element>
+
+       </xsd:sequence>
+	</xsd:complexType>  
+</xsd:schema>  
