@@ -1,0 +1,68 @@
+
+
+ 
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+PostalAddress;address Postal definition composed of Tiers Address and Contacts
+1;tier;[1..*];;;Tier;le ou les tiers concerné par l'adresse
+2;adresse;[0..1];;;Adresse;adresse
+3;phone;[0..1];;;Phone;
+4;contacts;[1..*];;;Contact;elements de contact additionnel mail , mobile tel 
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Site;abstraction site
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Contact;abstraction contact
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Tier;abstraction tier
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Phone;
+1;numero;;;;PhoneFormat;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+MobilePhone;
+1;numero;;;;PhoneFormat;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Fax;
+1;numero;;;;PhoneFormat;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Mail;
+1;mail;;;;Libelle;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Adresse;definition adresse geographique
+1;line1;[0..1];carractère ;  max=38;;Libelle;Premiére ligne d'adresse
+2;line2;[0..1];;;Libelle;
+3;line3;[0..1];;;Libelle;
+4;line4;[0..1];;;Libelle;
+5;postalCode;[0..1];;;PostalCode;code postal
+6;city;[0..1];;;City;
+7;countryCode;[0..1];;;CountryCode;
+8;coutry;[0..1];;;Libelle;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Organisation;definition organisation
+1;raisonSociale;[0..1];;;Libelle;dénomination de la raison sociale
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Person;definition d'une personne
+1;civility;[0..1];;;Civility;civilité
+2;firstName;[0..1];;;Libelle;prenom
+3;secondName;[0..1];;;Libelle;nom
+4;gender;;;;Situation;situation familiale

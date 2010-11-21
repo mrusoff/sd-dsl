@@ -1,0 +1,289 @@
+
+!icons/Telintrans.jpg!
+	
+h1. package : address
+
+table{border:1px solid black}.
+| **name** | address
+| **namspace** | http://www.p.chaunier.fr/add
+| **prefix** | add
+
+
+h2.	Classes definition
+
+* !icons/obj16/Class.gif!"PostalAddress":#PostalAddress
+* !icons/obj16/Class.gif!"Site":#Site
+* !icons/obj16/Class.gif!"Contact":#Contact
+* !icons/obj16/Class.gif!"Tier":#Tier
+* !icons/obj16/Class.gif!"Phone":#Phone
+* !icons/obj16/Class.gif!"MobilePhone":#MobilePhone
+* !icons/obj16/Class.gif!"Fax":#Fax
+* !icons/obj16/Class.gif!"Mail":#Mail
+* !icons/obj16/Class.gif!"Adresse":#Adresse
+* !icons/obj16/Class.gif!"Organisation":#Organisation
+* !icons/obj16/Class.gif!"Person":#Person
+
+
+h2. Types definition
+
+* !icons/obj16/Datatype.gif!"Libelle":#Libelle
+* !icons/obj16/Datatype.gif!"Ville":#Ville
+* !icons/obj16/Datatype.gif!"PostalCode":#PostalCode
+* !icons/obj16/Datatype.gif!"CountryCode":#CountryCode
+* !icons/obj16/Datatype.gif!"MailFormat":#MailFormat
+* !icons/obj16/Datatype.gif!"PhoneFormat":#PhoneFormat
+* !icons/obj16/Datatype.gif!"City":#City
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+h3(#PostalAddress). Class Name : PostalAddress  
+
+p{color:blue}. address Postal definition composed of Tiers Address and Contacts
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| tier | Tier |   | [1..*] |  | le ou les tiers concerné par l'adresse|
+|!icons/obj16/Attribute.gif!| adresse | Adresse |   | [0..1] |  | adresse|
+|!icons/obj16/Attribute.gif!| phone | Phone |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| contacts | Contact |   | [1..*] |  | elements de contact additionnel mail , mobile tel |
+			
+			
+h4. References
+
+
+
+h3(#Site). Class Name : Site  
+
+p{color:blue}. abstraction site
+			
+			
+h4. References
+
+
+
+h3(#Contact). Class Name : Contact  
+
+p{color:blue}. abstraction contact
+			
+			
+h4. References
+
+
+
+h3(#Tier). Class Name : Tier  
+
+p{color:blue}. abstraction tier
+			
+			
+h4. References
+
+
+
+h3(#Phone). Class Name : Phone  
+
+p{color:blue}. 
+			
+			
+*Super types* Contact
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| numero | PhoneFormat |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#MobilePhone). Class Name : MobilePhone  
+
+p{color:blue}. 
+			
+			
+*Super types* Contact
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| numero | PhoneFormat |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Fax). Class Name : Fax  
+
+p{color:blue}. 
+			
+			
+*Super types* Contact
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| numero | PhoneFormat |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Mail). Class Name : Mail  
+
+p{color:blue}. 
+			
+			
+*Super types* Contact
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| mail | Libelle |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Adresse). Class Name : Adresse  
+
+p{color:blue}. definition adresse geographique
+			
+			
+*Super types* Site
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| line1 | Libelle |   | [0..1] | string ; min=0 max=38 | Premiére ligne d'adresse|
+|!icons/obj16/Attribute.gif!| line2 | Libelle |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| line3 | Libelle |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| line4 | Libelle |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| postalCode | PostalCode |   | [0..1] |  | code postal|
+|!icons/obj16/Attribute.gif!| city | City |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| countryCode | CountryCode |   | [0..1] |  | |
+|!icons/obj16/Attribute.gif!| coutry | Libelle |   | [0..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Organisation). Class Name : Organisation  
+
+p{color:blue}. definition organisation
+			
+			
+*Super types* Tier
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| raisonSociale | Libelle |   | [0..1] |  | dénomination de la raison sociale|
+			
+			
+h4. References
+
+
+
+h3(#Person). Class Name : Person  
+
+p{color:blue}. definition d'une personne
+			
+			
+*Super types* Tier
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| civility | Civility |   | [0..1] |  | civilité|
+|!icons/obj16/Attribute.gif!| firstName | Libelle |   | [0..1] |  | prenom|
+|!icons/obj16/Attribute.gif!| secondName | Libelle |   | [0..1] |  | nom|
+|!icons/obj16/Attribute.gif!| gender | Situation |   | [1..1] |  | situation familiale|
+			
+			
+h4. References
+
+
+
+
+h3(#Libelle). DataType Name : Libelle
+
+p{color:blue}. 
+
+
+
+h3(#Ville). DataType Name : Ville
+
+p{color:blue}. 
+
+
+
+h3(#PostalCode). DataType Name : PostalCode
+
+p{color:blue}. 
+
+
+
+h3(#CountryCode). DataType Name : CountryCode
+
+p{color:blue}. 
+
+
+
+h3(#MailFormat). DataType Name : MailFormat
+
+p{color:blue}. 
+
+
+
+h3(#PhoneFormat). DataType Name : PhoneFormat
+
+p{color:blue}. 
+
+
+
+h3(#City). DataType Name : City
+
+p{color:blue}. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

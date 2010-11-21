@@ -1,0 +1,48 @@
+
+
+ 
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Date;
+1;day;;;;Day;
+2;month;;;;Month;
+3;year;;;;Year;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Invoice;
+1;header;;;;Header;
+2;items;[1..*];;;Item;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Header;
+1;date;;;;Date;
+2;billTo;;;;BillTo;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Item;
+1;description;[1..*];;;Description;
+2;price;;;;Price;
+3;discount;;;;Discount;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+BillTo;
+1;customerNumber;;;;CustNumber;
+2;name;;;;Name;
+3;maried;;;;O_N;
+4;phone;;;;Phone;
+5;address;;;;Address;
+
+objet ; structure ; cardinalités ; type ; contraintes ; constantes ; sémantique ; documentation
+
+Address;
+1;street1;;;;StreetLine;
+2;street2;[0..1];;;StreetLine;
+3;city;;;;City;
+4;state;;;;State;
+5;province;;;;Province;
+6;zip;;;;Zip;

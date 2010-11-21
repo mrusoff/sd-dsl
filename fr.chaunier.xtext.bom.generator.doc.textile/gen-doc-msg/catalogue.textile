@@ -1,0 +1,111 @@
+
+!icons/Telintrans.jpg!
+	
+h1. package : catalogue
+
+table{border:1px solid black}.
+| **name** | catalogue
+| **namspace** | org.toto
+| **prefix** | cat
+
+
+h2.	Classes definition
+
+* !icons/obj16/Class.gif!"Catalogue":#Catalogue
+* !icons/obj16/Class.gif!"Publication":#Publication
+* !icons/obj16/Class.gif!"BookType":#BookType
+* !icons/obj16/Class.gif!"Magazine":#Magazine
+
+
+h2. Types definition
+
+* !icons/obj16/Datatype.gif!"String":#String
+* !icons/obj16/Datatype.gif!"Date":#Date
+
+
+	
+
+
+
+h3(#Catalogue). Class Name : Catalogue  
+
+p{color:blue}. 
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| name | String |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Publication). Class Name : Publication  
+
+p{color:blue}. 
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| title | String |   | [1..1] |  | |
+|!icons/obj16/Attribute.gif!| author | String |   | [1..*] |  | |
+|!icons/obj16/Attribute.gif!| date | Date |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#BookType). Class Name : BookType  
+
+p{color:blue}. 
+			
+			
+*Super types* Publication
+			
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Documentation  | 
+|!icons/obj16/Attribute.gif!| isbn | String |   | [1..1] |  | |
+|!icons/obj16/Attribute.gif!| publisher | String |   | [1..1] |  | |
+			
+			
+h4. References
+
+
+
+h3(#Magazine). Class Name : Magazine  
+
+p{color:blue}. 
+			
+			
+*Super types* Publication
+			
+			
+h4. References
+
+
+
+
+h3(#String). DataType Name : String
+
+p{color:blue}. 
+
+
+
+h3(#Date). DataType Name : Date
+
+p{color:blue}. 
+
+
+
+
+
+
+
+
+	
