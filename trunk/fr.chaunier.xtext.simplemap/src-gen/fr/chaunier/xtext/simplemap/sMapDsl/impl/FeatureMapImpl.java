@@ -8,16 +8,26 @@ package fr.chaunier.xtext.simplemap.sMapDsl.impl;
 
 import fr.chaunier.xtext.bom.bomDsl.Attribute;
 
+import fr.chaunier.xtext.simplemap.sMapDsl.Expression;
 import fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap;
+import fr.chaunier.xtext.simplemap.sMapDsl.MappingModule;
 import fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,14 +36,13 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getLeftField <em>Left Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getRightField <em>Right Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getRule <em>Rule</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getLeftFields <em>Left Fields</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getRightFields <em>Right Fields</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getSetLeftField <em>Set Left Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getValLeft <em>Val Left</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getExpr <em>Expr</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getSetRightField <em>Set Right Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getValRight <em>Val Right</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getIgnoreLeftField <em>Ignore Left Field</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getModule <em>Module</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getRules <em>Rules</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
@@ -43,44 +52,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class FeatureMapImpl extends MinimalEObjectImpl.Container implements FeatureMap
 {
   /**
-   * The cached value of the '{@link #getLeftField() <em>Left Field</em>}' reference.
+   * The cached value of the '{@link #getLeftFields() <em>Left Fields</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLeftField()
+   * @see #getLeftFields()
    * @generated
    * @ordered
    */
-  protected Attribute leftField;
+  protected EList<Attribute> leftFields;
 
   /**
-   * The cached value of the '{@link #getRightField() <em>Right Field</em>}' reference.
+   * The cached value of the '{@link #getRightFields() <em>Right Fields</em>}' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRightField()
+   * @see #getRightFields()
    * @generated
    * @ordered
    */
-  protected Attribute rightField;
-
-  /**
-   * The default value of the '{@link #getRule() <em>Rule</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRule()
-   * @generated
-   * @ordered
-   */
-  protected static final String RULE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getRule() <em>Rule</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRule()
-   * @generated
-   * @ordered
-   */
-  protected String rule = RULE_EDEFAULT;
+  protected EList<Attribute> rightFields;
 
   /**
    * The cached value of the '{@link #getSetLeftField() <em>Set Left Field</em>}' reference.
@@ -93,24 +82,14 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
   protected Attribute setLeftField;
 
   /**
-   * The default value of the '{@link #getValLeft() <em>Val Left</em>}' attribute.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValLeft()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected static final String VAL_LEFT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValLeft() <em>Val Left</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValLeft()
-   * @generated
-   * @ordered
-   */
-  protected String valLeft = VAL_LEFT_EDEFAULT;
+  protected Expression expr;
 
   /**
    * The cached value of the '{@link #getSetRightField() <em>Set Right Field</em>}' reference.
@@ -123,34 +102,24 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
   protected Attribute setRightField;
 
   /**
-   * The default value of the '{@link #getValRight() <em>Val Right</em>}' attribute.
+   * The cached value of the '{@link #getModule() <em>Module</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValRight()
+   * @see #getModule()
    * @generated
    * @ordered
    */
-  protected static final String VAL_RIGHT_EDEFAULT = null;
+  protected MappingModule module;
 
   /**
-   * The cached value of the '{@link #getValRight() <em>Val Right</em>}' attribute.
+   * The cached value of the '{@link #getRules() <em>Rules</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValRight()
+   * @see #getRules()
    * @generated
    * @ordered
    */
-  protected String valRight = VAL_RIGHT_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getIgnoreLeftField() <em>Ignore Left Field</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIgnoreLeftField()
-   * @generated
-   * @ordered
-   */
-  protected Attribute ignoreLeftField;
+  protected EList<String> rules;
 
   /**
    * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
@@ -198,19 +167,13 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute getLeftField()
+  public EList<Attribute> getLeftFields()
   {
-    if (leftField != null && leftField.eIsProxy())
+    if (leftFields == null)
     {
-      InternalEObject oldLeftField = (InternalEObject)leftField;
-      leftField = (Attribute)eResolveProxy(oldLeftField);
-      if (leftField != oldLeftField)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SMapDslPackage.FEATURE_MAP__LEFT_FIELD, oldLeftField, leftField));
-      }
+      leftFields = new EObjectResolvingEList<Attribute>(Attribute.class, this, SMapDslPackage.FEATURE_MAP__LEFT_FIELDS);
     }
-    return leftField;
+    return leftFields;
   }
 
   /**
@@ -218,88 +181,13 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute basicGetLeftField()
+  public EList<Attribute> getRightFields()
   {
-    return leftField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLeftField(Attribute newLeftField)
-  {
-    Attribute oldLeftField = leftField;
-    leftField = newLeftField;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__LEFT_FIELD, oldLeftField, leftField));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute getRightField()
-  {
-    if (rightField != null && rightField.eIsProxy())
+    if (rightFields == null)
     {
-      InternalEObject oldRightField = (InternalEObject)rightField;
-      rightField = (Attribute)eResolveProxy(oldRightField);
-      if (rightField != oldRightField)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SMapDslPackage.FEATURE_MAP__RIGHT_FIELD, oldRightField, rightField));
-      }
+      rightFields = new EObjectResolvingEList<Attribute>(Attribute.class, this, SMapDslPackage.FEATURE_MAP__RIGHT_FIELDS);
     }
-    return rightField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute basicGetRightField()
-  {
-    return rightField;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRightField(Attribute newRightField)
-  {
-    Attribute oldRightField = rightField;
-    rightField = newRightField;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__RIGHT_FIELD, oldRightField, rightField));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getRule()
-  {
-    return rule;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRule(String newRule)
-  {
-    String oldRule = rule;
-    rule = newRule;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__RULE, oldRule, rule));
+    return rightFields;
   }
 
   /**
@@ -350,9 +238,9 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValLeft()
+  public Expression getExpr()
   {
-    return valLeft;
+    return expr;
   }
 
   /**
@@ -360,12 +248,37 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValLeft(String newValLeft)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    String oldValLeft = valLeft;
-    valLeft = newValLeft;
+    Expression oldExpr = expr;
+    expr = newExpr;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__VAL_LEFT, oldValLeft, valLeft));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExpr(Expression newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SMapDslPackage.FEATURE_MAP__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SMapDslPackage.FEATURE_MAP__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -416,42 +329,19 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValRight()
+  public MappingModule getModule()
   {
-    return valRight;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setValRight(String newValRight)
-  {
-    String oldValRight = valRight;
-    valRight = newValRight;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__VAL_RIGHT, oldValRight, valRight));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute getIgnoreLeftField()
-  {
-    if (ignoreLeftField != null && ignoreLeftField.eIsProxy())
+    if (module != null && module.eIsProxy())
     {
-      InternalEObject oldIgnoreLeftField = (InternalEObject)ignoreLeftField;
-      ignoreLeftField = (Attribute)eResolveProxy(oldIgnoreLeftField);
-      if (ignoreLeftField != oldIgnoreLeftField)
+      InternalEObject oldModule = (InternalEObject)module;
+      module = (MappingModule)eResolveProxy(oldModule);
+      if (module != oldModule)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD, oldIgnoreLeftField, ignoreLeftField));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, SMapDslPackage.FEATURE_MAP__MODULE, oldModule, module));
       }
     }
-    return ignoreLeftField;
+    return module;
   }
 
   /**
@@ -459,9 +349,9 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public Attribute basicGetIgnoreLeftField()
+  public MappingModule basicGetModule()
   {
-    return ignoreLeftField;
+    return module;
   }
 
   /**
@@ -469,12 +359,26 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIgnoreLeftField(Attribute newIgnoreLeftField)
+  public void setModule(MappingModule newModule)
   {
-    Attribute oldIgnoreLeftField = ignoreLeftField;
-    ignoreLeftField = newIgnoreLeftField;
+    MappingModule oldModule = module;
+    module = newModule;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD, oldIgnoreLeftField, ignoreLeftField));
+      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.FEATURE_MAP__MODULE, oldModule, module));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getRules()
+  {
+    if (rules == null)
+    {
+      rules = new EDataTypeEList<String>(String.class, this, SMapDslPackage.FEATURE_MAP__RULES);
+    }
+    return rules;
   }
 
   /**
@@ -506,31 +410,43 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case SMapDslPackage.FEATURE_MAP__EXPR:
+        return basicSetExpr(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
-      case SMapDslPackage.FEATURE_MAP__LEFT_FIELD:
-        if (resolve) return getLeftField();
-        return basicGetLeftField();
-      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELD:
-        if (resolve) return getRightField();
-        return basicGetRightField();
-      case SMapDslPackage.FEATURE_MAP__RULE:
-        return getRule();
+      case SMapDslPackage.FEATURE_MAP__LEFT_FIELDS:
+        return getLeftFields();
+      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELDS:
+        return getRightFields();
       case SMapDslPackage.FEATURE_MAP__SET_LEFT_FIELD:
         if (resolve) return getSetLeftField();
         return basicGetSetLeftField();
-      case SMapDslPackage.FEATURE_MAP__VAL_LEFT:
-        return getValLeft();
+      case SMapDslPackage.FEATURE_MAP__EXPR:
+        return getExpr();
       case SMapDslPackage.FEATURE_MAP__SET_RIGHT_FIELD:
         if (resolve) return getSetRightField();
         return basicGetSetRightField();
-      case SMapDslPackage.FEATURE_MAP__VAL_RIGHT:
-        return getValRight();
-      case SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD:
-        if (resolve) return getIgnoreLeftField();
-        return basicGetIgnoreLeftField();
+      case SMapDslPackage.FEATURE_MAP__MODULE:
+        if (resolve) return getModule();
+        return basicGetModule();
+      case SMapDslPackage.FEATURE_MAP__RULES:
+        return getRules();
       case SMapDslPackage.FEATURE_MAP__DOCUMENTATION:
         return getDocumentation();
     }
@@ -542,34 +458,35 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case SMapDslPackage.FEATURE_MAP__LEFT_FIELD:
-        setLeftField((Attribute)newValue);
+      case SMapDslPackage.FEATURE_MAP__LEFT_FIELDS:
+        getLeftFields().clear();
+        getLeftFields().addAll((Collection<? extends Attribute>)newValue);
         return;
-      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELD:
-        setRightField((Attribute)newValue);
-        return;
-      case SMapDslPackage.FEATURE_MAP__RULE:
-        setRule((String)newValue);
+      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELDS:
+        getRightFields().clear();
+        getRightFields().addAll((Collection<? extends Attribute>)newValue);
         return;
       case SMapDslPackage.FEATURE_MAP__SET_LEFT_FIELD:
         setSetLeftField((Attribute)newValue);
         return;
-      case SMapDslPackage.FEATURE_MAP__VAL_LEFT:
-        setValLeft((String)newValue);
+      case SMapDslPackage.FEATURE_MAP__EXPR:
+        setExpr((Expression)newValue);
         return;
       case SMapDslPackage.FEATURE_MAP__SET_RIGHT_FIELD:
         setSetRightField((Attribute)newValue);
         return;
-      case SMapDslPackage.FEATURE_MAP__VAL_RIGHT:
-        setValRight((String)newValue);
+      case SMapDslPackage.FEATURE_MAP__MODULE:
+        setModule((MappingModule)newValue);
         return;
-      case SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD:
-        setIgnoreLeftField((Attribute)newValue);
+      case SMapDslPackage.FEATURE_MAP__RULES:
+        getRules().clear();
+        getRules().addAll((Collection<? extends String>)newValue);
         return;
       case SMapDslPackage.FEATURE_MAP__DOCUMENTATION:
         setDocumentation((String)newValue);
@@ -588,29 +505,26 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
   {
     switch (featureID)
     {
-      case SMapDslPackage.FEATURE_MAP__LEFT_FIELD:
-        setLeftField((Attribute)null);
+      case SMapDslPackage.FEATURE_MAP__LEFT_FIELDS:
+        getLeftFields().clear();
         return;
-      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELD:
-        setRightField((Attribute)null);
-        return;
-      case SMapDslPackage.FEATURE_MAP__RULE:
-        setRule(RULE_EDEFAULT);
+      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELDS:
+        getRightFields().clear();
         return;
       case SMapDslPackage.FEATURE_MAP__SET_LEFT_FIELD:
         setSetLeftField((Attribute)null);
         return;
-      case SMapDslPackage.FEATURE_MAP__VAL_LEFT:
-        setValLeft(VAL_LEFT_EDEFAULT);
+      case SMapDslPackage.FEATURE_MAP__EXPR:
+        setExpr((Expression)null);
         return;
       case SMapDslPackage.FEATURE_MAP__SET_RIGHT_FIELD:
         setSetRightField((Attribute)null);
         return;
-      case SMapDslPackage.FEATURE_MAP__VAL_RIGHT:
-        setValRight(VAL_RIGHT_EDEFAULT);
+      case SMapDslPackage.FEATURE_MAP__MODULE:
+        setModule((MappingModule)null);
         return;
-      case SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD:
-        setIgnoreLeftField((Attribute)null);
+      case SMapDslPackage.FEATURE_MAP__RULES:
+        getRules().clear();
         return;
       case SMapDslPackage.FEATURE_MAP__DOCUMENTATION:
         setDocumentation(DOCUMENTATION_EDEFAULT);
@@ -629,22 +543,20 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
   {
     switch (featureID)
     {
-      case SMapDslPackage.FEATURE_MAP__LEFT_FIELD:
-        return leftField != null;
-      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELD:
-        return rightField != null;
-      case SMapDslPackage.FEATURE_MAP__RULE:
-        return RULE_EDEFAULT == null ? rule != null : !RULE_EDEFAULT.equals(rule);
+      case SMapDslPackage.FEATURE_MAP__LEFT_FIELDS:
+        return leftFields != null && !leftFields.isEmpty();
+      case SMapDslPackage.FEATURE_MAP__RIGHT_FIELDS:
+        return rightFields != null && !rightFields.isEmpty();
       case SMapDslPackage.FEATURE_MAP__SET_LEFT_FIELD:
         return setLeftField != null;
-      case SMapDslPackage.FEATURE_MAP__VAL_LEFT:
-        return VAL_LEFT_EDEFAULT == null ? valLeft != null : !VAL_LEFT_EDEFAULT.equals(valLeft);
+      case SMapDslPackage.FEATURE_MAP__EXPR:
+        return expr != null;
       case SMapDslPackage.FEATURE_MAP__SET_RIGHT_FIELD:
         return setRightField != null;
-      case SMapDslPackage.FEATURE_MAP__VAL_RIGHT:
-        return VAL_RIGHT_EDEFAULT == null ? valRight != null : !VAL_RIGHT_EDEFAULT.equals(valRight);
-      case SMapDslPackage.FEATURE_MAP__IGNORE_LEFT_FIELD:
-        return ignoreLeftField != null;
+      case SMapDslPackage.FEATURE_MAP__MODULE:
+        return module != null;
+      case SMapDslPackage.FEATURE_MAP__RULES:
+        return rules != null && !rules.isEmpty();
       case SMapDslPackage.FEATURE_MAP__DOCUMENTATION:
         return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
     }
@@ -662,12 +574,8 @@ public class FeatureMapImpl extends MinimalEObjectImpl.Container implements Feat
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (rule: ");
-    result.append(rule);
-    result.append(", valLeft: ");
-    result.append(valLeft);
-    result.append(", valRight: ");
-    result.append(valRight);
+    result.append(" (rules: ");
+    result.append(rules);
     result.append(", documentation: ");
     result.append(documentation);
     result.append(')');

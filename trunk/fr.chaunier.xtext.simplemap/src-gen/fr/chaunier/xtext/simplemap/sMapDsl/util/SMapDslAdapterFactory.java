@@ -84,6 +84,11 @@ public class SMapDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseRootModule(RootModule object)
+      {
+        return createRootModuleAdapter();
+      }
+      @Override
       public Adapter caseMappingModule(MappingModule object)
       {
         return createMappingModuleAdapter();
@@ -92,6 +97,11 @@ public class SMapDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFeatureMap(FeatureMap object)
       {
         return createFeatureMapAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -131,6 +141,21 @@ public class SMapDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.chaunier.xtext.simplemap.sMapDsl.RootModule <em>Root Module</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.RootModule
+   * @generated
+   */
+  public Adapter createRootModuleAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.chaunier.xtext.simplemap.sMapDsl.MappingModule <em>Mapping Module</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -156,6 +181,21 @@ public class SMapDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeatureMapAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.chaunier.xtext.simplemap.sMapDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
   {
     return null;
   }

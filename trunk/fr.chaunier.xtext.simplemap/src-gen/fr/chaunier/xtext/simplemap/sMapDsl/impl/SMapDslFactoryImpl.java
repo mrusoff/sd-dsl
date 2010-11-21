@@ -69,8 +69,10 @@ public class SMapDslFactoryImpl extends EFactoryImpl implements SMapDslFactory
     switch (eClass.getClassifierID())
     {
       case SMapDslPackage.MODEL: return createModel();
+      case SMapDslPackage.ROOT_MODULE: return createRootModule();
       case SMapDslPackage.MAPPING_MODULE: return createMappingModule();
       case SMapDslPackage.FEATURE_MAP: return createFeatureMap();
+      case SMapDslPackage.EXPRESSION: return createExpression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -85,6 +87,17 @@ public class SMapDslFactoryImpl extends EFactoryImpl implements SMapDslFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RootModule createRootModule()
+  {
+    RootModuleImpl rootModule = new RootModuleImpl();
+    return rootModule;
   }
 
   /**
@@ -107,6 +120,17 @@ public class SMapDslFactoryImpl extends EFactoryImpl implements SMapDslFactory
   {
     FeatureMapImpl featureMap = new FeatureMapImpl();
     return featureMap;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**

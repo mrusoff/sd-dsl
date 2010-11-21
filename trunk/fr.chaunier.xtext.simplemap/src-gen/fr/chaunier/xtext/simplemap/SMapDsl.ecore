@@ -4,23 +4,39 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sMapDsl"
     nsURI="http://www.chaunier.fr/xtext/simplemap/SMapDsl" nsPrefix="sMapDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappingModules" upperBound="-1"
         eType="#//MappingModule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="roots" upperBound="-1"
+        eType="#//RootModule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RootModule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rootRef" eType="#//MappingModule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappingModule">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mappedFeatures" upperBound="-1"
         eType="#//FeatureMap" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FeatureMap">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="leftField" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rightField" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rule" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftFields" unique="false"
+        upperBound="-1" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightFields" unique="false"
+        upperBound="-1" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="setLeftField" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valLeft" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="setRightField" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valRight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ignoreLeftField" eType="ecore:EClass ../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.ecore#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" eType="#//MappingModule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rules" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="documentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="intValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>

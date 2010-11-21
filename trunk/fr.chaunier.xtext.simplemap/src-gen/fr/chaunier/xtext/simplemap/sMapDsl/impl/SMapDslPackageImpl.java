@@ -8,9 +8,11 @@ package fr.chaunier.xtext.simplemap.sMapDsl.impl;
 
 import fr.chaunier.xtext.bom.bomDsl.BomDslPackage;
 
+import fr.chaunier.xtext.simplemap.sMapDsl.Expression;
 import fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap;
 import fr.chaunier.xtext.simplemap.sMapDsl.MappingModule;
 import fr.chaunier.xtext.simplemap.sMapDsl.Model;
+import fr.chaunier.xtext.simplemap.sMapDsl.RootModule;
 import fr.chaunier.xtext.simplemap.sMapDsl.SMapDslFactory;
 import fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage;
 
@@ -41,6 +43,13 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass rootModuleEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass mappingModuleEClass = null;
 
   /**
@@ -49,6 +58,13 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * @generated
    */
   private EClass featureMapEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -131,9 +147,69 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getModel_Name()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getModel_Documentation()
+  {
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getModel_MappingModules()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Roots()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRootModule()
+  {
+    return rootModuleEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRootModule_RootRef()
+  {
+    return (EReference)rootModuleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRootModule_Documentation()
+  {
+    return (EAttribute)rootModuleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -161,9 +237,19 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getMappingModule_Documentation()
+  {
+    return (EAttribute)mappingModuleEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getMappingModule_MappedFeatures()
   {
-    return (EReference)mappingModuleEClass.getEStructuralFeatures().get(1);
+    return (EReference)mappingModuleEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -181,7 +267,7 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureMap_LeftField()
+  public EReference getFeatureMap_LeftFields()
   {
     return (EReference)featureMapEClass.getEStructuralFeatures().get(0);
   }
@@ -191,7 +277,7 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureMap_RightField()
+  public EReference getFeatureMap_RightFields()
   {
     return (EReference)featureMapEClass.getEStructuralFeatures().get(1);
   }
@@ -201,9 +287,9 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeatureMap_Rule()
+  public EReference getFeatureMap_SetLeftField()
   {
-    return (EAttribute)featureMapEClass.getEStructuralFeatures().get(2);
+    return (EReference)featureMapEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -211,7 +297,7 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureMap_SetLeftField()
+  public EReference getFeatureMap_Expr()
   {
     return (EReference)featureMapEClass.getEStructuralFeatures().get(3);
   }
@@ -221,9 +307,9 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeatureMap_ValLeft()
+  public EReference getFeatureMap_SetRightField()
   {
-    return (EAttribute)featureMapEClass.getEStructuralFeatures().get(4);
+    return (EReference)featureMapEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -231,7 +317,7 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureMap_SetRightField()
+  public EReference getFeatureMap_Module()
   {
     return (EReference)featureMapEClass.getEStructuralFeatures().get(5);
   }
@@ -241,7 +327,7 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeatureMap_ValRight()
+  public EAttribute getFeatureMap_Rules()
   {
     return (EAttribute)featureMapEClass.getEStructuralFeatures().get(6);
   }
@@ -251,9 +337,9 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFeatureMap_IgnoreLeftField()
+  public EAttribute getFeatureMap_Documentation()
   {
-    return (EReference)featureMapEClass.getEStructuralFeatures().get(7);
+    return (EAttribute)featureMapEClass.getEStructuralFeatures().get(7);
   }
 
   /**
@@ -261,9 +347,29 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFeatureMap_Documentation()
+  public EClass getExpression()
   {
-    return (EAttribute)featureMapEClass.getEStructuralFeatures().get(8);
+    return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_Value()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExpression_IntValue()
+  {
+    return (EAttribute)expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -297,22 +403,33 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEAttribute(modelEClass, MODEL__NAME);
+    createEAttribute(modelEClass, MODEL__DOCUMENTATION);
     createEReference(modelEClass, MODEL__MAPPING_MODULES);
+    createEReference(modelEClass, MODEL__ROOTS);
+
+    rootModuleEClass = createEClass(ROOT_MODULE);
+    createEReference(rootModuleEClass, ROOT_MODULE__ROOT_REF);
+    createEAttribute(rootModuleEClass, ROOT_MODULE__DOCUMENTATION);
 
     mappingModuleEClass = createEClass(MAPPING_MODULE);
     createEAttribute(mappingModuleEClass, MAPPING_MODULE__NAME);
+    createEAttribute(mappingModuleEClass, MAPPING_MODULE__DOCUMENTATION);
     createEReference(mappingModuleEClass, MAPPING_MODULE__MAPPED_FEATURES);
 
     featureMapEClass = createEClass(FEATURE_MAP);
-    createEReference(featureMapEClass, FEATURE_MAP__LEFT_FIELD);
-    createEReference(featureMapEClass, FEATURE_MAP__RIGHT_FIELD);
-    createEAttribute(featureMapEClass, FEATURE_MAP__RULE);
+    createEReference(featureMapEClass, FEATURE_MAP__LEFT_FIELDS);
+    createEReference(featureMapEClass, FEATURE_MAP__RIGHT_FIELDS);
     createEReference(featureMapEClass, FEATURE_MAP__SET_LEFT_FIELD);
-    createEAttribute(featureMapEClass, FEATURE_MAP__VAL_LEFT);
+    createEReference(featureMapEClass, FEATURE_MAP__EXPR);
     createEReference(featureMapEClass, FEATURE_MAP__SET_RIGHT_FIELD);
-    createEAttribute(featureMapEClass, FEATURE_MAP__VAL_RIGHT);
-    createEReference(featureMapEClass, FEATURE_MAP__IGNORE_LEFT_FIELD);
+    createEReference(featureMapEClass, FEATURE_MAP__MODULE);
+    createEAttribute(featureMapEClass, FEATURE_MAP__RULES);
     createEAttribute(featureMapEClass, FEATURE_MAP__DOCUMENTATION);
+
+    expressionEClass = createEClass(EXPRESSION);
+    createEAttribute(expressionEClass, EXPRESSION__VALUE);
+    createEAttribute(expressionEClass, EXPRESSION__INT_VALUE);
   }
 
   /**
@@ -350,22 +467,33 @@ public class SMapDslPackageImpl extends EPackageImpl implements SMapDslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getModel_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_MappingModules(), this.getMappingModule(), null, "mappingModules", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Roots(), this.getRootModule(), null, "roots", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rootModuleEClass, RootModule.class, "RootModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRootModule_RootRef(), this.getMappingModule(), null, "rootRef", null, 0, 1, RootModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRootModule_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, RootModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(mappingModuleEClass, MappingModule.class, "MappingModule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMappingModule_Name(), ecorePackage.getEString(), "name", null, 0, 1, MappingModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getMappingModule_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, MappingModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMappingModule_MappedFeatures(), this.getFeatureMap(), null, "mappedFeatures", null, 0, -1, MappingModule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureMapEClass, FeatureMap.class, "FeatureMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeatureMap_LeftField(), theBomDslPackage.getAttribute(), null, "leftField", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureMap_RightField(), theBomDslPackage.getAttribute(), null, "rightField", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeatureMap_Rule(), ecorePackage.getEString(), "rule", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureMap_LeftFields(), theBomDslPackage.getAttribute(), null, "leftFields", null, 0, -1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureMap_RightFields(), theBomDslPackage.getAttribute(), null, "rightFields", null, 0, -1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureMap_SetLeftField(), theBomDslPackage.getAttribute(), null, "setLeftField", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeatureMap_ValLeft(), ecorePackage.getEString(), "valLeft", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureMap_Expr(), this.getExpression(), null, "expr", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureMap_SetRightField(), theBomDslPackage.getAttribute(), null, "setRightField", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFeatureMap_ValRight(), ecorePackage.getEString(), "valRight", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureMap_IgnoreLeftField(), theBomDslPackage.getAttribute(), null, "ignoreLeftField", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureMap_Module(), this.getMappingModule(), null, "module", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeatureMap_Rules(), ecorePackage.getEString(), "rules", null, 0, -1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeatureMap_Documentation(), ecorePackage.getEString(), "documentation", null, 0, 1, FeatureMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExpression_Value(), ecorePackage.getEString(), "value", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpression_IntValue(), ecorePackage.getEInt(), "intValue", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);
