@@ -1,0 +1,15 @@
+«IMPORT fr::chaunier::xtext::bom::bomDsl»
+
+«DEFINE EDataTypeTemplate FOR AbstractElement-»
+«ENDDEFINE»
+
+«DEFINE EClassTemplate FOR AbstractElement-»
+«ENDDEFINE»
+
+«DEFINE EDataTypeTemplate FOR DataType-»
+* !icons/obj16/Datatype.gif!"«this.name»":#«this.name»
+«ENDDEFINE»
+
+«DEFINE EClassTemplate FOR Entity-»
+* !icons/obj16/Class.gif!"«this.name»":#«this.name»
+«ENDDEFINE»
