@@ -7,67 +7,77 @@ package fr.chaunier.xtext.bom.ui.contentassist.antlr.internal;
 import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 }
 
-T11 : 'false' ;
-T12 : 'as String' ;
-T13 : 'as bool String' ;
-T14 : 'as Value' ;
-T15 : 'as bool Value' ;
-T16 : 'import' ;
-T17 : 'package' ;
-T18 : '{' ;
-T19 : '}' ;
-T20 : 'prefix' ;
-T21 : 'namespace' ;
-T22 : 'datatype' ;
-T23 : 'entity' ;
-T24 : 'extends' ;
-T25 : ':' ;
-T26 : 'ref' ;
-T27 : 'opposite' ;
-T28 : '.*' ;
-T29 : '.' ;
-T30 : 'minLen' ;
-T31 : 'maxLen' ;
-T32 : 'fixeLen' ;
-T33 : 'regexp' ;
-T34 : 'minVal' ;
-T35 : 'maxVal' ;
-T36 : 'paddle' ;
-T37 : 'enumeration' ;
-T38 : '[' ;
-T39 : ']' ;
-T40 : ';' ;
-T41 : '=' ;
-T42 : 'enum' ;
-T43 : '*' ;
-T44 : '?' ;
-T45 : 'boolean' ;
-T46 : 'default' ;
-T47 : 'true' ;
-T48 : 'string' ;
-T49 : 'datetime' ;
-T50 : 'integer' ;
-T51 : 'decimal' ;
+T11 : 'DTD' ;
+T12 : 'FLAT' ;
+T13 : 'CSV' ;
+T14 : 'DB' ;
+T15 : 'false' ;
+T16 : 'as String' ;
+T17 : 'as bool String' ;
+T18 : 'as Value' ;
+T19 : 'as bool Value' ;
+T20 : 'import' ;
+T21 : 'package' ;
+T22 : '{' ;
+T23 : '}' ;
+T24 : 'prefix' ;
+T25 : 'namespace' ;
+T26 : 'format' ;
+T27 : 'delimiter' ;
+T28 : 'lineSpec' ;
+T29 : 'datatype' ;
+T30 : 'entity' ;
+T31 : 'extends' ;
+T32 : ':' ;
+T33 : 'ref' ;
+T34 : 'opposite' ;
+T35 : 'enumeration' ;
+T36 : '[' ;
+T37 : ']' ;
+T38 : ';' ;
+T39 : '=' ;
+T40 : '.*' ;
+T41 : '.' ;
+T42 : 'minLen' ;
+T43 : 'maxLen' ;
+T44 : 'fixeLen' ;
+T45 : 'regexp' ;
+T46 : 'minVal' ;
+T47 : 'maxVal' ;
+T48 : 'paddle' ;
+T49 : 'enum' ;
+T50 : 'XSD' ;
+T51 : '*' ;
+T52 : '?' ;
+T53 : 'boolean' ;
+T54 : 'default' ;
+T55 : 'true' ;
+T56 : 'string' ;
+T57 : 'fixed' ;
+T58 : 'xsd Att.' ;
+T59 : 'datetime' ;
+T60 : 'integer' ;
+T61 : 'decimal' ;
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5791
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6959
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5793
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6961
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5795
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6963
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5797
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6965
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5799
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6967
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5801
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6969
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 5803
+// $ANTLR src "../fr.chaunier.xtext.bom.ui/src-gen/fr/chaunier/xtext/bom/ui/contentassist/antlr/internal/InternalBomDsl.g" 6971
 RULE_ANY_OTHER : .;
 
 
