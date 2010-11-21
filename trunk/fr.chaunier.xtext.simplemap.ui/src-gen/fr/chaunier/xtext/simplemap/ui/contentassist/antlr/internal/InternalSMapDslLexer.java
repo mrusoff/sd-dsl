@@ -14,9 +14,15 @@ import java.util.ArrayList;
 public class InternalSMapDslLexer extends Lexer {
     public static final int RULE_ID=4;
     public static final int RULE_ANY_OTHER=10;
-    public static final int Tokens=22;
+    public static final int T27=27;
+    public static final int T26=26;
+    public static final int T25=25;
+    public static final int Tokens=28;
+    public static final int T24=24;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T23=23;
+    public static final int T22=22;
     public static final int T21=21;
     public static final int T20=20;
     public static final int RULE_ML_COMMENT=7;
@@ -42,10 +48,11 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT11() throws RecognitionException {
         try {
             int _type = T11;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:10:5: ( '.' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:10:7: '.'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:10:5: ( 'model' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:10:7: 'model'
             {
-            match('.'); 
+            match("model"); 
+
 
             }
 
@@ -60,11 +67,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT12() throws RecognitionException {
         try {
             int _type = T12;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:11:5: ( 'module' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:11:7: 'module'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:11:5: ( '.' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:11:7: '.'
             {
-            match("module"); 
-
+            match('.'); 
 
             }
 
@@ -79,10 +85,11 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT13() throws RecognitionException {
         try {
             int _type = T13;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:12:5: ( '{' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:12:7: '{'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:12:5: ( 'root' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:12:7: 'root'
             {
-            match('{'); 
+            match("root"); 
+
 
             }
 
@@ -97,10 +104,11 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT14() throws RecognitionException {
         try {
             int _type = T14;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:13:5: ( '}' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:13:7: '}'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:13:5: ( 'module' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:13:7: 'module'
             {
-            match('}'); 
+            match("module"); 
+
 
             }
 
@@ -115,10 +123,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT15() throws RecognitionException {
         try {
             int _type = T15;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:14:5: ( ';' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:14:7: ';'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:14:5: ( '{' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:14:7: '{'
             {
-            match(';'); 
+            match('{'); 
 
             }
 
@@ -133,11 +141,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT16() throws RecognitionException {
         try {
             int _type = T16;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:15:5: ( 'map' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:15:7: 'map'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:15:5: ( '}' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:15:7: '}'
             {
-            match("map"); 
-
+            match('}'); 
 
             }
 
@@ -152,11 +159,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT17() throws RecognitionException {
         try {
             int _type = T17;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:16:5: ( '=>' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:16:7: '=>'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:16:5: ( ';' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:16:7: ';'
             {
-            match("=>"); 
-
+            match(';'); 
 
             }
 
@@ -171,10 +177,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT18() throws RecognitionException {
         try {
             int _type = T18;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:17:5: ( 'set left' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:17:7: 'set left'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:17:5: ( 'map' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:17:7: 'map'
             {
-            match("set left"); 
+            match("map"); 
 
 
             }
@@ -190,10 +196,11 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT19() throws RecognitionException {
         try {
             int _type = T19;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:18:5: ( '=' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:18:7: '='
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:18:5: ( '=>' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:18:7: '=>'
             {
-            match('='); 
+            match("=>"); 
+
 
             }
 
@@ -208,11 +215,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT20() throws RecognitionException {
         try {
             int _type = T20;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:19:5: ( 'set right' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:19:7: 'set right'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:19:5: ( ',' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:19:7: ','
             {
-            match("set right"); 
-
+            match(','); 
 
             }
 
@@ -227,10 +233,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mT21() throws RecognitionException {
         try {
             int _type = T21;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:20:5: ( 'ignore left' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:20:7: 'ignore left'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:20:5: ( 'set left' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:20:7: 'set left'
             {
-            match("ignore left"); 
+            match("set left"); 
 
 
             }
@@ -242,14 +248,127 @@ public class InternalSMapDslLexer extends Lexer {
     }
     // $ANTLR end T21
 
+    // $ANTLR start T22
+    public final void mT22() throws RecognitionException {
+        try {
+            int _type = T22;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:21:5: ( '=' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:21:7: '='
+            {
+            match('='); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T22
+
+    // $ANTLR start T23
+    public final void mT23() throws RecognitionException {
+        try {
+            int _type = T23;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:22:5: ( 'set right' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:22:7: 'set right'
+            {
+            match("set right"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T23
+
+    // $ANTLR start T24
+    public final void mT24() throws RecognitionException {
+        try {
+            int _type = T24;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:23:5: ( 'ignore left' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:23:7: 'ignore left'
+            {
+            match("ignore left"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T24
+
+    // $ANTLR start T25
+    public final void mT25() throws RecognitionException {
+        try {
+            int _type = T25;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:24:5: ( 'ignore right' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:24:7: 'ignore right'
+            {
+            match("ignore right"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T25
+
+    // $ANTLR start T26
+    public final void mT26() throws RecognitionException {
+        try {
+            int _type = T26;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:25:5: ( 'call module' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:25:7: 'call module'
+            {
+            match("call module"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T26
+
+    // $ANTLR start T27
+    public final void mT27() throws RecognitionException {
+        try {
+            int _type = T27;
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:26:5: ( 'rule' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:26:7: 'rule'
+            {
+            match("rule"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T27
+
     // $ANTLR start RULE_ID
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1267:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1267:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2580:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2580:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1267:11: ( '^' )?
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2580:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -258,7 +377,7 @@ public class InternalSMapDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1267:11: '^'
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2580:11: '^'
                     {
                     match('^'); 
 
@@ -277,7 +396,7 @@ public class InternalSMapDslLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1267:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2580:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -325,10 +444,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1269:10: ( ( '0' .. '9' )+ )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1269:12: ( '0' .. '9' )+
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2582:10: ( ( '0' .. '9' )+ )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2582:12: ( '0' .. '9' )+
             {
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1269:12: ( '0' .. '9' )+
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2582:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -342,7 +461,7 @@ public class InternalSMapDslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1269:13: '0' .. '9'
+            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2582:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -372,10 +491,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -387,16 +506,16 @@ public class InternalSMapDslLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1271:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("2584:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -412,7 +531,7 @@ public class InternalSMapDslLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -429,7 +548,7 @@ public class InternalSMapDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -455,10 +574,10 @@ public class InternalSMapDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -474,7 +593,7 @@ public class InternalSMapDslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -491,7 +610,7 @@ public class InternalSMapDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1271:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2584:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -533,12 +652,12 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1273:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1273:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2586:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2586:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1273:24: ( options {greedy=false; } : . )*
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2586:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -563,7 +682,7 @@ public class InternalSMapDslLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1273:52: .
+            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2586:52: .
             	    {
             	    matchAny(); 
 
@@ -591,12 +710,12 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -609,7 +728,7 @@ public class InternalSMapDslLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -630,7 +749,7 @@ public class InternalSMapDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:40: ( ( '\\r' )? '\\n' )?
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -639,9 +758,9 @@ public class InternalSMapDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:41: ( '\\r' )? '\\n'
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:41: ( '\\r' )? '\\n'
                     {
-                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:41: ( '\\r' )?
+                    // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -650,7 +769,7 @@ public class InternalSMapDslLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1275:41: '\\r'
+                            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2588:41: '\\r'
                             {
                             match('\r'); 
 
@@ -680,10 +799,10 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1277:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1277:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2590:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2590:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1277:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2590:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -736,8 +855,8 @@ public class InternalSMapDslLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1279:16: ( . )
-            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1279:18: .
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2592:16: ( . )
+            // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:2592:18: .
             {
             matchAny(); 
 
@@ -751,220 +870,334 @@ public class InternalSMapDslLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=18;
+        // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=24;
         int LA12_0 = input.LA(1);
 
-        if ( (LA12_0=='.') ) {
-            alt12=1;
-        }
-        else if ( (LA12_0=='m') ) {
+        if ( (LA12_0=='m') ) {
             switch ( input.LA(2) ) {
             case 'o':
                 {
-                int LA12_18 = input.LA(3);
+                int LA12_20 = input.LA(3);
 
-                if ( (LA12_18=='d') ) {
-                    int LA12_33 = input.LA(4);
+                if ( (LA12_20=='d') ) {
+                    switch ( input.LA(4) ) {
+                    case 'u':
+                        {
+                        int LA12_47 = input.LA(5);
 
-                    if ( (LA12_33=='u') ) {
-                        int LA12_37 = input.LA(5);
+                        if ( (LA12_47=='l') ) {
+                            int LA12_55 = input.LA(6);
 
-                        if ( (LA12_37=='l') ) {
-                            int LA12_41 = input.LA(6);
+                            if ( (LA12_55=='e') ) {
+                                int LA12_63 = input.LA(7);
 
-                            if ( (LA12_41=='e') ) {
-                                int LA12_45 = input.LA(7);
-
-                                if ( ((LA12_45>='0' && LA12_45<='9')||(LA12_45>='A' && LA12_45<='Z')||LA12_45=='_'||(LA12_45>='a' && LA12_45<='z')) ) {
-                                    alt12=12;
+                                if ( ((LA12_63>='0' && LA12_63<='9')||(LA12_63>='A' && LA12_63<='Z')||LA12_63=='_'||(LA12_63>='a' && LA12_63<='z')) ) {
+                                    alt12=18;
                                 }
                                 else {
-                                    alt12=2;}
+                                    alt12=4;}
                             }
                             else {
-                                alt12=12;}
+                                alt12=18;}
                         }
                         else {
-                            alt12=12;}
-                    }
-                    else {
-                        alt12=12;}
+                            alt12=18;}
+                        }
+                        break;
+                    case 'e':
+                        {
+                        int LA12_48 = input.LA(5);
+
+                        if ( (LA12_48=='l') ) {
+                            int LA12_56 = input.LA(6);
+
+                            if ( ((LA12_56>='0' && LA12_56<='9')||(LA12_56>='A' && LA12_56<='Z')||LA12_56=='_'||(LA12_56>='a' && LA12_56<='z')) ) {
+                                alt12=18;
+                            }
+                            else {
+                                alt12=1;}
+                        }
+                        else {
+                            alt12=18;}
+                        }
+                        break;
+                    default:
+                        alt12=18;}
+
                 }
                 else {
-                    alt12=12;}
+                    alt12=18;}
                 }
                 break;
             case 'a':
                 {
-                int LA12_19 = input.LA(3);
+                int LA12_21 = input.LA(3);
 
-                if ( (LA12_19=='p') ) {
-                    int LA12_34 = input.LA(4);
+                if ( (LA12_21=='p') ) {
+                    int LA12_41 = input.LA(4);
 
-                    if ( ((LA12_34>='0' && LA12_34<='9')||(LA12_34>='A' && LA12_34<='Z')||LA12_34=='_'||(LA12_34>='a' && LA12_34<='z')) ) {
-                        alt12=12;
+                    if ( ((LA12_41>='0' && LA12_41<='9')||(LA12_41>='A' && LA12_41<='Z')||LA12_41=='_'||(LA12_41>='a' && LA12_41<='z')) ) {
+                        alt12=18;
                     }
                     else {
-                        alt12=6;}
+                        alt12=8;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=18;}
                 }
                 break;
             default:
-                alt12=12;}
+                alt12=18;}
+
+        }
+        else if ( (LA12_0=='.') ) {
+            alt12=2;
+        }
+        else if ( (LA12_0=='r') ) {
+            switch ( input.LA(2) ) {
+            case 'o':
+                {
+                int LA12_24 = input.LA(3);
+
+                if ( (LA12_24=='o') ) {
+                    int LA12_42 = input.LA(4);
+
+                    if ( (LA12_42=='t') ) {
+                        int LA12_50 = input.LA(5);
+
+                        if ( ((LA12_50>='0' && LA12_50<='9')||(LA12_50>='A' && LA12_50<='Z')||LA12_50=='_'||(LA12_50>='a' && LA12_50<='z')) ) {
+                            alt12=18;
+                        }
+                        else {
+                            alt12=3;}
+                    }
+                    else {
+                        alt12=18;}
+                }
+                else {
+                    alt12=18;}
+                }
+                break;
+            case 'u':
+                {
+                int LA12_25 = input.LA(3);
+
+                if ( (LA12_25=='l') ) {
+                    int LA12_43 = input.LA(4);
+
+                    if ( (LA12_43=='e') ) {
+                        int LA12_51 = input.LA(5);
+
+                        if ( ((LA12_51>='0' && LA12_51<='9')||(LA12_51>='A' && LA12_51<='Z')||LA12_51=='_'||(LA12_51>='a' && LA12_51<='z')) ) {
+                            alt12=18;
+                        }
+                        else {
+                            alt12=17;}
+                    }
+                    else {
+                        alt12=18;}
+                }
+                else {
+                    alt12=18;}
+                }
+                break;
+            default:
+                alt12=18;}
 
         }
         else if ( (LA12_0=='{') ) {
-            alt12=3;
-        }
-        else if ( (LA12_0=='}') ) {
-            alt12=4;
-        }
-        else if ( (LA12_0==';') ) {
             alt12=5;
         }
-        else if ( (LA12_0=='=') ) {
-            int LA12_6 = input.LA(2);
-
-            if ( (LA12_6=='>') ) {
-                alt12=7;
-            }
-            else {
-                alt12=9;}
+        else if ( (LA12_0=='}') ) {
+            alt12=6;
         }
-        else if ( (LA12_0=='s') ) {
+        else if ( (LA12_0==';') ) {
+            alt12=7;
+        }
+        else if ( (LA12_0=='=') ) {
             int LA12_7 = input.LA(2);
 
-            if ( (LA12_7=='e') ) {
-                int LA12_26 = input.LA(3);
+            if ( (LA12_7=='>') ) {
+                alt12=9;
+            }
+            else {
+                alt12=12;}
+        }
+        else if ( (LA12_0==',') ) {
+            alt12=10;
+        }
+        else if ( (LA12_0=='s') ) {
+            int LA12_9 = input.LA(2);
 
-                if ( (LA12_26=='t') ) {
-                    int LA12_35 = input.LA(4);
+            if ( (LA12_9=='e') ) {
+                int LA12_32 = input.LA(3);
 
-                    if ( (LA12_35==' ') ) {
-                        int LA12_39 = input.LA(5);
+                if ( (LA12_32=='t') ) {
+                    int LA12_44 = input.LA(4);
 
-                        if ( (LA12_39=='r') ) {
-                            alt12=10;
+                    if ( (LA12_44==' ') ) {
+                        int LA12_52 = input.LA(5);
+
+                        if ( (LA12_52=='r') ) {
+                            alt12=13;
                         }
-                        else if ( (LA12_39=='l') ) {
-                            alt12=8;
+                        else if ( (LA12_52=='l') ) {
+                            alt12=11;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 39, input);
+                                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 52, input);
 
                             throw nvae;
                         }
                     }
                     else {
-                        alt12=12;}
+                        alt12=18;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=18;}
             }
             else {
-                alt12=12;}
+                alt12=18;}
         }
         else if ( (LA12_0=='i') ) {
-            int LA12_8 = input.LA(2);
+            int LA12_10 = input.LA(2);
 
-            if ( (LA12_8=='g') ) {
-                int LA12_27 = input.LA(3);
+            if ( (LA12_10=='g') ) {
+                int LA12_33 = input.LA(3);
 
-                if ( (LA12_27=='n') ) {
-                    int LA12_36 = input.LA(4);
+                if ( (LA12_33=='n') ) {
+                    int LA12_45 = input.LA(4);
 
-                    if ( (LA12_36=='o') ) {
-                        int LA12_40 = input.LA(5);
+                    if ( (LA12_45=='o') ) {
+                        int LA12_53 = input.LA(5);
 
-                        if ( (LA12_40=='r') ) {
-                            int LA12_44 = input.LA(6);
+                        if ( (LA12_53=='r') ) {
+                            int LA12_61 = input.LA(6);
 
-                            if ( (LA12_44=='e') ) {
-                                int LA12_46 = input.LA(7);
+                            if ( (LA12_61=='e') ) {
+                                int LA12_65 = input.LA(7);
 
-                                if ( (LA12_46==' ') ) {
-                                    alt12=11;
+                                if ( (LA12_65==' ') ) {
+                                    int LA12_67 = input.LA(8);
+
+                                    if ( (LA12_67=='l') ) {
+                                        alt12=14;
+                                    }
+                                    else if ( (LA12_67=='r') ) {
+                                        alt12=15;
+                                    }
+                                    else {
+                                        NoViableAltException nvae =
+                                            new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 67, input);
+
+                                        throw nvae;
+                                    }
                                 }
                                 else {
-                                    alt12=12;}
+                                    alt12=18;}
                             }
                             else {
-                                alt12=12;}
+                                alt12=18;}
                         }
                         else {
-                            alt12=12;}
+                            alt12=18;}
                     }
                     else {
-                        alt12=12;}
+                        alt12=18;}
                 }
                 else {
-                    alt12=12;}
+                    alt12=18;}
             }
             else {
-                alt12=12;}
+                alt12=18;}
+        }
+        else if ( (LA12_0=='c') ) {
+            int LA12_11 = input.LA(2);
+
+            if ( (LA12_11=='a') ) {
+                int LA12_34 = input.LA(3);
+
+                if ( (LA12_34=='l') ) {
+                    int LA12_46 = input.LA(4);
+
+                    if ( (LA12_46=='l') ) {
+                        int LA12_54 = input.LA(5);
+
+                        if ( (LA12_54==' ') ) {
+                            alt12=16;
+                        }
+                        else {
+                            alt12=18;}
+                    }
+                    else {
+                        alt12=18;}
+                }
+                else {
+                    alt12=18;}
+            }
+            else {
+                alt12=18;}
         }
         else if ( (LA12_0=='^') ) {
-            int LA12_9 = input.LA(2);
-
-            if ( ((LA12_9>='A' && LA12_9<='Z')||LA12_9=='_'||(LA12_9>='a' && LA12_9<='z')) ) {
-                alt12=12;
-            }
-            else {
-                alt12=18;}
-        }
-        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='z')) ) {
-            alt12=12;
-        }
-        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
-            alt12=13;
-        }
-        else if ( (LA12_0=='\"') ) {
             int LA12_12 = input.LA(2);
 
-            if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFE')) ) {
-                alt12=14;
+            if ( ((LA12_12>='A' && LA12_12<='Z')||LA12_12=='_'||(LA12_12>='a' && LA12_12<='z')) ) {
+                alt12=18;
             }
             else {
-                alt12=18;}
+                alt12=24;}
+        }
+        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='b')||(LA12_0>='d' && LA12_0<='h')||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='q')||(LA12_0>='t' && LA12_0<='z')) ) {
+            alt12=18;
+        }
+        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
+            alt12=19;
+        }
+        else if ( (LA12_0=='\"') ) {
+            int LA12_15 = input.LA(2);
+
+            if ( ((LA12_15>='\u0000' && LA12_15<='\uFFFE')) ) {
+                alt12=20;
+            }
+            else {
+                alt12=24;}
         }
         else if ( (LA12_0=='\'') ) {
-            int LA12_13 = input.LA(2);
+            int LA12_16 = input.LA(2);
 
-            if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFE')) ) {
-                alt12=14;
+            if ( ((LA12_16>='\u0000' && LA12_16<='\uFFFE')) ) {
+                alt12=20;
             }
             else {
-                alt12=18;}
+                alt12=24;}
         }
         else if ( (LA12_0=='/') ) {
             switch ( input.LA(2) ) {
-            case '/':
-                {
-                alt12=16;
-                }
-                break;
             case '*':
                 {
-                alt12=15;
+                alt12=21;
+                }
+                break;
+            case '/':
+                {
+                alt12=22;
                 }
                 break;
             default:
-                alt12=18;}
+                alt12=24;}
 
         }
         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
-            alt12=17;
+            alt12=23;
         }
-        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='-')||LA12_0==':'||LA12_0=='<'||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
-            alt12=18;
+        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='(' && LA12_0<='+')||LA12_0=='-'||LA12_0==':'||LA12_0=='<'||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
+            alt12=24;
         }
         else {
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
 
             throw nvae;
         }
@@ -1047,49 +1280,91 @@ public class InternalSMapDslLexer extends Lexer {
                 }
                 break;
             case 12 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:54: RULE_ID
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:54: T22
+                {
+                mT22(); 
+
+                }
+                break;
+            case 13 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:58: T23
+                {
+                mT23(); 
+
+                }
+                break;
+            case 14 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:62: T24
+                {
+                mT24(); 
+
+                }
+                break;
+            case 15 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:66: T25
+                {
+                mT25(); 
+
+                }
+                break;
+            case 16 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:70: T26
+                {
+                mT26(); 
+
+                }
+                break;
+            case 17 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:74: T27
+                {
+                mT27(); 
+
+                }
+                break;
+            case 18 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:78: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 13 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:62: RULE_INT
+            case 19 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:86: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 14 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:71: RULE_STRING
+            case 20 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:95: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 15 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:83: RULE_ML_COMMENT
+            case 21 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:107: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:99: RULE_SL_COMMENT
+            case 22 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:123: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 17 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:115: RULE_WS
+            case 23 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:139: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 18 :
-                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:123: RULE_ANY_OTHER
+            case 24 :
+                // ../fr.chaunier.xtext.simplemap.ui/src-gen/fr/chaunier/xtext/simplemap/ui/contentassist/antlr/internal/InternalSMapDsl.g:1:147: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
