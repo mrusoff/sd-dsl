@@ -34,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.MappingModuleImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.MappingModuleImpl#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.MappingModuleImpl#getMappedFeatures <em>Mapped Features</em>}</li>
  * </ul>
  * </p>
@@ -61,6 +62,26 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected static final String DOCUMENTATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getDocumentation() <em>Documentation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDocumentation()
+   * @generated
+   * @ordered
+   */
+  protected String documentation = DOCUMENTATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getMappedFeatures() <em>Mapped Features</em>}' containment reference list.
@@ -121,6 +142,29 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getDocumentation()
+  {
+    return documentation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDocumentation(String newDocumentation)
+  {
+    String oldDocumentation = documentation;
+    documentation = newDocumentation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, SMapDslPackage.MAPPING_MODULE__DOCUMENTATION, oldDocumentation, documentation));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<FeatureMap> getMappedFeatures()
   {
     if (mappedFeatures == null)
@@ -158,6 +202,8 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
     {
       case SMapDslPackage.MAPPING_MODULE__NAME:
         return getName();
+      case SMapDslPackage.MAPPING_MODULE__DOCUMENTATION:
+        return getDocumentation();
       case SMapDslPackage.MAPPING_MODULE__MAPPED_FEATURES:
         return getMappedFeatures();
     }
@@ -177,6 +223,9 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
     {
       case SMapDslPackage.MAPPING_MODULE__NAME:
         setName((String)newValue);
+        return;
+      case SMapDslPackage.MAPPING_MODULE__DOCUMENTATION:
+        setDocumentation((String)newValue);
         return;
       case SMapDslPackage.MAPPING_MODULE__MAPPED_FEATURES:
         getMappedFeatures().clear();
@@ -199,6 +248,9 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
       case SMapDslPackage.MAPPING_MODULE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case SMapDslPackage.MAPPING_MODULE__DOCUMENTATION:
+        setDocumentation(DOCUMENTATION_EDEFAULT);
+        return;
       case SMapDslPackage.MAPPING_MODULE__MAPPED_FEATURES:
         getMappedFeatures().clear();
         return;
@@ -218,6 +270,8 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
     {
       case SMapDslPackage.MAPPING_MODULE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case SMapDslPackage.MAPPING_MODULE__DOCUMENTATION:
+        return DOCUMENTATION_EDEFAULT == null ? documentation != null : !DOCUMENTATION_EDEFAULT.equals(documentation);
       case SMapDslPackage.MAPPING_MODULE__MAPPED_FEATURES:
         return mappedFeatures != null && !mappedFeatures.isEmpty();
     }
@@ -237,6 +291,8 @@ public class MappingModuleImpl extends MinimalEObjectImpl.Container implements M
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", documentation: ");
+    result.append(documentation);
     result.append(')');
     return result.toString();
   }

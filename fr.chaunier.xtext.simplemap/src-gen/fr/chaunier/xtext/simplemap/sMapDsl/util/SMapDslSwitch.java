@@ -103,6 +103,13 @@ public class SMapDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case SMapDslPackage.ROOT_MODULE:
+      {
+        RootModule rootModule = (RootModule)theEObject;
+        T result = caseRootModule(rootModule);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SMapDslPackage.MAPPING_MODULE:
       {
         MappingModule mappingModule = (MappingModule)theEObject;
@@ -114,6 +121,13 @@ public class SMapDslSwitch<T>
       {
         FeatureMap featureMap = (FeatureMap)theEObject;
         T result = caseFeatureMap(featureMap);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SMapDslPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,6 +147,22 @@ public class SMapDslSwitch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Root Module</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Root Module</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRootModule(RootModule object)
   {
     return null;
   }
@@ -165,6 +195,22 @@ public class SMapDslSwitch<T>
    * @generated
    */
   public T caseFeatureMap(FeatureMap object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
   {
     return null;
   }

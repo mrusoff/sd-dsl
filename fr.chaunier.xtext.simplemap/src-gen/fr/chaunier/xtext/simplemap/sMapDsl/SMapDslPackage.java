@@ -71,13 +71,40 @@ public interface SMapDslPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__DOCUMENTATION = 1;
+
+  /**
    * The feature id for the '<em><b>Mapping Modules</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__MAPPING_MODULES = 0;
+  int MODEL__MAPPING_MODULES = 2;
+
+  /**
+   * The feature id for the '<em><b>Roots</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ROOTS = 3;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -86,7 +113,44 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.RootModuleImpl <em>Root Module</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.RootModuleImpl
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getRootModule()
+   * @generated
+   */
+  int ROOT_MODULE = 1;
+
+  /**
+   * The feature id for the '<em><b>Root Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOT_MODULE__ROOT_REF = 0;
+
+  /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOT_MODULE__DOCUMENTATION = 1;
+
+  /**
+   * The number of structural features of the '<em>Root Module</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ROOT_MODULE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.MappingModuleImpl <em>Mapping Module</em>}' class.
@@ -96,7 +160,7 @@ public interface SMapDslPackage extends EPackage
    * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getMappingModule()
    * @generated
    */
-  int MAPPING_MODULE = 1;
+  int MAPPING_MODULE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -108,13 +172,22 @@ public interface SMapDslPackage extends EPackage
   int MAPPING_MODULE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Documentation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MAPPING_MODULE__DOCUMENTATION = 1;
+
+  /**
    * The feature id for the '<em><b>Mapped Features</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAPPING_MODULE__MAPPED_FEATURES = 1;
+  int MAPPING_MODULE__MAPPED_FEATURES = 2;
 
   /**
    * The number of structural features of the '<em>Mapping Module</em>' class.
@@ -123,7 +196,7 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MAPPING_MODULE_FEATURE_COUNT = 2;
+  int MAPPING_MODULE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.FeatureMapImpl <em>Feature Map</em>}' class.
@@ -133,34 +206,25 @@ public interface SMapDslPackage extends EPackage
    * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getFeatureMap()
    * @generated
    */
-  int FEATURE_MAP = 2;
+  int FEATURE_MAP = 3;
 
   /**
-   * The feature id for the '<em><b>Left Field</b></em>' reference.
+   * The feature id for the '<em><b>Left Fields</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__LEFT_FIELD = 0;
+  int FEATURE_MAP__LEFT_FIELDS = 0;
 
   /**
-   * The feature id for the '<em><b>Right Field</b></em>' reference.
+   * The feature id for the '<em><b>Right Fields</b></em>' reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__RIGHT_FIELD = 1;
-
-  /**
-   * The feature id for the '<em><b>Rule</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FEATURE_MAP__RULE = 2;
+  int FEATURE_MAP__RIGHT_FIELDS = 1;
 
   /**
    * The feature id for the '<em><b>Set Left Field</b></em>' reference.
@@ -169,16 +233,16 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__SET_LEFT_FIELD = 3;
+  int FEATURE_MAP__SET_LEFT_FIELD = 2;
 
   /**
-   * The feature id for the '<em><b>Val Left</b></em>' attribute.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__VAL_LEFT = 4;
+  int FEATURE_MAP__EXPR = 3;
 
   /**
    * The feature id for the '<em><b>Set Right Field</b></em>' reference.
@@ -187,25 +251,25 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__SET_RIGHT_FIELD = 5;
+  int FEATURE_MAP__SET_RIGHT_FIELD = 4;
 
   /**
-   * The feature id for the '<em><b>Val Right</b></em>' attribute.
+   * The feature id for the '<em><b>Module</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__VAL_RIGHT = 6;
+  int FEATURE_MAP__MODULE = 5;
 
   /**
-   * The feature id for the '<em><b>Ignore Left Field</b></em>' reference.
+   * The feature id for the '<em><b>Rules</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__IGNORE_LEFT_FIELD = 7;
+  int FEATURE_MAP__RULES = 6;
 
   /**
    * The feature id for the '<em><b>Documentation</b></em>' attribute.
@@ -214,7 +278,7 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_MAP__DOCUMENTATION = 8;
+  int FEATURE_MAP__DOCUMENTATION = 7;
 
   /**
    * The number of structural features of the '<em>Feature Map</em>' class.
@@ -223,7 +287,44 @@ public interface SMapDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_MAP_FEATURE_COUNT = 9;
+  int FEATURE_MAP_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.ExpressionImpl
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 4;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Int Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__INT_VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 2;
 
 
   /**
@@ -237,6 +338,28 @@ public interface SMapDslPackage extends EPackage
   EClass getModel();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Model#getName()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Documentation</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Model#getDocumentation()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Documentation();
+
+  /**
    * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getMappingModules <em>Mapping Modules</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -246,6 +369,49 @@ public interface SMapDslPackage extends EPackage
    * @generated
    */
   EReference getModel_MappingModules();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getRoots <em>Roots</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Roots</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Model#getRoots()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Roots();
+
+  /**
+   * Returns the meta object for class '{@link fr.chaunier.xtext.simplemap.sMapDsl.RootModule <em>Root Module</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Root Module</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.RootModule
+   * @generated
+   */
+  EClass getRootModule();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.RootModule#getRootRef <em>Root Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Root Ref</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.RootModule#getRootRef()
+   * @see #getRootModule()
+   * @generated
+   */
+  EReference getRootModule_RootRef();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.RootModule#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Documentation</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.RootModule#getDocumentation()
+   * @see #getRootModule()
+   * @generated
+   */
+  EAttribute getRootModule_Documentation();
 
   /**
    * Returns the meta object for class '{@link fr.chaunier.xtext.simplemap.sMapDsl.MappingModule <em>Mapping Module</em>}'.
@@ -269,6 +435,17 @@ public interface SMapDslPackage extends EPackage
   EAttribute getMappingModule_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.MappingModule#getDocumentation <em>Documentation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Documentation</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.MappingModule#getDocumentation()
+   * @see #getMappingModule()
+   * @generated
+   */
+  EAttribute getMappingModule_Documentation();
+
+  /**
    * Returns the meta object for the containment reference list '{@link fr.chaunier.xtext.simplemap.sMapDsl.MappingModule#getMappedFeatures <em>Mapped Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -290,37 +467,26 @@ public interface SMapDslPackage extends EPackage
   EClass getFeatureMap();
 
   /**
-   * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftField <em>Left Field</em>}'.
+   * Returns the meta object for the reference list '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftFields <em>Left Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Left Field</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftField()
+   * @return the meta object for the reference list '<em>Left Fields</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftFields()
    * @see #getFeatureMap()
    * @generated
    */
-  EReference getFeatureMap_LeftField();
+  EReference getFeatureMap_LeftFields();
 
   /**
-   * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightField <em>Right Field</em>}'.
+   * Returns the meta object for the reference list '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightFields <em>Right Fields</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Right Field</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightField()
+   * @return the meta object for the reference list '<em>Right Fields</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightFields()
    * @see #getFeatureMap()
    * @generated
    */
-  EReference getFeatureMap_RightField();
-
-  /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRule <em>Rule</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rule</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRule()
-   * @see #getFeatureMap()
-   * @generated
-   */
-  EAttribute getFeatureMap_Rule();
+  EReference getFeatureMap_RightFields();
 
   /**
    * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getSetLeftField <em>Set Left Field</em>}'.
@@ -334,15 +500,15 @@ public interface SMapDslPackage extends EPackage
   EReference getFeatureMap_SetLeftField();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValLeft <em>Val Left</em>}'.
+   * Returns the meta object for the containment reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Val Left</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValLeft()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getExpr()
    * @see #getFeatureMap()
    * @generated
    */
-  EAttribute getFeatureMap_ValLeft();
+  EReference getFeatureMap_Expr();
 
   /**
    * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getSetRightField <em>Set Right Field</em>}'.
@@ -356,26 +522,26 @@ public interface SMapDslPackage extends EPackage
   EReference getFeatureMap_SetRightField();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValRight <em>Val Right</em>}'.
+   * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getModule <em>Module</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Val Right</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValRight()
+   * @return the meta object for the reference '<em>Module</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getModule()
    * @see #getFeatureMap()
    * @generated
    */
-  EAttribute getFeatureMap_ValRight();
+  EReference getFeatureMap_Module();
 
   /**
-   * Returns the meta object for the reference '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getIgnoreLeftField <em>Ignore Left Field</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRules <em>Rules</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Ignore Left Field</em>'.
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getIgnoreLeftField()
+   * @return the meta object for the attribute list '<em>Rules</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRules()
    * @see #getFeatureMap()
    * @generated
    */
-  EReference getFeatureMap_IgnoreLeftField();
+  EAttribute getFeatureMap_Rules();
 
   /**
    * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getDocumentation <em>Documentation</em>}'.
@@ -387,6 +553,38 @@ public interface SMapDslPackage extends EPackage
    * @generated
    */
   EAttribute getFeatureMap_Documentation();
+
+  /**
+   * Returns the meta object for class '{@link fr.chaunier.xtext.simplemap.sMapDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.Expression#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Expression#getValue()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_Value();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.chaunier.xtext.simplemap.sMapDsl.Expression#getIntValue <em>Int Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Int Value</em>'.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.Expression#getIntValue()
+   * @see #getExpression()
+   * @generated
+   */
+  EAttribute getExpression_IntValue();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -422,12 +620,62 @@ public interface SMapDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__DOCUMENTATION = eINSTANCE.getModel_Documentation();
+
+    /**
      * The meta object literal for the '<em><b>Mapping Modules</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference MODEL__MAPPING_MODULES = eINSTANCE.getModel_MappingModules();
+
+    /**
+     * The meta object literal for the '<em><b>Roots</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__ROOTS = eINSTANCE.getModel_Roots();
+
+    /**
+     * The meta object literal for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.RootModuleImpl <em>Root Module</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.RootModuleImpl
+     * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getRootModule()
+     * @generated
+     */
+    EClass ROOT_MODULE = eINSTANCE.getRootModule();
+
+    /**
+     * The meta object literal for the '<em><b>Root Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ROOT_MODULE__ROOT_REF = eINSTANCE.getRootModule_RootRef();
+
+    /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ROOT_MODULE__DOCUMENTATION = eINSTANCE.getRootModule_Documentation();
 
     /**
      * The meta object literal for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.MappingModuleImpl <em>Mapping Module</em>}' class.
@@ -448,6 +696,14 @@ public interface SMapDslPackage extends EPackage
     EAttribute MAPPING_MODULE__NAME = eINSTANCE.getMappingModule_Name();
 
     /**
+     * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MAPPING_MODULE__DOCUMENTATION = eINSTANCE.getMappingModule_Documentation();
+
+    /**
      * The meta object literal for the '<em><b>Mapped Features</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -466,28 +722,20 @@ public interface SMapDslPackage extends EPackage
     EClass FEATURE_MAP = eINSTANCE.getFeatureMap();
 
     /**
-     * The meta object literal for the '<em><b>Left Field</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Left Fields</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_MAP__LEFT_FIELD = eINSTANCE.getFeatureMap_LeftField();
+    EReference FEATURE_MAP__LEFT_FIELDS = eINSTANCE.getFeatureMap_LeftFields();
 
     /**
-     * The meta object literal for the '<em><b>Right Field</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Right Fields</b></em>' reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_MAP__RIGHT_FIELD = eINSTANCE.getFeatureMap_RightField();
-
-    /**
-     * The meta object literal for the '<em><b>Rule</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FEATURE_MAP__RULE = eINSTANCE.getFeatureMap_Rule();
+    EReference FEATURE_MAP__RIGHT_FIELDS = eINSTANCE.getFeatureMap_RightFields();
 
     /**
      * The meta object literal for the '<em><b>Set Left Field</b></em>' reference feature.
@@ -498,12 +746,12 @@ public interface SMapDslPackage extends EPackage
     EReference FEATURE_MAP__SET_LEFT_FIELD = eINSTANCE.getFeatureMap_SetLeftField();
 
     /**
-     * The meta object literal for the '<em><b>Val Left</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FEATURE_MAP__VAL_LEFT = eINSTANCE.getFeatureMap_ValLeft();
+    EReference FEATURE_MAP__EXPR = eINSTANCE.getFeatureMap_Expr();
 
     /**
      * The meta object literal for the '<em><b>Set Right Field</b></em>' reference feature.
@@ -514,20 +762,20 @@ public interface SMapDslPackage extends EPackage
     EReference FEATURE_MAP__SET_RIGHT_FIELD = eINSTANCE.getFeatureMap_SetRightField();
 
     /**
-     * The meta object literal for the '<em><b>Val Right</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Module</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FEATURE_MAP__VAL_RIGHT = eINSTANCE.getFeatureMap_ValRight();
+    EReference FEATURE_MAP__MODULE = eINSTANCE.getFeatureMap_Module();
 
     /**
-     * The meta object literal for the '<em><b>Ignore Left Field</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Rules</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_MAP__IGNORE_LEFT_FIELD = eINSTANCE.getFeatureMap_IgnoreLeftField();
+    EAttribute FEATURE_MAP__RULES = eINSTANCE.getFeatureMap_Rules();
 
     /**
      * The meta object literal for the '<em><b>Documentation</b></em>' attribute feature.
@@ -536,6 +784,32 @@ public interface SMapDslPackage extends EPackage
      * @generated
      */
     EAttribute FEATURE_MAP__DOCUMENTATION = eINSTANCE.getFeatureMap_Documentation();
+
+    /**
+     * The meta object literal for the '{@link fr.chaunier.xtext.simplemap.sMapDsl.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.ExpressionImpl
+     * @see fr.chaunier.xtext.simplemap.sMapDsl.impl.SMapDslPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__VALUE = eINSTANCE.getExpression_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Int Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPRESSION__INT_VALUE = eINSTANCE.getExpression_IntValue();
 
   }
 

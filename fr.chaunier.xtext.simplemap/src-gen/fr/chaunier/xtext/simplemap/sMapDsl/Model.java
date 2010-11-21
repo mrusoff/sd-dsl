@@ -18,7 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getName <em>Name</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getDocumentation <em>Documentation</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getMappingModules <em>Mapping Modules</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getRoots <em>Roots</em>}</li>
  * </ul>
  * </p>
  *
@@ -28,6 +31,58 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getModel_Name()
+   * @model
+   * @generated
+   */
+  String getName();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getName <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
+   * @generated
+   */
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Documentation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Documentation</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Documentation</em>' attribute.
+   * @see #setDocumentation(String)
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getModel_Documentation()
+   * @model
+   * @generated
+   */
+  String getDocumentation();
+
+  /**
+   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.Model#getDocumentation <em>Documentation</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Documentation</em>' attribute.
+   * @see #getDocumentation()
+   * @generated
+   */
+  void setDocumentation(String value);
+
   /**
    * Returns the value of the '<em><b>Mapping Modules</b></em>' containment reference list.
    * The list contents are of type {@link fr.chaunier.xtext.simplemap.sMapDsl.MappingModule}.
@@ -43,5 +98,21 @@ public interface Model extends EObject
    * @generated
    */
   EList<MappingModule> getMappingModules();
+
+  /**
+   * Returns the value of the '<em><b>Roots</b></em>' containment reference list.
+   * The list contents are of type {@link fr.chaunier.xtext.simplemap.sMapDsl.RootModule}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Roots</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Roots</em>' containment reference list.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getModel_Roots()
+   * @model containment="true"
+   * @generated
+   */
+  EList<RootModule> getRoots();
 
 } // Model

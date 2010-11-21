@@ -10,22 +10,33 @@
   <genPackages prefix="SMapDsl" basePackage="fr.chaunier.xtext.simplemap" disposableProviderFactory="true"
       ecorePackage="SMapDsl.ecore#/">
     <genClasses ecoreClass="SMapDsl.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//Model/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//Model/documentation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//Model/mappingModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//Model/roots"/>
+    </genClasses>
+    <genClasses ecoreClass="SMapDsl.ecore#//RootModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//RootModule/rootRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//RootModule/documentation"/>
     </genClasses>
     <genClasses ecoreClass="SMapDsl.ecore#//MappingModule">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//MappingModule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//MappingModule/documentation"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//MappingModule/mappedFeatures"/>
     </genClasses>
     <genClasses ecoreClass="SMapDsl.ecore#//FeatureMap">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/leftField"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/rightField"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//FeatureMap/rule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/leftFields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/rightFields"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/setLeftField"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//FeatureMap/valLeft"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/expr"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/setRightField"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//FeatureMap/valRight"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/ignoreLeftField"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference SMapDsl.ecore#//FeatureMap/module"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//FeatureMap/rules"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//FeatureMap/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="SMapDsl.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//Expression/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute SMapDsl.ecore#//Expression/intValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

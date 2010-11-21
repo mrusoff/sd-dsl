@@ -8,6 +8,8 @@ package fr.chaunier.xtext.simplemap.sMapDsl;
 
 import fr.chaunier.xtext.bom.bomDsl.Attribute;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -18,14 +20,13 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftField <em>Left Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightField <em>Right Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRule <em>Rule</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftFields <em>Left Fields</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightFields <em>Right Fields</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getSetLeftField <em>Set Left Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValLeft <em>Val Left</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getExpr <em>Expr</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getSetRightField <em>Set Right Field</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValRight <em>Val Right</em>}</li>
- *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getIgnoreLeftField <em>Ignore Left Field</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getModule <em>Module</em>}</li>
+ *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRules <em>Rules</em>}</li>
  *   <li>{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getDocumentation <em>Documentation</em>}</li>
  * </ul>
  * </p>
@@ -37,82 +38,36 @@ import org.eclipse.emf.ecore.EObject;
 public interface FeatureMap extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Left Field</b></em>' reference.
+   * Returns the value of the '<em><b>Left Fields</b></em>' reference list.
+   * The list contents are of type {@link fr.chaunier.xtext.bom.bomDsl.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Left Field</em>' reference isn't clear,
+   * If the meaning of the '<em>Left Fields</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Left Field</em>' reference.
-   * @see #setLeftField(Attribute)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_LeftField()
+   * @return the value of the '<em>Left Fields</em>' reference list.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_LeftFields()
    * @model
    * @generated
    */
-  Attribute getLeftField();
+  EList<Attribute> getLeftFields();
 
   /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getLeftField <em>Left Field</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Left Field</em>' reference.
-   * @see #getLeftField()
-   * @generated
-   */
-  void setLeftField(Attribute value);
-
-  /**
-   * Returns the value of the '<em><b>Right Field</b></em>' reference.
+   * Returns the value of the '<em><b>Right Fields</b></em>' reference list.
+   * The list contents are of type {@link fr.chaunier.xtext.bom.bomDsl.Attribute}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Right Field</em>' reference isn't clear,
+   * If the meaning of the '<em>Right Fields</em>' reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Right Field</em>' reference.
-   * @see #setRightField(Attribute)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_RightField()
+   * @return the value of the '<em>Right Fields</em>' reference list.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_RightFields()
    * @model
    * @generated
    */
-  Attribute getRightField();
-
-  /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRightField <em>Right Field</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Right Field</em>' reference.
-   * @see #getRightField()
-   * @generated
-   */
-  void setRightField(Attribute value);
-
-  /**
-   * Returns the value of the '<em><b>Rule</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Rule</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Rule</em>' attribute.
-   * @see #setRule(String)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_Rule()
-   * @model
-   * @generated
-   */
-  String getRule();
-
-  /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getRule <em>Rule</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rule</em>' attribute.
-   * @see #getRule()
-   * @generated
-   */
-  void setRule(String value);
+  EList<Attribute> getRightFields();
 
   /**
    * Returns the value of the '<em><b>Set Left Field</b></em>' reference.
@@ -141,30 +96,30 @@ public interface FeatureMap extends EObject
   void setSetLeftField(Attribute value);
 
   /**
-   * Returns the value of the '<em><b>Val Left</b></em>' attribute.
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Val Left</em>' attribute isn't clear,
+   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Val Left</em>' attribute.
-   * @see #setValLeft(String)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_ValLeft()
-   * @model
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expression)
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_Expr()
+   * @model containment="true"
    * @generated
    */
-  String getValLeft();
+  Expression getExpr();
 
   /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValLeft <em>Val Left</em>}' attribute.
+   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getExpr <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Val Left</em>' attribute.
-   * @see #getValLeft()
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
    * @generated
    */
-  void setValLeft(String value);
+  void setExpr(Expression value);
 
   /**
    * Returns the value of the '<em><b>Set Right Field</b></em>' reference.
@@ -193,56 +148,46 @@ public interface FeatureMap extends EObject
   void setSetRightField(Attribute value);
 
   /**
-   * Returns the value of the '<em><b>Val Right</b></em>' attribute.
+   * Returns the value of the '<em><b>Module</b></em>' reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Val Right</em>' attribute isn't clear,
+   * If the meaning of the '<em>Module</em>' reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Val Right</em>' attribute.
-   * @see #setValRight(String)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_ValRight()
+   * @return the value of the '<em>Module</em>' reference.
+   * @see #setModule(MappingModule)
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_Module()
    * @model
    * @generated
    */
-  String getValRight();
+  MappingModule getModule();
 
   /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getValRight <em>Val Right</em>}' attribute.
+   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getModule <em>Module</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Val Right</em>' attribute.
-   * @see #getValRight()
+   * @param value the new value of the '<em>Module</em>' reference.
+   * @see #getModule()
    * @generated
    */
-  void setValRight(String value);
+  void setModule(MappingModule value);
 
   /**
-   * Returns the value of the '<em><b>Ignore Left Field</b></em>' reference.
+   * Returns the value of the '<em><b>Rules</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Ignore Left Field</em>' reference isn't clear,
+   * If the meaning of the '<em>Rules</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Ignore Left Field</em>' reference.
-   * @see #setIgnoreLeftField(Attribute)
-   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_IgnoreLeftField()
-   * @model
+   * @return the value of the '<em>Rules</em>' attribute list.
+   * @see fr.chaunier.xtext.simplemap.sMapDsl.SMapDslPackage#getFeatureMap_Rules()
+   * @model unique="false"
    * @generated
    */
-  Attribute getIgnoreLeftField();
-
-  /**
-   * Sets the value of the '{@link fr.chaunier.xtext.simplemap.sMapDsl.FeatureMap#getIgnoreLeftField <em>Ignore Left Field</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Ignore Left Field</em>' reference.
-   * @see #getIgnoreLeftField()
-   * @generated
-   */
-  void setIgnoreLeftField(Attribute value);
+  EList<String> getRules();
 
   /**
    * Returns the value of the '<em><b>Documentation</b></em>' attribute.

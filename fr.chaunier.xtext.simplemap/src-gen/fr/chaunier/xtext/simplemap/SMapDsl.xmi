@@ -11,8 +11,20 @@
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//Model"/>
       </type>
-      <alternatives xsi:type="xtext:Assignment" cardinality="*" feature="mappingModules" operator="+=">
-        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="model"/>
+        <elements xsi:type="xtext:Assignment" feature="name" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="mappingModules" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="roots" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+        </elements>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="QualifiedNameWithWildCard">
@@ -36,6 +48,25 @@
         </elements>
       </alternatives>
     </rules>
+    <rules xsi:type="xtext:ParserRule" name="RootModule">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//RootModule"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="root"/>
+        <elements xsi:type="xtext:Assignment" feature="rootRef" operator="=">
+          <terminal xsi:type="xtext:CrossReference">
+            <type metamodel="/0/@metamodelDeclarations.1">
+              <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//MappingModule"/>
+            </type>
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+      </alternatives>
+    </rules>
     <rules xsi:type="xtext:ParserRule" name="MappingModule">
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//MappingModule"/>
@@ -45,10 +76,13 @@
         <elements xsi:type="xtext:Assignment" feature="name" operator="=">
           <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
         </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
         <elements xsi:type="xtext:Keyword" value="{"/>
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Assignment" feature="mappedFeatures" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
           </elements>
           <elements xsi:type="xtext:Keyword" cardinality="?" value=";"/>
         </elements>
@@ -59,73 +93,163 @@
       <type metamodel="/0/@metamodelDeclarations.1">
         <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//FeatureMap"/>
       </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="map"/>
+            <elements xsi:type="xtext:Assignment" feature="leftFields" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Group" cardinality="*">
+              <elements xsi:type="xtext:Keyword" value=","/>
+              <elements xsi:type="xtext:Assignment" feature="leftFields" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="/0/@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+                </terminal>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:Keyword" value="=>"/>
+            <elements xsi:type="xtext:Assignment" feature="rightFields" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Group" cardinality="*">
+              <elements xsi:type="xtext:Keyword" value=","/>
+              <elements xsi:type="xtext:Assignment" feature="rightFields" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="/0/@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+                </terminal>
+              </elements>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="set left"/>
+            <elements xsi:type="xtext:Assignment" feature="setLeftField" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Keyword" value="="/>
+            <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="set right"/>
+            <elements xsi:type="xtext:Assignment" feature="setRightField" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Keyword" value="="/>
+            <elements xsi:type="xtext:Assignment" feature="expr" operator="=">
+              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="ignore left"/>
+            <elements xsi:type="xtext:Assignment" feature="leftFields" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Group" cardinality="*">
+              <elements xsi:type="xtext:Keyword" value=","/>
+              <elements xsi:type="xtext:Assignment" feature="leftFields" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="/0/@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+                </terminal>
+              </elements>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="ignore right"/>
+            <elements xsi:type="xtext:Assignment" feature="rightFields" operator="+=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.0">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+              </terminal>
+            </elements>
+            <elements xsi:type="xtext:Group" cardinality="*">
+              <elements xsi:type="xtext:Keyword" value=","/>
+              <elements xsi:type="xtext:Assignment" feature="rightFields" operator="+=">
+                <terminal xsi:type="xtext:CrossReference">
+                  <type metamodel="/0/@metamodelDeclarations.0">
+                    <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
+                  </type>
+                  <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+                </terminal>
+              </elements>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Group">
+            <elements xsi:type="xtext:Keyword" value="call module"/>
+            <elements xsi:type="xtext:Assignment" feature="module" operator="=">
+              <terminal xsi:type="xtext:CrossReference">
+                <type metamodel="/0/@metamodelDeclarations.1">
+                  <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//MappingModule"/>
+                </type>
+                <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+              </terminal>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="rule"/>
+          <elements xsi:type="xtext:Assignment" feature="rules" operator="+=">
+            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+          </elements>
+          <elements xsi:type="xtext:Group" cardinality="*">
+            <elements xsi:type="xtext:Keyword" value=","/>
+            <elements xsi:type="xtext:Assignment" feature="rules" operator="+=">
+              <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+            </elements>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Expression">
+      <type metamodel="/0/@metamodelDeclarations.1">
+        <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/simplemap/SMapDsl#//Expression"/>
+      </type>
       <alternatives xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Group">
-          <elements xsi:type="xtext:Keyword" value="map"/>
-          <elements xsi:type="xtext:Assignment" feature="leftField" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value="=>"/>
-          <elements xsi:type="xtext:Assignment" feature="rightField" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="rule" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-          </elements>
+        <elements xsi:type="xtext:Assignment" feature="value" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
         </elements>
-        <elements xsi:type="xtext:Group">
-          <elements xsi:type="xtext:Keyword" value="set left"/>
-          <elements xsi:type="xtext:Assignment" feature="setLeftField" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value="="/>
-          <elements xsi:type="xtext:Assignment" feature="valLeft" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group">
-          <elements xsi:type="xtext:Keyword" value="set right"/>
-          <elements xsi:type="xtext:Assignment" feature="setRightField" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Keyword" value="="/>
-          <elements xsi:type="xtext:Assignment" feature="valRight" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-          </elements>
-        </elements>
-        <elements xsi:type="xtext:Group">
-          <elements xsi:type="xtext:Keyword" value="ignore left"/>
-          <elements xsi:type="xtext:Assignment" feature="ignoreLeftField" operator="=">
-            <terminal xsi:type="xtext:CrossReference">
-              <type metamodel="/0/@metamodelDeclarations.0">
-                <classifier xsi:type="ecore:EClass" href="http://www.chaunier.fr/xtext/bom/BomDsl#//Attribute"/>
-              </type>
-              <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-            </terminal>
-          </elements>
-          <elements xsi:type="xtext:Assignment" cardinality="?" feature="documentation" operator="=">
-            <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
-          </elements>
+        <elements xsi:type="xtext:Assignment" feature="intValue" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
         </elements>
       </alternatives>
     </rules>

@@ -1,18 +1,24 @@
-RULE_ID=4
-RULE_STRING=5
+RULE_ID=5
+RULE_STRING=4
 RULE_ANY_OTHER=10
 RULE_INT=6
 RULE_WS=9
 RULE_SL_COMMENT=8
 RULE_ML_COMMENT=7
-';'=14
-'module'=12
-'}'=15
-'='=19
-'map'=16
-'set right'=20
-'set left'=18
-'ignore left'=21
-'=>'=17
-'.'=11
-'{'=13
+'}'=17
+'rule'=27
+'model'=11
+'set right'=23
+'ignore left'=24
+'{'=15
+'module'=14
+';'=16
+'='=22
+'map'=18
+'ignore right'=25
+','=19
+'set left'=21
+'.'=12
+'=>'=20
+'root'=13
+'call module'=26

@@ -36,6 +36,15 @@ public interface SMapDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Root Module</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Root Module</em>'.
+   * @generated
+   */
+  RootModule createRootModule();
+
+  /**
    * Returns a new object of class '<em>Mapping Module</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -52,6 +61,15 @@ public interface SMapDslFactory extends EFactory
    * @generated
    */
   FeatureMap createFeatureMap();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
 
   /**
    * Returns the package supported by this factory.
