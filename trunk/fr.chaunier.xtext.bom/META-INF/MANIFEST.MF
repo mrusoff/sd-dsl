@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: fr.chaunier.xtext.bom
-Bundle-Vendor: My Company
-Bundle-Version: 1.0.0
+Bundle-Vendor: philippe Chaunier
+Bundle-Version: 0.7.0
 Bundle-SymbolicName: fr.chaunier.xtext.bom; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
