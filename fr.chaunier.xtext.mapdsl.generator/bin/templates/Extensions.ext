@@ -1,0 +1,63 @@
+import fr::chaunier::xtext::bom::bomDsl;
+
+Integer getCardinalityMax(Constraint this) : 0 ;
+
+Integer getCardinalityMax(StringConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else if maxLen != null
+	then maxLen
+	else 0 ;
+	  
+Integer getCardinalityMax(IntegerConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else if maxLen != null
+	then maxLen
+	else 0 ;
+
+Integer getCardinalityMax(DecimalConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else if maxLen != null
+	then maxLen
+	else 0 ;
+
+Integer getCardinalityMax(EnumerationConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else 0 ;
+
+Integer getCardinalityMin(StringConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else if minLen != null
+	then minLen
+	else 0 ;
+	  
+Integer getCardinalityMin(IntegerConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+//	else if minValue != null
+//	then minValue
+	else 0 ;
+
+Integer getCardinalityMin(DecimalConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+//	else if minLen != null
+//	then minLen
+	else 0 ;
+
+Integer getCardinalityMin(EnumerationConstraint this) : 
+	if fixeLen != null
+	then fixeLen
+	else 0 ;
+
+Integer getCardinalityMin(Constraint this) : 0 ;
+
+Integer getCardinalityMin(Void this) : 0 ;
+
+String getDiagnostique(Attribute source,Attribute dest) :
+	"" ;
+		  
