@@ -1,7 +1,6 @@
 «IMPORT fr::chaunier::xtext::bom::bomDsl»
 «EXTENSION templates::doc::Extensions»
 
-!telintrans.jpg!
 
 «DEFINE Root FOR PackageDeclaration»
 	«FILE this.name +".textile"-»

@@ -17,7 +17,7 @@ p{color:blue}. «description»
 h4. Attributes
 
 table{border:1px solid black}.
-|_.|_. Name |_. Type |_. Cardinality |_. Constraint	|_. Semantic |_. Documentation  
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  
 «FOREACH features AS feature-»
 «EXPAND dump FOR feature-»
 				«ENDFOREACH-»
