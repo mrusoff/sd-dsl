@@ -9,15 +9,7 @@
 «DEFINE mappingRootModule FOR MappingModule-»
 «FILE name+"_map.textile"-»
 «EXPAND mappingModule FOR this-»
-«REM»
-h1. module : «name»
 
-table{border:1px solid black}.
-|_. action |_. source |_. destination |_. type source	|_. type desti |_. valeur |_. régles |_. Documentation  
-«FOREACH  mappedFeatures AS feature-»
-«EXPAND fetureMap FOR feature-»
-«ENDFOREACH-»
-«ENDREM»
 «ENDFILE-»
 «ENDDEFINE»
 
