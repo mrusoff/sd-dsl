@@ -12,11 +12,11 @@ elementFormDefault="unqualified"
 targetNamespace="«namespace»"
 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-«addImportsHere()-»
-
 «REM»
 cumul des packages referencés a faire 
+«addImportsHere()-»
 «ENDREM»
+
 
 «FOREACH  elements AS element-»
 «EXPAND dump(prefix) FOR element-»
@@ -88,7 +88,9 @@ cumul des packages referencés a faire
 «ENDDEFINE»
 
 «DEFINE typeOfRef(String prefix) FOR Entity-»
+«REM»
  «simpleName(this)»
+ «ENDREM»
  type="«prefix»:«name»Type" 
 «ENDDEFINE»
 
