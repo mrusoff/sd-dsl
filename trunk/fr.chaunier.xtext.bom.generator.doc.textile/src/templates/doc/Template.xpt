@@ -1,6 +1,6 @@
 «IMPORT fr::chaunier::xtext::bom::bomDsl»
 «EXTENSION templates::doc::Extensions»
-«EXTENSION fr::chaunier::model::utils::Indent»
+«EXTENSION fr::chaunier::xtext::utils::Indent»
 
 
 «DEFINE root FOR PackageDeclaration»
