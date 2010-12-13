@@ -3,16 +3,21 @@
 «EXTENSION fr::chaunier::model::utils::Indent»
 
 
+«DEFINE root FOR PackageDeclaration»
+«((String) GLOBALVAR rootObject)»
+«EXPAND main(((String) GLOBALVAR rootObject)) FOR this» 
+«ENDDEFINE»
+
 «DEFINE main(String nameSearch) FOR PackageDeclaration»
 « IF !searchEntityByName(nameSearch).isEmpty»
-«FILE name + " " + nameSearch + ".csv"-»
+«FILE name + " " + nameSearch + ".textile"-»
 package ; prefix  ; uri
 «name» ; «prefix» ; «namespace»
  
 «FOREACH searchEntityByName(nameSearch) AS entity-»
 Root : «entity.name»
-structure ; cardinalités ; type ; contraintes ; sémantique ; documentation
 
+structure ; cardinalités ; type ; contraintes ; sémantique ; documentation
 «EXPAND dump(0) FOR entity-»
 «ENDFOREACH-»
 «ENDFILE-»
