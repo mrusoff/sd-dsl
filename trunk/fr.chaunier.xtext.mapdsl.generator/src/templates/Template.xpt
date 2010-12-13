@@ -7,15 +7,17 @@
 «ENDDEFINE»
 
 «DEFINE mappingRootModule FOR MappingModule-»
-«FILE name+"_map.csv"-»
+«FILE name+"_map.textile"-»
+«EXPAND mappingModule FOR this-»
+«REM»
+h1. module : «name»
 
-module;action;source;destination;type source;type desti;valeur;régles;documentation
-
-«name»
-
+table{border:1px solid black}.
+|_. action |_. source |_. destination |_. type source	|_. type desti |_. valeur |_. régles |_. Documentation  
 «FOREACH  mappedFeatures AS feature-»
 «EXPAND fetureMap FOR feature-»
 «ENDFOREACH-»
+«ENDREM»
 «ENDFILE-»
 «ENDDEFINE»
 
@@ -23,8 +25,10 @@ module;action;source;destination;type source;type desti;valeur;régles;documentat
 «ENDREM»
 «DEFINE mappingModule FOR MappingModule-»
 
-«name»
+h1. module : «name»
 
+table{border:1px solid black}.
+|_. action |_. source |_. destination |_. type source	|_. type desti |_. valeur |_. régles |_. Documentation  
 «FOREACH  mappedFeatures AS feature-»
 «EXPAND fetureMap FOR feature-»
 «ENDFOREACH-»
@@ -32,39 +36,39 @@ module;action;source;destination;type source;type desti;valeur;régles;documentat
 
 «DEFINE fetureMap FOR FeatureMap-»
 «IF leftFields.size != 0 && rightFields.size != 0-»
-;map;«FOREACH leftFields AS attribute ITERATOR iter-»
+| map | «FOREACH leftFields AS attribute ITERATOR iter-»
 «qualifiedName(attribute)»«IF !iter.lastIteration»,«ENDIF-»
 «ENDFOREACH-»
-;«FOREACH rightFields AS attribute ITERATOR iter-»
+ |«FOREACH rightFields AS attribute ITERATOR iter-»
 «qualifiedName(attribute)»«IF !iter.lastIteration»,«ENDIF-»
 «ENDFOREACH-»
-;«FOREACH leftFields AS attribute ITERATOR iter2-»
+ |«FOREACH leftFields AS attribute ITERATOR iter2-»
 «qualifiedNameForType(attribute)»«IF !iter2.lastIteration»,«ENDIF-»
 «ENDFOREACH-»
-;«FOREACH rightFields AS attribute ITERATOR iter2-»
+ |«FOREACH rightFields AS attribute ITERATOR iter2-»
 «qualifiedNameForType(attribute)»«IF !iter2.lastIteration»,«ENDIF-»
-«ENDFOREACH-»;;«EXPAND mapRules FOR this»;«EXPAND mapDocumentation FOR this»
+«ENDFOREACH-»| |«EXPAND mapRules FOR this»| «EXPAND mapDocumentation FOR this»
 «ELSEIF leftFields.size != 0-»
-;ignore ;«FOREACH leftFields AS attribute ITERATOR iter-»
+ | ignore |«FOREACH leftFields AS attribute ITERATOR iter-»
 «qualifiedName(attribute)»«IF !iter.lastIteration»,«ENDIF-»
 «ENDFOREACH-»
-;;«FOREACH leftFields AS attribute ITERATOR iter2-»
+| | «FOREACH leftFields AS attribute ITERATOR iter2-»
 «qualifiedNameForType(attribute)»«IF !iter2.lastIteration»,«ENDIF-»
-«ENDFOREACH»;;;«EXPAND mapRules FOR this»;«EXPAND mapDocumentation FOR this»
+«ENDFOREACH»| | | «EXPAND mapRules FOR this»| «EXPAND mapDocumentation FOR this»
 «ELSEIF rightFields.size != 0-»
-;ignore ;;«FOREACH rightFields AS attribute ITERATOR iter-»
+| ignore | | «FOREACH rightFields AS attribute ITERATOR iter-»
 «qualifiedName(attribute)»«IF !iter.lastIteration»,«ENDIF-»
 «ENDFOREACH-»
-;;«FOREACH rightFields AS attribute ITERATOR iter-»
+| | «FOREACH rightFields AS attribute ITERATOR iter-»
 «qualifiedNameForType(attribute)»«IF !iter.lastIteration»,«ENDIF-»
-«ENDFOREACH»;;«EXPAND mapRules FOR this»;«EXPAND mapDocumentation FOR this»
+«ENDFOREACH»| | «EXPAND mapRules FOR this»|«EXPAND mapDocumentation FOR this»
 «ELSEIF setLeftField != null-»
-;set ;«qualifiedName(setLeftField)»;;«qualifiedNameForType(setLeftField)»;;«expr.value»;«EXPAND mapRules FOR this»;«EXPAND mapDocumentation FOR this»
+| set | «qualifiedName(setLeftField)» | | «qualifiedNameForType(setLeftField)» | | «expr.value» | «EXPAND mapRules FOR this» | «EXPAND mapDocumentation FOR this»
 «ELSEIF setRightField != null-»
-;set ;;«qualifiedName(setRightField)»;;«qualifiedNameForType(setRightField)»;«expr.value»;«EXPAND mapRules FOR this»;«EXPAND mapDocumentation FOR this»
+| set | | «qualifiedName(setRightField)» | | «qualifiedNameForType(setRightField)»| «expr.value» | «EXPAND mapRules FOR this» | «EXPAND mapDocumentation FOR this»
 «ENDIF-»
 «IF module != null-»
-«EXPAND mappingModule FOR module-»«EXPAND mapRules FOR this-»;«EXPAND mapDocumentation FOR this-» 
+«EXPAND mappingModule FOR module-»«EXPAND mapRules FOR this-»|«EXPAND mapDocumentation FOR this-» 
 «ENDIF-»
 «ENDDEFINE»
 
