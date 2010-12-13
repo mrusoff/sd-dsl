@@ -29,7 +29,7 @@ Workflow {
 			name="rootObject"
 			value=rootMessageObjectName 
 		}
-		expand = "templates::doc::Template::main FOREACH packages"
+		expand = "templates::doc::Template::root FOREACH packages"
 		outlet = {
 			path = targetDir
 		}
