@@ -1,12 +1,11 @@
 grammar fr.chaunier.xtext.bom.BomDsl with org.eclipse.xtext.common.Terminals
 
+//import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+
 generate bomDsl "http://www.chaunier.fr/xtext/bom/BomDsl"
 
 DomainModel:
 	(elements+=AbstractElement)*;
-
-//CartridgeLine:
-//	 'line' line=STRING ;
 
 
 AbstractElement:
@@ -31,7 +30,7 @@ DataType:
 	'datatype' name=ID ;
 
 Entity:
-	'entity' name=ID ('extends' superType=[Entity|QualifiedName])? 	(description=STRING )? '{'
+	entityType=EntityType? 'entity' name=ID ('extends' superType=[Entity|QualifiedName])? (description=STRING )? '{'
 		(features+=Feature)*
 	'}';
 
@@ -41,7 +40,6 @@ Feature:
 
 StructuralFeature:
 	( Attribute | Reference ) ;
-
 Attribute:
 	name=ID ':' type=TypeRef  ;
 
@@ -56,8 +54,9 @@ Enumeration:
 EnumerationLiteral:
     name=ID ("=" persistedValue=INT) ";" 
     ;
-//Operation:
-//	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
+
+Operation:
+	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
 
 Parameter:
 	name=ID type=TypeRef ;
@@ -68,8 +67,11 @@ TypedElement:
 TypeRef:
 	referenced=[Type|QualifiedName] (multi?='*')? (option?='?')?  ;
 
-//enum Visibility:
-//	public="public" | private="private" | protected="protected";
+enum Visibility:
+	public="public" | private="private" | protected="protected";
+
+enum EntityType:
+	public="abstract" ;
 
 QualifiedNameWithWildCard:
 	QualifiedName '.*'?;
@@ -79,25 +81,18 @@ QualifiedName:
 
 	
 Constraint :
-
-    (BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint |
-	 DecimalConstraint | EnumerationConstraint 
-//	 | QualifiedName 
-//	(nullable?="nullable")?
-//	(derived?="derived" (writable?="writable")?)?
-//	("persistency" persistency=PersistencyMode)?
-	);
+   (BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint |
+	 DecimalConstraint | EnumerationConstraint) 
+	;
 
 BoolConstraint:
     constraint="boolean" //dataType=[DataType]
-    (hasDefault?="default" ((defaultValue?="true") | "false"))?
     ;
 
 StringConstraint:
-    constraint="string" //dataType=[DataType]
-    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
-    ("minLen" minLen=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? (isXSDAtt?="xsd Att.")? 
+    constraint="string" constraintRef=AllConstraint
     ("regexp" regularExpression=STRING)?
+
     ;
 
 DateTimeConstraint:
@@ -113,23 +108,60 @@ DateTimeConstraint:
 //    ;
 
 IntegerConstraint:
-    constraint="integer" 
-    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)?
-    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? (isXSDAtt?="xsd Att.")? 
+    constraint="integer"  constraintRef=NumberConstraint
     ;
 
 DecimalConstraint:
-    constraint="decimal" 
-    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
-    ("minVal" minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? (isXSDAtt?="xsd Att.")? 
+    constraint="decimal" constraintRef=NumberConstraint
     ;
 
 enum EnumUsage:
-	asString="as String" | asBoolean="as bool String" | asValue="as Value" | asBoolValue="as bool Value" ;
+	asString="as String" | asValue="as Value"  ;
+	
 
 EnumerationConstraint:
-//   'enum' enumRef=[Enumeration] (usage=EnumUsage) 
    'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
     (hasDefault?="default" defaultValueAsString=ID)?
     ; 
-		
+
+NumberConstraint:	 
+	(
+	("minVal" minValue=INT)? 
+	("maxVal" maxValue=INT)?
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsd Att.")? 
+	);
+	
+AllConstraint:	 
+	(
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsd Att.")? 
+	)
+;		
+	
+// Has conversion rule
+//RealValue returns ecore::EDoubleObject: REAL ;
+
+// Has conversion rule
+//IntValue returns ecore::EBigInteger: BIGINT ;
+
+// Has conversion rule
+
+//DateValue returns ecore::EDate: DATE ;
+
+// Terminals
+
