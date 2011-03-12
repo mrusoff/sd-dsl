@@ -37,47 +37,50 @@ T37 : '?' ;
 T38 : '.*' ;
 T39 : '.' ;
 T40 : 'boolean' ;
-T41 : 'default' ;
-T42 : 'true' ;
-T43 : 'false' ;
-T44 : 'string' ;
-T45 : 'fixed' ;
-T46 : 'minLen' ;
-T47 : 'maxLen' ;
+T41 : 'string' ;
+T42 : 'regexp' ;
+T43 : 'datetime' ;
+T44 : 'default' ;
+T45 : 'integer' ;
+T46 : 'decimal' ;
+T47 : 'enum' ;
 T48 : 'fixeLen' ;
-T49 : 'xsd Att.' ;
-T50 : 'regexp' ;
-T51 : 'datetime' ;
-T52 : 'integer' ;
-T53 : 'minVal' ;
-T54 : 'maxVal' ;
-T55 : 'paddle' ;
-T56 : 'decimal' ;
-T57 : 'enum' ;
-T58 : 'as String' ;
-T59 : 'as bool String' ;
-T60 : 'as Value' ;
-T61 : 'as bool Value' ;
+T49 : 'minVal' ;
+T50 : 'maxVal' ;
+T51 : 'fixed' ;
+T52 : 'minLen' ;
+T53 : 'maxLen' ;
+T54 : 'paddle' ;
+T55 : 'nullable' ;
+T56 : 'derived' ;
+T57 : 'writable' ;
+T58 : 'xsd Att.' ;
+T59 : 'public' ;
+T60 : 'private' ;
+T61 : 'protected' ;
+T62 : 'abstract' ;
+T63 : 'as String' ;
+T64 : 'as Value' ;
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2680
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2738
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2682
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2740
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2684
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2742
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2686
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2744
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2688
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2746
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2690
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2748
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2692
+// $ANTLR src "../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/parser/antlr/internal/InternalBomDsl.g" 2750
 RULE_ANY_OTHER : .;
 
 

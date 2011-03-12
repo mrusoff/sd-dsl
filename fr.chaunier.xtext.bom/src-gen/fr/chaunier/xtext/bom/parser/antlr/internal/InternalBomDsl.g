@@ -583,15 +583,39 @@ ruleEntity returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'entity' 
+((
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getEntityAccess().getEntityTypeEntityTypeEnumRuleCall_0_0(), currentNode); 
+	    }
+		lv_entityType_0_0=ruleEntityType		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getEntityRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"entityType",
+	        		lv_entityType_0_0, 
+	        		"EntityType", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)?	'entity' 
     {
-        createLeafNode(grammarAccess.getEntityAccess().getEntityKeyword_0(), null); 
+        createLeafNode(grammarAccess.getEntityAccess().getEntityKeyword_1(), null); 
     }
 (
 (
-		lv_name_1_0=RULE_ID
+		lv_name_2_0=RULE_ID
 		{
-			createLeafNode(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
+			createLeafNode(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
 		}
 		{
 	        if ($current==null) {
@@ -602,7 +626,7 @@ ruleEntity returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"name",
-	        		lv_name_1_0, 
+	        		lv_name_2_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -613,7 +637,7 @@ ruleEntity returns [EObject current=null]
 )
 )(	'extends' 
     {
-        createLeafNode(grammarAccess.getEntityAccess().getExtendsKeyword_2_0(), null); 
+        createLeafNode(grammarAccess.getEntityAccess().getExtendsKeyword_3_0(), null); 
     }
 (
 (
@@ -624,7 +648,7 @@ ruleEntity returns [EObject current=null]
 	        }
         }
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_2_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_3_1_0(), currentNode); 
 	    }
 		ruleQualifiedName		{ 
 	        currentNode = currentNode.getParent();
@@ -633,9 +657,9 @@ ruleEntity returns [EObject current=null]
 )
 ))?(
 (
-		lv_description_4_0=RULE_STRING
+		lv_description_5_0=RULE_STRING
 		{
-			createLeafNode(grammarAccess.getEntityAccess().getDescriptionSTRINGTerminalRuleCall_3_0(), "description"); 
+			createLeafNode(grammarAccess.getEntityAccess().getDescriptionSTRINGTerminalRuleCall_4_0(), "description"); 
 		}
 		{
 	        if ($current==null) {
@@ -646,7 +670,7 @@ ruleEntity returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"description",
-	        		lv_description_4_0, 
+	        		lv_description_5_0, 
 	        		"STRING", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -657,14 +681,14 @@ ruleEntity returns [EObject current=null]
 )
 )?	'{' 
     {
-        createLeafNode(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_5(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_5_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getEntityAccess().getFeaturesFeatureParserRuleCall_6_0(), currentNode); 
 	    }
-		lv_features_6_0=ruleFeature		{
+		lv_features_7_0=ruleFeature		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getEntityRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -673,7 +697,7 @@ ruleEntity returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"features",
-	        		lv_features_6_0, 
+	        		lv_features_7_0, 
 	        		"Feature", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -685,7 +709,7 @@ ruleEntity returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6(), null); 
+        createLeafNode(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_7(), null); 
     }
 )
 ;
@@ -1150,6 +1174,8 @@ ruleEnumerationLiteral returns [EObject current=null]
 
 
 
+
+
 // Entry rule entryRuleParameter
 entryRuleParameter returns [EObject current=null] 
 	:
@@ -1485,11 +1511,11 @@ ruleBoolConstraint returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((
+(
 (
 		lv_constraint_0_0=	'boolean' 
     {
-        createLeafNode(grammarAccess.getBoolConstraintAccess().getConstraintBooleanKeyword_0_0(), "constraint"); 
+        createLeafNode(grammarAccess.getBoolConstraintAccess().getConstraintBooleanKeyword_0(), "constraint"); 
     }
  
 	    {
@@ -1506,54 +1532,7 @@ ruleBoolConstraint returns [EObject current=null]
 	    }
 
 )
-)((
-(
-		lv_hasDefault_1_0=	'default' 
-    {
-        createLeafNode(grammarAccess.getBoolConstraintAccess().getHasDefaultDefaultKeyword_1_0_0(), "hasDefault"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBoolConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "hasDefault", true, "default", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
 )
-)((
-(
-		lv_defaultValue_2_0=	'true' 
-    {
-        createLeafNode(grammarAccess.getBoolConstraintAccess().getDefaultValueTrueKeyword_1_1_0_0(), "defaultValue"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getBoolConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "defaultValue", true, "true", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)
-    |	'false' 
-    {
-        createLeafNode(grammarAccess.getBoolConstraintAccess().getFalseKeyword_1_1_1(), null); 
-    }
-))?)
 ;
 
 
@@ -1597,210 +1576,39 @@ ruleStringConstraint returns [EObject current=null]
 	    }
 
 )
-)((
-(
-		lv_hasDefault_1_0=	'default' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getHasDefaultDefaultKeyword_1_0_0(), "hasDefault"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "hasDefault", true, "default", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
 )(
 (
-		lv_defaultValue_2_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getDefaultValueSTRINGTerminalRuleCall_1_1_0(), "defaultValue"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getStringConstraintAccess().getConstraintRefAllConstraintParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_constraintRef_1_0=ruleAllConstraint		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"defaultValue",
-	        		lv_defaultValue_2_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
+	       			"constraintRef",
+	        		lv_constraintRef_1_0, 
+	        		"AllConstraint", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
-))?((
-(
-		lv_isFixed_3_0=	'fixed' 
+)(	'regexp' 
     {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getIsFixedFixedKeyword_2_0_0(), "isFixed"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isFixed", true, "fixed", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
-(
-		lv_fixedValue_4_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getFixedValueSTRINGTerminalRuleCall_2_1_0(), "fixedValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixedValue",
-	        		lv_fixedValue_4_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'minLen' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getMinLenKeyword_3_0(), null); 
+        createLeafNode(grammarAccess.getStringConstraintAccess().getRegexpKeyword_2_0(), null); 
     }
 (
 (
-		lv_minLen_6_0=RULE_INT
+		lv_regularExpression_3_0=RULE_STRING
 		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getMinLenINTTerminalRuleCall_3_1_0(), "minLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"minLen",
-	        		lv_minLen_6_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'maxLen' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getMaxLenKeyword_4_0(), null); 
-    }
-(
-(
-		lv_maxLen_8_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getMaxLenINTTerminalRuleCall_4_1_0(), "maxLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"maxLen",
-	        		lv_maxLen_8_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'fixeLen' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getFixeLenKeyword_5_0(), null); 
-    }
-(
-(
-		lv_fixeLen_10_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getFixeLenINTTerminalRuleCall_5_1_0(), "fixeLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixeLen",
-	        		lv_fixeLen_10_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(
-(
-		lv_isXSDAtt_11_0=	'xsd Att.' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getIsXSDAttXsdAttKeyword_6_0(), "isXSDAtt"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getStringConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isXSDAtt", true, "xsd Att.", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)?(	'regexp' 
-    {
-        createLeafNode(grammarAccess.getStringConstraintAccess().getRegexpKeyword_7_0(), null); 
-    }
-(
-(
-		lv_regularExpression_13_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getStringConstraintAccess().getRegularExpressionSTRINGTerminalRuleCall_7_1_0(), "regularExpression"); 
+			createLeafNode(grammarAccess.getStringConstraintAccess().getRegularExpressionSTRINGTerminalRuleCall_2_1_0(), "regularExpression"); 
 		}
 		{
 	        if ($current==null) {
@@ -1811,7 +1619,7 @@ ruleStringConstraint returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"regularExpression",
-	        		lv_regularExpression_13_0, 
+	        		lv_regularExpression_3_0, 
 	        		"STRING", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -1967,258 +1775,31 @@ ruleIntegerConstraint returns [EObject current=null]
 	    }
 
 )
-)((
-(
-		lv_hasDefault_1_0=	'default' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getHasDefaultDefaultKeyword_1_0_0(), "hasDefault"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "hasDefault", true, "default", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
 )(
 (
-		lv_defaultValue_2_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getDefaultValueINTTerminalRuleCall_1_1_0(), "defaultValue"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getIntegerConstraintAccess().getConstraintRefNumberConstraintParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_constraintRef_1_0=ruleNumberConstraint		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"defaultValue",
-	        		lv_defaultValue_2_0, 
-	        		"INT", 
-	        		lastConsumedNode);
+	       			"constraintRef",
+	        		lv_constraintRef_1_0, 
+	        		"NumberConstraint", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
-))?((
-(
-		lv_isFixed_3_0=	'fixed' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getIsFixedFixedKeyword_2_0_0(), "isFixed"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isFixed", true, "fixed", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
-(
-		lv_fixedValue_4_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getFixedValueINTTerminalRuleCall_2_1_0(), "fixedValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixedValue",
-	        		lv_fixedValue_4_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'minVal' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getMinValKeyword_3_0(), null); 
-    }
-(
-(
-		lv_minValue_6_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getMinValueINTTerminalRuleCall_3_1_0(), "minValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"minValue",
-	        		lv_minValue_6_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'maxVal' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getMaxValKeyword_4_0(), null); 
-    }
-(
-(
-		lv_maxValue_8_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getMaxValueINTTerminalRuleCall_4_1_0(), "maxValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"maxValue",
-	        		lv_maxValue_8_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'maxLen' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getMaxLenKeyword_5_0(), null); 
-    }
-(
-(
-		lv_maxLen_10_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getMaxLenINTTerminalRuleCall_5_1_0(), "maxLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"maxLen",
-	        		lv_maxLen_10_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'fixeLen' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getFixeLenKeyword_6_0(), null); 
-    }
-(
-(
-		lv_fixeLen_12_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getFixeLenINTTerminalRuleCall_6_1_0(), "fixeLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixeLen",
-	        		lv_fixeLen_12_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'paddle' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getPaddleKeyword_7_0(), null); 
-    }
-(
-(
-		lv_paddle_14_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getIntegerConstraintAccess().getPaddleSTRINGTerminalRuleCall_7_1_0(), "paddle"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"paddle",
-	        		lv_paddle_14_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(
-(
-		lv_isXSDAtt_15_0=	'xsd Att.' 
-    {
-        createLeafNode(grammarAccess.getIntegerConstraintAccess().getIsXSDAttXsdAttKeyword_8_0(), "isXSDAtt"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIntegerConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isXSDAtt", true, "xsd Att.", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)?)
+))
 ;
 
 
@@ -2262,258 +1843,31 @@ ruleDecimalConstraint returns [EObject current=null]
 	    }
 
 )
-)((
-(
-		lv_hasDefault_1_0=	'default' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getHasDefaultDefaultKeyword_1_0_0(), "hasDefault"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "hasDefault", true, "default", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
 )(
 (
-		lv_defaultValue_2_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getDefaultValueSTRINGTerminalRuleCall_1_1_0(), "defaultValue"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getDecimalConstraintAccess().getConstraintRefNumberConstraintParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_constraintRef_1_0=ruleNumberConstraint		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
-	       			"defaultValue",
-	        		lv_defaultValue_2_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
+	       			"constraintRef",
+	        		lv_constraintRef_1_0, 
+	        		"NumberConstraint", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
-))?((
-(
-		lv_isFixed_3_0=	'fixed' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getIsFixedFixedKeyword_2_0_0(), "isFixed"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isFixed", true, "fixed", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
-(
-		lv_fixedValue_4_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getFixedValueSTRINGTerminalRuleCall_2_1_0(), "fixedValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixedValue",
-	        		lv_fixedValue_4_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'minVal' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getMinValKeyword_3_0(), null); 
-    }
-(
-(
-		lv_minValue_6_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getMinValueINTTerminalRuleCall_3_1_0(), "minValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"minValue",
-	        		lv_minValue_6_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'maxVal' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getMaxValKeyword_4_0(), null); 
-    }
-(
-(
-		lv_maxValue_8_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getMaxValueINTTerminalRuleCall_4_1_0(), "maxValue"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"maxValue",
-	        		lv_maxValue_8_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'maxLen' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getMaxLenKeyword_5_0(), null); 
-    }
-(
-(
-		lv_maxLen_10_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getMaxLenINTTerminalRuleCall_5_1_0(), "maxLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"maxLen",
-	        		lv_maxLen_10_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'fixeLen' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getFixeLenKeyword_6_0(), null); 
-    }
-(
-(
-		lv_fixeLen_12_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getFixeLenINTTerminalRuleCall_6_1_0(), "fixeLen"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"fixeLen",
-	        		lv_fixeLen_12_0, 
-	        		"INT", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(	'paddle' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getPaddleKeyword_7_0(), null); 
-    }
-(
-(
-		lv_paddle_14_0=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getDecimalConstraintAccess().getPaddleSTRINGTerminalRuleCall_7_1_0(), "paddle"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"paddle",
-	        		lv_paddle_14_0, 
-	        		"STRING", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-))?(
-(
-		lv_isXSDAtt_15_0=	'xsd Att.' 
-    {
-        createLeafNode(grammarAccess.getDecimalConstraintAccess().getIsXSDAttXsdAttKeyword_8_0(), "isXSDAtt"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getDecimalConstraintRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "isXSDAtt", true, "xsd Att.", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)?)
+))
 ;
 
 
@@ -2644,6 +1998,722 @@ ruleEnumerationConstraint returns [EObject current=null]
 
 
 
+// Entry rule entryRuleNumberConstraint
+entryRuleNumberConstraint returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getNumberConstraintRule(), currentNode); }
+	 iv_ruleNumberConstraint=ruleNumberConstraint 
+	 { $current=$iv_ruleNumberConstraint.current; } 
+	 EOF 
+;
+
+// Rule NumberConstraint
+ruleNumberConstraint returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((	'minVal' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getMinValKeyword_0_0(), null); 
+    }
+(
+(
+		lv_minValue_1_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getMinValueINTTerminalRuleCall_0_1_0(), "minValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"minValue",
+	        		lv_minValue_1_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'maxVal' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getMaxValKeyword_1_0(), null); 
+    }
+(
+(
+		lv_maxValue_3_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getMaxValueINTTerminalRuleCall_1_1_0(), "maxValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"maxValue",
+	        		lv_maxValue_3_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?((
+(
+		lv_hasDefault_4_0=	'default' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getHasDefaultDefaultKeyword_2_0_0(), "hasDefault"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "hasDefault", true, "default", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_defaultValue_5_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getDefaultValueSTRINGTerminalRuleCall_2_1_0(), "defaultValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"defaultValue",
+	        		lv_defaultValue_5_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?((
+(
+		lv_isFixed_6_0=	'fixed' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getIsFixedFixedKeyword_3_0_0(), "isFixed"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "isFixed", true, "fixed", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_fixedValue_7_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getFixedValueSTRINGTerminalRuleCall_3_1_0(), "fixedValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"fixedValue",
+	        		lv_fixedValue_7_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'minLen' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getMinLenKeyword_4_0(), null); 
+    }
+(
+(
+		lv_minLen_9_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getMinLenINTTerminalRuleCall_4_1_0(), "minLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"minLen",
+	        		lv_minLen_9_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'maxLen' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getMaxLenKeyword_5_0(), null); 
+    }
+(
+(
+		lv_maxLen_11_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getMaxLenINTTerminalRuleCall_5_1_0(), "maxLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"maxLen",
+	        		lv_maxLen_11_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'fixeLen' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getFixeLenKeyword_6_0(), null); 
+    }
+(
+(
+		lv_fixeLen_13_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getFixeLenINTTerminalRuleCall_6_1_0(), "fixeLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"fixeLen",
+	        		lv_fixeLen_13_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'paddle' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getPaddleKeyword_7_0(), null); 
+    }
+(
+(
+		lv_paddle_15_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getNumberConstraintAccess().getPaddleSTRINGTerminalRuleCall_7_1_0(), "paddle"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"paddle",
+	        		lv_paddle_15_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(
+(
+		lv_nullable_16_0=	'nullable' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getNullableNullableKeyword_8_0(), "nullable"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "nullable", true, "nullable", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?((
+(
+		lv_derived_17_0=	'derived' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getDerivedDerivedKeyword_9_0_0(), "derived"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "derived", true, "derived", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_writable_18_0=	'writable' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getWritableWritableKeyword_9_1_0(), "writable"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "writable", true, "writable", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?)?(
+(
+		lv_isXSDAtt_19_0=	'xsd Att.' 
+    {
+        createLeafNode(grammarAccess.getNumberConstraintAccess().getIsXSDAttXsdAttKeyword_10_0(), "isXSDAtt"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNumberConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "isXSDAtt", true, "xsd Att.", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?)
+;
+
+
+
+
+
+// Entry rule entryRuleAllConstraint
+entryRuleAllConstraint returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getAllConstraintRule(), currentNode); }
+	 iv_ruleAllConstraint=ruleAllConstraint 
+	 { $current=$iv_ruleAllConstraint.current; } 
+	 EOF 
+;
+
+// Rule AllConstraint
+ruleAllConstraint returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(((
+(
+		lv_hasDefault_0_0=	'default' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getHasDefaultDefaultKeyword_0_0_0(), "hasDefault"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "hasDefault", true, "default", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_defaultValue_1_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getDefaultValueSTRINGTerminalRuleCall_0_1_0(), "defaultValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"defaultValue",
+	        		lv_defaultValue_1_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?((
+(
+		lv_isFixed_2_0=	'fixed' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getIsFixedFixedKeyword_1_0_0(), "isFixed"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "isFixed", true, "fixed", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_fixedValue_3_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getFixedValueSTRINGTerminalRuleCall_1_1_0(), "fixedValue"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"fixedValue",
+	        		lv_fixedValue_3_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'minLen' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getMinLenKeyword_2_0(), null); 
+    }
+(
+(
+		lv_minLen_5_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getMinLenINTTerminalRuleCall_2_1_0(), "minLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"minLen",
+	        		lv_minLen_5_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'maxLen' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getMaxLenKeyword_3_0(), null); 
+    }
+(
+(
+		lv_maxLen_7_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getMaxLenINTTerminalRuleCall_3_1_0(), "maxLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"maxLen",
+	        		lv_maxLen_7_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'fixeLen' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getFixeLenKeyword_4_0(), null); 
+    }
+(
+(
+		lv_fixeLen_9_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getFixeLenINTTerminalRuleCall_4_1_0(), "fixeLen"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"fixeLen",
+	        		lv_fixeLen_9_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(	'paddle' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getPaddleKeyword_5_0(), null); 
+    }
+(
+(
+		lv_paddle_11_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getAllConstraintAccess().getPaddleSTRINGTerminalRuleCall_5_1_0(), "paddle"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"paddle",
+	        		lv_paddle_11_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(
+(
+		lv_nullable_12_0=	'nullable' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getNullableNullableKeyword_6_0(), "nullable"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "nullable", true, "nullable", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?((
+(
+		lv_derived_13_0=	'derived' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getDerivedDerivedKeyword_7_0_0(), "derived"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "derived", true, "derived", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		lv_writable_14_0=	'writable' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getWritableWritableKeyword_7_1_0(), "writable"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "writable", true, "writable", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?)?(
+(
+		lv_isXSDAtt_15_0=	'xsd Att.' 
+    {
+        createLeafNode(grammarAccess.getAllConstraintAccess().getIsXSDAttXsdAttKeyword_8_0(), "isXSDAtt"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getAllConstraintRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "isXSDAtt", true, "xsd Att.", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?)
+;
+
+
+
+
+
+// Rule Visibility
+ruleVisibility returns [Enumerator current=null] 
+    @init { setCurrentLookahead(); resetLookahead(); }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((	'public' 
+	{
+        $current = grammarAccess.getVisibilityAccess().getPublicEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getVisibilityAccess().getPublicEnumLiteralDeclaration_0(), null); 
+    }
+)
+    |(	'private' 
+	{
+        $current = grammarAccess.getVisibilityAccess().getPrivateEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getVisibilityAccess().getPrivateEnumLiteralDeclaration_1(), null); 
+    }
+)
+    |(	'protected' 
+	{
+        $current = grammarAccess.getVisibilityAccess().getProtectedEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getVisibilityAccess().getProtectedEnumLiteralDeclaration_2(), null); 
+    }
+));
+
+
+
+// Rule EntityType
+ruleEntityType returns [Enumerator current=null] 
+    @init { setCurrentLookahead(); resetLookahead(); }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'abstract' 
+	{
+        $current = grammarAccess.getEntityTypeAccess().getPublicEnumLiteralDeclaration().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getEntityTypeAccess().getPublicEnumLiteralDeclaration(), null); 
+    }
+);
+
+
+
 // Rule EnumUsage
 ruleEnumUsage returns [Enumerator current=null] 
     @init { setCurrentLookahead(); resetLookahead(); }
@@ -2656,22 +2726,10 @@ ruleEnumUsage returns [Enumerator current=null]
         createLeafNode(grammarAccess.getEnumUsageAccess().getAsStringEnumLiteralDeclaration_0(), null); 
     }
 )
-    |(	'as bool String' 
-	{
-        $current = grammarAccess.getEnumUsageAccess().getAsBooleanEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getEnumUsageAccess().getAsBooleanEnumLiteralDeclaration_1(), null); 
-    }
-)
     |(	'as Value' 
 	{
-        $current = grammarAccess.getEnumUsageAccess().getAsValueEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getEnumUsageAccess().getAsValueEnumLiteralDeclaration_2(), null); 
-    }
-)
-    |(	'as bool Value' 
-	{
-        $current = grammarAccess.getEnumUsageAccess().getAsBoolValueEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
-        createLeafNode(grammarAccess.getEnumUsageAccess().getAsBoolValueEnumLiteralDeclaration_3(), null); 
+        $current = grammarAccess.getEnumUsageAccess().getAsValueEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+        createLeafNode(grammarAccess.getEnumUsageAccess().getAsValueEnumLiteralDeclaration_1(), null); 
     }
 ));
 
