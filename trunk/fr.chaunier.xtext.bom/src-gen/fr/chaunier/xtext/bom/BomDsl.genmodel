@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.chaunier.xtext.bom/src-gen"
+    editDirectory="/fr.chaunier.xtext.bom.edit/src" editorDirectory="/fr.chaunier.xtext.bom.editor/src"
+    modelPluginID="fr.chaunier.xtext.bom" forceOverwrite="true" modelName="BomDsl"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="fr.chaunier.xtext.bom.edit"
+    editorPluginID="fr.chaunier.xtext.bom.editor">
+  <genPackages prefix="BomDsl" basePackage="fr.chaunier.xtext.bom" disposableProviderFactory="true"
+      ecorePackage="BomDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BomDsl.ecore#//Visibility">
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//Visibility/public"/>
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//Visibility/private"/>
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//Visibility/protected"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BomDsl.ecore#//EntityType">
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//EntityType/public"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BomDsl.ecore#//EnumUsage">
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//EnumUsage/asString"/>
+      <genEnumLiterals ecoreEnumLiteral="BomDsl.ecore#//EnumUsage/asValue"/>
+    </genEnums>
+    <genClasses ecoreClass="BomDsl.ecore#//DomainModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//DomainModel/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="BomDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/namespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/delimiter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//PackageDeclaration/lines"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//DataType"/>
+    <genClasses ecoreClass="BomDsl.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Entity/entityType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Entity/superType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Entity/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Entity/features"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Feature"/>
+    <genClasses ecoreClass="BomDsl.ecore#//StructuralFeature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//StructuralFeature/constraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//StructuralFeature/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//StructuralFeature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//StructuralFeature/type"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Attribute"/>
+    <genClasses ecoreClass="BomDsl.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Reference/opposite"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Enumeration/enumerationLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//EnumerationLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationLiteral/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationLiteral/persistedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Operation/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Operation/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Operation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//Parameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//TypedElement"/>
+    <genClasses ecoreClass="BomDsl.ecore#//TypeRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BomDsl.ecore#//TypeRef/referenced"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//TypeRef/multi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//TypeRef/option"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//Constraint"/>
+    <genClasses ecoreClass="BomDsl.ecore#//BoolConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//BoolConstraint/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//StringConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//StringConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//StringConstraint/constraintRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//StringConstraint/regularExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//DateTimeConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//DateTimeConstraint/constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BomDsl.ecore#//DateTimeConstraint/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//DateTimeConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//DateTimeConstraint/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//IntegerConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//IntegerConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//IntegerConstraint/constraintRef"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//DecimalConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//DecimalConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BomDsl.ecore#//DecimalConstraint/constraintRef"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//EnumerationConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationConstraint/usage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//EnumerationConstraint/defaultValueAsString"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//NumberConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//NumberConstraint/isXSDAtt"/>
+    </genClasses>
+    <genClasses ecoreClass="BomDsl.ecore#//AllConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BomDsl.ecore#//AllConstraint/isXSDAtt"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
