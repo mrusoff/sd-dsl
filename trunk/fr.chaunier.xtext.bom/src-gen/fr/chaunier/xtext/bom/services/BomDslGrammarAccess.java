@@ -40,8 +40,6 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cImportParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		////CartridgeLine:
-		////	 'line' line=STRING ;
 		//AbstractElement:
 		//	PackageDeclaration | Type | Import;
 		public ParserRule getRule() { return rule; }
@@ -280,69 +278,79 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class EntityElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Entity");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cEntityKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Keyword cExtendsKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
-		private final Assignment cSuperTypeAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final CrossReference cSuperTypeEntityCrossReference_2_1_0 = (CrossReference)cSuperTypeAssignment_2_1.eContents().get(0);
-		private final RuleCall cSuperTypeEntityQualifiedNameParserRuleCall_2_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_2_1_0.eContents().get(1);
-		private final Assignment cDescriptionAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDescriptionSTRINGTerminalRuleCall_3_0 = (RuleCall)cDescriptionAssignment_3.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cFeaturesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cFeaturesFeatureParserRuleCall_5_0 = (RuleCall)cFeaturesAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cEntityTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cEntityTypeEntityTypeEnumRuleCall_0_0 = (RuleCall)cEntityTypeAssignment_0.eContents().get(0);
+		private final Keyword cEntityKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cExtendsKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cSuperTypeAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final CrossReference cSuperTypeEntityCrossReference_3_1_0 = (CrossReference)cSuperTypeAssignment_3_1.eContents().get(0);
+		private final RuleCall cSuperTypeEntityQualifiedNameParserRuleCall_3_1_0_1 = (RuleCall)cSuperTypeEntityCrossReference_3_1_0.eContents().get(1);
+		private final Assignment cDescriptionAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDescriptionSTRINGTerminalRuleCall_4_0 = (RuleCall)cDescriptionAssignment_4.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cFeaturesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cFeaturesFeatureParserRuleCall_6_0 = (RuleCall)cFeaturesAssignment_6.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Entity:
-		//	"entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{" features+=Feature* "}";
+		//	entityType=EntityType? "entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{"
+		//	features+=Feature* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{" features+=Feature* "}"
+		//entityType=EntityType? "entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{"
+		//features+=Feature* "}"
 		public Group getGroup() { return cGroup; }
 
+		//entityType=EntityType?
+		public Assignment getEntityTypeAssignment_0() { return cEntityTypeAssignment_0; }
+
+		//EntityType
+		public RuleCall getEntityTypeEntityTypeEnumRuleCall_0_0() { return cEntityTypeEntityTypeEnumRuleCall_0_0; }
+
 		//"entity"
-		public Keyword getEntityKeyword_0() { return cEntityKeyword_0; }
+		public Keyword getEntityKeyword_1() { return cEntityKeyword_1; }
 
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//("extends" superType=[Entity|QualifiedName])?
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_3() { return cGroup_3; }
 
 		//"extends"
-		public Keyword getExtendsKeyword_2_0() { return cExtendsKeyword_2_0; }
+		public Keyword getExtendsKeyword_3_0() { return cExtendsKeyword_3_0; }
 
 		//superType=[Entity|QualifiedName]
-		public Assignment getSuperTypeAssignment_2_1() { return cSuperTypeAssignment_2_1; }
+		public Assignment getSuperTypeAssignment_3_1() { return cSuperTypeAssignment_3_1; }
 
 		//[Entity|QualifiedName]
-		public CrossReference getSuperTypeEntityCrossReference_2_1_0() { return cSuperTypeEntityCrossReference_2_1_0; }
+		public CrossReference getSuperTypeEntityCrossReference_3_1_0() { return cSuperTypeEntityCrossReference_3_1_0; }
 
 		//QualifiedName
-		public RuleCall getSuperTypeEntityQualifiedNameParserRuleCall_2_1_0_1() { return cSuperTypeEntityQualifiedNameParserRuleCall_2_1_0_1; }
+		public RuleCall getSuperTypeEntityQualifiedNameParserRuleCall_3_1_0_1() { return cSuperTypeEntityQualifiedNameParserRuleCall_3_1_0_1; }
 
 		//description=STRING?
-		public Assignment getDescriptionAssignment_3() { return cDescriptionAssignment_3; }
+		public Assignment getDescriptionAssignment_4() { return cDescriptionAssignment_4; }
 
 		//STRING
-		public RuleCall getDescriptionSTRINGTerminalRuleCall_3_0() { return cDescriptionSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getDescriptionSTRINGTerminalRuleCall_4_0() { return cDescriptionSTRINGTerminalRuleCall_4_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_4() { return cLeftCurlyBracketKeyword_4; }
+		public Keyword getLeftCurlyBracketKeyword_5() { return cLeftCurlyBracketKeyword_5; }
 
 		//features+=Feature*
-		public Assignment getFeaturesAssignment_5() { return cFeaturesAssignment_5; }
+		public Assignment getFeaturesAssignment_6() { return cFeaturesAssignment_6; }
 
 		//Feature
-		public RuleCall getFeaturesFeatureParserRuleCall_5_0() { return cFeaturesFeatureParserRuleCall_5_0; }
+		public RuleCall getFeaturesFeatureParserRuleCall_6_0() { return cFeaturesFeatureParserRuleCall_6_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
 	}
 
 	public class FeatureElements extends AbstractParserRuleElementFinder {
@@ -566,6 +574,86 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 
+	public class OperationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Operation");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVisibilityAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cVisibilityVisibilityEnumRuleCall_0_0 = (RuleCall)cVisibilityAssignment_0.eContents().get(0);
+		private final Keyword cOpKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cParamsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cParamsParameterParserRuleCall_4_0_0 = (RuleCall)cParamsAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cParamsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cParamsParameterParserRuleCall_4_1_1_0 = (RuleCall)cParamsAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cColonKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cTypeAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cTypeTypeRefParserRuleCall_7_0 = (RuleCall)cTypeAssignment_7.eContents().get(0);
+		
+		//Operation:
+		//	visibility=Visibility? "op" name=ID "(" (params+=Parameter ("," params+=Parameter)*)? ")" ":" type=TypeRef;
+		public ParserRule getRule() { return rule; }
+
+		//visibility=Visibility? "op" name=ID "(" (params+=Parameter ("," params+=Parameter)*)? ")" ":" type=TypeRef
+		public Group getGroup() { return cGroup; }
+
+		//visibility=Visibility?
+		public Assignment getVisibilityAssignment_0() { return cVisibilityAssignment_0; }
+
+		//Visibility
+		public RuleCall getVisibilityVisibilityEnumRuleCall_0_0() { return cVisibilityVisibilityEnumRuleCall_0_0; }
+
+		//"op"
+		public Keyword getOpKeyword_1() { return cOpKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+
+		//(params+=Parameter ("," params+=Parameter)*)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//params+=Parameter
+		public Assignment getParamsAssignment_4_0() { return cParamsAssignment_4_0; }
+
+		//Parameter
+		public RuleCall getParamsParameterParserRuleCall_4_0_0() { return cParamsParameterParserRuleCall_4_0_0; }
+
+		//("," params+=Parameter)*
+		public Group getGroup_4_1() { return cGroup_4_1; }
+
+		//","
+		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+
+		//params+=Parameter
+		public Assignment getParamsAssignment_4_1_1() { return cParamsAssignment_4_1_1; }
+
+		//Parameter
+		public RuleCall getParamsParameterParserRuleCall_4_1_1_0() { return cParamsParameterParserRuleCall_4_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+
+		//":"
+		public Keyword getColonKeyword_6() { return cColonKeyword_6; }
+
+		//type=TypeRef
+		public Assignment getTypeAssignment_7() { return cTypeAssignment_7; }
+
+		//TypeRef
+		public RuleCall getTypeTypeRefParserRuleCall_7_0() { return cTypeTypeRefParserRuleCall_7_0; }
+	}
+
 	public class ParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Parameter");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -574,8 +662,6 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeTypeRefParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
 		
-		////Operation:
-		////	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
 		//Parameter:
 		//	name=ID type=TypeRef;
 		public ParserRule getRule() { return rule; }
@@ -662,8 +748,6 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cQualifiedNameParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cFullStopAsteriskKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
-		////enum Visibility:
-		////	public="public" | private="private" | protected="protected";
 		//QualifiedNameWithWildCard returns ecore::EString:
 		//	QualifiedName ".*"?;
 		public ParserRule getRule() { return rule; }
@@ -717,18 +801,11 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cEnumerationConstraintParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//Constraint:
-		//	BoolConstraint //	 | QualifiedName 
-		//	//	(nullable?="nullable")?
-		//	//	(derived?="derived" (writable?="writable")?)?
-		//	//	("persistency" persistency=PersistencyMode)?
-		//	| StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint | EnumerationConstraint;
+		//	BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint |
+		//	EnumerationConstraint;
 		public ParserRule getRule() { return rule; }
 
-		//BoolConstraint //	 | QualifiedName 
-		////	(nullable?="nullable")?
-		////	(derived?="derived" (writable?="writable")?)?
-		////	("persistency" persistency=PersistencyMode)?
-		//| StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint | EnumerationConstraint
+		//BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint | EnumerationConstraint
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BoolConstraint
@@ -752,54 +829,21 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class BoolConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BoolConstraint");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConstraintAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cConstraintBooleanKeyword_0_0 = (Keyword)cConstraintAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cHasDefaultAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cHasDefaultDefaultKeyword_1_0_0 = (Keyword)cHasDefaultAssignment_1_0.eContents().get(0);
-		private final Alternatives cAlternatives_1_1 = (Alternatives)cGroup_1.eContents().get(1);
-		private final Assignment cDefaultValueAssignment_1_1_0 = (Assignment)cAlternatives_1_1.eContents().get(0);
-		private final Keyword cDefaultValueTrueKeyword_1_1_0_0 = (Keyword)cDefaultValueAssignment_1_1_0.eContents().get(0);
-		private final Keyword cFalseKeyword_1_1_1 = (Keyword)cAlternatives_1_1.eContents().get(1);
+		private final Assignment cConstraintAssignment = (Assignment)rule.eContents().get(1);
+		private final Keyword cConstraintBooleanKeyword_0 = (Keyword)cConstraintAssignment.eContents().get(0);
 		
 		//BoolConstraint:
 		//	constraint= //dataType=[DataType]
-		//	"boolean" (hasDefault?="default" (defaultValue?="true" | "false"))?;
+		//	"boolean";
 		public ParserRule getRule() { return rule; }
 
 		//constraint= //dataType=[DataType]
-		//"boolean" (hasDefault?="default" (defaultValue?="true" | "false"))?
-		public Group getGroup() { return cGroup; }
-
-		//constraint= //dataType=[DataType]
 		//"boolean"
-		public Assignment getConstraintAssignment_0() { return cConstraintAssignment_0; }
+		public Assignment getConstraintAssignment() { return cConstraintAssignment; }
 
 		////dataType=[DataType]
 		//"boolean"
-		public Keyword getConstraintBooleanKeyword_0_0() { return cConstraintBooleanKeyword_0_0; }
-
-		//(hasDefault?="default" (defaultValue?="true" | "false"))?
-		public Group getGroup_1() { return cGroup_1; }
-
-		//hasDefault?="default"
-		public Assignment getHasDefaultAssignment_1_0() { return cHasDefaultAssignment_1_0; }
-
-		//"default"
-		public Keyword getHasDefaultDefaultKeyword_1_0_0() { return cHasDefaultDefaultKeyword_1_0_0; }
-
-		//defaultValue?="true" | "false"
-		public Alternatives getAlternatives_1_1() { return cAlternatives_1_1; }
-
-		//defaultValue?="true"
-		public Assignment getDefaultValueAssignment_1_1_0() { return cDefaultValueAssignment_1_1_0; }
-
-		//"true"
-		public Keyword getDefaultValueTrueKeyword_1_1_0_0() { return cDefaultValueTrueKeyword_1_1_0_0; }
-
-		//"false"
-		public Keyword getFalseKeyword_1_1_1() { return cFalseKeyword_1_1_1; }
+		public Keyword getConstraintBooleanKeyword_0() { return cConstraintBooleanKeyword_0; }
 	}
 
 	public class StringConstraintElements extends AbstractParserRuleElementFinder {
@@ -807,137 +851,51 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConstraintAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cConstraintStringKeyword_0_0 = (Keyword)cConstraintAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cHasDefaultAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cHasDefaultDefaultKeyword_1_0_0 = (Keyword)cHasDefaultAssignment_1_0.eContents().get(0);
-		private final Assignment cDefaultValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cDefaultValueAssignment_1_1.eContents().get(0);
+		private final Assignment cConstraintRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConstraintRefAllConstraintParserRuleCall_1_0 = (RuleCall)cConstraintRefAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cIsFixedAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cIsFixedFixedKeyword_2_0_0 = (Keyword)cIsFixedAssignment_2_0.eContents().get(0);
-		private final Assignment cFixedValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFixedValueSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cFixedValueAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cMinLenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cMinLenAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cMinLenINTTerminalRuleCall_3_1_0 = (RuleCall)cMinLenAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cMaxLenKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cMaxLenAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cMaxLenINTTerminalRuleCall_4_1_0 = (RuleCall)cMaxLenAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cFixeLenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cFixeLenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cFixeLenINTTerminalRuleCall_5_1_0 = (RuleCall)cFixeLenAssignment_5_1.eContents().get(0);
-		private final Assignment cIsXSDAttAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final Keyword cIsXSDAttXsdAttKeyword_6_0 = (Keyword)cIsXSDAttAssignment_6.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cRegexpKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cRegularExpressionAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cRegularExpressionSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cRegularExpressionAssignment_7_1.eContents().get(0);
+		private final Keyword cRegexpKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cRegularExpressionAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cRegularExpressionSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cRegularExpressionAssignment_2_1.eContents().get(0);
 		
+		////	(
+		////    (isFixed?="fixed" fixedValue=STRING)?
+		////	(hasDefault?="default" defaultValue=STRING)? 
+		////	(nullable?="nullable")?
+		////	(derived?="derived" (writable?="writable")?)?
+		////	)
 		//StringConstraint:
-		//	constraint= //dataType=[DataType]
-		//	"string" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)?
-		//	("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? isXSDAtt?="xsd Att."? ("regexp" regularExpression=STRING)?;
+		//	constraint="string" constraintRef=AllConstraint //    ("minLen" minLen=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? 
+		//	("regexp" regularExpression=STRING)?;
 		public ParserRule getRule() { return rule; }
 
-		//constraint= //dataType=[DataType]
-		//"string" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)?
-		//("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? isXSDAtt?="xsd Att."? ("regexp" regularExpression=STRING)?
+		//constraint="string" constraintRef=AllConstraint //    ("minLen" minLen=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? 
+		//("regexp" regularExpression=STRING)?
 		public Group getGroup() { return cGroup; }
 
-		//constraint= //dataType=[DataType]
-		//"string"
+		//constraint="string"
 		public Assignment getConstraintAssignment_0() { return cConstraintAssignment_0; }
 
-		////dataType=[DataType]
 		//"string"
 		public Keyword getConstraintStringKeyword_0_0() { return cConstraintStringKeyword_0_0; }
 
-		//(hasDefault?="default" defaultValue=STRING)?
-		public Group getGroup_1() { return cGroup_1; }
+		//constraintRef=AllConstraint
+		public Assignment getConstraintRefAssignment_1() { return cConstraintRefAssignment_1; }
 
-		//hasDefault?="default"
-		public Assignment getHasDefaultAssignment_1_0() { return cHasDefaultAssignment_1_0; }
-
-		//"default"
-		public Keyword getHasDefaultDefaultKeyword_1_0_0() { return cHasDefaultDefaultKeyword_1_0_0; }
-
-		//defaultValue=STRING
-		public Assignment getDefaultValueAssignment_1_1() { return cDefaultValueAssignment_1_1; }
-
-		//STRING
-		public RuleCall getDefaultValueSTRINGTerminalRuleCall_1_1_0() { return cDefaultValueSTRINGTerminalRuleCall_1_1_0; }
-
-		//(isFixed?="fixed" fixedValue=STRING)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//isFixed?="fixed"
-		public Assignment getIsFixedAssignment_2_0() { return cIsFixedAssignment_2_0; }
-
-		//"fixed"
-		public Keyword getIsFixedFixedKeyword_2_0_0() { return cIsFixedFixedKeyword_2_0_0; }
-
-		//fixedValue=STRING
-		public Assignment getFixedValueAssignment_2_1() { return cFixedValueAssignment_2_1; }
-
-		//STRING
-		public RuleCall getFixedValueSTRINGTerminalRuleCall_2_1_0() { return cFixedValueSTRINGTerminalRuleCall_2_1_0; }
-
-		//("minLen" minLen=INT)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"minLen"
-		public Keyword getMinLenKeyword_3_0() { return cMinLenKeyword_3_0; }
-
-		//minLen=INT
-		public Assignment getMinLenAssignment_3_1() { return cMinLenAssignment_3_1; }
-
-		//INT
-		public RuleCall getMinLenINTTerminalRuleCall_3_1_0() { return cMinLenINTTerminalRuleCall_3_1_0; }
-
-		//("maxLen" maxLen=INT)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"maxLen"
-		public Keyword getMaxLenKeyword_4_0() { return cMaxLenKeyword_4_0; }
-
-		//maxLen=INT
-		public Assignment getMaxLenAssignment_4_1() { return cMaxLenAssignment_4_1; }
-
-		//INT
-		public RuleCall getMaxLenINTTerminalRuleCall_4_1_0() { return cMaxLenINTTerminalRuleCall_4_1_0; }
-
-		//("fixeLen" fixeLen=INT)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"fixeLen"
-		public Keyword getFixeLenKeyword_5_0() { return cFixeLenKeyword_5_0; }
-
-		//fixeLen=INT
-		public Assignment getFixeLenAssignment_5_1() { return cFixeLenAssignment_5_1; }
-
-		//INT
-		public RuleCall getFixeLenINTTerminalRuleCall_5_1_0() { return cFixeLenINTTerminalRuleCall_5_1_0; }
-
-		//isXSDAtt?="xsd Att."?
-		public Assignment getIsXSDAttAssignment_6() { return cIsXSDAttAssignment_6; }
-
-		//"xsd Att."
-		public Keyword getIsXSDAttXsdAttKeyword_6_0() { return cIsXSDAttXsdAttKeyword_6_0; }
+		//AllConstraint
+		public RuleCall getConstraintRefAllConstraintParserRuleCall_1_0() { return cConstraintRefAllConstraintParserRuleCall_1_0; }
 
 		//("regexp" regularExpression=STRING)?
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_2() { return cGroup_2; }
 
 		//"regexp"
-		public Keyword getRegexpKeyword_7_0() { return cRegexpKeyword_7_0; }
+		public Keyword getRegexpKeyword_2_0() { return cRegexpKeyword_2_0; }
 
 		//regularExpression=STRING
-		public Assignment getRegularExpressionAssignment_7_1() { return cRegularExpressionAssignment_7_1; }
+		public Assignment getRegularExpressionAssignment_2_1() { return cRegularExpressionAssignment_2_1; }
 
 		//STRING
-		public RuleCall getRegularExpressionSTRINGTerminalRuleCall_7_1_0() { return cRegularExpressionSTRINGTerminalRuleCall_7_1_0; }
+		public RuleCall getRegularExpressionSTRINGTerminalRuleCall_2_1_0() { return cRegularExpressionSTRINGTerminalRuleCall_2_1_0; }
 	}
 
 	public class DateTimeConstraintElements extends AbstractParserRuleElementFinder {
@@ -1000,52 +958,20 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConstraintAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cConstraintIntegerKeyword_0_0 = (Keyword)cConstraintAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cHasDefaultAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cHasDefaultDefaultKeyword_1_0_0 = (Keyword)cHasDefaultAssignment_1_0.eContents().get(0);
-		private final Assignment cDefaultValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cDefaultValueINTTerminalRuleCall_1_1_0 = (RuleCall)cDefaultValueAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cIsFixedAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cIsFixedFixedKeyword_2_0_0 = (Keyword)cIsFixedAssignment_2_0.eContents().get(0);
-		private final Assignment cFixedValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFixedValueINTTerminalRuleCall_2_1_0 = (RuleCall)cFixedValueAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cMinValKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cMinValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cMinValueINTTerminalRuleCall_3_1_0 = (RuleCall)cMinValueAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cMaxValKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cMaxValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cMaxValueINTTerminalRuleCall_4_1_0 = (RuleCall)cMaxValueAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMaxLenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cMaxLenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cMaxLenINTTerminalRuleCall_5_1_0 = (RuleCall)cMaxLenAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cFixeLenKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cFixeLenAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cFixeLenINTTerminalRuleCall_6_1_0 = (RuleCall)cFixeLenAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cPaddleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPaddleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPaddleSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cPaddleAssignment_7_1.eContents().get(0);
-		private final Assignment cIsXSDAttAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final Keyword cIsXSDAttXsdAttKeyword_8_0 = (Keyword)cIsXSDAttAssignment_8.eContents().get(0);
+		private final Assignment cConstraintRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConstraintRefNumberConstraintParserRuleCall_1_0 = (RuleCall)cConstraintRefAssignment_1.eContents().get(0);
 		
 		////enum DateTimeAccuracy:
 		////    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
 		////    Second = "second" | Millisecond = "millisecond"
 		////    ;
+		////    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=LONG)?
+		////    ("minVal" minValue=LONG)? ("maxVal" maxValue=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? ("paddle" paddle=STRING)? 
 		//IntegerConstraint:
-		//	constraint="integer" (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)? ("minVal"
-		//	minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-		//	isXSDAtt?="xsd Att."?;
+		//	constraint="integer" constraintRef=NumberConstraint;
 		public ParserRule getRule() { return rule; }
 
-		//constraint="integer" (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)? ("minVal"
-		//minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-		//isXSDAtt?="xsd Att."?
+		//constraint="integer" constraintRef=NumberConstraint
 		public Group getGroup() { return cGroup; }
 
 		//constraint="integer"
@@ -1054,101 +980,11 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"integer"
 		public Keyword getConstraintIntegerKeyword_0_0() { return cConstraintIntegerKeyword_0_0; }
 
-		//(hasDefault?="default" defaultValue=INT)?
-		public Group getGroup_1() { return cGroup_1; }
+		//constraintRef=NumberConstraint
+		public Assignment getConstraintRefAssignment_1() { return cConstraintRefAssignment_1; }
 
-		//hasDefault?="default"
-		public Assignment getHasDefaultAssignment_1_0() { return cHasDefaultAssignment_1_0; }
-
-		//"default"
-		public Keyword getHasDefaultDefaultKeyword_1_0_0() { return cHasDefaultDefaultKeyword_1_0_0; }
-
-		//defaultValue=INT
-		public Assignment getDefaultValueAssignment_1_1() { return cDefaultValueAssignment_1_1; }
-
-		//INT
-		public RuleCall getDefaultValueINTTerminalRuleCall_1_1_0() { return cDefaultValueINTTerminalRuleCall_1_1_0; }
-
-		//(isFixed?="fixed" fixedValue=INT)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//isFixed?="fixed"
-		public Assignment getIsFixedAssignment_2_0() { return cIsFixedAssignment_2_0; }
-
-		//"fixed"
-		public Keyword getIsFixedFixedKeyword_2_0_0() { return cIsFixedFixedKeyword_2_0_0; }
-
-		//fixedValue=INT
-		public Assignment getFixedValueAssignment_2_1() { return cFixedValueAssignment_2_1; }
-
-		//INT
-		public RuleCall getFixedValueINTTerminalRuleCall_2_1_0() { return cFixedValueINTTerminalRuleCall_2_1_0; }
-
-		//("minVal" minValue=INT)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"minVal"
-		public Keyword getMinValKeyword_3_0() { return cMinValKeyword_3_0; }
-
-		//minValue=INT
-		public Assignment getMinValueAssignment_3_1() { return cMinValueAssignment_3_1; }
-
-		//INT
-		public RuleCall getMinValueINTTerminalRuleCall_3_1_0() { return cMinValueINTTerminalRuleCall_3_1_0; }
-
-		//("maxVal" maxValue=INT)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"maxVal"
-		public Keyword getMaxValKeyword_4_0() { return cMaxValKeyword_4_0; }
-
-		//maxValue=INT
-		public Assignment getMaxValueAssignment_4_1() { return cMaxValueAssignment_4_1; }
-
-		//INT
-		public RuleCall getMaxValueINTTerminalRuleCall_4_1_0() { return cMaxValueINTTerminalRuleCall_4_1_0; }
-
-		//("maxLen" maxLen=INT)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"maxLen"
-		public Keyword getMaxLenKeyword_5_0() { return cMaxLenKeyword_5_0; }
-
-		//maxLen=INT
-		public Assignment getMaxLenAssignment_5_1() { return cMaxLenAssignment_5_1; }
-
-		//INT
-		public RuleCall getMaxLenINTTerminalRuleCall_5_1_0() { return cMaxLenINTTerminalRuleCall_5_1_0; }
-
-		//("fixeLen" fixeLen=INT)?
-		public Group getGroup_6() { return cGroup_6; }
-
-		//"fixeLen"
-		public Keyword getFixeLenKeyword_6_0() { return cFixeLenKeyword_6_0; }
-
-		//fixeLen=INT
-		public Assignment getFixeLenAssignment_6_1() { return cFixeLenAssignment_6_1; }
-
-		//INT
-		public RuleCall getFixeLenINTTerminalRuleCall_6_1_0() { return cFixeLenINTTerminalRuleCall_6_1_0; }
-
-		//("paddle" paddle=STRING)?
-		public Group getGroup_7() { return cGroup_7; }
-
-		//"paddle"
-		public Keyword getPaddleKeyword_7_0() { return cPaddleKeyword_7_0; }
-
-		//paddle=STRING
-		public Assignment getPaddleAssignment_7_1() { return cPaddleAssignment_7_1; }
-
-		//STRING
-		public RuleCall getPaddleSTRINGTerminalRuleCall_7_1_0() { return cPaddleSTRINGTerminalRuleCall_7_1_0; }
-
-		//isXSDAtt?="xsd Att."?
-		public Assignment getIsXSDAttAssignment_8() { return cIsXSDAttAssignment_8; }
-
-		//"xsd Att."
-		public Keyword getIsXSDAttXsdAttKeyword_8_0() { return cIsXSDAttXsdAttKeyword_8_0; }
+		//NumberConstraint
+		public RuleCall getConstraintRefNumberConstraintParserRuleCall_1_0() { return cConstraintRefNumberConstraintParserRuleCall_1_0; }
 	}
 
 	public class DecimalConstraintElements extends AbstractParserRuleElementFinder {
@@ -1156,48 +992,16 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConstraintAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Keyword cConstraintDecimalKeyword_0_0 = (Keyword)cConstraintAssignment_0.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Assignment cHasDefaultAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cHasDefaultDefaultKeyword_1_0_0 = (Keyword)cHasDefaultAssignment_1_0.eContents().get(0);
-		private final Assignment cDefaultValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cDefaultValueAssignment_1_1.eContents().get(0);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cIsFixedAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cIsFixedFixedKeyword_2_0_0 = (Keyword)cIsFixedAssignment_2_0.eContents().get(0);
-		private final Assignment cFixedValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cFixedValueSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cFixedValueAssignment_2_1.eContents().get(0);
-		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
-		private final Keyword cMinValKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cMinValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cMinValueINTTerminalRuleCall_3_1_0 = (RuleCall)cMinValueAssignment_3_1.eContents().get(0);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cMaxValKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cMaxValueAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cMaxValueINTTerminalRuleCall_4_1_0 = (RuleCall)cMaxValueAssignment_4_1.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cMaxLenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cMaxLenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cMaxLenINTTerminalRuleCall_5_1_0 = (RuleCall)cMaxLenAssignment_5_1.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cFixeLenKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cFixeLenAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cFixeLenINTTerminalRuleCall_6_1_0 = (RuleCall)cFixeLenAssignment_6_1.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cPaddleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cPaddleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cPaddleSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cPaddleAssignment_7_1.eContents().get(0);
-		private final Assignment cIsXSDAttAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final Keyword cIsXSDAttXsdAttKeyword_8_0 = (Keyword)cIsXSDAttAssignment_8.eContents().get(0);
+		private final Assignment cConstraintRefAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConstraintRefNumberConstraintParserRuleCall_1_0 = (RuleCall)cConstraintRefAssignment_1.eContents().get(0);
 		
+		////    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
+		////    ("minVal" minValue=LONG)? ("maxVal" maxValue=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? ("paddle" paddle=STRING)? 
 		//DecimalConstraint:
-		//	constraint="decimal" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minVal"
-		//	minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-		//	isXSDAtt?="xsd Att."?;
+		//	constraint="decimal" constraintRef=NumberConstraint;
 		public ParserRule getRule() { return rule; }
 
-		//constraint="decimal" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minVal"
-		//minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-		//isXSDAtt?="xsd Att."?
+		//constraint="decimal" constraintRef=NumberConstraint
 		public Group getGroup() { return cGroup; }
 
 		//constraint="decimal"
@@ -1206,101 +1010,11 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"decimal"
 		public Keyword getConstraintDecimalKeyword_0_0() { return cConstraintDecimalKeyword_0_0; }
 
-		//(hasDefault?="default" defaultValue=STRING)?
-		public Group getGroup_1() { return cGroup_1; }
+		//constraintRef=NumberConstraint
+		public Assignment getConstraintRefAssignment_1() { return cConstraintRefAssignment_1; }
 
-		//hasDefault?="default"
-		public Assignment getHasDefaultAssignment_1_0() { return cHasDefaultAssignment_1_0; }
-
-		//"default"
-		public Keyword getHasDefaultDefaultKeyword_1_0_0() { return cHasDefaultDefaultKeyword_1_0_0; }
-
-		//defaultValue=STRING
-		public Assignment getDefaultValueAssignment_1_1() { return cDefaultValueAssignment_1_1; }
-
-		//STRING
-		public RuleCall getDefaultValueSTRINGTerminalRuleCall_1_1_0() { return cDefaultValueSTRINGTerminalRuleCall_1_1_0; }
-
-		//(isFixed?="fixed" fixedValue=STRING)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//isFixed?="fixed"
-		public Assignment getIsFixedAssignment_2_0() { return cIsFixedAssignment_2_0; }
-
-		//"fixed"
-		public Keyword getIsFixedFixedKeyword_2_0_0() { return cIsFixedFixedKeyword_2_0_0; }
-
-		//fixedValue=STRING
-		public Assignment getFixedValueAssignment_2_1() { return cFixedValueAssignment_2_1; }
-
-		//STRING
-		public RuleCall getFixedValueSTRINGTerminalRuleCall_2_1_0() { return cFixedValueSTRINGTerminalRuleCall_2_1_0; }
-
-		//("minVal" minValue=INT)?
-		public Group getGroup_3() { return cGroup_3; }
-
-		//"minVal"
-		public Keyword getMinValKeyword_3_0() { return cMinValKeyword_3_0; }
-
-		//minValue=INT
-		public Assignment getMinValueAssignment_3_1() { return cMinValueAssignment_3_1; }
-
-		//INT
-		public RuleCall getMinValueINTTerminalRuleCall_3_1_0() { return cMinValueINTTerminalRuleCall_3_1_0; }
-
-		//("maxVal" maxValue=INT)?
-		public Group getGroup_4() { return cGroup_4; }
-
-		//"maxVal"
-		public Keyword getMaxValKeyword_4_0() { return cMaxValKeyword_4_0; }
-
-		//maxValue=INT
-		public Assignment getMaxValueAssignment_4_1() { return cMaxValueAssignment_4_1; }
-
-		//INT
-		public RuleCall getMaxValueINTTerminalRuleCall_4_1_0() { return cMaxValueINTTerminalRuleCall_4_1_0; }
-
-		//("maxLen" maxLen=INT)?
-		public Group getGroup_5() { return cGroup_5; }
-
-		//"maxLen"
-		public Keyword getMaxLenKeyword_5_0() { return cMaxLenKeyword_5_0; }
-
-		//maxLen=INT
-		public Assignment getMaxLenAssignment_5_1() { return cMaxLenAssignment_5_1; }
-
-		//INT
-		public RuleCall getMaxLenINTTerminalRuleCall_5_1_0() { return cMaxLenINTTerminalRuleCall_5_1_0; }
-
-		//("fixeLen" fixeLen=INT)?
-		public Group getGroup_6() { return cGroup_6; }
-
-		//"fixeLen"
-		public Keyword getFixeLenKeyword_6_0() { return cFixeLenKeyword_6_0; }
-
-		//fixeLen=INT
-		public Assignment getFixeLenAssignment_6_1() { return cFixeLenAssignment_6_1; }
-
-		//INT
-		public RuleCall getFixeLenINTTerminalRuleCall_6_1_0() { return cFixeLenINTTerminalRuleCall_6_1_0; }
-
-		//("paddle" paddle=STRING)?
-		public Group getGroup_7() { return cGroup_7; }
-
-		//"paddle"
-		public Keyword getPaddleKeyword_7_0() { return cPaddleKeyword_7_0; }
-
-		//paddle=STRING
-		public Assignment getPaddleAssignment_7_1() { return cPaddleAssignment_7_1; }
-
-		//STRING
-		public RuleCall getPaddleSTRINGTerminalRuleCall_7_1_0() { return cPaddleSTRINGTerminalRuleCall_7_1_0; }
-
-		//isXSDAtt?="xsd Att."?
-		public Assignment getIsXSDAttAssignment_8() { return cIsXSDAttAssignment_8; }
-
-		//"xsd Att."
-		public Keyword getIsXSDAttXsdAttKeyword_8_0() { return cIsXSDAttXsdAttKeyword_8_0; }
+		//NumberConstraint
+		public RuleCall getConstraintRefNumberConstraintParserRuleCall_1_0() { return cConstraintRefNumberConstraintParserRuleCall_1_0; }
 	}
 
 	public class EnumerationConstraintElements extends AbstractParserRuleElementFinder {
@@ -1364,25 +1078,437 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getDefaultValueAsStringIDTerminalRuleCall_3_1_0() { return cDefaultValueAsStringIDTerminalRuleCall_3_1_0; }
 	}
+
+	public class NumberConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberConstraint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cMinValKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cMinValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cMinValueINTTerminalRuleCall_0_1_0 = (RuleCall)cMinValueAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cMaxValKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cMaxValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cMaxValueINTTerminalRuleCall_1_1_0 = (RuleCall)cMaxValueAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cHasDefaultAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cHasDefaultDefaultKeyword_2_0_0 = (Keyword)cHasDefaultAssignment_2_0.eContents().get(0);
+		private final Assignment cDefaultValueAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_2_1_0 = (RuleCall)cDefaultValueAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cIsFixedAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cIsFixedFixedKeyword_3_0_0 = (Keyword)cIsFixedAssignment_3_0.eContents().get(0);
+		private final Assignment cFixedValueAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cFixedValueSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cFixedValueAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cMinLenKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cMinLenAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cMinLenINTTerminalRuleCall_4_1_0 = (RuleCall)cMinLenAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cMaxLenKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cMaxLenAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cMaxLenINTTerminalRuleCall_5_1_0 = (RuleCall)cMaxLenAssignment_5_1.eContents().get(0);
+		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
+		private final Keyword cFixeLenKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final Assignment cFixeLenAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cFixeLenINTTerminalRuleCall_6_1_0 = (RuleCall)cFixeLenAssignment_6_1.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cPaddleKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cPaddleAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cPaddleSTRINGTerminalRuleCall_7_1_0 = (RuleCall)cPaddleAssignment_7_1.eContents().get(0);
+		private final Assignment cNullableAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final Keyword cNullableNullableKeyword_8_0 = (Keyword)cNullableAssignment_8.eContents().get(0);
+		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
+		private final Assignment cDerivedAssignment_9_0 = (Assignment)cGroup_9.eContents().get(0);
+		private final Keyword cDerivedDerivedKeyword_9_0_0 = (Keyword)cDerivedAssignment_9_0.eContents().get(0);
+		private final Assignment cWritableAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final Keyword cWritableWritableKeyword_9_1_0 = (Keyword)cWritableAssignment_9_1.eContents().get(0);
+		private final Assignment cIsXSDAttAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final Keyword cIsXSDAttXsdAttKeyword_10_0 = (Keyword)cIsXSDAttAssignment_10.eContents().get(0);
+		
+		//NumberConstraint:
+		//	("minVal" minValue=INT)? ("maxVal" maxValue=INT)? (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed"
+		//	fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
+		//	nullable?="nullable"? (derived?="derived" writable?="writable"?)? isXSDAtt?="xsd Att."?;
+		public ParserRule getRule() { return rule; }
+
+		//("minVal" minValue=INT)? ("maxVal" maxValue=INT)? (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed"
+		//fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
+		//nullable?="nullable"? (derived?="derived" writable?="writable"?)? isXSDAtt?="xsd Att."?
+		public Group getGroup() { return cGroup; }
+
+		//("minVal" minValue=INT)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"minVal"
+		public Keyword getMinValKeyword_0_0() { return cMinValKeyword_0_0; }
+
+		//minValue=INT
+		public Assignment getMinValueAssignment_0_1() { return cMinValueAssignment_0_1; }
+
+		//INT
+		public RuleCall getMinValueINTTerminalRuleCall_0_1_0() { return cMinValueINTTerminalRuleCall_0_1_0; }
+
+		//("maxVal" maxValue=INT)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"maxVal"
+		public Keyword getMaxValKeyword_1_0() { return cMaxValKeyword_1_0; }
+
+		//maxValue=INT
+		public Assignment getMaxValueAssignment_1_1() { return cMaxValueAssignment_1_1; }
+
+		//INT
+		public RuleCall getMaxValueINTTerminalRuleCall_1_1_0() { return cMaxValueINTTerminalRuleCall_1_1_0; }
+
+		//(hasDefault?="default" defaultValue=STRING)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//hasDefault?="default"
+		public Assignment getHasDefaultAssignment_2_0() { return cHasDefaultAssignment_2_0; }
+
+		//"default"
+		public Keyword getHasDefaultDefaultKeyword_2_0_0() { return cHasDefaultDefaultKeyword_2_0_0; }
+
+		//defaultValue=STRING
+		public Assignment getDefaultValueAssignment_2_1() { return cDefaultValueAssignment_2_1; }
+
+		//STRING
+		public RuleCall getDefaultValueSTRINGTerminalRuleCall_2_1_0() { return cDefaultValueSTRINGTerminalRuleCall_2_1_0; }
+
+		//(isFixed?="fixed" fixedValue=STRING)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//isFixed?="fixed"
+		public Assignment getIsFixedAssignment_3_0() { return cIsFixedAssignment_3_0; }
+
+		//"fixed"
+		public Keyword getIsFixedFixedKeyword_3_0_0() { return cIsFixedFixedKeyword_3_0_0; }
+
+		//fixedValue=STRING
+		public Assignment getFixedValueAssignment_3_1() { return cFixedValueAssignment_3_1; }
+
+		//STRING
+		public RuleCall getFixedValueSTRINGTerminalRuleCall_3_1_0() { return cFixedValueSTRINGTerminalRuleCall_3_1_0; }
+
+		//("minLen" minLen=INT)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"minLen"
+		public Keyword getMinLenKeyword_4_0() { return cMinLenKeyword_4_0; }
+
+		//minLen=INT
+		public Assignment getMinLenAssignment_4_1() { return cMinLenAssignment_4_1; }
+
+		//INT
+		public RuleCall getMinLenINTTerminalRuleCall_4_1_0() { return cMinLenINTTerminalRuleCall_4_1_0; }
+
+		//("maxLen" maxLen=INT)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"maxLen"
+		public Keyword getMaxLenKeyword_5_0() { return cMaxLenKeyword_5_0; }
+
+		//maxLen=INT
+		public Assignment getMaxLenAssignment_5_1() { return cMaxLenAssignment_5_1; }
+
+		//INT
+		public RuleCall getMaxLenINTTerminalRuleCall_5_1_0() { return cMaxLenINTTerminalRuleCall_5_1_0; }
+
+		//("fixeLen" fixeLen=INT)?
+		public Group getGroup_6() { return cGroup_6; }
+
+		//"fixeLen"
+		public Keyword getFixeLenKeyword_6_0() { return cFixeLenKeyword_6_0; }
+
+		//fixeLen=INT
+		public Assignment getFixeLenAssignment_6_1() { return cFixeLenAssignment_6_1; }
+
+		//INT
+		public RuleCall getFixeLenINTTerminalRuleCall_6_1_0() { return cFixeLenINTTerminalRuleCall_6_1_0; }
+
+		//("paddle" paddle=STRING)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"paddle"
+		public Keyword getPaddleKeyword_7_0() { return cPaddleKeyword_7_0; }
+
+		//paddle=STRING
+		public Assignment getPaddleAssignment_7_1() { return cPaddleAssignment_7_1; }
+
+		//STRING
+		public RuleCall getPaddleSTRINGTerminalRuleCall_7_1_0() { return cPaddleSTRINGTerminalRuleCall_7_1_0; }
+
+		//nullable?="nullable"?
+		public Assignment getNullableAssignment_8() { return cNullableAssignment_8; }
+
+		//"nullable"
+		public Keyword getNullableNullableKeyword_8_0() { return cNullableNullableKeyword_8_0; }
+
+		//(derived?="derived" writable?="writable"?)?
+		public Group getGroup_9() { return cGroup_9; }
+
+		//derived?="derived"
+		public Assignment getDerivedAssignment_9_0() { return cDerivedAssignment_9_0; }
+
+		//"derived"
+		public Keyword getDerivedDerivedKeyword_9_0_0() { return cDerivedDerivedKeyword_9_0_0; }
+
+		//writable?="writable"?
+		public Assignment getWritableAssignment_9_1() { return cWritableAssignment_9_1; }
+
+		//"writable"
+		public Keyword getWritableWritableKeyword_9_1_0() { return cWritableWritableKeyword_9_1_0; }
+
+		//isXSDAtt?="xsd Att."?
+		public Assignment getIsXSDAttAssignment_10() { return cIsXSDAttAssignment_10; }
+
+		//"xsd Att."
+		public Keyword getIsXSDAttXsdAttKeyword_10_0() { return cIsXSDAttXsdAttKeyword_10_0; }
+	}
+
+	public class AllConstraintElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AllConstraint");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cHasDefaultAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cHasDefaultDefaultKeyword_0_0_0 = (Keyword)cHasDefaultAssignment_0_0.eContents().get(0);
+		private final Assignment cDefaultValueAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cDefaultValueSTRINGTerminalRuleCall_0_1_0 = (RuleCall)cDefaultValueAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cIsFixedAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cIsFixedFixedKeyword_1_0_0 = (Keyword)cIsFixedAssignment_1_0.eContents().get(0);
+		private final Assignment cFixedValueAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cFixedValueSTRINGTerminalRuleCall_1_1_0 = (RuleCall)cFixedValueAssignment_1_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cMinLenKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cMinLenAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cMinLenINTTerminalRuleCall_2_1_0 = (RuleCall)cMinLenAssignment_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cMaxLenKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cMaxLenAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cMaxLenINTTerminalRuleCall_3_1_0 = (RuleCall)cMaxLenAssignment_3_1.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cFixeLenKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cFixeLenAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cFixeLenINTTerminalRuleCall_4_1_0 = (RuleCall)cFixeLenAssignment_4_1.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cPaddleKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cPaddleAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cPaddleSTRINGTerminalRuleCall_5_1_0 = (RuleCall)cPaddleAssignment_5_1.eContents().get(0);
+		private final Assignment cNullableAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final Keyword cNullableNullableKeyword_6_0 = (Keyword)cNullableAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Assignment cDerivedAssignment_7_0 = (Assignment)cGroup_7.eContents().get(0);
+		private final Keyword cDerivedDerivedKeyword_7_0_0 = (Keyword)cDerivedAssignment_7_0.eContents().get(0);
+		private final Assignment cWritableAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final Keyword cWritableWritableKeyword_7_1_0 = (Keyword)cWritableAssignment_7_1.eContents().get(0);
+		private final Assignment cIsXSDAttAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final Keyword cIsXSDAttXsdAttKeyword_8_0 = (Keyword)cIsXSDAttAssignment_8.eContents().get(0);
+		
+		//// Has conversion rule
+		////RealValue returns ecore::EDoubleObject: REAL ;
+		//// Has conversion rule
+		////IntValue returns ecore::EBigInteger: BIGINT ;
+		//// Has conversion rule
+		////DateValue returns ecore::EDate: DATE ;
+		//// Terminals
+		////terminal DATE returns ecore::EDate :
+		////(('0'..'3')('0'..'9')'.'('0'..'1')('0'..'9')'.'('1'..'9')('0'..'9')('0'..'9')('0'..'9'))
+		////|
+		////(('1'..'9')('0'..'9')('0'..'9')('0'..'9')'-'('0'..'1')('0'..'9')'-'('0'..'3')('0'..'9'))
+		////;
+		////terminal HEX : '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+ ;
+		////REAL hidden(): INT ? '.' (EXT_INT | INT);
+		////BIGINT hidden(): INT ? '.' (EXT_INT | INT);
+		////terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
+		////terminal INT returns ecore::EInt : ('-')?  ('0'..'9')+;
+		////terminal LONG returns ecore::ELong : ('-')?  ('0'..'9')+;
+		////terminal DOUBLE returns ecore::EDouble : ('-')?  ('0'..'9')+ '.'  ('0'..'9')+;
+		////terminal DATE returns ecore::EDate : ('0'..'1') '0'..'9' '/' '0'..'3' '0'..'9' '/'  '0'..'9' '0'..'9' '0'..'9' '0'..'9';
+		//AllConstraint:
+		//	(hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen"
+		//	maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? nullable?="nullable"? (derived?="derived"
+		//	writable?="writable"?)? isXSDAtt?="xsd Att."?;
+		public ParserRule getRule() { return rule; }
+
+		//(hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen"
+		//maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? nullable?="nullable"? (derived?="derived"
+		//writable?="writable"?)? isXSDAtt?="xsd Att."?
+		public Group getGroup() { return cGroup; }
+
+		//(hasDefault?="default" defaultValue=STRING)?
+		public Group getGroup_0() { return cGroup_0; }
+
+		//hasDefault?="default"
+		public Assignment getHasDefaultAssignment_0_0() { return cHasDefaultAssignment_0_0; }
+
+		//"default"
+		public Keyword getHasDefaultDefaultKeyword_0_0_0() { return cHasDefaultDefaultKeyword_0_0_0; }
+
+		//defaultValue=STRING
+		public Assignment getDefaultValueAssignment_0_1() { return cDefaultValueAssignment_0_1; }
+
+		//STRING
+		public RuleCall getDefaultValueSTRINGTerminalRuleCall_0_1_0() { return cDefaultValueSTRINGTerminalRuleCall_0_1_0; }
+
+		//(isFixed?="fixed" fixedValue=STRING)?
+		public Group getGroup_1() { return cGroup_1; }
+
+		//isFixed?="fixed"
+		public Assignment getIsFixedAssignment_1_0() { return cIsFixedAssignment_1_0; }
+
+		//"fixed"
+		public Keyword getIsFixedFixedKeyword_1_0_0() { return cIsFixedFixedKeyword_1_0_0; }
+
+		//fixedValue=STRING
+		public Assignment getFixedValueAssignment_1_1() { return cFixedValueAssignment_1_1; }
+
+		//STRING
+		public RuleCall getFixedValueSTRINGTerminalRuleCall_1_1_0() { return cFixedValueSTRINGTerminalRuleCall_1_1_0; }
+
+		//("minLen" minLen=INT)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//"minLen"
+		public Keyword getMinLenKeyword_2_0() { return cMinLenKeyword_2_0; }
+
+		//minLen=INT
+		public Assignment getMinLenAssignment_2_1() { return cMinLenAssignment_2_1; }
+
+		//INT
+		public RuleCall getMinLenINTTerminalRuleCall_2_1_0() { return cMinLenINTTerminalRuleCall_2_1_0; }
+
+		//("maxLen" maxLen=INT)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//"maxLen"
+		public Keyword getMaxLenKeyword_3_0() { return cMaxLenKeyword_3_0; }
+
+		//maxLen=INT
+		public Assignment getMaxLenAssignment_3_1() { return cMaxLenAssignment_3_1; }
+
+		//INT
+		public RuleCall getMaxLenINTTerminalRuleCall_3_1_0() { return cMaxLenINTTerminalRuleCall_3_1_0; }
+
+		//("fixeLen" fixeLen=INT)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"fixeLen"
+		public Keyword getFixeLenKeyword_4_0() { return cFixeLenKeyword_4_0; }
+
+		//fixeLen=INT
+		public Assignment getFixeLenAssignment_4_1() { return cFixeLenAssignment_4_1; }
+
+		//INT
+		public RuleCall getFixeLenINTTerminalRuleCall_4_1_0() { return cFixeLenINTTerminalRuleCall_4_1_0; }
+
+		//("paddle" paddle=STRING)?
+		public Group getGroup_5() { return cGroup_5; }
+
+		//"paddle"
+		public Keyword getPaddleKeyword_5_0() { return cPaddleKeyword_5_0; }
+
+		//paddle=STRING
+		public Assignment getPaddleAssignment_5_1() { return cPaddleAssignment_5_1; }
+
+		//STRING
+		public RuleCall getPaddleSTRINGTerminalRuleCall_5_1_0() { return cPaddleSTRINGTerminalRuleCall_5_1_0; }
+
+		//nullable?="nullable"?
+		public Assignment getNullableAssignment_6() { return cNullableAssignment_6; }
+
+		//"nullable"
+		public Keyword getNullableNullableKeyword_6_0() { return cNullableNullableKeyword_6_0; }
+
+		//(derived?="derived" writable?="writable"?)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//derived?="derived"
+		public Assignment getDerivedAssignment_7_0() { return cDerivedAssignment_7_0; }
+
+		//"derived"
+		public Keyword getDerivedDerivedKeyword_7_0_0() { return cDerivedDerivedKeyword_7_0_0; }
+
+		//writable?="writable"?
+		public Assignment getWritableAssignment_7_1() { return cWritableAssignment_7_1; }
+
+		//"writable"
+		public Keyword getWritableWritableKeyword_7_1_0() { return cWritableWritableKeyword_7_1_0; }
+
+		//isXSDAtt?="xsd Att."?
+		public Assignment getIsXSDAttAssignment_8() { return cIsXSDAttAssignment_8; }
+
+		//"xsd Att."
+		public Keyword getIsXSDAttXsdAttKeyword_8_0() { return cIsXSDAttXsdAttKeyword_8_0; }
+	}
 	
 	
+	public class VisibilityElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "Visibility");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cPublicPublicKeyword_0_0 = (Keyword)cPublicEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cPrivateEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cPrivatePrivateKeyword_1_0 = (Keyword)cPrivateEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cProtectedEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cProtectedProtectedKeyword_2_0 = (Keyword)cProtectedEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Visibility:
+		//	public | private | protected;
+		public EnumRule getRule() { return rule; }
+
+		//public | private | protected
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//public
+		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration_0() { return cPublicEnumLiteralDeclaration_0; }
+
+		//"public"
+		public Keyword getPublicPublicKeyword_0_0() { return cPublicPublicKeyword_0_0; }
+
+		//private
+		public EnumLiteralDeclaration getPrivateEnumLiteralDeclaration_1() { return cPrivateEnumLiteralDeclaration_1; }
+
+		//"private"
+		public Keyword getPrivatePrivateKeyword_1_0() { return cPrivatePrivateKeyword_1_0; }
+
+		//protected
+		public EnumLiteralDeclaration getProtectedEnumLiteralDeclaration_2() { return cProtectedEnumLiteralDeclaration_2; }
+
+		//"protected"
+		public Keyword getProtectedProtectedKeyword_2_0() { return cProtectedProtectedKeyword_2_0; }
+	}
+
+	public class EntityTypeElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "EntityType");
+		private final EnumLiteralDeclaration cPublicEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cPublicAbstractKeyword_0 = (Keyword)cPublicEnumLiteralDeclaration.eContents().get(0);
+		
+		//enum EntityType:
+		//	public="abstract";
+		public EnumRule getRule() { return rule; }
+
+		//public="abstract"
+		public EnumLiteralDeclaration getPublicEnumLiteralDeclaration() { return cPublicEnumLiteralDeclaration; }
+
+		//"abstract"
+		public Keyword getPublicAbstractKeyword_0() { return cPublicAbstractKeyword_0; }
+	}
+
 	public class EnumUsageElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "EnumUsage");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cAsStringEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cAsStringAsStringKeyword_0_0 = (Keyword)cAsStringEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cAsBooleanEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cAsBooleanAsBoolStringKeyword_1_0 = (Keyword)cAsBooleanEnumLiteralDeclaration_1.eContents().get(0);
-		private final EnumLiteralDeclaration cAsValueEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
-		private final Keyword cAsValueAsValueKeyword_2_0 = (Keyword)cAsValueEnumLiteralDeclaration_2.eContents().get(0);
-		private final EnumLiteralDeclaration cAsBoolValueEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
-		private final Keyword cAsBoolValueAsBoolValueKeyword_3_0 = (Keyword)cAsBoolValueEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cAsValueEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cAsValueAsValueKeyword_1_0 = (Keyword)cAsValueEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum EnumUsage:
-		//	asString="as String" | asBoolean="as bool String" | asValue="as Value" | asBoolValue="as bool Value";
+		//	asString="as String" | asValue="as Value";
 		public EnumRule getRule() { return rule; }
 
-		//asString="as String" | asBoolean="as bool String" | asValue="as Value" | asBoolValue="as bool Value"
+		//asString="as String" | asValue="as Value"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//asString="as String"
@@ -1391,23 +1517,11 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"as String"
 		public Keyword getAsStringAsStringKeyword_0_0() { return cAsStringAsStringKeyword_0_0; }
 
-		//asBoolean="as bool String"
-		public EnumLiteralDeclaration getAsBooleanEnumLiteralDeclaration_1() { return cAsBooleanEnumLiteralDeclaration_1; }
-
-		//"as bool String"
-		public Keyword getAsBooleanAsBoolStringKeyword_1_0() { return cAsBooleanAsBoolStringKeyword_1_0; }
-
 		//asValue="as Value"
-		public EnumLiteralDeclaration getAsValueEnumLiteralDeclaration_2() { return cAsValueEnumLiteralDeclaration_2; }
+		public EnumLiteralDeclaration getAsValueEnumLiteralDeclaration_1() { return cAsValueEnumLiteralDeclaration_1; }
 
 		//"as Value"
-		public Keyword getAsValueAsValueKeyword_2_0() { return cAsValueAsValueKeyword_2_0; }
-
-		//asBoolValue="as bool Value"
-		public EnumLiteralDeclaration getAsBoolValueEnumLiteralDeclaration_3() { return cAsBoolValueEnumLiteralDeclaration_3; }
-
-		//"as bool Value"
-		public Keyword getAsBoolValueAsBoolValueKeyword_3_0() { return cAsBoolValueAsBoolValueKeyword_3_0; }
+		public Keyword getAsValueAsValueKeyword_1_0() { return cAsValueAsValueKeyword_1_0; }
 	}
 	
 	private DomainModelElements pDomainModel;
@@ -1423,9 +1537,12 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ReferenceElements pReference;
 	private EnumerationElements pEnumeration;
 	private EnumerationLiteralElements pEnumerationLiteral;
+	private OperationElements pOperation;
 	private ParameterElements pParameter;
 	private TypedElementElements pTypedElement;
 	private TypeRefElements pTypeRef;
+	private VisibilityElements unknownRuleVisibility;
+	private EntityTypeElements unknownRuleEntityType;
 	private QualifiedNameWithWildCardElements pQualifiedNameWithWildCard;
 	private QualifiedNameElements pQualifiedName;
 	private ConstraintElements pConstraint;
@@ -1436,6 +1553,8 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	private DecimalConstraintElements pDecimalConstraint;
 	private EnumUsageElements unknownRuleEnumUsage;
 	private EnumerationConstraintElements pEnumerationConstraint;
+	private NumberConstraintElements pNumberConstraint;
+	private AllConstraintElements pAllConstraint;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -1468,8 +1587,6 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getDomainModelAccess().getRule();
 	}
 
-	////CartridgeLine:
-	////	 'line' line=STRING ;
 	//AbstractElement:
 	//	PackageDeclaration | Type | Import;
 	public AbstractElementElements getAbstractElementAccess() {
@@ -1523,7 +1640,8 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//	"entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{" features+=Feature* "}";
+	//	entityType=EntityType? "entity" name=ID ("extends" superType=[Entity|QualifiedName])? description=STRING? "{"
+	//	features+=Feature* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -1593,8 +1711,16 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getEnumerationLiteralAccess().getRule();
 	}
 
-	////Operation:
-	////	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
+	//Operation:
+	//	visibility=Visibility? "op" name=ID "(" (params+=Parameter ("," params+=Parameter)*)? ")" ":" type=TypeRef;
+	public OperationElements getOperationAccess() {
+		return (pOperation != null) ? pOperation : (pOperation = new OperationElements());
+	}
+	
+	public ParserRule getOperationRule() {
+		return getOperationAccess().getRule();
+	}
+
 	//Parameter:
 	//	name=ID type=TypeRef;
 	public ParameterElements getParameterAccess() {
@@ -1625,8 +1751,26 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTypeRefAccess().getRule();
 	}
 
-	////enum Visibility:
-	////	public="public" | private="private" | protected="protected";
+	//enum Visibility:
+	//	public | private | protected;
+	public VisibilityElements getVisibilityAccess() {
+		return (unknownRuleVisibility != null) ? unknownRuleVisibility : (unknownRuleVisibility = new VisibilityElements());
+	}
+	
+	public EnumRule getVisibilityRule() {
+		return getVisibilityAccess().getRule();
+	}
+
+	//enum EntityType:
+	//	public="abstract";
+	public EntityTypeElements getEntityTypeAccess() {
+		return (unknownRuleEntityType != null) ? unknownRuleEntityType : (unknownRuleEntityType = new EntityTypeElements());
+	}
+	
+	public EnumRule getEntityTypeRule() {
+		return getEntityTypeAccess().getRule();
+	}
+
 	//QualifiedNameWithWildCard returns ecore::EString:
 	//	QualifiedName ".*"?;
 	public QualifiedNameWithWildCardElements getQualifiedNameWithWildCardAccess() {
@@ -1648,11 +1792,8 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Constraint:
-	//	BoolConstraint //	 | QualifiedName 
-	//	//	(nullable?="nullable")?
-	//	//	(derived?="derived" (writable?="writable")?)?
-	//	//	("persistency" persistency=PersistencyMode)?
-	//	| StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint | EnumerationConstraint;
+	//	BoolConstraint | StringConstraint | DateTimeConstraint | IntegerConstraint | DecimalConstraint |
+	//	EnumerationConstraint;
 	public ConstraintElements getConstraintAccess() {
 		return (pConstraint != null) ? pConstraint : (pConstraint = new ConstraintElements());
 	}
@@ -1663,7 +1804,7 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//BoolConstraint:
 	//	constraint= //dataType=[DataType]
-	//	"boolean" (hasDefault?="default" (defaultValue?="true" | "false"))?;
+	//	"boolean";
 	public BoolConstraintElements getBoolConstraintAccess() {
 		return (pBoolConstraint != null) ? pBoolConstraint : (pBoolConstraint = new BoolConstraintElements());
 	}
@@ -1672,10 +1813,15 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getBoolConstraintAccess().getRule();
 	}
 
+	////	(
+	////    (isFixed?="fixed" fixedValue=STRING)?
+	////	(hasDefault?="default" defaultValue=STRING)? 
+	////	(nullable?="nullable")?
+	////	(derived?="derived" (writable?="writable")?)?
+	////	)
 	//StringConstraint:
-	//	constraint= //dataType=[DataType]
-	//	"string" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)?
-	//	("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? isXSDAtt?="xsd Att."? ("regexp" regularExpression=STRING)?;
+	//	constraint="string" constraintRef=AllConstraint //    ("minLen" minLen=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? 
+	//	("regexp" regularExpression=STRING)?;
 	public StringConstraintElements getStringConstraintAccess() {
 		return (pStringConstraint != null) ? pStringConstraint : (pStringConstraint = new StringConstraintElements());
 	}
@@ -1699,10 +1845,10 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	////    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
 	////    Second = "second" | Millisecond = "millisecond"
 	////    ;
+	////    (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=LONG)?
+	////    ("minVal" minValue=LONG)? ("maxVal" maxValue=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? ("paddle" paddle=STRING)? 
 	//IntegerConstraint:
-	//	constraint="integer" (hasDefault?="default" defaultValue=INT)? (isFixed?="fixed" fixedValue=INT)? ("minVal"
-	//	minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-	//	isXSDAtt?="xsd Att."?;
+	//	constraint="integer" constraintRef=NumberConstraint;
 	public IntegerConstraintElements getIntegerConstraintAccess() {
 		return (pIntegerConstraint != null) ? pIntegerConstraint : (pIntegerConstraint = new IntegerConstraintElements());
 	}
@@ -1711,10 +1857,10 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getIntegerConstraintAccess().getRule();
 	}
 
+	////    (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)?
+	////    ("minVal" minValue=LONG)? ("maxVal" maxValue=LONG)? ("maxLen" maxLen=LONG)? ("fixeLen" fixeLen=LONG)? ("paddle" paddle=STRING)? 
 	//DecimalConstraint:
-	//	constraint="decimal" (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minVal"
-	//	minValue=INT)? ("maxVal" maxValue=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
-	//	isXSDAtt?="xsd Att."?;
+	//	constraint="decimal" constraintRef=NumberConstraint;
 	public DecimalConstraintElements getDecimalConstraintAccess() {
 		return (pDecimalConstraint != null) ? pDecimalConstraint : (pDecimalConstraint = new DecimalConstraintElements());
 	}
@@ -1724,7 +1870,7 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum EnumUsage:
-	//	asString="as String" | asBoolean="as bool String" | asValue="as Value" | asBoolValue="as bool Value";
+	//	asString="as String" | asValue="as Value";
 	public EnumUsageElements getEnumUsageAccess() {
 		return (unknownRuleEnumUsage != null) ? unknownRuleEnumUsage : (unknownRuleEnumUsage = new EnumUsageElements());
 	}
@@ -1741,6 +1887,50 @@ public class BomDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getEnumerationConstraintRule() {
 		return getEnumerationConstraintAccess().getRule();
+	}
+
+	//NumberConstraint:
+	//	("minVal" minValue=INT)? ("maxVal" maxValue=INT)? (hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed"
+	//	fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen" maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)?
+	//	nullable?="nullable"? (derived?="derived" writable?="writable"?)? isXSDAtt?="xsd Att."?;
+	public NumberConstraintElements getNumberConstraintAccess() {
+		return (pNumberConstraint != null) ? pNumberConstraint : (pNumberConstraint = new NumberConstraintElements());
+	}
+	
+	public ParserRule getNumberConstraintRule() {
+		return getNumberConstraintAccess().getRule();
+	}
+
+	//// Has conversion rule
+	////RealValue returns ecore::EDoubleObject: REAL ;
+	//// Has conversion rule
+	////IntValue returns ecore::EBigInteger: BIGINT ;
+	//// Has conversion rule
+	////DateValue returns ecore::EDate: DATE ;
+	//// Terminals
+	////terminal DATE returns ecore::EDate :
+	////(('0'..'3')('0'..'9')'.'('0'..'1')('0'..'9')'.'('1'..'9')('0'..'9')('0'..'9')('0'..'9'))
+	////|
+	////(('1'..'9')('0'..'9')('0'..'9')('0'..'9')'-'('0'..'1')('0'..'9')'-'('0'..'3')('0'..'9'))
+	////;
+	////terminal HEX : '0' ('x'|'X')(('0'..'9')|('a'..'f')|('A'..'F'))+ ;
+	////REAL hidden(): INT ? '.' (EXT_INT | INT);
+	////BIGINT hidden(): INT ? '.' (EXT_INT | INT);
+	////terminal EXT_INT: INT ('e'|'E')('-'|'+') INT;
+	////terminal INT returns ecore::EInt : ('-')?  ('0'..'9')+;
+	////terminal LONG returns ecore::ELong : ('-')?  ('0'..'9')+;
+	////terminal DOUBLE returns ecore::EDouble : ('-')?  ('0'..'9')+ '.'  ('0'..'9')+;
+	////terminal DATE returns ecore::EDate : ('0'..'1') '0'..'9' '/' '0'..'3' '0'..'9' '/'  '0'..'9' '0'..'9' '0'..'9' '0'..'9';
+	//AllConstraint:
+	//	(hasDefault?="default" defaultValue=STRING)? (isFixed?="fixed" fixedValue=STRING)? ("minLen" minLen=INT)? ("maxLen"
+	//	maxLen=INT)? ("fixeLen" fixeLen=INT)? ("paddle" paddle=STRING)? nullable?="nullable"? (derived?="derived"
+	//	writable?="writable"?)? isXSDAtt?="xsd Att."?;
+	public AllConstraintElements getAllConstraintAccess() {
+		return (pAllConstraint != null) ? pAllConstraint : (pAllConstraint = new AllConstraintElements());
+	}
+	
+	public ParserRule getAllConstraintRule() {
+		return getAllConstraintAccess().getRule();
 	}
 
 	//terminal ID:
