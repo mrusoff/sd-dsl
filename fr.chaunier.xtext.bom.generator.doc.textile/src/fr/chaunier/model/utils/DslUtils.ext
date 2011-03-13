@@ -1,0 +1,19 @@
+import fr::chaunier::xtext::bom::bomDsl;
+
+collectPackageEntities(PackageDeclaration this) :
+	this.elements.typeSelect(Entity);
+
+Collection[Feature] filterFeatureDataType(Entity entity) :
+    JAVA fr.chaunier.model.utils.DslUtils.filterAttributeDataType(fr.chaunier.xtext.bom.bomDsl.Entity);
+
+Collection[Feature] filterFeatureEntityType(Entity entity) :
+    JAVA fr.chaunier.model.utils.DslUtils.filterAttributeEntityType(fr.chaunier.xtext.bom.bomDsl.Entity);
+
+Collection[Entity] getAllSuperTypeEntities(Entity entity) :
+    JAVA fr.chaunier.model.utils.DslUtils.getAllSuperTypeEntities(fr.chaunier.xtext.bom.bomDsl.Entity);
+
+Collection[Feature] getAllSuperTypeFeatures(Entity entity) :
+    getAllSuperTypeEntities(entity).add(entity).features ;
+    
+PackageDeclaration getPackage(Type type) :
+	JAVA fr.chaunier.model.utils.DslUtils.getPackage(fr.chaunier.xtext.bom.bomDsl.Type) ;
