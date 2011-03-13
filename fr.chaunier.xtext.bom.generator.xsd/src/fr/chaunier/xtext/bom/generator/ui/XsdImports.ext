@@ -1,10 +1,14 @@
+import fr::chaunier::xtext::bom::bomDsl;
 import fr::chaunier::xtext::bom::generator::ui;
 
 String addImportsHere() :
  getImportsTool().addImportsHere();
  
-String registerImport(String name) :
- getImportsTool().registerImport(name);
+PackageDeclaration registerPackage(PackageDeclaration pck) :
+ getImportsTool().registerImportPackage(pck);
+
+setTheCurrentPackage(PackageDeclaration pck) :
+ getImportsTool().setCurrentPackage(pck);
 
 private XSDImportsTool getImportsTool() :
    GLOBALVAR __xsdImportTool;
