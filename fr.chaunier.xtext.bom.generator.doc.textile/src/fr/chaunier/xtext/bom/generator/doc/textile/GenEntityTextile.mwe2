@@ -25,7 +25,7 @@ Workflow {
 
   	component = org.eclipse.xpand2.Generator {
 //		expand = "templates::doc::msg::Template::main('BBB001') FOREACH packages"
-		expand = "templates::doc::Main::Root FOREACH packages"
+		expand = "templates::oo::Main::Root FOREACH packages"
 		outlet = {
 			path = targetDir
 		}
