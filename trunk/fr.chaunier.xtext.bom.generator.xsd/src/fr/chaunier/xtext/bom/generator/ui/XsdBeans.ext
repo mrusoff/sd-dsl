@@ -1,0 +1,26 @@
+import fr::chaunier::xtext::bom::bomDsl;
+
+extension fr::chaunier::xtext::bom::generator::ui::XsdImports;
+extension fr::chaunier::xtext::bom::generator::ui::DslUtils;
+
+PackageDeclaration getPackage(Object this) : null;
+PackageDeclaration getPackage(Type this) : 
+	getPackage(this.eContainer()) ;  
+PackageDeclaration getPackage(Entity this) :
+	getPackage(this.eContainer()) ;  	
+PackageDeclaration getPackage(Enumeration this) :
+	getPackage(this.eContainer()) ;
+PackageDeclaration getPackage(DataType this) :
+	getPackage(this.eContainer()) ;
+PackageDeclaration getPackage(PackageDeclaration this) :
+	this ;  	
+
+registerType(Type type) :
+	registerPackage(getPackage(type)) -> type  ;
+ 
+name(Type type) :
+	registerPackage(getPackage(type))
+	-> type.name; 
+
+
+ 
