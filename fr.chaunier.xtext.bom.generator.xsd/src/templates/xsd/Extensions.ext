@@ -1,4 +1,6 @@
 import fr::chaunier::xtext::bom::bomDsl;
 
-//sortedGreetings(DomainModel this) :
-//	this.greetings.sortBy(g|g.name.toLowerCase());
+String removeChar(String this) :
+	this.replaceAll("éèê","e")->this.replaceAll("à","a")->this.replaceAll("'"," ")
+	;
+	
