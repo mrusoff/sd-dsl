@@ -1,0 +1,17 @@
+package test {
+
+	datatype String
+
+	entity E1 {
+		at1 : String
+	}
+
+//	entity E2 extends E3 { // Circular inheritance detected
+//		at1 : E1
+//	}
+
+//	entity E3 extends E2 { // Circular inheritance detected
+//		at1 : E3
+//	}
+
+}

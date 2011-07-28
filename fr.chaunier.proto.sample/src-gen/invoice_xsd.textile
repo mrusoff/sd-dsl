@@ -1,0 +1,85 @@
+
+h1. package : invoice_xsd
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| invoice_xsd  | invxsd | http://www.chaunier.fr/invoice_xsd 
+
+h2. Enumeration definition
+
+
+h2. Data Type definition
+
+* !icons/Datatype.gif!"InvoiceNumber":#InvoiceNumber
+* !icons/Datatype.gif!"CustNumber":#CustNumber
+* !icons/Datatype.gif!"Description":#Description
+* !icons/Datatype.gif!"Price":#Price
+* !icons/Datatype.gif!"Discount":#Discount
+* !icons/Datatype.gif!"Date":#Date
+
+h2. Class definition
+
+* !icons/Entity.gif!"Invoice":#Invoice
+* !icons/Entity.gif!"Header":#Header
+* !icons/Entity.gif!"BillTo":#BillTo
+* !icons/Entity.gif!"Item":#Item
+      
+h3(#InvoiceNumber). DataType Name : InvoiceNumber
+
+h3(#CustNumber). DataType Name : CustNumber
+
+h3(#Description). DataType Name : Description
+
+h3(#Price). DataType Name : Price
+
+h3(#Discount). DataType Name : Discount
+
+h3(#Date). DataType Name : Date
+
+h3(#Invoice). Class Name : Invoice  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| header | "Header":invoice_xsd.html#Header | 
+    |!icons/Attribute.gif!| items | "Item":invoice_xsd.html#Item | 
+h3(#Header). Class Name : Header  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| date2 | "Date":invoice_xsd.html#Date | 
+    |!icons/Attribute.gif!| date | "Date":invoice_xsd.html#Date | 
+    |!icons/Attribute.gif!| billTo | "BillTo":invoice_xsd.html#BillTo | 
+h3(#BillTo). Class Name : BillTo  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| customerNumber | "CustNumber":invoice_xsd.html#CustNumber | 
+    |!icons/Attribute.gif!| postalAddress | "PostalAddress":address.html#PostalAddress | 
+h3(#Item). Class Name : Item  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| publication | "Publication":catalogue.html#Publication | 
+    |!icons/Attribute.gif!| description | "Description":invoice_xsd.html#Description | 
+    |!icons/Attribute.gif!| price | "Price":invoice_xsd.html#Price | 
+    |!icons/Attribute.gif!| discount | "Discount":invoice_xsd.html#Discount | 

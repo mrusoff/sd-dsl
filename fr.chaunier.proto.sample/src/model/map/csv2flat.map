@@ -1,0 +1,44 @@
+model cdv2flat 
+
+import invoice_flat.*
+
+// definition régle entier vers String
+define rule intToString args "dateIn" "dateOut"
+
+// fonction d'aggregation de l'obet date dans l'attribut XSD Date
+define fonction flatDate2csvDate in invoice_csv.Date [ day ] in invoice_csv.Date [month] in invoice_csv.Date [year] out invoice_csv.Entete [ date ]
+
+//invoice_flat.Entete. [date] out invoice_csv.Entete [date]  
+
+module main source invoice_csv.Facture target invoice_flat.Invoice "map objet source facture ds pivot invoice"  {
+	map module headerMap entete -> header  	"map entete ds header par module header"		
+	map module itemsMap articles -> items 	"map des articles ds items "
+} 
+
+module headerMap source invoice_csv.Entete target Header " "  {
+	fuction flatDate2csvDate
+	map module billToMap client -> billTo
+} 
+
+module billToMap source invoice_csv.Client target BillTo " "  {
+	map atribute nom -> name
+	map atribute numeroClient -> customerNumber
+	map atribute telephone -> phone
+	ignore <- marie
+	map module adresseMap adresse -> address
+}
+
+module itemsMap source invoice_csv.Article target invoice_xsd.Item " "  {
+	map atribute description -> description
+	map atribute remise -> discount 
+	map atribute prix -> price 
+}
+
+module adresseMap source invoice_csv.Adresse target invoice_flat.Address " "  {
+	map atribute ville -> city  
+	map atribute ligne1 -> street1
+	map atribute ligne2 -> street2
+	map atribute codePostale -> zip  
+} 
+
+root main

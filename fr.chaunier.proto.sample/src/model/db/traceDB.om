@@ -1,0 +1,23 @@
+// les type de bases sount déclarés en datatype pour être agnostique quand à la technique de sérialisation csv,flat,old xml,xml xsd
+
+package trace_db /*prefix invflat namespace "http://www.chaunier.fr/invoice_flat"*/ {
+	
+datatype InvoiceNumber
+datatype CustNumber
+datatype Amount
+datatype Date
+
+	enumeration O_N [ N = 0 ; O = 1 ; ]
+	
+	// description d'une structure à urbaniser
+	
+	entity Trace {
+		date : Date
+		customerNumber : CustNumber //integer fixeLen 6
+		invoiceNumber : InvoiceNumber
+		totalAmount : Amount
+	}
+		
+
+
+}

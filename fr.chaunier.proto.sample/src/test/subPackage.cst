@@ -1,0 +1,15 @@
+
+import main_package.*
+ 
+package main_package prefix main namespace "http" {
+
+entity TestMain {
+	attr1 decimal fixeLen 10
+}
+
+datatype String string maxLen 10
+	
+}
+
+
+

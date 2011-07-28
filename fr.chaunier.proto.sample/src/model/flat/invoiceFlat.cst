@@ -1,0 +1,37 @@
+import invoice_flat.*
+
+
+package invoice_flat prefix invflat namespace "http://www.chaunier.fr/invoice_flat" { //Constraint entities are not complete
+
+
+	datatype Date string fixeLen 8 // format JJMMAAAA
+		
+	entity Invoice {
+	}
+	
+	entity Header {
+		date 		// spec de contrainte porté par datatype
+	}
+
+	entity Item {
+		description string fixeLen 100
+		price decimal fixeLen 8
+		discount decimal fixeLen 4
+	}
+	
+	entity BillTo {
+		customerNumber decimal fixeLen 6
+		name string fixeLen 40
+		maried enum as String fixeLen 1
+		phone string fixeLen 8
+	}
+	
+	entity Address {
+		street1 string fixeLen 38	
+		street2 string fixeLen 38
+		city string fixeLen 40
+		state string fixeLen 20
+		province string fixeLen 20
+		zip string fixeLen 9
+	}
+}

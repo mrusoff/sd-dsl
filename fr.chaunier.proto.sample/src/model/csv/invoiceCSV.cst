@@ -1,0 +1,46 @@
+import invoice_csv.*
+
+package invoice_csv prefix invcsv namespace "http://www.chaunier.fr/invoice_csv" {
+
+	// contrainte date à partir des types
+	datatype Day decimal minVal 0 maxVal 31 maxLen 2
+	datatype Month decimal minVal 0 maxVal 12 maxLen 2
+	datatype Year decimal fixeLen 4
+	
+	entity Date {
+		day
+		month
+		year		
+	}
+
+	entity Entete "Description" {
+	} 
+
+	entity Article "specification produit" {
+		description string maxLen 80
+		prix decimal maxLen 8 paddle "xxxxx.xx" "en euro"
+		remise decimal maxLen 4 paddle "x.xx"
+		
+		 //decimal maxLen 4 paddle "x.xx" "en pourcentage"
+	} 
+	
+	entity Client "specification produit" {
+		numeroClient decimal maxLen 12
+		nom string maxLen 20 
+		telephone string maxLen 12
+		marie enum as String
+	} 
+
+	entity Adresse "" {
+		ligne1 string maxLen 80	
+		ligne2 string maxLen 80	
+		ligne3 string maxLen 80	
+		ville string maxLen 80
+		codePostale string maxLen 5 
+	}
+	
+}   
+
+
+ 
+

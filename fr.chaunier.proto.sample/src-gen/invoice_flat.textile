@@ -1,0 +1,128 @@
+
+h1. package : invoice_flat
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| invoice_flat  | invflat | http://www.chaunier.fr/invoice_flat 
+
+h2. Enumeration definition
+
+* !icons/Enumeration.gif!"O_N":#O_N
+
+h2. Data Type definition
+
+* !icons/Datatype.gif!"InvoiceNumber":#InvoiceNumber
+* !icons/Datatype.gif!"CustNumber":#CustNumber
+* !icons/Datatype.gif!"Name":#Name
+* !icons/Datatype.gif!"Phone":#Phone
+* !icons/Datatype.gif!"Description":#Description
+* !icons/Datatype.gif!"StreetLine":#StreetLine
+* !icons/Datatype.gif!"City":#City
+* !icons/Datatype.gif!"State":#State
+* !icons/Datatype.gif!"Province":#Province
+* !icons/Datatype.gif!"Zip":#Zip
+* !icons/Datatype.gif!"Date":#Date
+* !icons/Datatype.gif!"Price":#Price
+* !icons/Datatype.gif!"Discount":#Discount
+
+h2. Class definition
+
+* !icons/Entity.gif!"Invoice":#Invoice
+* !icons/Entity.gif!"Header":#Header
+* !icons/Entity.gif!"Item":#Item
+* !icons/Entity.gif!"BillTo":#BillTo
+* !icons/Entity.gif!"Address":#Address
+      
+h3(#InvoiceNumber). DataType Name : InvoiceNumber
+
+h3(#CustNumber). DataType Name : CustNumber
+
+h3(#Name). DataType Name : Name
+
+h3(#Phone). DataType Name : Phone
+
+h3(#Description). DataType Name : Description
+
+h3(#StreetLine). DataType Name : StreetLine
+
+h3(#City). DataType Name : City
+
+h3(#State). DataType Name : State
+
+h3(#Province). DataType Name : Province
+
+h3(#Zip). DataType Name : Zip
+
+h3(#Date). DataType Name : Date
+
+h3(#Price). DataType Name : Price
+
+h3(#Discount). DataType Name : Discount
+
+h3(#Invoice). Class Name : Invoice  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| header | "Header":invoice_flat.html#Header | 
+    |!icons/Attribute.gif!| items | "Item":invoice_flat.html#Item | 
+h3(#Header). Class Name : Header  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| date | "Date":invoice_flat.html#Date | 
+    |!icons/Attribute.gif!| billTo | "BillTo":invoice_flat.html#BillTo | 
+h3(#Item). Class Name : Item  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| description | "Description":invoice_flat.html#Description | 
+    |!icons/Attribute.gif!| price | "Price":invoice_flat.html#Price | 
+    |!icons/Attribute.gif!| discount | "Discount":invoice_flat.html#Discount | 
+h3(#BillTo). Class Name : BillTo  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| customerNumber | "CustNumber":invoice_flat.html#CustNumber | 
+    |!icons/Attribute.gif!| name | "Name":invoice_flat.html#Name | 
+    |!icons/Attribute.gif!| maried | "O_N":invoice_flat.html#O_N | 
+    |!icons/Attribute.gif!| phone | "Phone":invoice_flat.html#Phone | 
+    |!icons/Attribute.gif!| address | "Address":invoice_flat.html#Address | 
+h3(#Address). Class Name : Address  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| street1 | "StreetLine":invoice_flat.html#StreetLine | 
+    |!icons/Attribute.gif!| street2 | "StreetLine":invoice_flat.html#StreetLine | 
+    |!icons/Attribute.gif!| city | "City":invoice_flat.html#City | 
+    |!icons/Attribute.gif!| state | "State":invoice_flat.html#State | 
+    |!icons/Attribute.gif!| province | "Province":invoice_flat.html#Province | 
+    |!icons/Attribute.gif!| zip | "Zip":invoice_flat.html#Zip | 
+h3(#O_N). Enumeration Name : O_N [
+N 
+O 
+      ]	

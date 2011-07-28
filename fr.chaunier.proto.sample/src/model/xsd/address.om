@@ -1,0 +1,71 @@
+package address {
+
+
+datatype String			// 
+datatype Ville
+datatype ZipCode
+datatype CountryCode 	// iso
+datatype MailFormat
+datatype PhoneFormat
+datatype City
+
+enumeration Civility [ M = 1 ; Ms = 2 ; Miss = 3 ;]
+
+enumeration Situation [ SINGLE = 0 ; MARIED = 1 ;]
+
+entity PostalAddress "address Postal définition composed of Tiers Address and Contacts" 
+	{
+	person : Person "le ou les tiers concerné par l\'adresse" 
+	organisation : Organisation "le ou les tiers concerné par l\'adresse" 
+	adresse : Address ? "adresse" 
+	phone : Phone ?
+	contacts : Contact * "elements de contact additionnel mail , mobile tel " }
+
+entity Site "abstraction site test car àçéèê" {
+	}
+
+abstract entity Contact "abstraction contact" {
+	}
+
+abstract entity Tier "abstraction tier" {
+	}
+
+entity Phone extends Contact {
+		numero : PhoneFormat
+	}
+
+entity MobilePhone extends Contact {
+		numero : PhoneFormat
+	}
+
+entity Fax extends Contact {
+		numero : PhoneFormat
+	}
+
+entity Mail extends Contact {
+		mail : String 
+	}
+
+entity Address extends Site "definition adresse geographique" 
+	{
+	line1 : String ? //string maxLen 38 "Premiére ligne d\'adresse" 
+	line2 : String ?  
+	line3 : String ?
+	line4 : String ?
+	zipCode : ZipCode ? "code postal" 
+	city : City ?
+	countryCode : CountryCode ?
+	coutry : String ?
+	}
+	
+entity Organisation extends Tier "definition organisation" {
+		raisonSociale : String ? "dénomination de la raison sociale" }
+
+entity Person extends Tier "definition d'une personne" {
+		civility : Civility ? "civilité" 
+		firstName : String ? "prenom" 
+		secondName : String ? "nom" 
+		gender : Situation "situation familiale" 
+}
+
+}

@@ -1,0 +1,88 @@
+
+system EAI {
+
+	// 1/4 de flux entrant
+	interface csv {
+		oneway in : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_csv.Facture) // csv format
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_csv.Facture) // xml format
+	}
+
+	// 1/4 de flux entrant
+	interface flat {
+		oneway in : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_flat.Invoice) // flat format
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_flat.Invoice)// xml format
+	}
+
+	// split process 1
+	interface spit {
+		oneway inCsv : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_csv.Facture) // xml format
+		oneway inFlat : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_flat.Invoice) // xml format
+		oneway outPivot1 : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_xsd.Invoice)
+		oneway outPivot2 : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_xsd.Invoice)
+	}
+
+// nous créons deux pivot distincts
+	// pivot process 1
+	interface pivot1 {
+		oneway in : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_xsd.Invoice)
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_db.Invoice)
+		oneway outTrace : ( header :  technicaleheader.TechnicalHeader , invoice : trace_db.Trace)
+	}
+
+	// pivot process 2
+	interface pivot2 {
+		oneway in : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_xsd.Invoice)
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_db.Invoice)
+		oneway outTrace : ( header :  technicaleheader.TechnicalHeader , invoice : trace_db.Trace)
+	}
+
+	// 1/4 flux sortant
+	interface outDB {
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_db.Invoice)
+	}
+
+	// 1/4 flux sortant
+	interface outDB2 {
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : invoice_db.Invoice)
+	}
+
+	// 1/4 flux sortant
+	interface outDBTrace {
+		oneway out : ( header :  technicaleheader.TechnicalHeader , invoice : trace_db.Trace)
+	}
+
+	// compnent reader transform csv format 
+	component readInCsv {		
+		requires reader : csv
+		provides out :  csv 		
+	}
+
+	// compnent reader
+	component readInFlat {
+		requires reader : flat
+		provides out1 : flat		
+	}
+
+	// composant transformation
+	component sptit {
+		requires readerCsv : csv
+		requires readerFlat : flat
+		provides out1 : pivot1
+		provides out2 : pivot2
+				
+	}
+
+	// composant transformation
+	component writeOut1 {
+		requires reader : pivot1
+		provides out1 : outDB
+		provides out2 : outDBTrace
+	}
+
+	// composant transformation
+	component writeOut2 {
+		requires reader : pivot2
+		provides out1 : outDB2
+		provides out2 : outDBTrace
+	}
+}

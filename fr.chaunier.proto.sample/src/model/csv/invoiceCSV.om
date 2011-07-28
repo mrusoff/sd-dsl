@@ -1,0 +1,62 @@
+// definition d'un package pour éviter les conflis de nommage des entités
+// indispenssable pour la génération d'un XSD
+
+package invoice_csv  {		
+
+// déninition des types de bases
+// un datatype peut représenter un type métier ou technique exemple VARCHAR pour une base de donnée
+							
+datatype numeroFacture		
+datatype numeroClient
+datatype Nom
+datatype Telephone
+datatype Description 
+datatype ligneAdresse 
+datatype Ville
+datatype CodePostale
+datatype Prix
+datatype Remise
+
+datatype Month 
+datatype Day
+datatype Year
+
+	// structure d'accueil de type complexe
+	entity Date {
+		day : Day //integer //fixeLen 2 "day of date"
+		month : Month //integer fixeLen 2
+		year : Year	//integer fixeLen 4 
+	}
+// déninition des enumérations
+	enumeration O_N [ N = 0 ; O = 1 ; ]									// enumération de type key,value
+	
+	// description de la structure du message par des entitées
+	
+	entity Facture "ceci est le point d'entrée du message facture" {	// doumentation 
+		entete : Entete 
+		articles : Article *											// * multiple
+	}	
+	entity Entete {
+		date : Date
+		client : Client
+	}	
+	entity Article {
+		description : Description *										// * multiple
+		prix : Prix
+		remise : Remise
+	}	
+	entity Client {
+		numeroClient : numeroClient
+		nom : Nom
+		marie : O_N
+		telephone : Telephone
+		adresse : Adresse
+	}	
+	entity Adresse {
+		ligne1 : ligneAdresse 
+		ligne2 : ligneAdresse ?											// ? optionnel
+		ligne3 : ligneAdresse ?
+		ville : Ville
+		codePostale : CodePostale
+	}
+}

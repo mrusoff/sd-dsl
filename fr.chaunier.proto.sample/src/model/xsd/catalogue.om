@@ -1,0 +1,25 @@
+package catalogue /*prefix cat namespace "org.toto"*/ {
+	
+	datatype String
+	datatype Date
+	
+	entity Catalogue {
+		name : String 
+		publications : Publication * 
+	} 
+	
+	abstract entity Publication {
+		title : String
+		date :  Date
+	} 
+	
+	entity BookType extends Publication {
+		isbn : String
+		publisher : String
+	}
+	
+	entity Magazine extends Publication {
+		author : String *
+	}
+	
+}	

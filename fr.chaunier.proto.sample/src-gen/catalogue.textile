@@ -1,0 +1,71 @@
+
+h1. package : catalogue
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| catalogue  | cat | http://www.p.chaunier.fr/catalogue 
+
+h2. Enumeration definition
+
+
+h2. Data Type definition
+
+* !icons/Datatype.gif!"String":#String
+* !icons/Datatype.gif!"Date":#Date
+
+h2. Class definition
+
+* !icons/Entity.gif!"Catalogue":#Catalogue
+* !icons/Entity.gif!"Publication":#Publication
+* !icons/Entity.gif!"BookType":#BookType
+* !icons/Entity.gif!"Magazine":#Magazine
+      
+h3(#String). DataType Name : String
+
+h3(#Date). DataType Name : Date
+
+h3(#Catalogue). Class Name : Catalogue  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| name | "String":catalogue.html#String | 
+    |!icons/Attribute.gif!| publications | "Publication":catalogue.html#Publication | 
+h3(#Publication). Class Name : Publication  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| title | "String":catalogue.html#String | 
+    |!icons/Attribute.gif!| date | "Date":catalogue.html#Date | 
+h3(#BookType). Class Name : BookType  
+
+p{color:blue}. 
+
+ Super types  Publication
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| isbn | "String":catalogue.html#String | 
+    |!icons/Attribute.gif!| publisher | "String":catalogue.html#String | 
+h3(#Magazine). Class Name : Magazine  
+
+p{color:blue}. 
+
+ Super types  Publication
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| author | "String":catalogue.html#String | 

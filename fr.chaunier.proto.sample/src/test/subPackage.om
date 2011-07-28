@@ -1,0 +1,17 @@
+package main_package  annotations [ "prefix"  : "value" , "namespace" : "http:bbb" ] {
+	
+	datatype String 
+				
+	entity TestMain {
+		attr1 : String
+	}
+	
+	package sub_package {
+
+		datatype String
+
+		entity TestSubPackage {
+			attr2 : String
+		}
+	}
+}

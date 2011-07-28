@@ -1,0 +1,187 @@
+
+h1. package : address
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| address  | add | http://www.p.chaunier.fr/add 
+
+h2. Enumeration definition
+
+* !icons/Enumeration.gif!"Civility":#Civility
+* !icons/Enumeration.gif!"Situation":#Situation
+
+h2. Data Type definition
+
+* !icons/Datatype.gif!"Libelle":#Libelle
+* !icons/Datatype.gif!"Ville":#Ville
+* !icons/Datatype.gif!"ZipCode":#ZipCode
+* !icons/Datatype.gif!"CountryCode":#CountryCode
+* !icons/Datatype.gif!"MailFormat":#MailFormat
+* !icons/Datatype.gif!"PhoneFormat":#PhoneFormat
+* !icons/Datatype.gif!"City":#City
+
+h2. Class definition
+
+* !icons/Entity.gif!"PostalAddress":#PostalAddress
+* !icons/Entity.gif!"Site":#Site
+* !icons/Entity.gif!"Contact":#Contact
+* !icons/Entity.gif!"Tier":#Tier
+* !icons/Entity.gif!"Phone":#Phone
+* !icons/Entity.gif!"MobilePhone":#MobilePhone
+* !icons/Entity.gif!"Fax":#Fax
+* !icons/Entity.gif!"Mail":#Mail
+* !icons/Entity.gif!"Address":#Address
+* !icons/Entity.gif!"Organisation":#Organisation
+* !icons/Entity.gif!"Person":#Person
+      
+h3(#Libelle). DataType Name : Libelle
+
+h3(#Ville). DataType Name : Ville
+
+h3(#ZipCode). DataType Name : ZipCode
+
+h3(#CountryCode). DataType Name : CountryCode
+
+h3(#MailFormat). DataType Name : MailFormat
+
+h3(#PhoneFormat). DataType Name : PhoneFormat
+
+h3(#City). DataType Name : City
+
+h3(#PostalAddress). Class Name : PostalAddress  
+
+p{color:blue}. address Postal définition composed of Tiers Address and Contacts
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| person | "Person":address.html#Person | 
+    |!icons/Attribute.gif!| organisation | "Organisation":address.html#Organisation | 
+    |!icons/Attribute.gif!| adresse | "Address":address.html#Address | 
+    |!icons/Attribute.gif!| phone | "Phone":address.html#Phone | 
+    |!icons/Attribute.gif!| contacts | "Contact":address.html#Contact | 
+h3(#Site). Class Name : Site  
+
+p{color:blue}. abstraction site test car àçéèê
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+h3(#Contact). Class Name : Contact  
+
+p{color:blue}. abstraction contact
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+h3(#Tier). Class Name : Tier  
+
+p{color:blue}. abstraction tier
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+h3(#Phone). Class Name : Phone  
+
+p{color:blue}. 
+
+ Super types  Contact
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| numero | "PhoneFormat":address.html#PhoneFormat | 
+h3(#MobilePhone). Class Name : MobilePhone  
+
+p{color:blue}. 
+
+ Super types  Contact
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| numero | "PhoneFormat":address.html#PhoneFormat | 
+h3(#Fax). Class Name : Fax  
+
+p{color:blue}. 
+
+ Super types  Contact
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| numero | "PhoneFormat":address.html#PhoneFormat | 
+h3(#Mail). Class Name : Mail  
+
+p{color:blue}. 
+
+ Super types  Contact
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| mail | "Libelle":address.html#Libelle | 
+h3(#Address). Class Name : Address  
+
+p{color:blue}. definition adresse geographique
+
+ Super types  Site
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| line1 | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| line2 | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| line3 | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| line4 | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| zipCode | "ZipCode":address.html#ZipCode | 
+    |!icons/Attribute.gif!| city | "City":address.html#City | 
+    |!icons/Attribute.gif!| countryCode | "CountryCode":address.html#CountryCode | 
+    |!icons/Attribute.gif!| coutry | "Libelle":address.html#Libelle | 
+h3(#Organisation). Class Name : Organisation  
+
+p{color:blue}. definition organisation
+
+ Super types  Tier
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| raisonSociale | "Libelle":address.html#Libelle | 
+h3(#Person). Class Name : Person  
+
+p{color:blue}. definition d'une personne
+
+ Super types  Tier
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| civility | "Civility":address.html#Civility | 
+    |!icons/Attribute.gif!| firstName | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| secondName | "Libelle":address.html#Libelle | 
+    |!icons/Attribute.gif!| gender | "Situation":address.html#Situation | 
+h3(#Civility). Enumeration Name : Civility [
+M 
+Ms 
+Miss 
+      ]	
+h3(#Situation). Enumeration Name : Situation [
+SINGLE 
+MARIED 
+      ]	
