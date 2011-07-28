@@ -1,5 +1,0 @@
-import fr::chaunier::xtext::bom::bomDsl;
-
-
-searchEntityByName(PackageDeclaration this,String names) :
-	this.elements.typeSelect(Entity).select(e|e.name==names);
