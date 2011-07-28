@@ -1,0 +1,2 @@
+/fr.chaunier.ecoredoc.generator/src/workflowFlat/genPalertSO.mwe OK
+

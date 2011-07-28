@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<workflow>
+	<property name="model" value="fr.chaunier.ecoredoc.generator/src/distri/disurn.ecore" />
+	<property name="src-gen" value="src-gen-bom" />
+	
+	<!-- set up EMF for standalone execution -->
+	<bean class="org.eclipse.emf.mwe.utils.StandaloneSetup" >
+		<platformUri value=".."/>
+	</bean>
+
+	<!-- load model and store it in slot 'model' -->
+	<component class="org.eclipse.emf.mwe.utils.Reader">
+		<uri value="platform:/resource/${model}"/>
+<!--
+		<firstElementOnly value="false"/>
+-->		
+		<modelSlot value="model" />
+	</component>
+
+	
+	<!-- Run the transformation : Ecore to texfile. -->
+	<component id="generator" class="org.eclipse.xpand2.Generator">
+		<metaModel class="org.eclipse.xtend.typesystem.emf.EmfMetaModel">
+			<metaModelPackage value="org.eclipse.emf.ecore.EcorePackage"/>
+		</metaModel>
+		<expand value="src::template::dsl::root::Root FOR model"/>
+		<outlet path="${src-gen}">
+		</outlet>
+	</component>
+</workflow>

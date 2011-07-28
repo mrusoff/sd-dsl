@@ -1,0 +1,3 @@
+import ecore;
+
+String getDefaultArtifactFileName(EPackage ePackage) : JAVA fr.telintrans.model.utils.PackageUtil.getDefaultArtifactFileName(org.eclipse.emf.ecore.EPackage);

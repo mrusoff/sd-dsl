@@ -1,0 +1,14 @@
+package xsdtype prefix xsdtyp namespace "http://www.telintrans.fr/xsdTypes" {
+	datatype String
+	datatype Boolean
+	datatype Int
+	datatype Long
+	datatype Double
+	datatype ID
+	datatype IDREF
+	datatype DateTime
+	datatype AnySimpleType
+	datatype EFeatureMapEntry
+	datatype EStringToStringMapEntry
+	
+}

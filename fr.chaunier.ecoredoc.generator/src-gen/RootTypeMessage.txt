@@ -1,0 +1,16 @@
+Root RootType ( RootType ) ;;
+
+    el1 String;   ;;
+    el2 ; ( Complexe1Type ) ;;
+     extend  abstract ( AbstractComplexType ) ;;;
+        el String; ?  ;;
+
+        el String; ?  ;;
+        elc ElcType;   ;;
+    el3 String; *  ;;
+    el4 Int; ?  ;;
+    els5 ;* ( Complexe2Type ) ;;
+
+        el21 String;   ;;
+        el22cts EnumType;  [ value value1 value2 value3 value4]  default : value ;;
+    elCst1 ConstraintType;   lengh : 10 ;;

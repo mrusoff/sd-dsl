@@ -1,0 +1,10 @@
+import ecore;
+
+List[EObject] allContents(EObject obj) :
+	JAVA fr.telintrans.model.utils.EcoreUtil2.eAllContentsAsList(org.eclipse.emf.ecore.EObject);
+	
+String getJavaTypeName(EObject obj) :
+	obj.metaType.name.
+	replaceAll("::impl","").
+	replaceAll("::",".").
+	replaceAll("Impl","");

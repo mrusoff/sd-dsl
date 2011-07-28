@@ -1,0 +1,4 @@
+import ecore;
+
+List[EClass] collectAllSuperTypes(EClass class) : JAVA fr.telintrans.model.utils.EcoreUtil2.getAllSuperTypes(org.eclipse.emf.ecore.EClass);
+	

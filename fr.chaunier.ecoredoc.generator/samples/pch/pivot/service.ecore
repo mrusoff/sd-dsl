@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="service"
+    nsURI="http://www.coliposte.fr/service" nsPrefix="service">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="&#xD;&#xA;&#x9;&#x9;"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="ControleEtValorisationType">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="si pas de controle - le contrôle de l'option n'a pas été effectué, pas vérifié alors pas de tag va&#x9;leur.&#xD;&#xA;si controle et absence option valeur nulle. &#xD;&#xA;si option vazlorisé alors valeur.&#xD;&#xA;&#x9;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="ControleEtValorisationType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valeur" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"
+        unsettable="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="valeur"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentRoot">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value=""/>
+      <details key="kind" value="mixed"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mixed" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFeatureMapEntry">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="elementWildcard"/>
+        <details key="name" value=":mixed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xMLNSPrefixMap" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xmlns:prefix"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="xSISchemaLocation" upperBound="-1"
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EStringToStringMapEntry"
+        transient="true" containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="attribute"/>
+        <details key="name" value="xsi:schemaLocation"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="options" upperBound="-2"
+        eType="#//OptionsDeServiceType" volatile="true" transient="true" derived="true"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="options"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OptionsDeServiceType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="OptionsDeServiceType"/>
+      <details key="kind" value="elementOnly"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contreRemboursement" eType="#//ControleEtValorisationType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="contreRemboursement"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valeurAssuree" eType="#//ControleEtValorisationType"
+        containment="true" resolveProxies="false">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="valeurAssuree"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="francDeTaxesEtDeDroits"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="francDeTaxesEtDeDroits"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="niveauRecommandation" eType="ecore:EDataType datatype.ecore#//StringF2">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;exclusion assurance/recommandation&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+      </eAnnotations>
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="niveauRecommandation"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="livraisonSamedi" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+        unsettable="true">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="livraisonSamedi"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="horsNorme" unique="false"
+        upperBound="-1" eType="#//RaisonHorsNormeType">
+      <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+        <details key="kind" value="element"/>
+        <details key="name" value="horsNorme"/>
+        <details key="namespace" value="##targetNamespace"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RaisonHorsNormeCabType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeCabType"/>
+    </eAnnotations>
+    <eLiterals name="PASDECABILLISIBLE" literal="PAS_DE_CAB_ILLISIBLE"/>
+    <eLiterals name="CABILLISIBLESUIVI" value="1" literal="CAB_ILLISIBLE_SUIVI"/>
+    <eLiterals name="CABILLISIBLEPCH" value="2" literal="CAB_ILLISIBLE_PCH"/>
+    <eLiterals name="CABILLISIBLESUIVIPCH" value="3" literal="CAB_ILLISIBLE_SUIVI_PCH"/>
+    <eLiterals name="CABILLISIBLEINCONNU4" value="4" literal="CAB_ILLISIBLE_INCONNU_4"/>
+    <eLiterals name="CABILLISIBLEINCONNU5" value="5" literal="CAB_ILLISIBLE_INCONNU_5"/>
+    <eLiterals name="CABILLISIBLEINCONNU6" value="6" literal="CAB_ILLISIBLE_INCONNU_6"/>
+    <eLiterals name="CABILLISIBLEINCONNU7" value="7" literal="CAB_ILLISIBLE_INCONNU_7"/>
+    <eLiterals name="CABILLISIBLEINCONNU8" value="8" literal="CAB_ILLISIBLE_INCONNU_8"/>
+    <eLiterals name="CABILLISIBLEINCONNU9" value="9" literal="CAB_ILLISIBLE_INCONNU_9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RaisonHorsNormeCabTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeCabType:Object"/>
+      <details key="baseType" value="RaisonHorsNormeCabType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RaisonHorsNormeCleeType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeCleeType"/>
+    </eAnnotations>
+    <eLiterals name="PASDECLEERRONEE" literal="PAS_DE_CLE_ERRONEE"/>
+    <eLiterals name="CLEERRONEESUIVI" value="1" literal="CLE_ERRONEE_SUIVI"/>
+    <eLiterals name="CLEERRONEEPCH" value="2" literal="CLE_ERRONEE_PCH"/>
+    <eLiterals name="CLEERRONEEJOINTURESUIVIPCH" value="3" literal="CLE_ERRONEE_JOINTURE_SUIVI_PCH"/>
+    <eLiterals name="CLEERRONEEINCONNU4" value="4" literal="CLE_ERRONEE_INCONNU_4"/>
+    <eLiterals name="CLEERRONEEINCONNU5" value="5" literal="CLE_ERRONEE_INCONNU_5"/>
+    <eLiterals name="CLEERRONEEINCONNU6" value="6" literal="CLE_ERRONEE_INCONNU_6"/>
+    <eLiterals name="CLEERRONEEINCONNU7" value="7" literal="CLE_ERRONEE_INCONNU_7"/>
+    <eLiterals name="CLEERRONEEINCONNU8" value="8" literal="CLE_ERRONEE_INCONNU_8"/>
+    <eLiterals name="CLEERRONEEINCONNU9" value="9" literal="CLE_ERRONEE_INCONNU_9"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RaisonHorsNormeCleeTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeCleeType:Object"/>
+      <details key="baseType" value="RaisonHorsNormeCleeType"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RaisonHorsNormeType">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeType"/>
+    </eAnnotations>
+    <eLiterals name="NON"/>
+    <eLiterals name="SANSMOTIF" value="1" literal="SANS_MOTIF"/>
+    <eLiterals name="DIMENSION" value="2"/>
+    <eLiterals name="ETIQUETTE" value="3"/>
+    <eLiterals name="STABILITE" value="4"/>
+    <eLiterals name="EMBALLAGE" value="5"/>
+    <eLiterals name="VOLUME" value="6"/>
+    <eLiterals name="INCONNU7" value="7" literal="INCONNU_7"/>
+    <eLiterals name="INCONNU8" value="8" literal="INCONNU_8"/>
+    <eLiterals name="INCONNU9" value="9" literal="INCONNU_9"/>
+    <eLiterals name="INCONNU10" value="10" literal="INCONNU_10"/>
+    <eLiterals name="INCONNU11" value="11" literal="INCONNU_11"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="RaisonHorsNormeTypeObject" instanceClassName="org.eclipse.emf.common.util.Enumerator">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="name" value="RaisonHorsNormeType:Object"/>
+      <details key="baseType" value="RaisonHorsNormeType"/>
+    </eAnnotations>
+  </eClassifiers>
+</ecore:EPackage>

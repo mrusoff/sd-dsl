@@ -1,0 +1,19 @@
+import ecore;
+
+String getDocumentation(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getDoc(org.eclipse.emf.ecore.EModelElement);
+String getCardinality(EAttribute eAttribute) : JAVA fr.telintrans.model.utils.UtilEMF.getCardinality(org.eclipse.emf.ecore.EAttribute);
+String getCardinality(EReference eReference) : JAVA fr.telintrans.model.utils.UtilEMF.getCardinality(org.eclipse.emf.ecore.EReference);
+
+String getXSDName(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getName(org.eclipse.emf.ecore.EModelElement);
+String getXSDKind(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getKind(org.eclipse.emf.ecore.EModelElement);
+String getXSDMinLength(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getMinLength(org.eclipse.emf.ecore.EModelElement);
+String getXSDMaxLength(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getMaxLength(org.eclipse.emf.ecore.EModelElement);
+String getXSDBaseType(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getBaseType(org.eclipse.emf.ecore.EModelElement);
+String getXSDPattern(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getPattern(org.eclipse.emf.ecore.EModelElement);
+String getXSDLength(EModelElement eModelElement) : JAVA fr.telintrans.model.utils.UtilEMF.getLength(org.eclipse.emf.ecore.EModelElement);
+
+boolean isXSDElement(EStructuralFeature eStructuralFeature) : JAVA fr.telintrans.model.utils.UtilEMF.isXSDElement(org.eclipse.emf.ecore.EStructuralFeature);
+String getClassifierListLinked(List eClassifiers,String sep) : JAVA fr.telintrans.model.utils.UtilEMF.getClassifierListLinked(java.util.List,java.lang.String);
+
+
+
