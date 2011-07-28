@@ -1,0 +1,15 @@
+module worflow.bom.GenEntityCsv 
+	
+var targetDir = "doc/bom/oo/csv"
+var fileEncoding = "Cp1252"
+var modelPath = "src/model"
+
+	Workflow {
+	//  component = StopWatch: stopWatch {}
+	  component = @fr.chaunier.xtext.bom.generator.doc.textile.GenEntityCsv {
+	  		fileEncoding = fileEncoding
+	  		modelPath = modelPath
+	  		targetDir = targetDir  
+	  }
+	//  component = stopWatch
+	}

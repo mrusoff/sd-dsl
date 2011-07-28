@@ -1,0 +1,15 @@
+module worflow.xsd.GenXSD
+	
+var targetDir = "xsd"
+var fileEncoding = "Cp1252"
+var modelPath = "src/model"
+
+	Workflow {
+	//  component = StopWatch: stopWatch {}
+	  component = @fr.chaunier.xtext.bom.generator.xsd.GenXSD {
+	  		fileEncoding = fileEncoding
+	  		modelPath = modelPath
+	  		targetDir = targetDir  
+	  }
+	//  component = stopWatch
+	}
