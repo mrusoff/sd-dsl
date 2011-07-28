@@ -71,14 +71,14 @@ public class AbstractOmDslSemanticSequencer extends AbstractSemanticSequencer {
 				}
 				else break;
 			case OmDslPackage.ATTRIBUTE:
-				if(context == grammarAccess.getFeatureRule() ||
-				   context == grammarAccess.getTypedElementRule()) {
-					sequence_Feature_Attribute(context, (Attribute) semanticObject); 
-					return; 
-				}
-				else if(context == grammarAccess.getStructuralFeatureRule() ||
+				if(context == grammarAccess.getStructuralFeatureRule() ||
 				   context == grammarAccess.getAttributeRule()) {
 					sequence_Attribute_Attribute(context, (Attribute) semanticObject); 
+					return; 
+				}
+				else if(context == grammarAccess.getFeatureRule() ||
+				   context == grammarAccess.getTypedElementRule()) {
+					sequence_Feature_Attribute(context, (Attribute) semanticObject); 
 					return; 
 				}
 				else break;
