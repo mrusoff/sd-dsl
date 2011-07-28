@@ -1,0 +1,15 @@
+import fr::chaunier::xtext::bom::bomDsl;
+
+packageName(Type this) :
+	qualifiedName(eContainer());
+	
+String qualifiedName(Attribute this) : qualifiedName(this.type.referenced)+'.'+this.name ; 
+String qualifiedName(Void this) : null;
+String qualifiedName(Type this) : packageName()==null? name : packageName()+"."+name;
+String qualifiedName(Object this) : null;
+String qualifiedName(PackageDeclaration this) :
+	if qualifiedName(eContainer())==null 
+	then name
+	else qualifiedName(eContainer())+'.'+name;
+	
+   
