@@ -8,6 +8,7 @@ import java.util.Set
 
 class GeneratorExtensions extends OmExtensions {
 
+
   def shortName(Type r, ImportManager importManager) {
     val builder = new StringBuilder()
     importManager.appendTypeRef(r, builder)

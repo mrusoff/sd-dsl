@@ -16,8 +16,8 @@ class OmDslGenerator implements IGenerator {
 	
   override void doGenerate(Resource resource, IFileSystemAccess fsa) {
     for(entity: resource.allContentsIterable.filter(typeof(Entity))) {
-      fsa.generateFile(entity.fileName, entity.compile)
-      fsa.generateFile(entity.xmlFileName, entity.compileXml)
+//      fsa.generateFile(entity.fileName, entity.compile)
+//      fsa.generateFile(entity.xmlFileName, entity.compileXml)
     }
   }
 
