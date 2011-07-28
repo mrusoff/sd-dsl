@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.chaunier.xtext.omcst.om/src-gen"
+    editDirectory="/fr.chaunier.xtext.omcst.om.edit/src" editorDirectory="/fr.chaunier.xtext.omcst.om.editor/src"
+    modelPluginID="fr.chaunier.xtext.omcst.om" forceOverwrite="true" modelName="OmcstDsl"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="fr.chaunier.xtext.omcst.om.edit"
+    editorPluginID="fr.chaunier.xtext.omcst.om.editor">
+  <genPackages prefix="OmcstDsl" basePackage="fr.chaunier.xtext.omcst.om" disposableProviderFactory="true"
+      ecorePackage="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Visibility">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Visibility/public"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Visibility/private"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Visibility/protected"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EntityType">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EntityType/abstract"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AttributeType">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AttributeType/derived"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumUsage">
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumUsage/asString"/>
+      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumUsage/asValue"/>
+    </genEnums>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DomainModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DomainModel/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AbstractElement"/>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//XsdElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//XsdElement/xsdElement"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration/anno"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//PackageDeclaration/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DataType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DataType/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DataType/anno"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity/entityType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity/superType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity/anno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Entity/features"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Feature"/>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature/anno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StructuralFeature/type"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Attribute"/>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Reference/opposite"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Enumeration/enumerationLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationLiteral/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationLiteral/persistedValue"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Operation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Operation/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Operation/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Operation/params"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Operation/type"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Parameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//TypedElement"/>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//TypeRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//TypeRef/referenced"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//TypeRef/multi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//TypeRef/option"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Annotations">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Annotations/annotations"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Annotation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Annotation/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Annotation/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//Constraint"/>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//BoolConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//BoolConstraint/constraint"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StringConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StringConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StringConstraint/constraintRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//StringConstraint/regularExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DateTimeConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DateTimeConstraint/constraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DateTimeConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DateTimeConstraint/defaultValue"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DecimalConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DecimalConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//DecimalConstraint/constraintRef"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationConstraint/usage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//EnumerationConstraint/defaultValueAsString"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/isId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//NumberConstraint/isXSDAtt"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/isId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore#//AllConstraint/isXSDAtt"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
