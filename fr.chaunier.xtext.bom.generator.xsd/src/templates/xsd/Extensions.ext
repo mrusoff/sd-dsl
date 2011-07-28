@@ -1,6 +1,0 @@
-import fr::chaunier::xtext::bom::bomDsl;
-
-String removeChar(String this) :
-	this.replaceAll("éèê","e")->this.replaceAll("à","a")->this.replaceAll("'"," ")
-	;
-	

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.chaunier.xtext.mapdsl/src-gen"
+    editDirectory="/fr.chaunier.xtext.mapdsl.edit/src" editorDirectory="/fr.chaunier.xtext.mapdsl.editor/src"
+    modelPluginID="fr.chaunier.xtext.mapdsl" forceOverwrite="true" modelName="MapDsl"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="fr.chaunier.xtext.mapdsl.edit"
+    editorPluginID="fr.chaunier.xtext.mapdsl.editor" usedGenPackages="../../../../../../fr.chaunier.xtext.bom/src-gen/fr/chaunier/xtext/bom/BomDsl.genmodel#//bomDsl">
+  <genPackages prefix="MapDsl" basePackage="fr.chaunier.xtext.mapdsl" disposableProviderFactory="true"
+      ecorePackage="MapDsl.ecore#/">
+    <genClasses ecoreClass="MapDsl.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//Model/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//Model/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MapDsl.ecore#//Model/mappingModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MapDsl.ecore#//Model/roots"/>
+    </genClasses>
+    <genClasses ecoreClass="MapDsl.ecore#//RootModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//RootModule/rootRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//RootModule/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="MapDsl.ecore#//MappingModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//MappingModule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//MappingModule/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MapDsl.ecore#//MappingModule/mappedFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="MapDsl.ecore#//FeatureMap">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/leftFields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/rightFields"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/setLeftField"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/expr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/setRightField"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MapDsl.ecore#//FeatureMap/module"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//FeatureMap/rules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//FeatureMap/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="MapDsl.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//Expression/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MapDsl.ecore#//Expression/intValue"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
