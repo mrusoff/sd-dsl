@@ -15,6 +15,7 @@ class GeneratorExtensions extends OmExtensions {
     builder.toString
   }
 
+
   def fileName(Entity e) {
   e.packageName.folderName + '/' + e.name + '.java'
   }

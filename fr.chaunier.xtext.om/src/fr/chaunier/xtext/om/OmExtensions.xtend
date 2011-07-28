@@ -4,6 +4,7 @@ import org.eclipse.emf.ecore.EObject
 //import org.eclipse.xtext.common.types.JvmDeclaredType
 import fr.chaunier.xtext.om.omDsl.*
 
+
 class OmExtensions {
   /**
    * computes the qualified name if its
