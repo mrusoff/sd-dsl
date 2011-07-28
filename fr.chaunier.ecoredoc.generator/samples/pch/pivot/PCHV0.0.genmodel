@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.telintrans.ecoredoc.generator2/src"
+    modelPluginID="fr.telintrans.ecoredoc.generator2" modelName="PCHV0" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="5.0" copyrightFields="false">
+  <foreignModel>PCHV0.0.xsd</foreignModel>
+  <genPackages prefix="Service" basePackage="fr.coliposte" resource="XML" disposableProviderFactory="true"
+      ecorePackage="service.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="service.ecore#//RaisonHorsNormeCabType">
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/PASDECABILLISIBLE"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLESUIVI"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEPCH"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLESUIVIPCH"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU4"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU5"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU6"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU7"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU8"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCabType/CABILLISIBLEINCONNU9"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="service.ecore#//RaisonHorsNormeCleeType">
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/PASDECLEERRONEE"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEESUIVI"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEPCH"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEJOINTURESUIVIPCH"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU4"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU5"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU6"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU7"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU8"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeCleeType/CLEERRONEEINCONNU9"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="service.ecore#//RaisonHorsNormeType">
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/NON"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/SANSMOTIF"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/DIMENSION"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/ETIQUETTE"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/STABILITE"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/EMBALLAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/VOLUME"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/INCONNU7"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/INCONNU8"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/INCONNU9"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/INCONNU10"/>
+      <genEnumLiterals ecoreEnumLiteral="service.ecore#//RaisonHorsNormeType/INCONNU11"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="service.ecore#//RaisonHorsNormeCabTypeObject"/>
+    <genDataTypes ecoreDataType="service.ecore#//RaisonHorsNormeCleeTypeObject"/>
+    <genDataTypes ecoreDataType="service.ecore#//RaisonHorsNormeTypeObject"/>
+    <genClasses ecoreClass="service.ecore#//ControleEtValorisationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//ControleEtValorisationType/valeur"/>
+    </genClasses>
+    <genClasses ecoreClass="service.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference service.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference service.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference service.ecore#//DocumentRoot/options"/>
+    </genClasses>
+    <genClasses ecoreClass="service.ecore#//OptionsDeServiceType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference service.ecore#//OptionsDeServiceType/contreRemboursement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference service.ecore#//OptionsDeServiceType/valeurAssuree"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//OptionsDeServiceType/francDeTaxesEtDeDroits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//OptionsDeServiceType/niveauRecommandation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//OptionsDeServiceType/livraisonSamedi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute service.ecore#//OptionsDeServiceType/horsNorme"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Datatype" basePackage="fr.telintrans" resource="XML" disposableProviderFactory="true"
+      ecorePackage="datatype.ecore#/">
+    <genDataTypes ecoreDataType="datatype.ecore#//CodePaysIso3166N2"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//CodeProduitType"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//LigneAdresse"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//MontantType"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//MontantTypeObject"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//NumeroColisType"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//NumeroColisTypeObject"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//RegateType"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String10"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String20"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String25"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String3"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String35"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String50"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String6"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String7"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//String9"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//StringF2"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//StringF4"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//StringF5"/>
+    <genDataTypes ecoreDataType="datatype.ecore#//StringF6"/>
+    <genClasses ecoreClass="datatype.ecore#//ColisCAB13Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatype.ecore#//ColisCAB13Type/codeProduit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatype.ecore#//ColisCAB13Type/numeroColis"/>
+    </genClasses>
+    <genClasses ecoreClass="datatype.ecore#//DimensionType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatype.ecore#//DimensionType/hauteur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatype.ecore#//DimensionType/longueur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatype.ecore#//DimensionType/largeur"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Pch" basePackage="com.geopost" resource="XML" disposableProviderFactory="true"
+      ecorePackage="pch.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="pch.ecore#//AlerteLivraisonEnum">
+      <genEnumLiterals ecoreEnumLiteral="pch.ecore#//AlerteLivraisonEnum/SMS"/>
+      <genEnumLiterals ecoreEnumLiteral="pch.ecore#//AlerteLivraisonEnum/MAIL"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="pch.ecore#//AlerteLivraisonEnumObject"/>
+    <genClasses ecoreClass="pch.ecore#//AlertComplementType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//AlertComplementType/email"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//AlertComplementType/telephone"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//AlertComplementType/alert"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//BordereauType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//BordereauType/idBordereau"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//BordereauType/siteEvenement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//BordereauType/dateExpedition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//BordereauType/dateValidation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//BordereauType/regateEmission"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//BordereauType/pch"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ColisAnnonce">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisAnnonce/expediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisAnnonce/complement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisAnnonce/telMobile"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisAnnonce/telFixe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisAnnonce/mail"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ColisInfoType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ColisInfoType/codeJourneePostal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ColisInfoType/codeClient"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ColisMesuree">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisMesuree/controle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisMesuree/acheminement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisMesuree/dimension"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ColisType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ColisType/poids"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ColisType/typePreparation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//ColisType/destinataire"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ColisType/accuseReception"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ComplementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ComplementType/instrlivraisonSpecifique1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ComplementType/instrlivraisonSpecifique2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ComplementType/instrAlertDestinataire"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ComplementType/livraisonEnPointRelais"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pch.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pch.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//DocumentRoot/root"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//EquipementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//EquipementType/code"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//EquipementType/libelle"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//ExpediteurInfoType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//ExpediteurInfoType/codeColis"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//OptionDeServiceMesureType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//OptionDeServiceMesureType/valeurFrancDeTaxesEtDroits"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//PCHHeaderType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/canal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/nonmInfoSource"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/nomInfoDestination"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/dateReception"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/instanceIDTibco"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/typedeFlux"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pch.ecore#//PCHHeaderType/compteurSequence"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//PCHRootType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PCHRootType/header"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PCHRootType/bordereaux"/>
+    </genClasses>
+    <genClasses ecoreClass="pch.ecore#//PriseEnChargeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/colis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/evenement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/colisAnnonce"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/optionAnnonceService"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/equipementMesure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/colisMesuree"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pch.ecore#//PriseEnChargeType/optionMesureeService"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Event" basePackage="fr.coliposte" resource="XML" disposableProviderFactory="true"
+      ecorePackage="event.ecore#/">
+    <genClasses ecoreClass="event.ecore#//AcheminementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute event.ecore#//AcheminementType/fausseDirection"/>
+    </genClasses>
+    <genClasses ecoreClass="event.ecore#//ControleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute event.ecore#//ControleType/cabHorsNorme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute event.ecore#//ControleType/cleeHorsNorme"/>
+    </genClasses>
+    <genClasses ecoreClass="event.ecore#//EvenementType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute event.ecore#//EvenementType/dateFlashage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute event.ecore#//EvenementType/codeEvenement"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Adresse" basePackage="fr.telintrans" resource="XML" disposableProviderFactory="true"
+      ecorePackage="adresse.ecore#/">
+    <genDataTypes ecoreDataType="adresse.ecore#//NumeroType"/>
+    <genDataTypes ecoreDataType="adresse.ecore#//NumeroType1"/>
+    <genClasses image="false" ecoreClass="adresse.ecore#//AbstractContacteType"/>
+    <genClasses ecoreClass="adresse.ecore#//AccesAdresseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AccesAdresseType/digicode1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AccesAdresseType/digicode2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AccesAdresseType/identifiantSonnette"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AccesAdresseType/commentaire1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AccesAdresseType/autreCoordonnee"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//AdressePostaleType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/personne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/organisation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/adresse"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/telephoneFixe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/telephoneMoblie"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/mail"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdressePostaleType/contact"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//AdresseStructureeType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdresseStructureeType/personne"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdresseStructureeType/societe"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//AdresseStructureeType/adresse"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//AdresseType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/ligne1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/ligne2"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/ligne3"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/ligne4"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/codePostal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/ville"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseType/pays"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//AdresseWebType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AdresseWebType/adresseWeb"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//AutreContacteType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//AutreContacteType/other"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//EmailType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//EmailType/email"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//FaxType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//FaxType/fax"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//OrganisationType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//OrganisationType/raisonSociale"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//PersonneType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//PersonneType/civilite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//PersonneType/nom"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//PersonneType/prenom"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="adresse.ecore#//SiteType"/>
+    <genClasses ecoreClass="adresse.ecore#//TelephoneFixeType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//TelephoneFixeType/numero"/>
+    </genClasses>
+    <genClasses ecoreClass="adresse.ecore#//TelephoneMobileType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//TelephoneMobileType/numero"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="adresse.ecore#//Tier"/>
+    <genClasses ecoreClass="adresse.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute adresse.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference adresse.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference adresse.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference adresse.ecore#//DocumentRoot/test"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

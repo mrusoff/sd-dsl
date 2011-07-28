@@ -1,0 +1,87 @@
+«IMPORT ecore»
+
+«EXTENSION fr::telintrans::model::utils::utils»
+«EXTENSION fr::telintrans::model::utils::Extensions»
+«EXTENSION fr::telintrans::model::utils::EcoreUtil2»
+«EXTENSION fr::telintrans::model::utils::Indent»
+
+«DEFINE Root(String roots) FOR List[EPackage]-»
+«EXPAND main FOREACH searchEntityByName(roots)-»
+«ENDDEFINE»
+
+
+«DEFINE main FOR EClass-»
+«FILE this.name+"Message.txt.csv"-»
+Root «this.name -»
+«EXPAND dump(0) FOR this-»
+«ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EClass-»
+ ( «name» ) ;;«getDocumentation()»
+«IF this.eSuperTypes.exists(sup|sup!=null)-»
+«FOREACH collectAllSuperTypes() AS eClass-»
+«EXPAND dumpSubClassWhithoutFeatures(i) FOR eClass-»
+«ENDFOREACH-»
+«ENDIF-»
+«FOREACH eAllStructuralFeatures AS eFeature-»
+«EXPAND dump(i+1) FOR eFeature-»
+«ENDFOREACH-»
+«ENDDEFINE»
+
+«DEFINE dumpSubClass(Integer i) FOR EClass-»
+«getIndentation(i)» extend «IF abstract» abstract «ENDIF-» 
+( «name» ) ;;;«getDocumentation()»
+
+«IF this.eAllStructuralFeatures.exists(fe|fe != null)»
+«FOREACH eAllStructuralFeatures AS eFeature-»
+«EXPAND dump(i+1) FOR eFeature-»
+«ENDFOREACH»
+«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE dumpSubClassWhithoutFeatures(Integer i) FOR EClass-»
+«getIndentation(i)» extend «IF abstract» abstract «ENDIF-» 
+( «name» ) ;;;«getDocumentation()»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EStructuralFeature-»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EReference-»
+«getIndentation(i)»«name» ;«getCardinality()-»  
+«EXPAND dump(i) FOR eType-»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EAttribute-»
+«getIndentation(i)»«name» «eAttributeType.name-»; «getCardinality()-»   
+ «IF getXSDMinLength(this.eAttributeType)!= null-»
+ min lengh : «getXSDMinLength(this.eAttributeType)-»
+«ENDIF-» 
+«IF getXSDMaxLength(this.eAttributeType)!= null-»
+ max lengh : «getXSDMaxLength(this.eAttributeType)-»
+«ENDIF-» 
+«IF getXSDLength(this.eAttributeType)!= null-»
+ lengh : «getXSDLength(this.eAttributeType)-»
+«ENDIF-» 
+«IF getXSDPattern(this.eAttributeType)!= null-»
+ pattern : «getXSDPattern(this.eAttributeType)-»
+«ENDIF-»
+«EXPAND dump(i) FOR this.eAttributeType-»
+ ;;«getDocumentation()»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EClassifier-»
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EEnum-»
+«IF this.eLiterals.exists(op|op != null)-»
+[«FOREACH this.eLiterals AS eEnumLiteral-»
+ «eEnumLiteral-» 
+«ENDFOREACH-»
+] «ENDIF-» default : «this.defaultValue-» 
+«ENDDEFINE»
+
+«DEFINE dump(Integer i) FOR EDataType-»
+«ENDDEFINE»
+

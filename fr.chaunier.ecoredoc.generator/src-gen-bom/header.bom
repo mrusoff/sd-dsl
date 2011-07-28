@@ -1,0 +1,23 @@
+
+package header prefix header namespace "http://www.coliposte.fr/header" {
+import xsdtype.* 
+
+
+	entity HeaderType "infos d identification du message et SLA"  {
+		canal : CanalType ? ""
+		type : TypeType ? ""
+		dateReception : String ? ""
+		instanceIDTibco : InstanceIDTibcoType ? ""
+		typedeFlux : TypedeFluxType ? ""
+		nomFichier : String ? ""
+		versionFichier : String ? ""
+		identifiantFichier : String ? ""
+		dateEmisPart : DateTime ? ""
+		dateReceptTradX : DateTime ? ""
+		siteSource : SiteType ? ""		
+		siteDestination : SiteType ? ""		
+		enveloppeSource : EnveloppeType ? ""		
+		enveloppeDestination : EnveloppeType ? ""		
+	}			
+}
+	

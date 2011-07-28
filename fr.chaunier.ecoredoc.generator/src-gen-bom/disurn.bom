@@ -1,0 +1,198 @@
+
+package disurn prefix disurn namespace "http://www.telintrans.fr/MessageDISURN" {
+import xsdtype.* 
+
+
+	entity ColisType "Le type ColisType repr?sente l'entit? colis dans le syst?me SurfNG. L'entit? Colis n'est pas obligatoirement pr?sent dans chaque message. Par contre, tous les messages ? destination de @rchi et ELIT doivent contenir un colis."  {
+		cab : String ? "Code Barre du colis. Format alphanum?rique, longueur 11 ou 13"
+		groupe : IDREF ? ""
+		identifiantPhoto : String ? "Identifiant de la photo prise sur le PSM lors du chantier 'Travaux Agence'. Format num?rique, longueur 10"
+		identifiantSignature : String ? "Identifiant de la signature captur?e sur le PSM lors du chantier 'Livraison'. Format num?rique, longueur 10"
+		scelle : IDREF ? ""
+		sensible : Boolean ? "Indicateur pour savoir si le colis est un colis sensible ou non. Format alphanum?rique, longueur 1"
+		crbt : FondType ? "CRBT : Montant du contre remboursement attendu lors de la livraison Ces informations sont plus ou moins remplies suivant si l'?v?nement a eu lieu en pr?paration, livraison ou travaux agence En livraison , l'ensemble des informations doivent ?tre remplies (Montant pr?vu, collect?, moyen de paiement)"		
+		fraisSuivis : FondType ? "Frais Suivis : Montant des frais suivis attendus lors de la livraison Ces informations sont plus ou moins remplies suivant si l'?v?nement a eu lieu en pr?paration, livraison ou travaux agence En livraison , l'ensemble des informations doivent ?tre remplies (Montant pr?vu, collect?, moyen de paiement)"		
+		livraison : LivraisonType ? "Ensemble des informations de livraison pour le colis (point g?ographique, circuit, district ....)"		
+		pvDeterioration : PvDeteriorationType ? "Information qui indique si le colis est sujet ? un PV de d?t?rioration et pour quelle raison."		
+		reverse : ReverseType ? "Si le colis a ?t? revers? en travaux agence, les informations sur ce revers? sont remplies."		
+		rendezVous : RendezVousType ? "Information pr?sente si un rendez vous a ?t? pris pour ce colis en travaux agence."		
+		remiseContradictoire : RemiseContradictoireType ? "Informations qui indique si le colis a ?t? sujet ? une remise contradictoire en travaux agence."		
+		ordreMission : OrdreMissionType ? "L'ordre de mission est un ensemble d'informations recueillies sur la livraison d'un colis apr?s coup."		
+		verificationAdresse : VerificationAdresseType * ""		
+		reddition : RedditionType ? "Reddition de compte effectu? en station"		
+	}			
+
+
+	entity ControleType "Le type ControleType permet de d?finir les contr?les effectu?s sur une tourn?e."  {
+		identifiant : ID  "Identifiant du contr?le. Format num?rique, longueur 10"
+		controleur : OperateurType  "Op?rateur ayant r?alis? le contr?le."		
+		verification : VerificationControleType * ""		
+		periodeControle : PeriodeType  ""		
+	}			
+
+
+	entity DocumentRoot ""  {
+		mixed : EFeatureMapEntry * ""
+		xMLNSPrefixMap : EStringToStringMapEntry * ""		
+		xSISchemaLocation : EStringToStringMapEntry * ""		
+		message : MessageType * "Le message est l'entit? de base du flux. Il contient un ensemble d'informations issues du PSM/PSF pour les int?grer en Central."		
+	}			
+
+
+	entity EvenementType "Le type EvenementType repr?sente l'entit? ?v?nement dans le syst?me SURF NG. Un ?v?nement est la base de tout message dans le syst?me SURF NG. L'ensemble de l'arborescence XML d?coule de l'?v?nement."  {
+		codeContexte : String ? "Code du contexte dans lequel a ?t? captur? l'?v?nement. Format alphab?tique, longueur 4"
+		codeEvenement : String ? "Code ?v?nement du triplet composant l'?v?nement. Format alphab?tique, longueur 4"
+		codeOperation : String ? "Code op?ration du triplet composant l'?v?nement. Format alphab?tique, longueur 4"
+		codeRegateProduction : String ? "Site de production pour le compte duquel a ?t? captur? l'?v?nement"
+		codeRegateRattachement : String ? "Site de rattachement pour le compte duquel a ?t? captur? l'?v?nement"
+		codeSousEvenement : String ? "Code sous ?v?nement du triplet composant l'?v?nement. Format alphab?tique, longueur 4"
+		dateHeureSaisie : DateTime ? "Date et heure de capture de l'?v?nement."
+		flasher : Long ? "Identifiant du mat?riel ? l'origine de la capture de l'?v?nement. Format alphanum?rique, longueur 50"
+		libelleEvenementSurfNG : String ? "Libell? de l'?v?nement correspondant au triplet d?fini pr?cedemment. Format alphanum?rique, longueur 60"
+		scelle : IDREF ? "Scell? concern? par l'?v?nement"
+		colis : ColisType ? "Colis concern? par l'?v?nement"		
+		gps : GPSType ? "Position GPS du mat?riel lors de la capture de l'?v?nement."		
+		operateur : OperateurType ? "Op?rateur responsable de la capture de l'?v?nement."		
+	}			
+
+
+	entity FondType "Le type FondType repr?sente le CRBT et les frais suivis (Pr?vu, Collect?, Mode de paiement)."  {
+		fondCollecte : Double ? "Montant des fonds collect? lors de la livraison Le format est num?rique : 5,2"
+		fondPrevu : Double  "Montant des fonds pr?vus par l'annonc? ou les travaux agences Le format est num?rique, longueur 5,2"
+		modePaiementFond : String ? "Mode de paiement des fonds en livraison. Les deux valeurs possibles sont Ch?que ou Esp?ces"
+	}			
+
+
+	entity GPSType "Le type GPSType permet de d?finir la position GPS lors de la capture d'un ?v?nement."  {
+		geolocalisationLatitude : Double  "Valeur de la g?olocalisation au niveau de la latitude Format num?rique, longueur 8,5"
+		geolocalisationLongitude : Double  "Valeur de la g?olocalisation au niveau de la longitude Format num?rique, longueur 8,5"
+		latitude : String  "Latitude la position : Nord/Sud"
+		longitude : String  "Longitude de la position : Est/Ouest"
+	}			
+
+
+	entity GroupeType "Le type GroupeType permet de d?finir un groupe dans lequel serait contenu le colis."  {
+		identifiant : ID  "Identifiant du groupe"
+		libelle : String  "Libell? du groupe. Format alphanum?rique, longueur 50"
+		pgeo : String ? ""
+	}			
+
+
+	entity LivraisonType "Le type LivraisonType repr?sente l'ensemble des informations de livraison li?es au colis. Ces informations s'enrichissent au fur et ? mesure du traitement du colis."  {
+		avisPassage : String ? "CAB de l'avis de passage lorsqu'il y a une mise en instance. Format num?rique, longueur 11"
+		ceaLivraison : String ? "CEA de l'adtresse de livraison du colis Format alphanum?rique, longueur 10"
+		codePostalRetour : String ? "Code Postal de l'adresse de l'exp?diteur dans le cas d'un retour exp?diteur. Format alphanum?rique, longueur 9"
+		codeRegateSite : String ? ""
+		dateLivraisonPrevue : String ? "Date de livraison pr?vue pour le colis. Format alphanum?rique, longueur 14"
+		identifiantCircuit : String ? "Identifiant du circuit auquel appartient le point g?ographique de livraison. Format num?rique, longueur 3"
+		identifiantDistrict : String ? "Identifiant du district auquel appartient le point g?ographique de livraison. Format num?rique, longueur 3"
+		identifiantSecteur : String ? "Identifiant du secteur auquel appartient le point g?ographique de livraison. Format num?rique, longueur 3"
+		nomDestinataire : String ? "Nom du destinataire du colis. Format alphab?tique, longueur 38"
+		nomReceptionnant : String ? "Nom du r?ceptionnant du colis. Format alphab?tique, longueur 38"
+		ordreReexpedition : String ? "Identifiant de l'ordre de r?exp?dition si l'adresse de livraison du colis est sujt ? une r?exp?dition. Cette information est issue des annonc?s. Format nu?mrique, longueur 10"
+		pgeoLivraison : AnySimpleType ? ""
+	}			
+
+
+	entity MessageType ""  {
+		date : DateTime  "Date et heure du message"
+		identifiant : String  "Identifiant du message"
+		type : String  "Type de message (ARR, PRE, DIS, ACP)"
+		session : SessionType * "Objet session repr?sentant le conteneur de l'ensemble des ?v?nements captur?s"		
+	}			
+
+
+	entity OperateurType "Le type OperateurType permet de d?finir un op?rateur."  {
+		code : String  "Code de l'op?rateur. Format alphanum?rique, longueur 8"
+		nom : String ? "Nom de l'op?rateur. Format alphab?tique, longueur 20"
+		prenom : String ? "Pr?nom de l'op?rateur. Format alphab?tique, longueur 20"
+	}			
+
+
+	entity OrdreMissionType "Le type OrdreMissionType permet de d?finir les informations de l'ordre de mission pour un colis d?fini sur la station. Cette information n'est pr?sente que dans les ?v?nements d'ordre de mission g?n?r?s sur la station."  {
+		dateHeure : DateTime  "Date et heure pour laquelle l'ordre de mission est pr?vue. Format alphanum?rique, longueur 14"
+		operateur : OperateurType  "Op?rateur a qui est attribu? l'ordre de mission par l'encadrant sur la station."		
+	}			
+
+
+	entity PeriodeType "Le type p?riode repr?sente une date et heure de d?but et une date et heure de fin"  {
+		dateHeureDebut : DateTime  ""
+		dateHeureFin : DateTime ? ""
+	}			
+
+
+	entity PvDeteriorationType "Le type PvDeteriorationType permet de d?finir un pv de d?trioration sur un colis. Cette information peut ?tre issue des annonc?s ou bien d?finie en travaux agence."  {
+		aPVDeterioration : Boolean  "Indicateur pour pr?ciser la pr?sence ou non d'un pv de d?t?rioration. Format alphanum?rique, longueur 1."
+		cause : String ? "Cause du pv de d?t?rioration. Les valeurs possibles sont 'Inconnue', 'Emballage', 'PFC', 'ACP'. Format alphanum?rique, longueur 50"
+	}			
+
+
+	entity RedditionType "Le type RedditionType permet de d?finir le montant per?u pour un colis lors de la reddition de compte"  {
+		montant : Double  "Montant per?u. Format num?rique, longueur 5,2"
+	}			
+
+
+	entity RemiseContradictoireType "Le type RemiseContradictoireType permet de d?finir si un colis a ?t? sujet ? une remise contradictoire. Cette action ne peut s'effectuer qu'en travaux agence."  {
+		operateurRemettant : OperateurType  "Op?rateur remettant le colis."		
+		operateurAcceptant : OperateurType  "Op?rateur acceptant le colis."		
+	}			
+
+
+	entity RendezVousType "Le type RendezVous permet de d?finir un rendez vous pour la livraison d'un colis via les travaux agence"  {
+		cause : String ? "cause : permet de d?finir la raison du rendez vous. Les valeurs possibles sont : 'Lourd', 'Volumineux', 'RD', 'Nouvelle Offre' Format alphanum?rique, longueur 50"
+		date : String  "Date et heure du rendez vous. Format alphanum?rique, longueur 14."
+	}			
+
+
+	entity ReverseType "Le type ReverseType permet de d?finir si le colis a ?t? sujet ? un revers?."  {
+		destination : String ? "La destination permet de d?finir vers o? le colis repart dans le cas d'un revers?. Les destinations possibles sont 'National' ou 'Etranger'. Format alphanum?rique, longueur 50"
+		responsabilite : String ? "La responsabilit? indique qui est ? l'origine du revers?. Les valeurs possibles sont 'Client' ou 'R?seau' Format alphanum?rique, longueur 50"
+	}			
+
+
+	entity ScelleType "Le type ScelleType permet de d?finir un scell? dans lequel serait contenu le colis."  {
+		cab : String  "Code barre du scell? Format nu?mrique, longueur 6"
+		groupe : IDREF ? ""
+		identifiant : ID  ""
+	}			
+
+
+	entity SessionType "Le type SessionType permet de d?finir la session au cours de laquelle un ?v?nement a ?t? captur?."  {
+		identifiantSession : String ? "Identifiant de la session. Format alphanum?rique, longueur 25"
+		periodeSession : PeriodeType ? "Objet d?crivant l'heure de d?but et l'heure de fin de la session"		
+		tournee : TourneeType ? "Tourn?e ? laquelle est li?e ? la session. Seules les sessions de pr?paration et de livraison sont li?es"		
+		groupe : GroupeType * "Objet repr?sentant un groupe constitu? au cours de la session"		
+		scelle : ScelleType * "Objet repr?sentant un scell? constitu? au cours de la session"		
+		evenement : EvenementType * "Objet repr?sentant un ?v?nement captur? et transmis"		
+	}			
+
+
+	entity SiteType "Le type SiteType permet de d?finir les sites (ACP, sites de livraison ...)"  {
+		codeRegate : String  "Code Regate du site. Format alphanum?rique, longueur 6"
+		typeSite : String  "Type du site (ACP, Point Relais, Cityssimo ...) Format alphanum?rique, longueur 50"
+	}			
+
+
+	entity TourneeType "Le type TourneeType permet de d?finir la tourn?e concern?e par un ?v?nement."  {
+		dateHeureValidationEmport : DateTime ? "date et heure de d?part en livraison."
+		identifiant : String  "Identifiant de la tourn?e Format alphanum?rique, longueur 25"
+		identifiantPlanDecoupage : String  "Identifiant du plan de d?coupage utilis? pour la tourn?e. Format num?rique, longueur 3"
+		identifiantVehicule : String ? "Identifiant du v?hicule utilis? pour la tourn?e. Format alphanum?rique"
+		kilometrageDepart : Int ? "Kilom?trage du v?hicule lors du d?part en livraison"
+		kilometrageRetour : Int ? "Kilom?trage du v?hicule lors du retour de livraison"
+		controle : ControleType * ""		
+		periodeTournee : PeriodeType ? ""		
+	}			
+
+
+	entity VerificationAdresseType "Le type VerificationAdresseType permet de d?finir quelles v?rifications ont ?t? effectu?es lorsque une adresse est incompl?te. Ces v?rifications sont effectu?es durant les travaux agence."  {
+		libelle : String ? "Libell? de la v?rification effectu?e. Les valeurs possibles sont 'Annuaire', 'T?l?phone', 'Envoi Courrier'. Format alphanum?rique, longueur 50."
+	}			
+
+
+	entity VerificationControleType "Le type VerificationControleType permet de d?finir les v?rifications effectu?s sur le v?hicule lors d'un contr?le de tourn?e."  {
+		identifiant : Int ? "Identifiant de la v?rification. Format num?rique."
+		valeur : Boolean ? "Valeur bool?enne de la v?rifcation. Format alphanum?rique, longueur 1"
+	}			
+}
+	

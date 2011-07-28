@@ -1,0 +1,24 @@
+«IMPORT ecore»
+«EXTENSION fr::telintrans::model::utils::utils»
+
+«DEFINE EDataTypeTemplate FOR EClassifier-»
+«ENDDEFINE»
+
+«DEFINE EDataTypeTemplate FOR EEnumerator-»
+«ENDDEFINE»
+
+«DEFINE EClassTemplate FOR EClassifier-»
+«ENDDEFINE»
+
+«DEFINE EClassTemplate FOR EEnumerator-»
+«ENDDEFINE»
+
+«DEFINE EDataTypeTemplate FOR EDataType-»
+«IF this.instanceClassName == null || ! this.instanceClassName.matches("org.eclipse.emf.common.util.Enumerator")-»
+* !icons/obj16/Datatype.gif!"«this.name»":#«this.name»
+«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE EClassTemplate FOR EClass-»
+* !icons/obj16/Class.gif!"«this.name»":#«this.name»
+«ENDDEFINE»

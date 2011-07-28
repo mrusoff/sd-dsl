@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.chaunier.ecoredoc.generator/src"
+    modelPluginID="fr.chaunier.ecoredoc.generator" modelName="Palert" importerID="org.eclipse.xsd.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>palert.xsd</foreignModel>
+  <genPackages prefix="Palert" basePackage="org.example" resource="XML" disposableProviderFactory="true"
+      ecorePackage="palert.ecore#/">
+    <genClasses ecoreClass="palert.ecore#//Debut">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Debut/typeEnregistrement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Debut/numeroIndex"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDColis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDColisMaitre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nombreColis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeService"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeCityssimo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDStation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/numeroOperateur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDColisRelabellise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDColisMaitreRelabellise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/numeroOperateurRelabellise"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/iDColisRelabellise1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/numeroOperateurRelabellise1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/dateExpedition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/dateEvenement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/paysProvenance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/paysDestination"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nomExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nom2Expediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse1Expediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse2Expediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/villeExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codePostalExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/etatExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codePaysExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/telephoneExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/mailExpediteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/statutDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nomDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/prenomDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nom2Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse1Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse2Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse3Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/adresse4Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/villeDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codePostalDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/etatDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codePaysDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/portes1Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/portes2Destinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/telephonePorteDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/instructionDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/telephoneDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/telephoneMobileDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/mailDestinataire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/typeDeContenu"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeRegate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/valeurPaiementALivraison"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseValeurPaiementALivraison"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeContreRembourssement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeRembourssement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/valeurTransport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseValeurTransport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/valeurAssurance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseValeurAssurance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeAssurance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeAssurance"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/hauteur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/longueur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/largeur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/volume"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/poidsMesure"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/poidsDeclare"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/typePackaging"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/recommande"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeRecommande"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeRecommande"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/extraPoidsVolume"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeExtraPoidsVolume"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeExtraPoidsVolume"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/francTaxeEtDroits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeFrancTaxeEtDroits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeFrancTaxeEtDroits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/contreRemboursement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeContreRemboursement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeDeviseTaxeContreRemboursement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/optionRetour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeOptionRetour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/deviseTaxeOptionRetour"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/livraisonSamedi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/taxeLivraisonSamedi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/deviseTaxeLivraisonSamedi"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/tVA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/montantTVA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/deviseTVA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/pourcentageTVA"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/montantTtotal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/deviseMontantTotal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeSource1"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/zoneTariffaire"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/lotAcheminementChrono"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/triDistribution"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/contenuCodebrRoutage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/versionFichierRoutageChrono"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/nomCommercialChargeur"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/referenceCommande"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference palert.ecore#//Debut/codeAvoirPromotion"/>
+    </genClasses>
+    <genClasses ecoreClass="palert.ecore#//Header">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/typeEnregistrement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/numeroIndex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/codeOperateur"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/producteurDonnees"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/typeFlux"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/nomFichier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/dateEenvoi"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/typeEnregistrement1"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute palert.ecore#//Header/encodage"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:ad="http://www.telintrans.fr/adresse"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:srv="http://www.coliposte.fr/service"
+	 xmlns:evt="http://www.coliposte.fr/event"
+	 xmlns:dt="http://www.telintrans.fr/datatype"
+	 xmlns:pch="http://www.geopost.com/pch"
+	 targetNamespace="http://www.geopost.com/pch"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.coliposte.fr/service" schemaLocation="serviceV0.0.xsd"/>
+	<xsd:import namespace="http://www.coliposte.fr/event" schemaLocation="eventV0.0.xsd"/>
+	<xsd:import namespace="http://www.telintrans.fr/datatype" schemaLocation="dataTypeV0.0.xsd"/>
+	<xsd:import namespace="http://www.telintrans.fr/adresse" schemaLocation="adresseV0.0.xsd"/>
+	<xsd:complexType name="PriseEnChargeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				définition de la prise en charge
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="colis" type="pch:ColisInfoType"/>
+			<xsd:element name="evenement" type="evt:EvenementType"/>
+			<xsd:element name="colisAnnonce" type="pch:ColisAnnonce" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						parcel informations
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="optionAnnonceService" type="srv:OptionsDeServiceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						service options
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="equipementMesure" type="pch:EquipementType" minOccurs="0"/>
+			<xsd:element name="colisMesuree" type="pch:ColisMesuree" minOccurs="0"/>
+			<xsd:element name="optionMesureeService" type="pch:OptionDeServiceMesureType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ColisType">
+		<xsd:annotation>
+			<xsd:documentation>definition d'un colis.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="poids" type="xsd:int" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						poids du colis
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="typePreparation" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="destinataire" type="ad:AdressePostaleType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Destinataire du colis (si annonce)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="accuseReception" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="root" type="pch:PCHRootType"/>
+	<xsd:complexType name="BordereauType">
+		<xsd:sequence>
+			<xsd:element name="idBordereau" type="xsd:string"/>
+			<xsd:element name="siteEvenement" type="dt:stringF6" minOccurs="0"/>
+			<xsd:element name="DateExpedition" type="xsd:dateTime"/>
+			<xsd:element name="DateValidation" type="xsd:dateTime"/>
+			<xsd:element name="RegateEmission" type="dt:RegateType" minOccurs="0"/>
+			<xsd:element name="pch" type="pch:PriseEnChargeType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- 
+	<xsd:complexType name="PCHRootType">
+		<xsd:annotation>
+			<xsd:documentation>
+				root of message manage header and annoucement
+				lines
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="fieldsHeader" type="xsd:string" />
+			<xsd:element minOccurs="0" name="headerMessage" type="pch:PCHHeaderType">
+				<xsd:annotation>
+					<xsd:documentation>header information</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="id" type="xsd:string" />
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="priseEnCharges" type="pch:PriseEnChargeType">
+				<xsd:annotation>
+					<xsd:documentation>
+						anouncement lines
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+ -->
+	<xsd:complexType name="PCHHeaderType">
+		<xsd:annotation>
+			<xsd:documentation>Les besoins doivent prendre en compte les
+				interfaces entrantes et sortantes + les besoins de calculs des SLA +
+				besoin propre à l'EAI + les besoins d'exploitation.
+				attention à vérifier de nombre de detail par rapport au fichier entrant
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="canal" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="type" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="nonmInfoSource" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						file name of pch
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="nomInfoDestination" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateReception" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="instanceIDTibco" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="typedeFlux" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="CompteurSequence" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ExpediteurInfoType">
+		<xsd:sequence>
+			<xsd:element name="codeColis" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AlertComplementType">
+		<xsd:sequence>
+			<xsd:element name="email" type="ad:EmailType"/>
+			<xsd:element name="telephone" type="ad:TelephoneFixeType"/>
+			<xsd:element name="alert" type="pch:AlerteLivraisonEnum"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="PCHRootType">
+		<xsd:sequence>
+			<xsd:element name="header" type="pch:PCHHeaderType"/>
+			<xsd:element name="bordereaux" type="pch:BordereauType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ColisInfoType">
+		<xsd:complexContent>
+			<xsd:extension base="dt:ColisCAB13Type">
+				<xsd:sequence>
+					<xsd:element name="codeJourneePostal" type="xsd:string" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								(cas des sous-traitant) nécessaire pour
+								les stats - correspond au
+								DDD.cod_Bordereau
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="codeClient" type="xsd:string" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ColisMesuree">
+		<xsd:annotation>
+			<xsd:documentation>définition de mesures sur un colis</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="pch:ColisType">
+				<xsd:sequence>
+					<xsd:element name="controle" type="evt:ControleType" minOccurs="0"/>
+					<xsd:element name="acheminement" type="evt:AcheminementType" minOccurs="0"/>
+					<xsd:element name="dimension" type="dt:DimensionType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ColisAnnonce">
+		<xsd:complexContent>
+			<xsd:extension base="pch:ColisType">
+				<xsd:sequence>
+					<xsd:element name="expediteur" type="pch:ExpediteurInfoType" minOccurs="0">
+						<xsd:annotation>
+							<xsd:documentation>
+								Destinataire du colis
+							</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="complement" type="pch:ComplementType" minOccurs="0"/>
+					<xsd:element name="telMobile" type="ad:TelephoneMobileType" minOccurs="0"/>
+					<xsd:element name="telFixe" type="ad:TelephoneFixeType" minOccurs="0"/>
+					<xsd:element name="mail" type="ad:EmailType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="ComplementType">
+		<xsd:sequence>
+			<xsd:element name="instrlivraisonSpecifique1" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="instrlivraisonSpecifique2" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="instrAlertDestinataire" type="pch:AlerteLivraisonEnum" minOccurs="0"/>
+			<xsd:element name="livraisonEnPointRelais" type="xsd:boolean" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="AlerteLivraisonEnum">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="SMS"/>
+			<xsd:enumeration value="MAIL"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="OptionDeServiceMesureType">
+		<xsd:complexContent>
+			<xsd:extension base="srv:OptionsDeServiceType">
+				<xsd:sequence>
+					<xsd:element name="valeurFrancDeTaxesEtDroits" type="srv:ControleEtValorisationType" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="EquipementType">
+		<xsd:sequence>
+			<xsd:element name="code" type="xsd:string"/>
+			<xsd:element name="libelle" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

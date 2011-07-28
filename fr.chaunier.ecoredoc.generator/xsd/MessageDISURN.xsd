@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:clp="http://www.telintrans.fr/MessageDISURN" xmlns:xsd="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.telintrans.fr/MessageDISURN">
+	<xsd:complexType name="ColisType">
+		<xsd:annotation>
+			<xsd:documentation>Le type ColisType repr�sente l'entit� colis dans le	syst�me SurfNG. L'entit� Colis n'est pas obligatoirement pr�sent dans chaque message. Par contre, tous les messages � destination de @rchi et ELIT doivent contenir un colis.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="crbt" type="clp:FondType">
+				<xsd:annotation>
+					<xsd:documentation>
+						CRBT : Montant du contre remboursement attendu
+						lors de la livraison Ces informations sont plus
+						ou moins remplies suivant si l'�v�nement a eu
+						lieu en pr�paration, livraison ou travaux agence
+						En livraison , l'ensemble des informations
+						doivent �tre remplies (Montant pr�vu, collect�,
+						moyen de paiement)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="fraisSuivis" type="clp:FondType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Frais Suivis : Montant des frais suivis attendus
+						lors de la livraison Ces informations sont plus
+						ou moins remplies suivant si l'�v�nement a eu
+						lieu en pr�paration, livraison ou travaux agence
+						En livraison , l'ensemble des informations
+						doivent �tre remplies (Montant pr�vu, collect�,
+						moyen de paiement)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="livraison" type="clp:LivraisonType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Ensemble des informations de livraison pour le
+						colis (point g�ographique, circuit, district
+						....)
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="pvDeterioration" type="clp:PvDeteriorationType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Information qui indique si le colis est sujet �
+						un PV de d�t�rioration et pour quelle raison.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="reverse" type="clp:ReverseType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Si le colis a �t� revers� en travaux agence, les
+						informations sur ce revers� sont remplies.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="rendezVous" type="clp:RendezVousType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Information pr�sente si un rendez vous a �t�
+						pris pour ce colis en travaux agence.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="remiseContradictoire" type="clp:RemiseContradictoireType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Informations qui indique si le colis a �t� sujet
+						� une remise contradictoire en travaux agence.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ordreMission" type="clp:OrdreMissionType">
+				<xsd:annotation>
+					<xsd:documentation>
+						L'ordre de mission est un ensemble
+						d'informations recueillies sur la livraison d'un
+						colis apr�s coup.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="verificationAdresse" type="clp:VerificationAdresseType"/>
+			<xsd:element minOccurs="0" name="reddition" type="clp:RedditionType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Reddition de compte effectu� en station
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="cab" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code Barre du colis. Format alphanum�rique, longueur
+					11 ou 13
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="groupe" type="xsd:IDREF"/>
+		<xsd:attribute name="scelle" type="xsd:IDREF"/>
+		<xsd:attribute name="identifiantPhoto" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifiant de la photo prise sur le PSM lors du
+					chantier "Travaux Agence". Format num�rique,
+					longueur 10
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identifiantSignature" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifiant de la signature captur�e sur le PSM lors
+					du chantier "Livraison". Format num�rique, longueur
+					10
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="sensible" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>
+					Indicateur pour savoir si le colis est un colis
+					sensible ou non. Format alphanum�rique, longueur 1
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="EvenementType">
+		<xsd:annotation>
+			<xsd:documentation>Le type EvenementType repr�sente l'entit� �v�nement dans le syst�me SURF NG. Un �v�nement est la base de tout message dans le syst�me SURF NG. L'ensemble de l'arborescence XML d�coule de l'�v�nement.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="colis" type="clp:ColisType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Colis concern� par l'�v�nement
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="gps" type="clp:GPSType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Position GPS du mat�riel lors de la capture de
+						l'�v�nement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="operateur" type="clp:OperateurType">
+				<xsd:annotation>
+					<xsd:documentation>
+						Op�rateur responsable de la capture de
+						l'�v�nement.
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="dateHeureSaisie" type="xsd:dateTime">
+			<xsd:annotation>
+				<xsd:documentation>
+					Date et heure de capture de l'�v�nement.
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeContexte" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code du contexte dans lequel a �t� captur�
+					l'�v�nement. Format alphab�tique, longueur 4
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeOperation" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code op�ration du triplet composant l'�v�nement.
+					Format alphab�tique, longueur 4
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeEvenement" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code �v�nement du triplet composant l'�v�nement.
+					Format alphab�tique, longueur 4
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeSousEvenement" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Code sous �v�nement du triplet composant
+					l'�v�nement. Format alphab�tique, longueur 4
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="libelleEvenementSurfNG" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+					Libell� de l'�v�nement correspondant au triplet
+					d�fini pr�cedemment. Format alphanum�rique, longueur
+					60
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="flasher" type="xsd:long">
+			<xsd:annotation>
+				<xsd:documentation>
+					Identifiant du mat�riel � l'origine de la capture de
+					l'�v�nement. Format alphanum�rique, longueur 50
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeRegateRattachement" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Site de rattachement pour le compte duquel a �t� captur� l'�v�nement</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeRegateProduction" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Site de production pour le compte duquel a �t� captur� l'�v�nement</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="scelle" type="xsd:IDREF">
+			<xsd:annotation>
+				<xsd:documentation>Scell� concern� par l'�v�nement</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="OperateurType">
+		<xsd:annotation>
+			<xsd:documentation>Le type OperateurType permet de d�finir un op�rateur.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="code" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Code de l'op�rateur.
+Format alphanum�rique, longueur 8</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="nom" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Nom de l'op�rateur.
+Format alphab�tique, longueur 20</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="prenom" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Pr�nom de l'op�rateur.
+Format alphab�tique, longueur 20</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="TourneeType">
+		<xsd:annotation>
+			<xsd:documentation>Le type TourneeType permet de d�finir la tourn�e concern�e par un �v�nement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="controle" type="clp:ControleType"/>
+			<xsd:element minOccurs="0" name="periodeTournee" type="clp:PeriodeType"/>
+		</xsd:sequence>
+		<xsd:attribute name="identifiant" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant de la tourn�e
+Format alphanum�rique, longueur 25</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identifiantPlanDecoupage" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant du plan de d�coupage utilis� pour la tourn�e.
+Format num�rique, longueur 3</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dateHeureValidationEmport" type="xsd:dateTime">
+			<xsd:annotation>
+				<xsd:documentation>date et heure de d�part en livraison.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identifiantVehicule" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant du v�hicule utilis� pour la tourn�e.
+Format alphanum�rique</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="kilometrageDepart" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>Kilom�trage du v�hicule lors du d�part en livraison</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="kilometrageRetour" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>Kilom�trage du v�hicule lors du retour de livraison</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="FondType">
+		<xsd:annotation>
+			<xsd:documentation>Le type FondType repr�sente le CRBT et les frais suivis (Pr�vu, Collect�, Mode de paiement).</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="fondPrevu" type="xsd:double" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Montant des fonds pr�vus par l'annonc� ou les travaux agences
+Le format est num�rique, longueur 5,2</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="fondCollecte" type="xsd:double">
+			<xsd:annotation>
+				<xsd:documentation>Montant des fonds collect� lors de la livraison
+Le format est num�rique : 5,2</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="modePaiementFond" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Mode de paiement des fonds en livraison.
+Les deux valeurs possibles sont Ch�que ou Esp�ces</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="PvDeteriorationType">
+		<xsd:annotation>
+			<xsd:documentation>Le type PvDeteriorationType permet de d�finir un pv de d�trioration sur un colis.
+Cette information peut �tre issue des annonc�s ou bien d�finie en travaux agence.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="aPVDeterioration" type="xsd:boolean" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Indicateur pour pr�ciser la pr�sence ou non d'un pv de d�t�rioration.
+Format alphanum�rique, longueur 1.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cause" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Cause du pv de d�t�rioration.
+Les valeurs possibles sont "Inconnue", "Emballage", "PFC", "ACP".
+Format alphanum�rique, longueur 50</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="RendezVousType">
+		<xsd:annotation>
+			<xsd:documentation>Le type RendezVous permet de d�finir un rendez vous pour la livraison d'un colis via les travaux agence</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="date" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Date et heure du rendez vous.
+Format alphanum�rique, longueur 14.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="cause" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>cause : permet de d�finir la raison du rendez vous.
+Les valeurs possibles sont : "Lourd", "Volumineux", "RD", "Nouvelle Offre"
+Format alphanum�rique, longueur 50</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="ReverseType">
+		<xsd:annotation>
+			<xsd:documentation>Le type ReverseType permet de d�finir si le colis a �t� sujet � un revers�.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="responsabilite" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>La responsabilit� indique qui est � l'origine du revers�.
+Les valeurs possibles sont "Client" ou "R�seau"
+Format alphanum�rique, longueur 50</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="destination" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>La destination permet de d�finir vers o� le colis repart dans le cas d'un revers�.
+Les destinations possibles sont "National" ou "Etranger".
+Format alphanum�rique, longueur 50 </xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="LivraisonType">
+		<xsd:annotation>
+			<xsd:documentation>Le type LivraisonType repr�sente l'ensemble des informations de livraison li�es au colis. Ces informations s'enrichissent au fur et � mesure du traitement du colis.
+    		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="identifiantSecteur" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Identifiant du secteur auquel appartient le point
+    				g�ographique de livraison. Format num�rique,
+    				longueur 3
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identifiantCircuit" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Identifiant du circuit auquel appartient le point
+    				g�ographique de livraison. Format num�rique,
+    				longueur 3
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="identifiantDistrict" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Identifiant du district auquel appartient le point
+    				g�ographique de livraison. Format num�rique,
+    				longueur 3
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ceaLivraison" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				CEA de l'adtresse de livraison du colis Format
+    				alphanum�rique, longueur 10
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pgeoLivraison" type="xsd:anySimpleType"/>
+		<xsd:attribute name="nomDestinataire" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Nom du destinataire du colis. Format alphab�tique,
+    				longueur 38
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="nomReceptionnant" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Nom du r�ceptionnant du colis. Format alphab�tique,
+    				longueur 38
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="ordreReexpedition" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Identifiant de l'ordre de r�exp�dition si l'adresse
+    				de livraison du colis est sujt � une r�exp�dition.
+    				Cette information est issue des annonc�s. Format
+    				nu�mrique, longueur 10
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codePostalRetour" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				Code Postal de l'adresse de l'exp�diteur dans le cas
+    				d'un retour exp�diteur. Format alphanum�rique,
+    				longueur 9
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="avisPassage" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>
+    				CAB de l'avis de passage lorsqu'il y a une mise en
+    				instance. Format num�rique, longueur 11
+    			</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="dateLivraisonPrevue" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Date de livraison pr�vue pour le colis.
+Format alphanum�rique, longueur 14</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="codeRegateSite" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="GPSType">
+		<xsd:annotation>
+			<xsd:documentation>Le type GPSType permet de d�finir la position GPS lors de la capture d'un �v�nement.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="latitude" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Latitude la position : Nord/Sud</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="geolocalisationLatitude" type="xsd:double" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Valeur de la g�olocalisation au niveau de la latitude
+Format num�rique, longueur 8,5</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="longitude" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Longitude de la position : Est/Ouest</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="geolocalisationLongitude" type="xsd:double" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Valeur de la g�olocalisation au niveau de la longitude
+Format num�rique, longueur 8,5</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="SessionType">
+		<xsd:annotation>
+			<xsd:documentation>Le type SessionType permet de d�finir la session au cours de laquelle un �v�nement a �t� captur�.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="periodeSession" type="clp:PeriodeType">
+				<xsd:annotation>
+					<xsd:documentation>Objet d�crivant l'heure de d�but et l'heure de fin de la session</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element minOccurs="0" name="tournee" type="clp:TourneeType">
+				<xsd:annotation>
+					<xsd:documentation>Tourn�e � laquelle est li�e � la session. Seules les sessions de pr�paration et de livraison sont li�es </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="groupe" type="clp:GroupeType">
+				<xsd:annotation>
+					<xsd:documentation>Objet repr�sentant un groupe constitu� au cours de la session</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="scelle" type="clp:ScelleType">
+				<xsd:annotation>
+					<xsd:documentation>Objet repr�sentant un scell� constitu� au cours de la session</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="evenement" type="clp:EvenementType">
+				<xsd:annotation>
+					<xsd:documentation>Objet repr�sentant un �v�nement captur� et transmis</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="identifiantSession" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant de la session.
+Format alphanum�rique, longueur 25</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="SiteType">
+		<xsd:annotation>
+			<xsd:documentation>Le type SiteType permet de d�finir les sites (ACP, sites de livraison ...)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="codeRegate" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Code Regate du site.
+Format alphanum�rique, longueur 6</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="typeSite" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Type du site (ACP, Point Relais, Cityssimo ...)
+Format alphanum�rique, longueur 50</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="GroupeType">
+		<xsd:annotation>
+			<xsd:documentation>Le type GroupeType permet de d�finir un groupe dans lequel serait contenu le colis.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="identifiant" type="xsd:ID" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant du groupe</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="libelle" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Libell� du groupe.
+Format alphanum�rique, longueur 50</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="pgeo" type="xsd:string"/>
+	</xsd:complexType>
+	<xsd:complexType name="ScelleType">
+		<xsd:annotation>
+			<xsd:documentation>Le type ScelleType permet de d�finir un scell� dans lequel serait contenu le colis.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="identifiant" type="xsd:ID" use="required"/>
+		<xsd:attribute name="cab" type="xsd:string" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Code barre du scell�
+Format nu�mrique, longueur 6</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="groupe" type="xsd:IDREF"/>
+	</xsd:complexType>
+	<xsd:complexType name="ControleType">
+		<xsd:annotation>
+			<xsd:documentation>Le type ControleType permet de d�finir les contr�les effectu�s sur une tourn�e.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="controleur" type="clp:OperateurType">
+				<xsd:annotation>
+					<xsd:documentation>Op�rateur ayant r�alis� le contr�le.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="verification" type="clp:VerificationControleType"/>
+			<xsd:element name="periodeControle" type="clp:PeriodeType"/>
+		</xsd:sequence>
+		<xsd:attribute name="identifiant" type="xsd:ID" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant du contr�le.
+Format num�rique, longueur 10</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="VerificationAdresseType">
+		<xsd:annotation>
+			<xsd:documentation>Le type VerificationAdresseType permet de d�finir quelles v�rifications ont �t� effectu�es lorsque une adresse est incompl�te.
+Ces v�rifications sont effectu�es durant les travaux agence. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="libelle" type="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation>Libell� de la v�rification effectu�e.
+Les valeurs possibles sont "Annuaire", "T�l�phone",  "Envoi Courrier".
+Format alphanum�rique, longueur 50.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="RemiseContradictoireType">
+		<xsd:annotation>
+			<xsd:documentation>Le type RemiseContradictoireType permet de d�finir si un colis a �t� sujet � une remise contradictoire.
+Cette action ne peut s'effectuer qu'en travaux agence.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="operateurRemettant" type="clp:OperateurType">
+				<xsd:annotation>
+					<xsd:documentation>Op�rateur remettant le colis.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="operateurAcceptant" type="clp:OperateurType">
+				<xsd:annotation>
+					<xsd:documentation>Op�rateur acceptant le colis.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="OrdreMissionType">
+		<xsd:annotation>
+			<xsd:documentation>Le type OrdreMissionType permet de d�finir les informations de  l'ordre de mission pour un colis d�fini sur la station.
+Cette information n'est pr�sente que dans les �v�nements d'ordre de mission g�n�r�s sur la station. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="operateur" type="clp:OperateurType">
+				<xsd:annotation>
+					<xsd:documentation>Op�rateur a qui est attribu� l'ordre de mission par l'encadrant sur la station.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+		<xsd:attribute name="dateHeure" type="xsd:dateTime" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Date et heure pour laquelle l'ordre de mission est pr�vue.
+Format alphanum�rique, longueur 14</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="RedditionType">
+		<xsd:annotation>
+			<xsd:documentation>Le type RedditionType permet de d�finir le montant per�u pour un colis lors de la reddition de compte</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="montant" type="xsd:double" use="required">
+			<xsd:annotation>
+				<xsd:documentation>Montant per�u.
+Format num�rique, longueur 5,2</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:complexType name="VerificationControleType">
+		<xsd:annotation>
+			<xsd:documentation>Le type VerificationControleType permet de d�finir les v�rifications effectu�s sur le v�hicule lors d'un contr�le de tourn�e.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="identifiant" type="xsd:int">
+			<xsd:annotation>
+				<xsd:documentation>Identifiant de la v�rification.
+Format num�rique.</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+		<xsd:attribute name="valeur" type="xsd:boolean">
+			<xsd:annotation>
+				<xsd:documentation>Valeur bool�enne de la v�rifcation.
+Format alphanum�rique, longueur 1</xsd:documentation>
+			</xsd:annotation>
+		</xsd:attribute>
+	</xsd:complexType>
+	<xsd:element name="message">
+		<xsd:annotation>
+			<xsd:documentation>Le message est l'entit� de base du flux. Il contient un ensemble d'informations issues du PSM/PSF pour les int�grer en Central.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element maxOccurs="unbounded" name="session" type="clp:SessionType">
+					<xsd:annotation>
+						<xsd:documentation>Objet session repr�sentant le conteneur de l'ensemble des �v�nements captur�s</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:sequence>
+			<xsd:attribute name="identifiant" type="xsd:string" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Identifiant du message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="type" type="xsd:string" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Type de message (ARR, PRE, DIS, ACP)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="date" type="xsd:dateTime" use="required">
+				<xsd:annotation>
+					<xsd:documentation>Date et heure du message</xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="PeriodeType">
+		<xsd:annotation>
+			<xsd:documentation>Le type p�riode repr�sente une date et heure de d�but et une date et heure de fin</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="dateHeureDebut" type="xsd:dateTime" use="required"/>
+		<xsd:attribute name="dateHeureFin" type="xsd:dateTime"/>
+	</xsd:complexType>
+</xsd:schema>
