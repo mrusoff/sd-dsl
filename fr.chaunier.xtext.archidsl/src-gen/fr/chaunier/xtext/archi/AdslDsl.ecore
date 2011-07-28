@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="adslDsl"
+    nsURI="http://www.chaunier.fr/xtext/archi/AdslDsl" nsPrefix="adslDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="ArchiModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Import"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//System"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="usings" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Using"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subSystems" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//System"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Component"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Interface"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Using">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="system" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//System"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Port"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Port">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMandatory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isToMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interface" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Interface"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProvidedPort" eSuperTypes="platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredPort" eSuperTypes="platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Port"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Interface">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interactions" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//MessageInteraction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageInteraction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OnewayInteraction" eSuperTypes="platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//MessageInteraction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="message" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Message"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequestReplyInteraction" eSuperTypes="platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//MessageInteraction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="request" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Message"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reply" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//Message"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Message">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.archidsl/src-gen/fr/chaunier/xtext/archi/AdslDsl.ecore#//MessageParameter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeref" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore#//Entity"/>
+  </eClassifiers>
+</ecore:EPackage>
