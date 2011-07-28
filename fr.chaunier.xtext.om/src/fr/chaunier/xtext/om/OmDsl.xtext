@@ -1,0 +1,93 @@
+grammar fr.chaunier.xtext.om.OmDsl with org.eclipse.xtext.common.Terminals
+
+generate omDsl "http://www.chaunier.fr/xtext/om/OmDsl"
+
+DomainModel:
+	(elements+=AbstractElement)*
+	;
+
+AbstractElement:
+	PackageDeclaration | Type | Import
+	;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard
+	;
+
+PackageDeclaration:
+	'package' name=QualifiedName ('annotations' '[' annotations+=Annotation ( "," annotations+=Annotation)* ']' )?
+   '{'
+		(elements+=AbstractElement)*
+	'}';
+
+Type:
+	( Entity | DataType | Enumeration )
+	;  
+
+DataType:
+	'datatype' name=ID ('annotations' '[' annotations+=Annotation ( "," annotations+=Annotation)* ']' )? (description=STRING )?   
+	;
+
+Entity:
+	entityType=EntityType? 'entity' name=ID ('extends' superType=[Entity|QualifiedName])? 
+	('annotations' '[' annotations+=Annotation ( "," annotations+=Annotation)* ']' )?  
+	(description=STRING )? '{'
+		(features+=Feature)*
+	'}';
+
+Feature:
+	StructuralFeature 
+	('annotations' '[' annotations+=Annotation ( "," annotations+=Annotation)* ']' )? 
+	(description=STRING )? //| Operation
+	;
+
+StructuralFeature:
+	( Attribute | Reference ) ;
+	
+Attribute:
+	name=ID ':' type=TypeRef  ;
+
+Reference:
+	'ref' name=ID ':' type=TypeRef ('opposite' opposite=[Reference])? ;
+
+Enumeration:
+    "enumeration" name= ID 
+    "[" (enumerationLiterals += EnumerationLiteral)+ "]"
+    ;
+
+EnumerationLiteral:
+    name=ID ("=" persistedValue=INT) ";" 
+    ;
+
+Operation:
+	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
+
+Parameter:
+	name=ID type=TypeRef ;
+
+TypedElement:
+	Feature | Parameter;
+
+TypeRef:
+	referenced=[Type|QualifiedName] (multi?='*')? (option?='?')?  ;
+
+enum Visibility:
+	public="public" | private="private" | protected="protected";
+
+enum EntityType:
+	public="abstract" ;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+
+Annotations :
+	('annotations' '[' annotations+=Annotation ( "," annotations+=Annotation)* ']' )?
+;
+
+Annotation :
+		key=STRING ':' value=STRING
+    ;
