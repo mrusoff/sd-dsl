@@ -3,6 +3,7 @@
  */
 package fr.chaunier.xtext.constraint.generator
 
+
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
