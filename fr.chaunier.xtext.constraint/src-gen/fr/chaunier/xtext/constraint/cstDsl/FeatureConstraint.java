@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
-
+ * $Id$
  */
 package fr.chaunier.xtext.constraint.cstDsl;
 
@@ -18,6 +18,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface FeatureConstraint extends EObject
-{
+public interface FeatureConstraint extends EObject {
 } // FeatureConstraint

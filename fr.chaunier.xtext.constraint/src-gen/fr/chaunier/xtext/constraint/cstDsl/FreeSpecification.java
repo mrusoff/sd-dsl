@@ -2,7 +2,7 @@
  * <copyright>
  * </copyright>
  *
-
+ * $Id$
  */
 package fr.chaunier.xtext.constraint.cstDsl;
 
@@ -24,22 +24,21 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FreeSpecification extends Specification
-{
-  /**
-   * Returns the value of the '<em><b>Lines</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lines</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lines</em>' attribute list.
-   * @see fr.chaunier.xtext.constraint.cstDsl.CstDslPackage#getFreeSpecification_Lines()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getLines();
+public interface FreeSpecification extends Specification {
+	/**
+	 * Returns the value of the '<em><b>Lines</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Lines</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Lines</em>' attribute list.
+	 * @see fr.chaunier.xtext.constraint.cstDsl.CstDslPackage#getFreeSpecification_Lines()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<String> getLines();
 
 } // FreeSpecification
