@@ -8,106 +8,110 @@
     complianceLevel="5.0" copyrightFields="false" editPluginID="fr.chaunier.xtext.constraint.edit"
     editorPluginID="fr.chaunier.xtext.constraint.editor" usedGenPackages="platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.genmodel#//omDsl">
   <genPackages prefix="CstDsl" basePackage="fr.chaunier.xtext.constraint" disposableProviderFactory="true"
-      ecorePackage="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumUsage">
-      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumUsage/asString"/>
-      <genEnumLiterals ecoreEnumLiteral="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumUsage/asValue"/>
+      ecorePackage="CstDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="CstDsl.ecore#//EnumUsage">
+      <genEnumLiterals ecoreEnumLiteral="CstDsl.ecore#//EnumUsage/asString"/>
+      <genEnumLiterals ecoreEnumLiteral="CstDsl.ecore#//EnumUsage/asValue"/>
     </genEnums>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DomainModelConstraint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DomainModelConstraint/imports"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DomainModelConstraint/elements"/>
+    <genClasses ecoreClass="CstDsl.ecore#//DomainModelConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DomainModelConstraint/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DomainModelConstraint/elements"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//Specification"/>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FileSpecification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FileSpecification/format"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FileSpecification/delimiter"/>
+    <genClasses ecoreClass="CstDsl.ecore#//Specification"/>
+    <genClasses ecoreClass="CstDsl.ecore#//FileSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//FileSpecification/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//FileSpecification/delimiter"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FreeSpecification">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FreeSpecification/lines"/>
+    <genClasses ecoreClass="CstDsl.ecore#//FreeSpecification">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//FreeSpecification/lines"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AbstractElementConstraint"/>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//Import">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//Import/importedNamespace"/>
+    <genClasses ecoreClass="CstDsl.ecore#//AbstractElementConstraint"/>
+    <genClasses ecoreClass="CstDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//Import/importedNamespace"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//PackageConstraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//PackageConstraint/packageDeclaration"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//PackageConstraint/prefix"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//PackageConstraint/namespace"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//PackageConstraint/types"/>
+    <genClasses ecoreClass="CstDsl.ecore#//PackageConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//PackageConstraint/packageDeclaration"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//PackageConstraint/prefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//PackageConstraint/namespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//PackageConstraint/types"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//TypeConstraint"/>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DataTypeConstraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DataTypeConstraint/dataType"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DataTypeConstraint/constraint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DataTypeConstraint/description"/>
+    <genClasses ecoreClass="CstDsl.ecore#//TypeConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//TypeConstraint/description"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EntityConstraint">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EntityConstraint/entity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EntityConstraint/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EntityConstraint/features"/>
+    <genClasses ecoreClass="CstDsl.ecore#//DataTypeConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DataTypeConstraint/dataType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DataTypeConstraint/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//FeatureConstraint"/>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AttributeConstraint">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AttributeConstraint/constraint"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AttributeConstraint/description"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AttributeConstraint/attribute"/>
+    <genClasses ecoreClass="CstDsl.ecore#//EnumerationConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//EnumerationConstraint/enumerate"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//EnumerationConstraint/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//Constraint"/>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//BoolConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//BoolConstraint/constraint"/>
+    <genClasses ecoreClass="CstDsl.ecore#//EntityConstraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//EntityConstraint/entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//EntityConstraint/features"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//StringConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//StringConstraint/constraint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//StringConstraint/constraintRef"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//StringConstraint/regularExpression"/>
+    <genClasses ecoreClass="CstDsl.ecore#//FeatureConstraint"/>
+    <genClasses ecoreClass="CstDsl.ecore#//AttributeConstraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//AttributeConstraint/constraint"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AttributeConstraint/description"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//AttributeConstraint/attribute"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DateTimeConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DateTimeConstraint/constraint"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DateTimeConstraint/dataType"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DateTimeConstraint/hasDefault"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DateTimeConstraint/defaultValue"/>
+    <genClasses ecoreClass="CstDsl.ecore#//Constraint"/>
+    <genClasses ecoreClass="CstDsl.ecore#//BoolConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//BoolConstraint/constraint"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DecimalConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DecimalConstraint/constraint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//DecimalConstraint/constraintRef"/>
+    <genClasses ecoreClass="CstDsl.ecore#//StringConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//StringConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//StringConstraint/constraintRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//StringConstraint/regularExpression"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumerationConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumerationConstraint/usage"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumerationConstraint/fixeLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumerationConstraint/hasDefault"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//EnumerationConstraint/defaultValueAsString"/>
+    <genClasses ecoreClass="CstDsl.ecore#//DateTimeConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//DateTimeConstraint/constraint"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DateTimeConstraint/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//DateTimeConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//DateTimeConstraint/defaultValue"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/hasDefault"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/defaultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/isFixed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/fixedValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/minValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/maxValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/minLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/maxLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/fixeLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/paddle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/isId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/nullable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/derived"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/writable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//NumberConstraint/isXSDAtt"/>
+    <genClasses ecoreClass="CstDsl.ecore#//DecimalConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//DecimalConstraint/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference CstDsl.ecore#//DecimalConstraint/constraintRef"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/hasDefault"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/defaultValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/isFixed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/fixedValue"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/minLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/maxLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/fixeLen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/paddle"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/isId"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/nullable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/derived"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/writable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.constraint/src-gen/fr/chaunier/xtext/constraint/CstDsl.ecore#//AllConstraint/isXSDAtt"/>
+    <genClasses ecoreClass="CstDsl.ecore#//EnumConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//EnumConstraint/usage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//EnumConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//EnumConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//EnumConstraint/defaultValueAsString"/>
+    </genClasses>
+    <genClasses ecoreClass="CstDsl.ecore#//NumberConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/minValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/maxValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/isId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//NumberConstraint/isXSDAtt"/>
+    </genClasses>
+    <genClasses ecoreClass="CstDsl.ecore#//AllConstraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/hasDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/isFixed"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/fixedValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/minLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/maxLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/fixeLen"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/paddle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/isId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/nullable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/derived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/writable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute CstDsl.ecore#//AllConstraint/isXSDAtt"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
