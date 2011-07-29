@@ -41,11 +41,14 @@ PackageConstraint :
 
 
 TypeConstraint:
-	( EntityConstraint | DataTypeConstraint )
+	( EntityConstraint | DataTypeConstraint | EnumerationConstraint )
 	;  
 	
 DataTypeConstraint:
 	'datatype' dataType=[mm::DataType] (constraint=Constraint)?  (description=STRING )?  ;
+
+EnumerationConstraint:
+	'enum' enumerate=[mm::Enumeration] (constraint=Constraint)?  (description=STRING )?  ;
 
 EntityConstraint:
 	'entity' entity=[mm::Entity] (description=STRING )? '{'
@@ -58,12 +61,11 @@ FeatureConstraint:
 
 AttributeConstraint:
 	attribute=[mm::Attribute]  ;
-//	'attribute' attribute=[mm::Attribute]  ;
 
 
 	
 Constraint :
-   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | EnumerationConstraint) 
+   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | EnumConstraint) 
 	;
 
 BoolConstraint:
@@ -96,7 +98,7 @@ enum EnumUsage:
 	asString="as String" | asValue="as Value"  ;
 	
 
-EnumerationConstraint:
+EnumConstraint:
    'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
     (hasDefault?="default" defaultValueAsString=ID)?
     ; 
@@ -131,62 +133,3 @@ AllConstraint:
 	(isXSDAtt?="xsdA.")? 
 	)
 ;
-/*
-System:
-	(featureModel=FeatureModelImport)?
-	(entities+=Entity)*;
-	
-Entity:
-	(pointcut=Pointcut)?
-	"entity" name=ID 
-	(tags=TagsClause)? 
-	(featureClause=FeatureClause)? "{"
-		(attributes+=Attribute)*
-	"}";
-	
-Attribute:
-	name=ID ":" type=ID (featureClause=FeatureClause)?;
-
-// --------------------------------
-// Feature Stuff
-	
-FeatureClause:
-	"feature" feature=ID;
-	
-FeatureModelImport:
-	"featuremodel" uri=STRING;
-
-
-// --------------------------------
-// AO Stuff
-
-TagsClause:
-	"tags" "(" (tags+=Tag)* ")";
-	
-Tag:
-	name=ID;	
-	
-
-Pointcut:
-	"aspect" "{" (matches+=Match)* "}";
-	
-Match:
-	AllMatch | ExactNameMatch | StartsWithNameMatch | EndsWithNameMatch | TagMatch;	
-	
-AllMatch:
-	"*";
-	
-ExactNameMatch:
-	"name" "=" name=ID;
-	
-StartsWithNameMatch:
-	"name" "=" name=ID "*";
-	
-EndsWithNameMatch:
-	"name" "="  "*" name=ID;
-	
-TagMatch:
-	"tag" "=" name=ID;
-
- */			
-	
