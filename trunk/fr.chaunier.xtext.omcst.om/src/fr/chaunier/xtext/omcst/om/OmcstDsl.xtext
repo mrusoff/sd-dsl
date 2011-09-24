@@ -132,10 +132,10 @@ DateTimeConstraint:
 
 DecimalConstraint:
     constraint="decimal" 
-	("default" defaultValue=TerminalExpression)? 
-    ("fixed" fixedValue=TerminalExpression)?
-	("minVal" minValue=TerminalNumber)? 
-	("maxVal" maxValue=TerminalNumber)?
+	("default" defaultValue=NumberVar)? 
+    ("fixed" fixedValue=NumberVar)?
+	("minVal" minValue=NumberVar)? 
+	("maxVal" maxValue=NumberVar)?
     ("precision" precision=BIGINT)? 
     ("scale" scale=BIGINT)? 
     ("fixeLen" fixeLen=BIGINT)? 
@@ -145,14 +145,14 @@ DecimalConstraint:
 
 IntegerConstraint:
     constraint="integer" 
-	("default" defaultValue=TerminalExpression)? 
-    ("fixed" fixedValue=TerminalExpression)?
-	("minVal" minValue=TerminalNumber)? 
-	("maxVal" maxValue=TerminalNumber)?
+	("default" defaultValue=IntVar)? 
+    ("fixed" fixedValue=IntVar)?
+	("minVal" minValue=IntVar)? 
+	("maxVal" maxValue=IntVar)?
     ("precision" precision=BIGINT)? 
     ("scale" scale=BIGINT)? 
     ("fixeLen" fixeLen=BIGINT)? 
-    ("paddle" paddle=STRING)?
+//    ("paddle" paddle=STRING)?
     ;
 
 enum EnumUsage:
