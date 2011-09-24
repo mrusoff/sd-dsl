@@ -1,4 +1,8 @@
+
+
 grammar fr.chaunier.xtext.omcst.om.OmcstDsl with org.eclipse.xtext.common.Terminals
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate omcstDsl "http://www.chaunier.fr/xtext/omcst/om/OmcstDsl"
 
@@ -32,6 +36,7 @@ Type:
 DataType:
 	'datatype' name=ID (constraint=Constraint)? 
 	("annotations" anno=Annotations)?
+	(description=STRING )? 
 	;
 
 Entity:
@@ -62,7 +67,7 @@ Enumeration:
     ;
 
 EnumerationLiteral:
-    name=ID ("=" persistedValue=INT) ";" 
+    name=ID ("=" persistedValue=BIGINT) ";" 
     ;
 
 Operation:
@@ -101,33 +106,53 @@ Annotation :
     ;
 
 Constraint :
-   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | EnumerationConstraint) 
+   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | IntegerConstraint | EnumerationConstraint) 
 	;
 
 BoolConstraint:
     constraint="boolean" 
+	("default" defaultValue=BoolVar)? 
+    ("fixed" fixedValue=BoolVar)?
     ;
 
 StringConstraint:
-    constraint="string" constraintRef=AllConstraint
-    ("regexp" regularExpression=STRING)?
-
+    constraint="string" 
+    ("fixed" fixedValue=STRING)?
+    ("minLen" minLen=BIGINT)? 
+    ("maxLen" maxLen=BIGINT)? 
+    ("fixeLen" fixeLen=BIGINT)? 
+    ("regex" regex=STRING)?
+	(isId?="id")? 
     ;
 
 DateTimeConstraint:
-    constraint="datetime"
-//    accuracy=DateTimeAccuracy
-//    dataType=[mm::DataType]
-    (hasDefault?="default" defaultValue=STRING)?
+    constraint=("datetime"|"timestamp"|"date"|"time")
+    ("default" defaultValue=STRING)?
     ;
 
-//enum DateTimeAccuracy:
-//    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
-//    Second = "second" | Millisecond = "millisecond"
-//    ;
-
 DecimalConstraint:
-    constraint="decimal" constraintRef=NumberConstraint
+    constraint="decimal" 
+	("default" defaultValue=TerminalExpression)? 
+    ("fixed" fixedValue=TerminalExpression)?
+	("minVal" minValue=TerminalNumber)? 
+	("maxVal" maxValue=TerminalNumber)?
+    ("precision" precision=BIGINT)? 
+    ("scale" scale=BIGINT)? 
+    ("fixeLen" fixeLen=BIGINT)? 
+//    ("paddle" paddle=STRING)?
+	(isId?="id")? 
+    ;
+
+IntegerConstraint:
+    constraint="integer" 
+	("default" defaultValue=TerminalExpression)? 
+    ("fixed" fixedValue=TerminalExpression)?
+	("minVal" minValue=TerminalNumber)? 
+	("maxVal" maxValue=TerminalNumber)?
+    ("precision" precision=BIGINT)? 
+    ("scale" scale=BIGINT)? 
+    ("fixeLen" fixeLen=BIGINT)? 
+    ("paddle" paddle=STRING)?
     ;
 
 enum EnumUsage:
@@ -135,39 +160,76 @@ enum EnumUsage:
 	
 
 EnumerationConstraint:
-   'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
-    (hasDefault?="default" defaultValueAsString=ID)?
+   'enum' (usage=EnumUsage) 
+   ("fixeLen" fixeLen=BIGINT)?
+   ("default" defaultValueAsString=ID)?
     ; 
 
+/*
 NumberConstraint:	 
 	(
-	(hasDefault?="default" defaultValue=STRING)? 
-    (isFixed?="fixed" fixedValue=STRING)?
-	("minVal" minValue=INT)? 
-	("maxVal" maxValue=INT)?
-    ("minLen" minLen=INT)? 
-    ("maxLen" maxLen=INT)? 
-    ("fixeLen" fixeLen=INT)? 
-    ("paddle" paddle=STRING)?
+	("default" defaultValue=TerminalExpression)? 
+    ("fixed" fixedValue=TerminalExpression)?
+	("minVal" minValue=TerminalNumber)? 
+	("maxVal" maxValue=TerminalNumber)?
+    ("fixeLen" fixeLen=BIGINT)? 
+//    ("paddle" paddle=STRING)?
 	(isId?="id")? 
 	(nullable?="nullable")?
-	(derived?="derived" (writable?="writable")?)?
-	(isXSDAtt?="xsdA.")? 
+	(derived?="derived" )?
+	(writable?="writable")?
 	);
 	
 AllConstraint:	 
 	(
-	(hasDefault?="default" defaultValue=STRING)? 
-    (isFixed?="fixed" fixedValue=STRING)?
-    ("minLen" minLen=INT)? 
-    ("maxLen" maxLen=INT)? 
-    ("fixeLen" fixeLen=INT)? 
-    ("paddle" paddle=STRING)?
+	("default" defaultValue=STRING)? 
+    ("fixed" fixedValue=STRING)?
+    ("minLen" minLen=BIGINT)? 
+    ("maxLen" maxLen=BIGINT)? 
+    ("fixeLen" fixeLen=BIGINT)? 
+    ("regex" regex=STRING)?
 	(isId?="id")? 
 	(nullable?="nullable")?
-	(derived?="derived" (writable?="writable")?)?
-	(isXSDAtt?="xsdA.")? 
+	(derived?="derived" )?
+	(writable?="writable")?
 	)
 ;
-    
+
+SimpleConstraint:	 
+	(
+	("default" defaultValue=TerminalExpression)? 
+    ("fixed" fixedValue=TerminalExpression)?
+	)
+;
+ */
+TerminalNumber:
+   int = IntVar |
+   number = NumberVar 
+;
+
+TerminalExpression:
+   int = IntVar |
+   number = NumberVar |
+   null = NullVar |
+   bool = BoolVar |
+   string = StringVar //| 
+//   enumm = EnumVar  
+;
+
+IntVar : value = BIGINT;
+NumberVar : value = NUMBER;
+StringVar : value = STRING;
+NullVar : value = 'null';
+BoolVar : value = 'true' | 'false';
+
+
+terminal BIGINT returns ecore::EBigInteger:
+	('0'..'9')*;
+
+terminal NUMBER returns ecore::EBigDecimal:
+	('0'..'9')* ('.' ('0'..'9')+)?;
+
+terminal INT returns ecore::EInt:
+	'this one has been deactivated';
+	
     
