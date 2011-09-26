@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_PISAEC/0_Ressources/InputFormats/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_PISAEC/0_Ressources/InputFormats/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enregistrement_hhh">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="site_emission" type="xsd:string"/>
+				<xsd:element name="site_reception" type="xsd:string"/>
+				<xsd:element name="fichier_cible" type="xsd:string"/>
+				<xsd:element name="arbo_cible" type="xsd:string"/>
+				<xsd:element name="appli_receptrice" type="xsd:string"/>
+				<xsd:element name="arbo_appli_cible" type="xsd:string"/>
+				<xsd:element name="equipement_recep" type="xsd:string"/>
+				<xsd:element name="compteur" type="xsd:string"/>
+				<xsd:element name="horodatage_fichier" type="xsd:string"/>
+				<xsd:element name="nb_enregs" type="xsd:string"/>
+				<xsd:element name="nom_fichier_orig" type="xsd:string"/>
+				<xsd:element name="version_norme" type="xsd:string"/>
+				<xsd:element name="equipement_emetteur" type="xsd:string"/>
+				<xsd:element name="application_emettrice" type="xsd:string"/>
+				<xsd:element name="donnees_complementaires" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enregistrement_bbb">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="id_bordereau" type="xsd:string"/>
+				<xsd:element name="date_expedition" type="xsd:string"/>
+				<xsd:element name="date_validation" type="xsd:string"/>
+				<xsd:element name="code_tournee" type="xsd:string"/>
+				<xsd:element name="code_regate" type="xsd:string"/>
+				<xsd:element ref="enregistrement_ddd" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enreg_bbb">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="id_bordereau" type="xsd:string"/>
+				<xsd:element name="date_expedition" type="xsd:string"/>
+				<xsd:element name="date_validation" type="xsd:string"/>
+				<xsd:element name="code_tournee" type="xsd:string"/>
+				<xsd:element name="code_regate" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enregistrement_ddd">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="code_produit" type="xsd:string"/>
+				<xsd:element name="no_colis" type="xsd:string"/>
+				<xsd:element name="code_situation" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_justification" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_pays_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_postal_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_pays_destinataire_mesure" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_postal_destinataire_mesure" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="date_evenement" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="heure_evenement" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_equipement" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="libelle_equipement" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="commentaire_refection" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="longueur" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="largeur" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="hauteur" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="cod_bordereau" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="cab_illisible" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="fausse_direction" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="cle_erronee" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="root">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="enregistrement_hhh" minOccurs="1" maxOccurs="1"/>
+				<xsd:element ref="enregistrement_bbb" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xs:schema>

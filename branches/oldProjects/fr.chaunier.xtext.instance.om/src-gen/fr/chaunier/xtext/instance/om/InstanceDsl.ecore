@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="instanceDsl"
+    nsURI="http://www.chaunier.fr/xtext/instance/om/InstanceDsl" nsPrefix="instanceDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Factory">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Import"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="root" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//NewObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Import">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importedNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eFeature" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore#//StructuralFeature"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMany" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Value"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewObject">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eClass" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Feature"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Containment" eSuperTypes="platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//NewObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumAttribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore#//EnumerationLiteral"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TerminalExpression" eSuperTypes="platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="this" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//This"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="new" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//New"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="int" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Intero"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="string" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Stringa"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="null" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.instance.om/src-gen/fr/chaunier/xtext/instance/om/InstanceDsl.ecore#//Nullo"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="This">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="New">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore#//Entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Intero">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Stringa">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nullo">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

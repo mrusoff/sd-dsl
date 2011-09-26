@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_ANNCSV/0_Ressources/InputFormats/Schema.xsd"
+	 targetNamespace="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_ANNCSV/0_Ressources/InputFormats/Schema.xsd"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enregistrement_bbb">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="id_bordereau" type="xsd:string"/>
+				<xsd:element name="id_client" type="xsd:string"/>
+				<xsd:element name="date_expedition" type="xsd:string"/>
+				<xsd:element name="date_validation" type="xsd:string"/>
+				<xsd:element name="version_format_fichier" type="xsd:string"/>
+				<xsd:element name="code_regate" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="enregistrement_ddd">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_produit" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="no_colis" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="poids" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_postal_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="crbt" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="devise_crbt" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="valeur_declaree" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="devise_valeur_declaree" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="livraison_samedi" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="non_mecanisable" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="nom_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adresse1_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adresse2_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="adresse3_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ville_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="regime_transport" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_tva" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="mode_port" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ref_remettant" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="commentaire1" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="commentaire2" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_pays_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="type_recommandation" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="accuse_reception" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="type_tri_colis" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="ftd" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tel_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="email_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="mobile_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="type_alerte_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="code_evenement" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xs:schema>

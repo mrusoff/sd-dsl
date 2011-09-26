@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:com="http://www.telintrans.fr/common"
+	 xmlns:evt="http://www.coliposte.fr/event"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:srv="http://www.coliposte.fr/service"
+	 targetNamespace="http://www.coliposte.fr/event"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+
+
+	<xsd:complexType name="EvenementType">
+		<xsd:annotation>
+			<xsd:documentation>information évènement traité</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dateFlashage" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>date de l'évènement (date et heure)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codeEvenement" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>code de l'évènement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

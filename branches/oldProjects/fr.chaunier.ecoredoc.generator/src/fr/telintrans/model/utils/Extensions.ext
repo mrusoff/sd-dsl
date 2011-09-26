@@ -1,0 +1,5 @@
+import ecore;
+
+searchEntityByName(EPackage this,String names) :
+	this.eContents.typeSelect(EClass).select(e|e.name==names);
+

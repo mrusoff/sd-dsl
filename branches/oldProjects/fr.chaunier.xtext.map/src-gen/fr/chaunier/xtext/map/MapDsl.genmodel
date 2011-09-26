@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/fr.chaunier.xtext.map/src-gen"
+    editDirectory="/fr.chaunier.xtext.map.edit/src" editorDirectory="/fr.chaunier.xtext.map.editor/src"
+    modelPluginID="fr.chaunier.xtext.map" forceOverwrite="true" modelName="MapDsl"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="fr.chaunier.xtext.map.edit"
+    editorPluginID="fr.chaunier.xtext.map.editor" usedGenPackages="platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.genmodel#//omcstDsl">
+  <genPackages prefix="MapDsl" basePackage="fr.chaunier.xtext.map" disposableProviderFactory="true"
+      ecorePackage="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#/">
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/imports"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/rules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/fuctions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/mappingModules"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Model/roots"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//RootModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//RootModule/rootRef"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//RootModule/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Rule/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Rule/operation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Rule/args"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Fuction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Fuction/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Fuction/in"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Fuction/out"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Fuction/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionIn">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionIn/inEntity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionIn/inAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionOut">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionOut/outEntity"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FuctionOut/outAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule/entitySource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule/entityTarget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule/documentation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//MappingModule/mappedFeatures"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/fuctionMap"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/attributeSource"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/attributeTarget"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/withModule"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/attributeSources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/expr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/rule"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//FeatureMap/documentation"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Expression/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//Expression/intValue"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedInTransformationParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedInTransformationParameter/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedInTransformationParameter/inRefAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedOutTransformationParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedOutTransformationParameter/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedOutTransformationParameter/outRefAttribute"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedTransformationParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedTransformationParameter/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/fr.chaunier.xtext.map/src-gen/fr/chaunier/xtext/map/MapDsl.ecore#//NestedTransformationParameter/refAttribute"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

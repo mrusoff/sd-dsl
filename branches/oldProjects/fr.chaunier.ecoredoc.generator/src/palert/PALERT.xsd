@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio - 30 Day Trial Edition 7.0.2.746 (http://www.liquid-technologies.com)-->
+<xsd:schema xmlns:pal="http://www.geopost.com/pal" xmlns:evt="http://www.coliposte.fr/event" xmlns:ad="http://www.telintrans.fr/adresse" xmlns:dt="http://www.telintrans.fr/datatype" xmlns:srv="http://www.coliposte.fr/service" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.geopost.com/pal" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="service.xsd" namespace="http://www.coliposte.fr/service" />
+  <xsd:import schemaLocation="event.xsd" namespace="http://www.coliposte.fr/event" />
+  <xsd:import schemaLocation="dataType.xsd" namespace="http://www.telintrans.fr/datatype" />
+  <xsd:import schemaLocation="adresse.xsd" namespace="http://www.telintrans.fr/adresse" />
+  <xsd:element name="root" type="pal:PalRootType" />
+  <xsd:complexType name="BordereauType">
+    <xsd:sequence>
+      <xsd:element name="idBordereau" type="xsd:string" />
+      <xsd:element minOccurs="0" name="siteEvenement" type="dt:stringF6" />
+      <xsd:element name="DateExpedition" type="xsd:string" />
+      <xsd:element name="DateValidation" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="pal" type="pal:PALERTType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PalHeaderType">
+    <xsd:annotation>
+      <xsd:documentation>Les besoins doivent prendre en compte les
+				interfaces entrantes et sortantes + les besoins de calculs des SLA +
+				besoin propre à l'EAI + les besoins d'exploitation.
+				attention à vérifier de nombre de detail par rapport au fichier entrant
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="canal" type="xsd:string" />
+      <xsd:element minOccurs="0" name="type" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nonmInfoSource" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+						file name of pal
+					</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="nomInfoDestination" type="xsd:string" />
+      <xsd:element minOccurs="0" name="dateReception" type="xsd:string" />
+      <xsd:element minOccurs="0" name="instanceIDTibco" type="xsd:string" />
+      <xsd:element minOccurs="0" name="typedeFlux" type="xsd:string" />
+      <xsd:element minOccurs="0" name="CompteurSequence" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PalRootType">
+    <xsd:sequence>
+      <xsd:element name="header" type="pal:PalHeaderType" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="bordereaux" type="pal:BordereauType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PALERTType">
+    <xsd:annotation>
+      <xsd:documentation>
+				définition de la prise en charge
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="colis" type="pal:ColisInfoType" />
+      <xsd:element name="evenement" type="evt:EvenementType" />
+      <xsd:element minOccurs="0" name="colisAnnonce" type="pal:ColisAnnonce">
+        <xsd:annotation>
+          <xsd:documentation>
+						parcel informations
+					</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="optionAnnonceService" type="srv:OptionsDeServiceType">
+        <xsd:annotation>
+          <xsd:documentation>
+						service options
+					</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="facturation" type="pal:FacturationType" />
+      <xsd:element minOccurs="0" name="transport" type="pal:TransportType" />
+      <xsd:element minOccurs="0" name="chronopost" type="pal:ChronopostType" />
+      <xsd:element name="specifiqueSoColissimo" type="pal:SpecifiqueSoColissimoType" />
+      <xsd:element minOccurs="0" name="autres" type="pal:Autre" />
+      <xsd:element minOccurs="0" name="rnvp" type="pal:RNVP" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ColisType">
+    <xsd:annotation>
+      <xsd:documentation>definition d'un colis.
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="poids" type="pal:PoidsType">
+        <xsd:annotation>
+          <xsd:documentation>
+						poids du colis
+					</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="typePreparation" type="xsd:string" />
+      <xsd:element minOccurs="0" name="destinataire" type="ad:AdressePostaleType">
+        <xsd:annotation>
+          <xsd:documentation>
+						Destinataire du colis (si annonce)
+					</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="accuseReception" type="srv:ValeurEtTaxeType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ExpediteurInfoType">
+    <xsd:sequence>
+      <xsd:element name="codeColis" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AlertComplementType">
+    <xsd:sequence>
+      <xsd:element name="email" type="ad:EmailType" />
+      <xsd:element name="telephone" type="ad:TelephoneFixeType" />
+      <xsd:element name="alert" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ColisInfoType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="dt:ColisCAB13Type">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="iDColisMaitre" type="dt:ColisCAB13Type">
+            <xsd:annotation>
+              <xsd:documentation>
+								(cas des sous-traitant) nécessaire pour
+								les stats - correspond au
+								DDD.cod_Bordereau
+							</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ColisMesuree">
+    <xsd:annotation>
+      <xsd:documentation>définition de mesures sur un colis</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="pal:ColisType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="dimension" type="dt:DimensionType" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="ColisAnnonce">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="pal:ColisType">
+        <xsd:sequence>
+        	<xsd:element name="dimension" type="dt:DimensionType" />
+        	<xsd:element name="volume" type="xsd:string" />
+        	<xsd:element name="complementDestinataire"
+        		type="ad:ComplementType" maxOccurs="1" minOccurs="0">
+        	</xsd:element>
+                    <xsd:element name="regatePointRelais" type="xsd:string" maxOccurs="1" minOccurs="0">
+                    	<xsd:annotation>
+                    		<xsd:documentation>code regate point relais de livraison</xsd:documentation>
+                    	</xsd:annotation></xsd:element>
+                    <xsd:element minOccurs="0" name="expediteur"
+        		type="ad:AdressePostaleType">
+        		<xsd:annotation>
+        			<xsd:documentation>
+        				Destinataire du colis
+        			</xsd:documentation>
+        		</xsd:annotation>
+        	</xsd:element>
+
+        	<xsd:element minOccurs="0" name="telMobile"
+        		type="ad:TelephoneMobileType" />
+        	<xsd:element minOccurs="0" name="telFixe"
+        		type="ad:TelephoneFixeType" />
+        	<xsd:element minOccurs="0" name="mail" type="ad:EmailType" />
+        	<xsd:element name="relabelisation"
+        		type="pal:RelabelisationType" />
+
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="EquipementType">
+    <xsd:sequence>
+      <xsd:element name="code" type="xsd:string" />
+      <xsd:element name="libelle" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RelabelisationType">
+    <xsd:sequence>
+      <xsd:element name="IdColisMaitre" type="xsd:string" />
+      <xsd:element name="courant" type="pal:ColisOperateurPairType" />
+      <xsd:element name="sortant" type="pal:ColisOperateurPairType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ColisOperateurPairType">
+    <xsd:sequence>
+      <xsd:element name="iDColis" type="xsd:string" />
+      <xsd:element name="numeroOperateur" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FacturationType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="tva" type="pal:TvaType" />
+      <xsd:element minOccurs="0" name="montantTotal" type="dt:MontantEtDevise" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TvaType">
+    <xsd:sequence>
+    	<xsd:element name="montant" type="dt:MontantEtDevise" />
+    	<xsd:element name="pourcentage" type="xsd:string" />
+    	<xsd:element name="code" type="xsd:string"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MontantTotalType">
+    <xsd:sequence>
+      <xsd:element name="montant" type="xsd:string" />
+      <xsd:element name="devise" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransportType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="montant" type="dt:MontantEtDevise" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ChronopostType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="lotAcheminement" type="xsd:string" />
+      <xsd:element minOccurs="0" name="triDistribution" type="xsd:string" />
+      <xsd:element minOccurs="0" name="contenuCodebareRoutage" type="xsd:string" />
+      <xsd:element minOccurs="0" name="versionFichierRoutage" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PoidsType">
+    <xsd:sequence>
+      <xsd:element name="mesure" type="xsd:string" />
+      <xsd:element name="declare" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SpecifiqueSoColissimoType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="codeSource" type="xsd:string" />
+      <xsd:element minOccurs="0" name="nomCommercialChargeur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="referenceCommande" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codeAvoirPromotion" type="xsd:string" />
+      <xsd:element minOccurs="0" name="codeCityssimo" type="xsd:string" />
+      <xsd:element minOccurs="0" name="iDStation" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Autre">
+    <xsd:sequence>
+
+    	<xsd:element minOccurs="0" name="CountryFromCode"
+    		type="xsd:string" />
+    	<xsd:element minOccurs="0" name="CountryToCode"
+    		type="xsd:string" />
+
+    	<xsd:element minOccurs="0" name="Description" type="xsd:string" />
+
+
+
+
+
+
+
+
+
+
+
+    	<xsd:element name="constants" type="pal:ConstantsType"></xsd:element>
+    	<xsd:element name="notUsed" type="pal:NotUsedType"></xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RNVP">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="rnvpCiviliteDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpPrenomDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpNomDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpNomIndiceTraitementDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse1Destinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse2Destinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse3Destinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse4Destinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpCodePostaleDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpVilleDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresseIndiceTraitementDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpCEADestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpIndiceTraitementDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpRetourContratDestinataire" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpCiviliteExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpPrenomExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpNomExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpNomIndiceTraitementExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse1Expediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse2Expediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse3Expediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresse4Expediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpCodePostaleExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpVilleExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpAdresseIndiceTraitementExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpCEAExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpIndiceTraitementExpediteur" type="xsd:string" />
+      <xsd:element minOccurs="0" name="rnvpRetourContratExpediteur" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ConstantsType">
+  	<xsd:sequence>
+            <xsd:element minOccurs="0" name="OperatorCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="TariffZone" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ContentType" type="xsd:string" />
+        </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="NotUsedType">
+  	<xsd:sequence>
+            <xsd:element minOccurs="0" name="PackagingType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ConsignorState" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ConsigneeState" type="xsd:string" />
+            <xsd:element minOccurs="0" name="LocalisationStation" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ParcelsCount" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IslandExtraFee" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IslandExtraFeeTaxAmount" type="xsd:string" />
+            <xsd:element minOccurs="0" name="IslandExtraFeeTaxCurrencyCode" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ReturnOption" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ReturnOptionTaxAmount" type="xsd:string" />
+            <xsd:element minOccurs="0" name="ReturnOptionTaxCurrencyCode" type="xsd:string" />
+        </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

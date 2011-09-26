@@ -1,0 +1,224 @@
+Root PalRootType ( PalRootType ) ;;
+   |   header ; ( PalHeaderType ) ;;Les besoins doivent prendre en compte les interfaces entrantes et sortantes + les besoins de calculs des SLA + besoin propre à l'EAI + les besoins d'exploitation. attention à vérifier de nombre de detail par rapport au fichier entrant
+   |      |   canal String; ?  ;;
+   |      |   type String; ?  ;;
+   |      |   nonmInfoSource String; ?  ;;file name of pal
+   |      |   nomInfoDestination String; ?  ;;
+   |      |   dateReception String; ?  ;;
+   |      |   instanceIDTibco String; ?  ;;
+   |      |   typedeFlux String; ?  ;;
+   |      |   compteurSequence String; ?  ;;
+   |   bordereaux ;* ( BordereauType ) ;;
+   |      |   idBordereau String;   ;;
+   |      |   siteEvenement StringF6; ?  ;;
+   |      |   dateExpedition String;   ;;
+   |      |   dateValidation String;   ;;
+   |      |   pal ;* ( PALERTType ) ;;définition de la prise en charge
+   |      |      |   colis ; ( ColisInfoType ) ;;
+   |      |      |    extend ( ColisCAB13Type ) ;;;
+   |      |      |      |   codeProduit CodeProduitType; ?  ;;code produit
+   |      |      |      |   numeroColis NumeroColisType;   ;;numero de colis
+   |      |      |      |   iDColisMaitre ;? ( ColisCAB13Type ) ;;
+   |      |      |      |      |   codeProduit CodeProduitType; ?  ;;code produit
+   |      |      |      |      |   numeroColis NumeroColisType;   ;;numero de colis
+   |      |      |   evenement ; ( EvenementType ) ;;information évènement traité
+   |      |      |      |   dateFlashage String;   ;;date de l'évènement (date et heure)
+   |      |      |      |   codeEvenement String; ?  ;;code de l'évènement
+   |      |      |   colisAnnonce ;? ( ColisAnnonce ) ;;
+   |      |      |    extend ( ColisType ) ;;;definition d'un colis.
+   |      |      |      |   poids ;? ( PoidsType ) ;;
+   |      |      |      |      |   mesure String;   ;;
+   |      |      |      |      |   declare String;   ;;
+   |      |      |      |   typePreparation String; ?  ;;
+   |      |      |      |   destinataire ;? ( AdressePostaleType ) ;;
+   |      |      |      |      |   personne ;? ( PersonneType ) ;;définition standart d'une personne
+   |      |      |      |      |    extend  abstract ( Tier ) ;;;representation abstraite d'un tier société ou personne
+   |      |      |      |      |      |   civilite String; ?  ;;
+   |      |      |      |      |      |   nom String;   ;;
+   |      |      |      |      |      |   prenom String; ?  ;;
+   |      |      |      |      |   organisation ;? ( OrganisationType ) ;;définition standart de nom de l'organisation
+   |      |      |      |      |    extend  abstract ( Tier ) ;;;representation abstraite d'un tier société ou personne
+   |      |      |      |      |      |   raisonSociale String;   ;;
+   |      |      |      |      |   adresse ;? ( AdresseType ) ;;définition standard d'une adresse pour sa partie géographique (localisation)
+   |      |      |      |      |    extend  abstract ( SiteType ) ;;;racine site pour tous object localisable (adresse, ou organisation référéncer, ou site colisposte)
+   |      |      |      |      |      |   ligne1 LigneAdresse; ?  ;;adresse postal Exemple : 1 RUE DE PARIS
+   |      |      |      |      |      |   ligne2 LigneAdresse; ?  ;;compléments Exemple : IMMEUBLE Jean Bart
+   |      |      |      |      |      |   ligne3 LigneAdresse; ?  ;;compléments Exemple : livraison concierge
+   |      |      |      |      |      |   ligne4 LigneAdresse; ?  ;;
+   |      |      |      |      |      |   codePostal String9; ?  ;;
+   |      |      |      |      |      |   ville String35; ?  ;;
+   |      |      |      |      |      |   pays CodePaysIso3166N2; ?  ;;code pays iso 1666 N2
+   |      |      |      |      |   telephoneFixe ;? ( TelephoneFixeType ) ;;numéro de téléphone
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   numero NumeroType1;   ;;
+   |      |      |      |      |   telephoneMoblie ;? ( TelephoneMobileType ) ;;numéro de téléphone
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   numero NumeroType;   ;;
+   |      |      |      |      |   mail ;? ( EmailType ) ;;email
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   email String;   ;;
+   |      |      |      |      |   contact ;* ( AbstractContacteType ) ;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |   accuseReception ;? ( ValeurEtTaxeType ) ;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |   dimension ; ( DimensionType ) ;;
+   |      |      |      |      |   hauteur String; ?  ;;
+   |      |      |      |      |   longueur String; ?  ;;
+   |      |      |      |      |   largeur String; ?  ;;
+   |      |      |      |   volume String;   ;;
+   |      |      |      |   complementDestinataire ;? ( ComplementType ) ;;
+   |      |      |      |      |   instrLivraisonSpecifique1 String; ?  ;;
+   |      |      |      |      |   instrLivraisonSpecifique2 String; ?  ;;
+   |      |      |      |      |   instrSpecifiqueInterphone String; ?  ;;
+   |      |      |      |      |   instrLivraisonSpecifique String; ?  ;;
+   |      |      |      |   regatePointRelais String; ?  ;;code regate point relais de livraison
+   |      |      |      |   expediteur ;? ( AdressePostaleType ) ;;
+   |      |      |      |      |   personne ;? ( PersonneType ) ;;définition standart d'une personne
+   |      |      |      |      |    extend  abstract ( Tier ) ;;;representation abstraite d'un tier société ou personne
+   |      |      |      |      |      |   civilite String; ?  ;;
+   |      |      |      |      |      |   nom String;   ;;
+   |      |      |      |      |      |   prenom String; ?  ;;
+   |      |      |      |      |   organisation ;? ( OrganisationType ) ;;définition standart de nom de l'organisation
+   |      |      |      |      |    extend  abstract ( Tier ) ;;;representation abstraite d'un tier société ou personne
+   |      |      |      |      |      |   raisonSociale String;   ;;
+   |      |      |      |      |   adresse ;? ( AdresseType ) ;;définition standard d'une adresse pour sa partie géographique (localisation)
+   |      |      |      |      |    extend  abstract ( SiteType ) ;;;racine site pour tous object localisable (adresse, ou organisation référéncer, ou site colisposte)
+   |      |      |      |      |      |   ligne1 LigneAdresse; ?  ;;adresse postal Exemple : 1 RUE DE PARIS
+   |      |      |      |      |      |   ligne2 LigneAdresse; ?  ;;compléments Exemple : IMMEUBLE Jean Bart
+   |      |      |      |      |      |   ligne3 LigneAdresse; ?  ;;compléments Exemple : livraison concierge
+   |      |      |      |      |      |   ligne4 LigneAdresse; ?  ;;
+   |      |      |      |      |      |   codePostal String9; ?  ;;
+   |      |      |      |      |      |   ville String35; ?  ;;
+   |      |      |      |      |      |   pays CodePaysIso3166N2; ?  ;;code pays iso 1666 N2
+   |      |      |      |      |   telephoneFixe ;? ( TelephoneFixeType ) ;;numéro de téléphone
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   numero NumeroType1;   ;;
+   |      |      |      |      |   telephoneMoblie ;? ( TelephoneMobileType ) ;;numéro de téléphone
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   numero NumeroType;   ;;
+   |      |      |      |      |   mail ;? ( EmailType ) ;;email
+   |      |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |      |   email String;   ;;
+   |      |      |      |      |   contact ;* ( AbstractContacteType ) ;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |   telMobile ;? ( TelephoneMobileType ) ;;numéro de téléphone
+   |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |   numero NumeroType;   ;;
+   |      |      |      |   telFixe ;? ( TelephoneFixeType ) ;;numéro de téléphone
+   |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |   numero NumeroType1;   ;;
+   |      |      |      |   mail ;? ( EmailType ) ;;email
+   |      |      |      |    extend  abstract ( AbstractContacteType ) ;;;abstraction pour la structure d'un contact (mail,tel,fax ...)
+   |      |      |      |      |   email String;   ;;
+   |      |      |      |   relabelisation ; ( RelabelisationType ) ;;
+   |      |      |      |      |   idColisMaitre String;   ;;
+   |      |      |      |      |   courant ; ( ColisOperateurPairType ) ;;
+   |      |      |      |      |      |   iDColis String;   ;;
+   |      |      |      |      |      |   numeroOperateur String;   ;;
+   |      |      |      |      |   sortant ; ( ColisOperateurPairType ) ;;
+   |      |      |      |      |      |   iDColis String;   ;;
+   |      |      |      |      |      |   numeroOperateur String;   ;;
+   |      |      |   optionAnnonceService ;? ( OptionsDeServiceType ) ;;
+   |      |      |      |   contreRemboursement ;? ( ValeurTaxeCodeType ) ;;
+   |      |      |      |    extend ( ValeurEtTaxeType ) ;;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |      |   code String; ?  ;;
+   |      |      |      |   valeurAssuree ;? ( ValeurTaxeCodeType ) ;;
+   |      |      |      |    extend ( ValeurEtTaxeType ) ;;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |      |   code String; ?  ;;
+   |      |      |      |   francDeTaxesEtDeDroits ;? ( ValeurEtTaxeType ) ;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |   niveauRecommandation ;? ( ValeurEtTaxeType ) ;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |   livraisonSamedi ;? ( ValeurEtTaxeType ) ;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |      |   horsNorme ;* ( ValeurEtTaxeType ) ;;
+   |      |      |      |      |   valeur String; ?  ;;
+   |      |      |      |      |   taxe String; ?  ;;
+   |      |      |      |      |   devise String; ?  ;;
+   |      |      |   facturation ;? ( FacturationType ) ;;
+   |      |      |      |   tva ;? ( TvaType ) ;;
+   |      |      |      |      |   montant ; ( MontantEtDevise ) ;;
+   |      |      |      |      |      |   montant MontantType;   ;;
+   |      |      |      |      |      |   devise String;   ;;
+   |      |      |      |      |   pourcentage String;   ;;
+   |      |      |      |      |   code String;   ;;
+   |      |      |      |   montantTotal ;? ( MontantEtDevise ) ;;
+   |      |      |      |      |   montant MontantType;   ;;
+   |      |      |      |      |   devise String;   ;;
+   |      |      |   transport ;? ( TransportType ) ;;
+   |      |      |      |   montant ;? ( MontantEtDevise ) ;;
+   |      |      |      |      |   montant MontantType;   ;;
+   |      |      |      |      |   devise String;   ;;
+   |      |      |   chronopost ;? ( ChronopostType ) ;;
+   |      |      |      |   lotAcheminement String; ?  ;;
+   |      |      |      |   triDistribution String; ?  ;;
+   |      |      |      |   contenuCodebareRoutage String; ?  ;;
+   |      |      |      |   versionFichierRoutage String; ?  ;;
+   |      |      |   specifiqueSoColissimo ; ( SpecifiqueSoColissimoType ) ;;
+   |      |      |      |   codeSource String; ?  ;;
+   |      |      |      |   nomCommercialChargeur String; ?  ;;
+   |      |      |      |   referenceCommande String; ?  ;;
+   |      |      |      |   codeAvoirPromotion String; ?  ;;
+   |      |      |      |   codeCityssimo String; ?  ;;
+   |      |      |      |   iDStation String; ?  ;;
+   |      |      |   autres ;? ( Autre ) ;;
+   |      |      |      |   countryFromCode String; ?  ;;
+   |      |      |      |   countryToCode String; ?  ;;
+   |      |      |      |   description String; ?  ;;
+   |      |      |      |   constants ; ( ConstantsType ) ;;
+   |      |      |      |      |   operatorCode String; ?  ;;
+   |      |      |      |      |   tariffZone String; ?  ;;
+   |      |      |      |      |   contentType String; ?  ;;
+   |      |      |      |   notUsed ; ( NotUsedType ) ;;
+   |      |      |      |      |   packagingType String; ?  ;;
+   |      |      |      |      |   consignorState String; ?  ;;
+   |      |      |      |      |   consigneeState String; ?  ;;
+   |      |      |      |      |   localisationStation String; ?  ;;
+   |      |      |      |      |   parcelsCount String; ?  ;;
+   |      |      |      |      |   islandExtraFee String; ?  ;;
+   |      |      |      |      |   islandExtraFeeTaxAmount String; ?  ;;
+   |      |      |      |      |   islandExtraFeeTaxCurrencyCode String; ?  ;;
+   |      |      |      |      |   returnOption String; ?  ;;
+   |      |      |      |      |   returnOptionTaxAmount String; ?  ;;
+   |      |      |      |      |   returnOptionTaxCurrencyCode String; ?  ;;
+   |      |      |   rnvp ;? ( RNVP ) ;;
+   |      |      |      |   rnvpCiviliteDestinataire String; ?  ;;
+   |      |      |      |   rnvpPrenomDestinataire String; ?  ;;
+   |      |      |      |   rnvpNomDestinataire String; ?  ;;
+   |      |      |      |   rnvpNomIndiceTraitementDestinataire String; ?  ;;
+   |      |      |      |   rnvpAdresse1Destinataire String; ?  ;;
+   |      |      |      |   rnvpAdresse2Destinataire String; ?  ;;
+   |      |      |      |   rnvpAdresse3Destinataire String; ?  ;;
+   |      |      |      |   rnvpAdresse4Destinataire String; ?  ;;
+   |      |      |      |   rnvpCodePostaleDestinataire String; ?  ;;
+   |      |      |      |   rnvpVilleDestinataire String; ?  ;;
+   |      |      |      |   rnvpAdresseIndiceTraitementDestinataire String; ?  ;;
+   |      |      |      |   rnvpCEADestinataire String; ?  ;;
+   |      |      |      |   rnvpIndiceTraitementDestinataire String; ?  ;;
+   |      |      |      |   rnvpRetourContratDestinataire String; ?  ;;
+   |      |      |      |   rnvpCiviliteExpediteur String; ?  ;;
+   |      |      |      |   rnvpPrenomExpediteur String; ?  ;;
+   |      |      |      |   rnvpNomExpediteur String; ?  ;;
+   |      |      |      |   rnvpNomIndiceTraitementExpediteur String; ?  ;;
+   |      |      |      |   rnvpAdresse1Expediteur String; ?  ;;
+   |      |      |      |   rnvpAdresse2Expediteur String; ?  ;;
+   |      |      |      |   rnvpAdresse3Expediteur String; ?  ;;
+   |      |      |      |   rnvpAdresse4Expediteur String; ?  ;;
+   |      |      |      |   rnvpCodePostaleExpediteur String; ?  ;;
+   |      |      |      |   rnvpVilleExpediteur String; ?  ;;
+   |      |      |      |   rnvpAdresseIndiceTraitementExpediteur String; ?  ;;
+   |      |      |      |   rnvpCEAExpediteur String; ?  ;;
+   |      |      |      |   rnvpIndiceTraitementExpediteur String; ?  ;;
+   |      |      |      |   rnvpRetourContratExpediteur String; ?  ;;
