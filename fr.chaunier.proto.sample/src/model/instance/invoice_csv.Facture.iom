@@ -1,0 +1,48 @@
+    import invoice_csv.*
+    Facture facture  {
+    	//path invoice_csv.Facture.entete  qn invoice_csv.Facture.entete
+    	entete = Entete  {
+    	    //path invoice_csv.Facture.entete.date  qn invoice_csv.Entete.date
+    	    ddate = Date  {
+    	        //path invoice_csv.Facture.entete.date.day  qn invoice_csv.Day
+    	        day = "day"
+    	        //path invoice_csv.Facture.entete.date.month  qn invoice_csv.Month
+    	        month = "month"
+    	        //path invoice_csv.Facture.entete.date.year  qn invoice_csv.Year
+    	        year = "year"
+    	    }
+    	    //path invoice_csv.Facture.entete.client  qn invoice_csv.Entete.client
+    	    client = Client  {
+    	        //path invoice_csv.Facture.entete.client.numeroClient  qn invoice_csv.NumeroClient
+    	        numeroClient = 0
+    	        //path invoice_csv.Facture.entete.client.nom  qn invoice_csv.Nom
+    	        nom = 'nom'
+    	        //path invoice_csv.Facture.entete.client.marie  qn invoice_csv.O_N
+    	        marie = 'N'
+    	        //path invoice_csv.Facture.entete.client.telephone  qn invoice_csv.Telephone
+    	        telephone = 'telephone'
+    	        //path invoice_csv.Facture.entete.client.adresse  qn invoice_csv.Client.adresse
+    	        adresse = Adresse  {
+    	            //path invoice_csv.Facture.entete.client.adresse.ligne1  qn invoice_csv.LigneAdresse
+    	            ligne1 = 'ligne1'
+    	            //path invoice_csv.Facture.entete.client.adresse.ligne2  qn invoice_csv.LigneAdresse
+    	            ligne2 = 'ligne2'
+    	            //path invoice_csv.Facture.entete.client.adresse.ligne3  qn invoice_csv.LigneAdresse
+    	            ligne3 = 'ligne3'
+    	            //path invoice_csv.Facture.entete.client.adresse.ville  qn invoice_csv.Ville
+    	            ville = 'ville'
+    	            //path invoice_csv.Facture.entete.client.adresse.codePostale  qn invoice_csv.CodePostale
+    	            codePostale = 'codePostale'
+    	        }
+    	    }
+    	}
+    	//path invoice_csv.Facture.articles  qn invoice_csv.Facture.articles
+    	articles += Article  {
+    	    //path invoice_csv.Facture.articles.description  qn invoice_csv.Description
+    	    description += 'description'
+    	    //path invoice_csv.Facture.articles.prix  qn invoice_csv.Prix
+    	    prix = 0
+    	    //path invoice_csv.Facture.articles.remise  qn invoice_csv.Remise
+    	    remise = 0
+    	}
+    }
