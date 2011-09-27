@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+    <template name="Package" description="template for a Package"
+        id="fr.chaunier.xtext.omcst.om.OmcstDsl.PackageDeclaration"
+        context="fr.chaunier.xtext.omcst.om.OmcstDsl.PackageDeclaration"
+        enabled="true">package ${name} { 
+    ${cursor}   
+}</template>
+    <template name="Entity" description="template for an Entity"
+        id="fr.chaunier.xtext.omcst.om.OmcstDsl.Entity"
+        context="fr.chaunier.xtext.omcst.om.OmcstDsl.Entity"
+        enabled="true"
+>entity ${name} {
+	${cursor} 
+}</template>
+    <template name="Property" description="template for a Property"
+        id="fr.chaunier.xtext.omcst.om.OmcstDsl.Property"
+        context="fr.chaunier.xtext.omcst.om.OmcstDsl.Property"
+        enabled="true">${propertyName} : ${typeName}</template>
+    <template name="Operation" description="template for an Operation"
+        id="fr.chaunier.xtext.omcst.om.OmcstDsl.Operation"
+        context="fr.chaunier.xtext.omcst.om.OmcstDsl.Operation"
+        enabled="true">${visibility:Enum('Visibility')} op ${name} (${paramType1} ${paramName1}) : ${returnType} {
+	${cursor}
+}</template>
+</templates>
