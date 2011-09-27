@@ -1,0 +1,36 @@
+
+package test.cardinality.testCardinalities prefix test3 namespace "http://www.chaunier.fr/test3" {
+
+import testtypes.*
+
+	entity MyEntityRef 'to be refered'{
+		a : Name 	"test cardinalité 1..1"
+		b : Name ?  "test cardinalité 0..1"
+		cs : Name * "test cardinalité 0..n"
+	}
+	
+	
+	entity MyEntity 'to be contain'{
+		a : Name 
+		b : Name ? 
+		cs : Name * 
+	}
+
+	abstract entity MyAbstract "test abstract" {
+		aAbs : Name 
+	}
+
+	entity MyFeature "test feature" {
+		contain : MyEntity  	"test containment"
+		ref r1 : MyEntityRef    "test reference" 
+	}
+	
+	entity MyFeatureHerited extends MyFeature "test heritage" {
+		f : Name 
+	}
+
+	entity MyFeatureConcrete extends MyAbstract "test heritage abstract" {
+		f : Name 
+	}
+}
+

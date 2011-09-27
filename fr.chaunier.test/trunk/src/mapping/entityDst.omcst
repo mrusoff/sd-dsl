@@ -1,0 +1,19 @@
+package mapping.entitydst prefix edst namespace "http://www.chaunier.fr/mapping/entitydst" {
+
+datatype My
+enumeration Civility [ M = 1 ; Ms = 2 ; Miss = 3 ;]  
+
+
+	entity ConaintDst ''{
+		containted : My 	
+	}
+
+	entity EntityDst 'entity destination'{
+		my : My
+		contain : ConaintDst
+		civility : Civility
+		n1 : My	string maxLen 5	 	
+	}
+
+	element EntityDst
+}

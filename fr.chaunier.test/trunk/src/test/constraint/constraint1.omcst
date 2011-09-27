@@ -1,0 +1,55 @@
+package test.constraint.constraint1 prefix test namespace "http://www.chaunier.fr/test"  {
+
+datatype Name
+datatype Phone
+datatype Description 
+datatype Date 
+
+	entity Test {
+		fs : OnFeatureString	
+		fd : OnFeatureDecimal
+		fe : OnFeatureEnum
+		fb : OnFeatureBool
+		fda : OnFeatureDateTime
+			
+	}
+	
+	entity MyEntityRef 'to be refered'{
+		a : Name 
+	}
+	
+	entity MyEntity 'to be contain'{
+		a : Name 
+	}
+
+	entity OnFeatureString "test feature pour type string" {
+		contain : MyEntity  				"entity containment"	
+		ref r1 : MyEntityRef 				"ref to entity"
+	}
+	
+	entity OnFeatureDecimal {
+		c : Name decimal
+	}
+
+	entity OnFeatureBool {
+		d : Name boolean
+	}
+	
+	entity OnFeatureDateTime {
+		e : Name datetime
+	}
+
+	enumeration HorsNormeOption [
+			NON=0;
+			SANS_MOTIF=1;
+		]
+
+	entity OnFeatureEnum {
+		e1 : HorsNormeOption enum as String 
+		e2 : HorsNormeOption enum as Value 
+		e3 : HorsNormeOption enum as Value fixeLen 2
+		e4 : HorsNormeOption enum as Value default NON
+	}
+	
+	element Test
+}
