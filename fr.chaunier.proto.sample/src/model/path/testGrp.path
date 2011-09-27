@@ -1,8 +1,0 @@
-group invoice_xsd2.BillTo {
-	customerNumber
-	postalAddress.adresse.countryCode
-}
-
-entity invoice_flat.BillTo:address.province
-
-
