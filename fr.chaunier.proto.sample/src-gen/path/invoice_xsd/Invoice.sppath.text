@@ -1,0 +1,67 @@
+31
+
+    Enity source : Invoice 
+
+
+//Entity	[1..1]			
+//header
+//DataType	[1..1]			
+//header.ddate
+//Entity	[1..1]			
+//header.billTo
+//DataType	[1..1]			
+//header.billTo.customerNumber
+//Entity	[1..1]			
+//header.billTo.postalAddress
+//Entity	[1..1]		le ou les tiers concerné par l'adresse	
+//header.billTo.postalAddress.person
+//Enum	[0..1]		civilité	
+//header.billTo.postalAddress.person.civility
+//DataType	[0..1]		prenom	
+//header.billTo.postalAddress.person.firstName
+//DataType	[0..1]		nom	
+//header.billTo.postalAddress.person.secondName
+//Enum	[1..1]		situation familiale	
+//header.billTo.postalAddress.person.gender
+//Entity	[1..1]		le ou les tiers concerné par l'adresse	
+//header.billTo.postalAddress.organisation
+//DataType	[0..1]		dénomination de la raison sociale	
+//header.billTo.postalAddress.organisation.raisonSociale
+//Entity	[0..1]		adresse	
+//header.billTo.postalAddress.adresse
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.line1
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.line2
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.line3
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.line4
+//DataType	[0..1]		code postal	
+//header.billTo.postalAddress.adresse.zipCode
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.city
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.countryCode
+//DataType	[0..1]			
+//header.billTo.postalAddress.adresse.coutry
+//Entity	[0..1]			
+//header.billTo.postalAddress.phone
+//DataType	[1..1]			
+//header.billTo.postalAddress.phone.numero
+//Entity	[0..*]		elements de contact additionnel mail , mobile tel 	
+//header.billTo.postalAddress.contacts
+//Entity	[0..*]			
+//items
+//Entity	[1..1]			
+//items.publication
+//DataType	[1..1]			
+//items.publication.title
+//DataType	[1..1]			
+//items.publication.ddate
+//DataType	[0..*]			
+//items.description
+//DataType	[1..1]			
+//items.price
+//DataType	[1..1]			
+//items.discount

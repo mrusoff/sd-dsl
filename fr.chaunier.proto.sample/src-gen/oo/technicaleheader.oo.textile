@@ -1,0 +1,50 @@
+
+h1. package : technicaleheader
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| technicaleheader  |  |  
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| Date |  |  
+|!icons/Property.gif!| Short |  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|Version|
+|!icons/Entity.gif!|TechnicalHeader|
+
+
+
+h2. Entities
+
+
+h3(#Version). Class Name : Version  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| number | "Short":technicaleheader.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| major | "Short":technicaleheader.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| minor | "Short":technicaleheader.html##DataTypes | [1..1] | |  
+
+h3(#TechnicalHeader). Class Name : TechnicalHeader  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| dateMessage | "Date":technicaleheader.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| version | "Version":technicaleheader.html#Version | [1..1] | |  

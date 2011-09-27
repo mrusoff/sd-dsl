@@ -1,0 +1,19 @@
+    import address.*
+    Address address  {
+    	//path address.Address.line1  qn address.Libelle
+    	line1 = 'line1'
+    	//path address.Address.line2  qn address.Libelle
+    	line2 = 'line2'
+    	//path address.Address.line3  qn address.Libelle
+    	line3 = 'line3'
+    	//path address.Address.line4  qn address.Libelle
+    	line4 = 'line4'
+    	//path address.Address.zipCode  qn address.ZipCode
+    	zipCode = 'zipCode'
+    	//path address.Address.city  qn address.City
+    	city = 'city'
+    	//path address.Address.countryCode  qn address.CountryCode
+    	countryCode = 'countryCode'
+    	//path address.Address.coutry  qn address.Libelle
+    	coutry = 'coutry'
+    }

@@ -1,0 +1,7 @@
+	1
+	
+h1. Enity source : Organisation 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | address.Organisation:raisonSociale | DataType | [0..1] |  | dénomination de la raison sociale | | 

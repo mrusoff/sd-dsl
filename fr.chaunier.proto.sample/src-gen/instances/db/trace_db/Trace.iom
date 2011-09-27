@@ -1,0 +1,11 @@
+    import db.trace_db.*
+    Trace trace  {
+    	//path db.trace_db.Trace.dateInvoice  qn db.trace_db.Date
+    	dateInvoice = 'dateInvoice'
+    	//path db.trace_db.Trace.customerNumberInvoice  qn db.trace_db.CustNumber
+    	customerNumberInvoice = 0
+    	//path db.trace_db.Trace.invoiceNumber  qn db.trace_db.InvoiceNumber
+    	invoiceNumber = 'invoiceNumber'
+    	//path db.trace_db.Trace.totalAmount  qn db.trace_db.Amount
+    	totalAmount = 'totalAmount'
+    }

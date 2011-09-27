@@ -1,0 +1,11 @@
+	5
+	
+h1. Enity source : Test 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | testbug.Test:c | DataType | [1..1] |  |  | | 
+	 | testbug.Test:d | DataType | [1..1] |  |  | | 
+	 | testbug.Test:e | DataType | [1..1] |  |  | | 
+	 | testbug.Test:d7 | Enum | [1..1] | enum as String |  | | 
+	 | testbug.Test:d8 | Enum | [1..1] | enum as Value |  | | 

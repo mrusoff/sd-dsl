@@ -1,0 +1,45 @@
+20
+
+    Enity source : Facture 
+
+
+//Entity	[1..1]			
+//entete
+//Entity	[1..1]	string fixe Len 8 		
+//entete.ddate
+//DataType	[1..1]	integer min value 1 max value 31 		
+//entete.ddate.day
+//DataType	[1..1]	integer min value 1 max value 12 		
+//entete.ddate.month
+//DataType	[1..1]	integer fixe Len 4 		
+//entete.ddate.year
+//Entity	[1..1]			
+//entete.client
+//DataType	[1..1]			
+//entete.client.numeroClient
+//DataType	[1..1]			
+//entete.client.nom
+//Enum	[1..1]	enum as String		
+//entete.client.marie
+//DataType	[1..1]			
+//entete.client.telephone
+//Entity	[1..1]			
+//entete.client.adresse
+//DataType	[1..1]			
+//entete.client.adresse.ligne1
+//DataType	[0..1]			
+//entete.client.adresse.ligne2
+//DataType	[0..1]			
+//entete.client.adresse.ligne3
+//DataType	[1..1]			
+//entete.client.adresse.ville
+//DataType	[1..1]			
+//entete.client.adresse.codePostale
+//Entity	[0..*]			
+//articles
+//DataType	[0..*]			
+//articles.description
+//DataType	[1..1]		en euro	
+//articles.prix
+//DataType	[1..1]			
+//articles.remise

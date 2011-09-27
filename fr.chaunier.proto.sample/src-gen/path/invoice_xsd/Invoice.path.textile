@@ -1,0 +1,37 @@
+	31
+	
+h1. Enity source : Invoice 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | **invoice_xsd.Invoice:header** | Entity | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.ddate | DataType | [1..1] |  |  | | 
+	 | **invoice_xsd.Invoice:header.billTo** | Entity | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.customerNumber | DataType | [1..1] |  |  | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress** | Entity | [1..1] |  |  | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress.person** | Entity | [1..1] |  | le ou les tiers concerné par l'adresse | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.person.civility | Enum | [0..1] |  | civilité | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.person.firstName | DataType | [0..1] |  | prenom | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.person.secondName | DataType | [0..1] |  | nom | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.person.gender | Enum | [1..1] |  | situation familiale | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress.organisation** | Entity | [1..1] |  | le ou les tiers concerné par l'adresse | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.organisation.raisonSociale | DataType | [0..1] |  | dénomination de la raison sociale | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress.adresse** | Entity | [0..1] |  | adresse | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.line1 | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.line2 | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.line3 | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.line4 | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.zipCode | DataType | [0..1] |  | code postal | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.city | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.countryCode | DataType | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.adresse.coutry | DataType | [0..1] |  |  | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress.phone** | Entity | [0..1] |  |  | | 
+	 | invoice_xsd.Invoice:header.billTo.postalAddress.phone.numero | DataType | [1..1] |  |  | | 
+	 | **invoice_xsd.Invoice:header.billTo.postalAddress.contacts** | Entity | [0..*] |  | elements de contact additionnel mail , mobile tel  | | 
+	 | **invoice_xsd.Invoice:items** | Entity | [0..*] |  |  | | 
+	 | **invoice_xsd.Invoice:items.publication** | Entity | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:items.publication.title | DataType | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:items.publication.ddate | DataType | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:items.description | DataType | [0..*] |  |  | | 
+	 | invoice_xsd.Invoice:items.price | DataType | [1..1] |  |  | | 
+	 | invoice_xsd.Invoice:items.discount | DataType | [1..1] |  |  | | 

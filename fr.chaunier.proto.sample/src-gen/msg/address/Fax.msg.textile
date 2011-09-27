@@ -1,0 +1,9 @@
+h1. entity root : Fax
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|numero|PhoneFormat | [1..1] |  | 

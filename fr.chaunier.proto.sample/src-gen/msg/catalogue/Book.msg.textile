@@ -1,0 +1,12 @@
+h1. entity root : Book
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|isbn|String | [1..1] |  | 
+|2|publisher|String | [1..1] |  | 
+|3|title|String | [1..1] |  | 
+|4|ddate|Date | [1..1] |  | 

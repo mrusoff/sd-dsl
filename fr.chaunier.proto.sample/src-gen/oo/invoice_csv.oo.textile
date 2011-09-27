@@ -1,0 +1,122 @@
+
+h1. package : invoice_csv
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| invoice_csv  | icsv | http://www.chaunier.fr/invoice_csv 
+
+h2(#Enumerations). Enumerations  
+	  
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| O_N | [((] | |
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| NumeroFacture |  |  
+|!icons/Property.gif!| NumeroClient |  |  
+|!icons/Property.gif!| Nom |  |  
+|!icons/Property.gif!| Telephone |  |  
+|!icons/Property.gif!| Description |  |  
+|!icons/Property.gif!| LigneAdresse |  |  
+|!icons/Property.gif!| Ville |  |  
+|!icons/Property.gif!| CodePostale |  |  
+|!icons/Property.gif!| Prix |  |  
+|!icons/Property.gif!| Remise |  |  
+|!icons/Property.gif!| Month | integer min value 1 max value 12  |  
+|!icons/Property.gif!| Day | integer min value 1 max value 31  |  
+|!icons/Property.gif!| Year | integer fixe Len 4  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|Date|
+|!icons/Entity.gif!|Facture|
+|!icons/Entity.gif!|Entete|
+|!icons/Entity.gif!|Article|
+|!icons/Entity.gif!|Client|
+|!icons/Entity.gif!|Adresse|
+
+
+
+h2. Entities
+
+
+h3(#Date). Class Name : Date  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| day | "Day":invoice_csv.html##DataTypes | [1..1] | integer min value 1 max value 31 |  
+    |!icons/Property.gif!| month | "Month":invoice_csv.html##DataTypes | [1..1] | integer min value 1 max value 12 |  
+    |!icons/Property.gif!| year | "Year":invoice_csv.html##DataTypes | [1..1] | integer fixe Len 4 |  
+
+h3(#Facture). Class Name : Facture  
+
+p{color:blue}. ceci est le point d'entrée du message facture
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| entete | "Entete":invoice_csv.html#Entete | [1..1] | |  
+    |!icons/Property.gif!| articles | "Article":invoice_csv.html#Article | [0..*] | |  
+
+h3(#Entete). Class Name : Entete  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| ddate | "Date":invoice_csv.html#Date | [1..1] | string fixe Len 8 |  
+    |!icons/Property.gif!| client | "Client":invoice_csv.html#Client | [1..1] | |  
+
+h3(#Article). Class Name : Article  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| description | "Description":invoice_csv.html##DataTypes | [0..*] | |  
+    |!icons/Property.gif!| prix | "Prix":invoice_csv.html##DataTypes | [1..1] | | en euro 
+    |!icons/Property.gif!| remise | "Remise":invoice_csv.html##DataTypes | [1..1] | |  
+
+h3(#Client). Class Name : Client  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| numeroClient | "NumeroClient":invoice_csv.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| nom | "Nom":invoice_csv.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| marie | "O_N":invoice_csv.html##Enumerations | [1..1] | enum as String|  
+    |!icons/Property.gif!| telephone | "Telephone":invoice_csv.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| adresse | "Adresse":invoice_csv.html#Adresse | [1..1] | |  
+
+h3(#Adresse). Class Name : Adresse  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| ligne1 | "LigneAdresse":invoice_csv.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| ligne2 | "LigneAdresse":invoice_csv.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| ligne3 | "LigneAdresse":invoice_csv.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| ville | "Ville":invoice_csv.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| codePostale | "CodePostale":invoice_csv.html##DataTypes | [1..1] | |  

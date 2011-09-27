@@ -1,0 +1,26 @@
+h1. entity root : Invoice
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|header|Header | [1..1] |   |  
+  |2|--.ddate|Date | [1..1] |  | 
+  |3|--.billTo|BillTo | [1..1] |   |  
+    |4|--.--.customerNumber|CustNumber | [1..1] |  | 
+    |5|--.--.name|Name | [1..1] |  | 
+    |6|--.--.maried|O_N | [1..1] | enum fixe Len 1 as String | 
+    |7|--.--.phone|Phone | [1..1] |  | 
+    |8|--.--.address|Address | [1..1] |   |  
+      |9|--.--.--.street1|StreetLine | [1..1] |  | 
+      |10|--.--.--.street2|StreetLine | [0..1] |  | 
+      |11|--.--.--.city|City | [1..1] |  | 
+      |12|--.--.--.state|State | [1..1] |  | 
+      |13|--.--.--.province|Province | [1..1] |  | 
+      |14|--.--.--.zip|Zip | [1..1] |  | 
+|15|items|Item | [0..*] |   |  
+  |16|--.description|Description | [0..1] |  | 
+  |17|--.price|Price | [1..1] |  | 
+  |18|--.discount|Discount | [0..1] |  | 

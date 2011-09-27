@@ -1,0 +1,210 @@
+
+h1. Spécifications formelles
+
+
+h2. Examples de structures de flux
+
+
+h3. Syntaxe de définintion des entitées du flux
+
+!omFluxCsv.PNG! 
+
+
+h4. Eco-systéme DSM eclipse et XTEXT
+
+* Coloration syntaxique
+* Aide à la saisie
+* Comparaison
+* Historique
+* SVN
+
+h5. mais encore
+
+voir "Xtext feature":http://www.eclipse.org/Xtext/#features 
+
+h4. contrôles sémantiques
+
+Intégration des bonnes pratiques dans l'interface utilisateur.
+
+Permet une aide à l'utilisation d'un charte de bonnes pratiques de nommage et de contrôle pendant la saisie.
+soit une automatisation pendant la saisie de la spécification d'architecture.
+
+!semanticError.PNG!
+
+h2. Décomposition
+
+Pour une bonne gestion de la spécification, celle ci doit être décomposable tous en restant relié.
+
+h4. example sans les types métiers
+
+!onFluxSansTypes.PNG!
+
+On remarque les erreurs détectées par l'éditeur
+
+h4. Externalisation des types métiers dans un fichier
+
+!types.PNG!
+
+h4. Import des types métiers dans un fichier
+
+!omFluxImport.PNG!
+
+Intégration Eclipse
+
+example :
+Un clic droit sur le type "Prix" ouvre le menu contextuel et OpenDeclaration nous donne accés au fichier de définition des types.
+
+Toutes les manipulations fines de type edition sous java sont permisent.
+
+h4. example comparaison avec historique
+
+!compare.PNG!
+
+
+
+h1. Quelque mots sur la méthode SOA
+
+A ne pas confondre avec le SOA technique.
+
+L'objectif de la méthode SOA est de réussir par le truchement de l'architecture de service, à mutualisé des invariants du domaine métiers , et ce d'une maniére progressive.
+
+Pour ce faire il faut conduire une négociation entre la MOA pour l'aspet métier (Top down) et les flux existants (Botton Up).
+Cette démarche de type "meet on the meedle" évite l'égarement d'un vision purement méthodologique et se positionne dans un cycle itératif court à la recherche d'une mise en avant de modéle métier corroboré au plus tôt à l'existant (souvent les flux et données de l'entreprise).
+
+Ce que permet l'architrecture de service dans ce contexte est la gestion par le "Late Binding" de la possibilité de gérer ces évolutions aevc le moin de rupture possibles.
+
+Cette méthode s'applique à plusieurs technologies même si le SOA (Web Service) ou OSGI sont des prétendants mature à la mise ne oeuvre.
+
+La mise en oeuvre d'une solution ESB ou EAI permet de centralisé la circulation des flux sur un bus unique mais n'offre aucun service dans la mutalisation d'un dictionnaire métier.
+
+Un projet d'urbanisme sur ce sujet necessite la prise ne compte d'une méthodologie de type SOA portant sur une redéfinition des échanges dans ce que l'on appel le format Pivot.
+
+En effet le mode de management par projet à encouragé des dispersions au sein de l'entreprise dans la réalisation d'application en mode silot ou sur étagére.
+
+Le projet d'urbanisme vise à redéfinir un dictionnaire métier unique servant de référence à la conciliation des points du vue divergent crée par ce mode de gestion.
+
+De plus les flux n'exprime pas la séparation sémentique métier et données propre à un processus (soit le domaine métier de la gestion qu'en font les processus).
+
+Cette séparation est pourtant un axe fort permetant de soutenir l'évolutivité des processus d'entreprise.
+
+L'état résultant dans un flux est une déclinaison du métier dans une vision processus.
+(prcessus doit s'entendre au sens méthodologue strict soit un processus un rôle)
+
+Un flux de facturation comporte les processus suivants :
+
+client : selection d'un produit en vente, paiement..
+vendeur : produit , tarrification , vente() , mise à jour stock.. 
+
+
+h2. Les désisions importantes
+
+Le service et son cycle de vie
+Contrat fort
+La sensibilité au contexte
+La tracabilité
+
+
+Le service de type Corba , JEE posséde le défaut chronique du peut de souplesse dans son évolutivité.
+En effet il convient pour ce type de service de le prévoir évolutif (soit de prévoir l'imprévisible) souvent d'une maniére peut maîtrisé.
+
+La pratique montre qu'accompagné de "sous modélisation du métier" et ouvert au défaut de contrat claire et précis(pour être évolutif) il devient difficile de savoir le rôle exacte que remplie le service et donc de sa qualité.
+
+D'autre part cette rigidité s'accompagne de régle non métier ajouté progressivement pour palier à l'absence d'évolutivité.
+(exemple d'un contextualisation cachée pour réutilisation d'un champs non prévu à cette effet)
+
+A contrario l'architecture de service permet le découplage de l'invocation de service (contrat fort) de l'execution tout en permetant l'évolution et l'adaptation à la demande par le contexte d'appel.
+
+L'architecture de service nous permet de régulariser le cycle de gestion d'évolution du service d'une façon maîtrisé.
+Qualité = fialbilité = contrat d'invocation précis et bien documenté pour toutes les type d'invocation.
+
+h1. outils méthodologiques.
+
+Cathégorisation doamaine.
+Taxonomie.
+Récurent.
+Processus.
+
+Adresse
+Site
+Tiers
+
+voir Mag
+
+Au service de : référentiel et interface de service
+
+"MDM Aliance Group":http://www.mdmalliancegroup.com/testimonials.html
+
+"MDM Aliance Group prebuilt data models" http://www.mdmalliancegroup.com/prebuilt-data-models.html
+
+h1. Structuration du pivot
+
+
+h1. adaptation d'une structure au contriantes technique des flux
+
+Une strucure premiére issu des flux nous permet d'évaluer les candidats au resenssement des données à reconstitué dans le format pivot.
+
+Ce que nous voulons faire est un dictionnaire sur un modéle objet mutualisé qui servira de référence dans le cadre méthodologique d'une réapropriation de la sémantique métier.
+
+Le mode applicatif à exprimer le métier sous la forme de points de vue différent jugé naturel au vue d'un exploitant.
+
+La point de vue et le vocabulaire du vendeur n'est pas celui du comptable ni de celui qui gére les stock !.
+
+Vouloir une démarche d'urbanisme c'est selectionner le point de vue métier issu de l'expression du "métier" pour lui accroché les point de vue divergent.
+
+Impact de la technique sur notre 
+
+
+Notre premier formalisme est à même de spécifier une sémantique métier ou un modéle technique de type flux , ou persistent.
+
+Ce qui lui manque pour s'adapter à la cible technique sont les contraintes associées à chaque cvible technique.
+
+
+Pour ce faire un modéle de contraintes est appliqué à ce premier modéle.
+
+
+Ce modéle permet l'expression des contraintes de type csv en rensiegnant le type de la donnée et la longueur max.  
+
+!CstCsv.PNG!
+
+Ce modéle permet l'expression des contraintes de type format fixe par le type de la données et la longueur fixe
+
+!CstFlat.PNG!  
+
+Le package est étendu par un préfixe et un namespace pour la génération d'un XSD correspondant à ce modéle contraint.
+
+Le type enum posséde la contrainte As String qui signifie que la clée qui est utilid=sé dans la déffinition.
+(cas fréquent en pivot utilisation d'un nom symbolique parlant, correspondant à une valeur numérique en base de donnée)
+
+Le warning indique que toutes les contraintes ne sont pas spécifiées.
+
+A la sauvegarde de ce fichier si le répertoire src-gen est disponible la XSD correspondant est généré de meme que la documentation.
+
+Nous remaquons que la documentation porté par la spécification est aussi présente dans le XSD et bien sure la documentation. 
+
+Les liens entre modéles différent sont assuré ainssi que l'aide à la saisie.
+
+La régle porté par le warning est calculé à partie du modéle oject model et constraint.
+et peut s'exprimer comme suit : si tous les attributs termineaux de type datatype ne sont pas sécifié en contraintes alors le signaler par un warning
+
+Régle de generation XSD un attribut non contraint est concidéré comme étant une chaîne de caractére non limité en taille.
+
+Nous pouvons associer une contraintes soit :
+* A la définition d'un datatype (par exemple si nous voulons la partager)
+* A la définition d'un attribut de type dataType si nous voulons la spécialisé ou qu'elle correspond à une contrainte technique (exemple fixelen pour un format Flat).
+ 
+
+h1. spécification de mapping
+
+!mapping.PNG!
+ 
+cette spécification permet une décomposition du mapping en groupe (module)
+
+"map" permet de relier les attributs d'un entité source vers les attributs d'entitées destination.
+"fuction" permet de lier un ensemble d'objets/attributs source à un ensemble d'objets/attributs destination.
+"set <-/->" permet de spécifier une valeur d'attribut.
+"ignore" spécifie un attribut intentionnellement non mapper.
+
+root indique le module maître du mapping complet
+
+
+

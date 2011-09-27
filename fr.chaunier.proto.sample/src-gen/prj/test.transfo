@@ -1,0 +1,29 @@
+    model csv2xsd
+    	
+    	source : Facture target : Invoice
+    	
+    entete.ddate ( [1..1] string fixe Len 8  )  ->   header.ddate  ( [1..1]  )
+    entete.client.numeroClient ( [1..1]  )  ->   header.billTo.customerNumber  ( [1..1]  )
+    entete.client.nom ( [1..1]  )  ->   header.billTo.postalAddress.person.firstName  ( [0..1]  )
+    entete.client.telephone ( [1..1]  )  ->   header.billTo.postalAddress.phone.numero  ( [1..1]  )
+    entete.client.adresse.ligne1 ( [1..1]  )  ->   header.billTo.postalAddress.adresse.line1  ( [0..1]  )
+    entete.client.adresse.ligne2 ( [0..1]  )  ->   header.billTo.postalAddress.adresse.line2  ( [0..1]  )
+    entete.client.adresse.ligne3 ( [0..1]  )  ->   header.billTo.postalAddress.adresse.line3  ( [0..1]  )
+    entete.client.adresse.ville ( [1..1]  )  ->   header.billTo.postalAddress.adresse.city  ( [0..1]  )
+    entete.client.adresse.codePostale ( [1..1]  )  ->   header.billTo.postalAddress.adresse.zipCode  ( [0..1]  )
+    articles.description ( [0..*]  )  ->   items.description  ( [0..*]  )
+    articles.prix ( [1..1]  )  ->   items.price  ( [1..1]  )
+    articles.remise ( [1..1]  )  ->   items.discount  ( [1..1]  )
+    model xsd2dbTrace
+    	
+    	source : Invoice target : Trace
+    	
+    header.ddate ( [1..1]  )  ->   dateInvoice  ( [1..1]  )
+    header.billTo.customerNumber ( [1..1]  )  ->   customerNumberInvoice  ( [1..1]  )
+
+	 result globale transformation  
+
+   source : Facture target : Trace 	
+
+from : header.ddate -> dateInvoice 	
+from : header.billTo.customerNumber -> customerNumberInvoice 	

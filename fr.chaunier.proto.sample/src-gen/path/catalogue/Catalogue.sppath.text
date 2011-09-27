@@ -1,0 +1,13 @@
+4
+
+    Enity source : Catalogue 
+
+
+//DataType	[1..1]			
+//name
+//Entity	[0..*]			
+//publications
+//DataType	[1..1]			
+//publications.title
+//DataType	[1..1]			
+//publications.ddate

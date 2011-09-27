@@ -1,0 +1,28 @@
+h1. entity root : Facture
+
+p{color:blue}. ceci est le point d'entrée du message facture
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|entete|Entete | [1..1] |   |  
+  |2|--.ddate|Date | [1..1] | string fixe Len 8   |  
+    |3|--.--.day|Day | [1..1] | integer min value 1 max value 31  | 
+    |4|--.--.month|Month | [1..1] | integer min value 1 max value 12  | 
+    |5|--.--.year|Year | [1..1] | integer fixe Len 4  | 
+  |6|--.client|Client | [1..1] |   |  
+    |7|--.--.numeroClient|NumeroClient | [1..1] |  | 
+    |8|--.--.nom|Nom | [1..1] |  | 
+    |9|--.--.marie|O_N | [1..1] | enum as String | 
+    |10|--.--.telephone|Telephone | [1..1] |  | 
+    |11|--.--.adresse|Adresse | [1..1] |   |  
+      |12|--.--.--.ligne1|LigneAdresse | [1..1] |  | 
+      |13|--.--.--.ligne2|LigneAdresse | [0..1] |  | 
+      |14|--.--.--.ligne3|LigneAdresse | [0..1] |  | 
+      |15|--.--.--.ville|Ville | [1..1] |  | 
+      |16|--.--.--.codePostale|CodePostale | [1..1] |  | 
+|17|articles|Article | [0..*] |   |  
+  |18|--.description|Description | [0..*] |  | 
+  |19|--.prix|Prix | [1..1] |  | en euro
+  |20|--.remise|Remise | [1..1] |  | 
