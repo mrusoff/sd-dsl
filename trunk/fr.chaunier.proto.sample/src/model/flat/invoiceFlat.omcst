@@ -1,0 +1,58 @@
+// les type de bases sount déclarés en datatype pour être agnostique quand à la technique de sérialisation csv,flat,old xml,xml xsd
+
+package invoice_flat prefix invflat namespace "http://www.chaunier.fr/invoice_flat" {
+	
+datatype InvoiceNumber 
+datatype CustNumber
+datatype Name
+datatype Phone
+datatype Description 
+datatype StreetLine 
+datatype City
+datatype State
+datatype Province
+datatype Zip
+datatype Date
+datatype Price
+datatype Discount
+
+
+	enumeration O_N [ N = 0 ; O = 1 ; ]
+	
+	// description d'une structure à urbaniser
+	
+	entity Invoice {
+		header : Header 
+		items : Item *
+	}
+	
+	entity Header {
+		ddate : Date
+		billTo : BillTo
+	}
+	
+	entity Item {
+		description : Description ? string fixeLen 100
+		price : Price 				decimal fixeLen 8
+		discount : Discount ? 		decimal fixeLen 4
+	}
+	
+	entity BillTo {
+		customerNumber : CustNumber decimal fixeLen 6
+		name : Name 				string fixeLen 40
+		maried : O_N 				enum as String fixeLen 1
+		phone : Phone 				string fixeLen 8
+		address : Address
+	}
+	
+	entity Address {
+		street1 : StreetLine 		string fixeLen 38	
+		street2 : StreetLine ? 		string fixeLen 38
+		city : City 				string fixeLen 40
+		state : State 				string fixeLen 20
+		province : Province 		string fixeLen 20
+		zip : Zip 					string fixeLen 9
+	}
+	
+	element Invoice
+}
