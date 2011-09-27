@@ -1,9 +1,0 @@
-    import catalogue.*
-    Magazine magazine  {
-    	//path catalogue.Magazine.author  qn catalogue.String
-    	author += 'author'
-    	//path catalogue.Magazine.title  qn catalogue.String
-    	title = 'title'
-    	//path catalogue.Magazine.ddate  qn catalogue.Date
-    	ddate = 'ddate'
-    }

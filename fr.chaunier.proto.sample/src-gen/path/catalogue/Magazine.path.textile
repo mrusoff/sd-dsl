@@ -1,9 +1,0 @@
-	3
-	
-h1. Enity source : Magazine 
-	
-table{border:1px solid black}.
-|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
-	 | catalogue.Magazine:author | DataType | [0..*] |  |  | | 
-	 | catalogue.Magazine:title | DataType | [1..1] |  |  | | 
-	 | catalogue.Magazine:ddate | DataType | [1..1] |  |  | | 
