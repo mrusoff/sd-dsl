@@ -1,5 +1,0 @@
-    import address.*
-    Mail mail  {
-    	//path address.Mail.mail  qn address.Libelle
-    	mail = 'mail'
-    }
