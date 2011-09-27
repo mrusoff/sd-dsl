@@ -1,0 +1,173 @@
+grammar fr.chaunier.xtext.omcst.om.OmcstDsl with org.eclipse.xtext.common.Terminals
+
+generate omcstDsl "http://www.chaunier.fr/xtext/omcst/om/OmcstDsl"
+
+DomainModel:
+	(elements+=AbstractElement)*
+	;
+
+AbstractElement:
+	PackageDeclaration | Type | Import | XsdElement
+	;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard
+	;
+
+XsdElement : 
+	'element' xsdElement=[Entity]	
+;
+
+PackageDeclaration:
+	'package' name=QualifiedName ('prefix' prefix=QualifiedName)? ('namespace' namespace=STRING)?
+	("annotations" anno=Annotations)? 
+   '{'
+		(elements+=AbstractElement)*
+	'}';
+
+Type:
+	( Entity | DataType | Enumeration )
+	;  
+
+DataType:
+	'datatype' name=ID (constraint=Constraint)? 
+	("annotations" anno=Annotations)?
+	;
+
+Entity:
+	entityType=EntityType? 'entity' name=ID ('extends' superType=[Entity|QualifiedName])?
+	("annotations" anno=Annotations)? 
+	(description=STRING )? '{'
+		(features+=Feature)*
+	'}';
+
+Feature:
+	StructuralFeature (constraint=Constraint)? 
+	("annotations" anno=Annotations)?
+	(description=STRING )? //| Operation
+	;
+
+StructuralFeature:
+	( Attribute | Reference ) ;
+	
+Attribute:
+	name=ID ':' type=TypeRef  ;
+
+Reference:
+	'ref' name=ID ':' type=TypeRef ('opposite' opposite=[Reference])? ;
+
+Enumeration:
+    "enumeration" name= ID 
+    "[" (enumerationLiterals += EnumerationLiteral)+ "]"
+    ;
+
+EnumerationLiteral:
+    name=ID ("=" persistedValue=INT) ";" 
+    ;
+
+Operation:
+	(visibility=Visibility)? 'op' name=ID '(' (params+=Parameter (',' params+=Parameter)*)? ')' ':' type=TypeRef;
+
+Parameter:
+	name=ID type=TypeRef ;
+
+TypedElement:
+	Feature | Parameter;
+
+TypeRef:
+	referenced=[Type|QualifiedName] (multi?='*')? (option?='?')?  ;
+
+enum Visibility:
+	public="public" | private="private" | protected="protected";
+
+enum EntityType:
+	abstract="abstract" ;
+
+enum AttributeType:
+	derived="derived" ;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+Annotations :
+	('[' annotations+=Annotation ( "," annotations+=Annotation)* ']')?
+;
+
+Annotation :
+		key=STRING ':' value=STRING
+    ;
+
+Constraint :
+   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | EnumerationConstraint) 
+	;
+
+BoolConstraint:
+    constraint="boolean" 
+    ;
+
+StringConstraint:
+    constraint="string" constraintRef=AllConstraint
+    ("regexp" regularExpression=STRING)?
+
+    ;
+
+DateTimeConstraint:
+    constraint="datetime"
+//    accuracy=DateTimeAccuracy
+//    dataType=[mm::DataType]
+    (hasDefault?="default" defaultValue=STRING)?
+    ;
+
+//enum DateTimeAccuracy:
+//    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
+//    Second = "second" | Millisecond = "millisecond"
+//    ;
+
+DecimalConstraint:
+    constraint="decimal" constraintRef=NumberConstraint
+    ;
+
+enum EnumUsage:
+	asString="as String" | asValue="as Value"  ;
+	
+
+EnumerationConstraint:
+   'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
+    (hasDefault?="default" defaultValueAsString=ID)?
+    ; 
+
+NumberConstraint:	 
+	(
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+	("minVal" minValue=INT)? 
+	("maxVal" maxValue=INT)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(isId?="id")? 
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsdA.")? 
+	);
+	
+AllConstraint:	 
+	(
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(isId?="id")? 
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsdA.")? 
+	)
+;
+    
+    
