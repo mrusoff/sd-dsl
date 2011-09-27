@@ -1,0 +1,11 @@
+    import address.*
+    Person person  {
+    	//path address.Person.civility  qn address.Civility
+    	civility = 'civility'
+    	//path address.Person.firstName  qn address.Libelle
+    	firstName = 'firstName'
+    	//path address.Person.secondName  qn address.Libelle
+    	secondName = 'secondName'
+    	//path address.Person.gender  qn address.Situation
+    	gender = 'gender'
+    }

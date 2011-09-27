@@ -1,0 +1,110 @@
+
+h1. package : invoice_flat
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| invoice_flat  | invflat | http://www.chaunier.fr/invoice_flat 
+
+h2(#Enumerations). Enumerations  
+	  
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| O_N | [((] | |
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| InvoiceNumber |  |  
+|!icons/Property.gif!| CustNumber |  |  
+|!icons/Property.gif!| Name |  |  
+|!icons/Property.gif!| Phone |  |  
+|!icons/Property.gif!| Description |  |  
+|!icons/Property.gif!| StreetLine |  |  
+|!icons/Property.gif!| City |  |  
+|!icons/Property.gif!| State |  |  
+|!icons/Property.gif!| Province |  |  
+|!icons/Property.gif!| Zip |  |  
+|!icons/Property.gif!| Date |  |  
+|!icons/Property.gif!| Price |  |  
+|!icons/Property.gif!| Discount |  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|Invoice|
+|!icons/Entity.gif!|Header|
+|!icons/Entity.gif!|Item|
+|!icons/Entity.gif!|BillTo|
+|!icons/Entity.gif!|Address|
+
+
+
+h2. Entities
+
+
+h3(#Invoice). Class Name : Invoice  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| header | "Header":invoice_flat.html#Header | [1..1] | |  
+    |!icons/Property.gif!| items | "Item":invoice_flat.html#Item | [0..*] | |  
+
+h3(#Header). Class Name : Header  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| ddate | "Date":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| billTo | "BillTo":invoice_flat.html#BillTo | [1..1] | |  
+
+h3(#Item). Class Name : Item  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| description | "Description":invoice_flat.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| price | "Price":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| discount | "Discount":invoice_flat.html##DataTypes | [0..1] | |  
+
+h3(#BillTo). Class Name : BillTo  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| customerNumber | "CustNumber":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| name | "Name":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| maried | "O_N":invoice_flat.html##Enumerations | [1..1] | enum fixe Len 1 as String|  
+    |!icons/Property.gif!| phone | "Phone":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| address | "Address":invoice_flat.html#Address | [1..1] | |  
+
+h3(#Address). Class Name : Address  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| street1 | "StreetLine":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| street2 | "StreetLine":invoice_flat.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| city | "City":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| state | "State":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| province | "Province":invoice_flat.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| zip | "Zip":invoice_flat.html##DataTypes | [1..1] | |  

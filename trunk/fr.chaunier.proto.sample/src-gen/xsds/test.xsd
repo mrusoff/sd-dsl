@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:test="http://www.chaunier.fr/test" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/test"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>Name</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Phone</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Description</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="TestType" >
+      <xsd:sequence>
+          <xsd:element name="a"  type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="b" type="xsd:string" />
+          <xsd:element name="c" type="xsd:decimal" />
+          <xsd:element name="b1" >
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "2"/>
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="c1" type="xsd:decimal" />
+          <xsd:element name="b2" >
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:maxLength value= "2"/>
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="c2" type="xsd:decimal" />
+          <xsd:element name="b3" >
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "2"/>
+          				<xsd:maxLength value= "5"/>
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="c3" type="xsd:decimal" />
+          <xsd:element name="b4" >
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "2"/><xsd:maxLength value= "2"/>
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="c4" type="xsd:decimal" />
+          <xsd:element name="c5" type="xsd:decimal" />
+          <xsd:element name="c6" type="xsd:decimal" />
+          <xsd:element name="c7" type="xsd:decimal" />
+          <xsd:element name="c8" type="xsd:decimal" />
+          <xsd:element name="d1" type="xsd:string" />
+          <xsd:element name="d2" type="xsd:string" />
+          <xsd:element name="d3" type="xsd:decimal" />
+          <xsd:element name="d4" type="xsd:decimal" />
+      </xsd:sequence>
+      	</xsd:complexType>  
+    </xsd:schema>  

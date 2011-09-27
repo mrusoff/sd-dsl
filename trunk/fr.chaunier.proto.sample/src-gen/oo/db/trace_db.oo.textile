@@ -1,0 +1,47 @@
+
+h1. package : db.trace_db
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| db.trace_db  | invflat | http://www.chaunier.fr/invoice_flat 
+
+h2(#Enumerations). Enumerations  
+	  
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| O_N | [((] | |
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| InvoiceNumber |  |  
+|!icons/Property.gif!| CustNumber |  |  
+|!icons/Property.gif!| Amount |  |  
+|!icons/Property.gif!| Date |  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|Trace|
+
+
+
+h2. Entities
+
+
+h3(#Trace). Class Name : Trace  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| dateInvoice | "Date":db.trace_db.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| customerNumberInvoice | "CustNumber":db.trace_db.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| invoiceNumber | "InvoiceNumber":db.trace_db.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| totalAmount | "Amount":db.trace_db.html##DataTypes | [1..1] | |  

@@ -1,0 +1,86 @@
+
+h1. model csv2xsd 
+
+h2. source : invoice_csv.Facture 
+
+h2. target : invoice_xsd.Invoice
+
+h3. mapping view
+
+table{border:1px solid black}.
+| **source** |  | **destination** | | | 
+| entete.ddate | [1..1] string fixe Len 8  | -> | header.ddate  ( [1..1]  |
+| entete.client.numeroClient | [1..1]  | -> | header.billTo.customerNumber  ( [1..1]  |
+| entete.client.nom | [1..1]  | -> | header.billTo.postalAddress.person.firstName  ( [0..1]  |
+| entete.client.telephone | [1..1]  | -> | header.billTo.postalAddress.phone.numero  ( [1..1]  |
+| entete.client.adresse.ligne1 | [1..1]  | -> | header.billTo.postalAddress.adresse.line1  ( [0..1]  |
+| entete.client.adresse.ligne2 | [0..1]  | -> | header.billTo.postalAddress.adresse.line2  ( [0..1]  |
+| entete.client.adresse.ligne3 | [0..1]  | -> | header.billTo.postalAddress.adresse.line3  ( [0..1]  |
+| entete.client.adresse.ville | [1..1]  | -> | header.billTo.postalAddress.adresse.city  ( [0..1]  |
+| entete.client.adresse.codePostale | [1..1]  | -> | header.billTo.postalAddress.adresse.zipCode  ( [0..1]  |
+| articles.description | [0..*]  | -> | items.description  ( [0..*]  |
+| articles.prix | [1..1]  | -> | items.price  ( [1..1]  |
+| articles.remise | [1..1]  | -> | items.discount  ( [1..1]  |
+	
+h3. source oriented view
+
+
+table{border:1px solid black}.
+| **source** |  | **destination** | source type | constraint | dest type | constraint | 
+| entete |  -> |   | | |    
+| entete.ddate |  -> |  header.ddate | | |    
+| entete.ddate.day |  -> |   | | |    
+| entete.ddate.month |  -> |   | | |    
+| entete.ddate.year |  -> |   | | |    
+| entete.client |  -> |   | | |    
+| entete.client.numeroClient |  -> |  header.billTo.customerNumber | | |    
+| entete.client.nom |  -> |  header.billTo.postalAddress.person.firstName | | |    
+| entete.client.marie |  -> |   | | |    
+| entete.client.telephone |  -> |  header.billTo.postalAddress.phone.numero | | |    
+| entete.client.adresse |  -> |   | | |    
+| entete.client.adresse.ligne1 |  -> |  header.billTo.postalAddress.adresse.line1 | | |    
+| entete.client.adresse.ligne2 |  -> |  header.billTo.postalAddress.adresse.line2 | | |    
+| entete.client.adresse.ligne3 |  -> |  header.billTo.postalAddress.adresse.line3 | | |    
+| entete.client.adresse.ville |  -> |  header.billTo.postalAddress.adresse.city | | |    
+| entete.client.adresse.codePostale |  -> |  header.billTo.postalAddress.adresse.zipCode | | |    
+| articles |  -> |   | | |    
+| articles.description |  -> |  items.description | | |    
+| articles.prix |  -> |  items.price | | |    
+| articles.remise |  -> |  items.discount | | |    
+	
+h3. taget oriented view
+
+
+table{border:1px solid black}.
+| **source** |  | **destination** | source type | constraint | dest type | constraint | 
+|  |  -> |  header | | |    
+| entete.ddate |  -> |  header.ddate | | |    
+|  |  -> |  header.billTo | | |    
+| entete.client.numeroClient |  -> |  header.billTo.customerNumber | | |    
+|  |  -> |  header.billTo.postalAddress | | |    
+|  |  -> |  header.billTo.postalAddress.person | | |    
+|  |  -> |  header.billTo.postalAddress.person.civility | | |    
+| entete.client.nom |  -> |  header.billTo.postalAddress.person.firstName | | |    
+|  |  -> |  header.billTo.postalAddress.person.secondName | | |    
+|  |  -> |  header.billTo.postalAddress.person.gender | | |    
+|  |  -> |  header.billTo.postalAddress.organisation | | |    
+|  |  -> |  header.billTo.postalAddress.organisation.raisonSociale | | |    
+|  |  -> |  header.billTo.postalAddress.adresse | | |    
+| entete.client.adresse.ligne1 |  -> |  header.billTo.postalAddress.adresse.line1 | | |    
+| entete.client.adresse.ligne2 |  -> |  header.billTo.postalAddress.adresse.line2 | | |    
+| entete.client.adresse.ligne3 |  -> |  header.billTo.postalAddress.adresse.line3 | | |    
+|  |  -> |  header.billTo.postalAddress.adresse.line4 | | |    
+| entete.client.adresse.codePostale |  -> |  header.billTo.postalAddress.adresse.zipCode | | |    
+| entete.client.adresse.ville |  -> |  header.billTo.postalAddress.adresse.city | | |    
+|  |  -> |  header.billTo.postalAddress.adresse.countryCode | | |    
+|  |  -> |  header.billTo.postalAddress.adresse.coutry | | |    
+|  |  -> |  header.billTo.postalAddress.phone | | |    
+| entete.client.telephone |  -> |  header.billTo.postalAddress.phone.numero | | |    
+|  |  -> |  header.billTo.postalAddress.contacts | | |    
+|  |  -> |  items | | |    
+|  |  -> |  items.publication | | |    
+|  |  -> |  items.publication.title | | |    
+|  |  -> |  items.publication.ddate | | |    
+| articles.description |  -> |  items.description | | |    
+| articles.prix |  -> |  items.price | | |    
+| articles.remise |  -> |  items.discount | | |    

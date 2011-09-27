@@ -1,0 +1,12 @@
+    import catalogue.*
+    Catalogue catalogue  {
+    	//path catalogue.Catalogue.name  qn catalogue.String
+    	name = 'name'
+    	//path catalogue.Catalogue.publications  qn catalogue.Catalogue.publications
+    	publications += Publication  {
+    	    //path catalogue.Catalogue.publications.title  qn catalogue.String
+    	    title = 'title'
+    	    //path catalogue.Catalogue.publications.ddate  qn catalogue.Date
+    	    ddate = 'ddate'
+    	}
+    }

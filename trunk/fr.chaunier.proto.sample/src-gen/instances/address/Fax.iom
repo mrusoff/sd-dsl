@@ -1,0 +1,5 @@
+    import address.*
+    Fax fax  {
+    	//path address.Fax.numero  qn address.PhoneFormat
+    	numero = 'numero'
+    }

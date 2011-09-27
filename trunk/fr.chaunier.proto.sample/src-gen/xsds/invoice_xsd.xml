@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invxsd:Invoice xmlns:cat="http://www.p.chaunier.fr/catalogue" xmlns:invxsd="http://www.chaunier.fr/invoice_xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.chaunier.fr/invoice_xsd invoice_xsd.xsd ">
+  <header>
+    <ddate>ddate</ddate>
+    <billTo>
+      <customerNumber>customerNumber</customerNumber>
+      <postalAddress>postalAddress</postalAddress>
+    </billTo>
+  </header>
+  <items>
+    <publication xsi:type="cat:PublicationType">
+      <title>title</title>
+      <ddate>ddate</ddate>
+    </publication>
+    <description>description</description>
+    <price>price</price>
+    <discount>discount</discount>
+  </items>
+</invxsd:Invoice>

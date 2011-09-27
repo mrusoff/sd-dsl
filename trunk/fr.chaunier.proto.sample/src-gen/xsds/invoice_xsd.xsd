@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:invxsd="http://www.chaunier.fr/invoice_xsd" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/invoice_xsd"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:cat="http://www.p.chaunier.fr/catalogue"
+xmlns:add="http://www.p.chaunier.fr/add"
+>
+<xsd:import schemaLocation="catalogue.xsd" namespace="http://www.p.chaunier.fr/catalogue"></xsd:import>
+<xsd:import schemaLocation="address.xsd" namespace="http://www.p.chaunier.fr/add"></xsd:import>
+      	<xsd:annotation>
+      <xsd:documentation>InvoiceNumber</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>CustNumber</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Description</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Price</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Discount</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="InvoiceType" >
+      <xsd:sequence>
+          <xsd:element name="header"  type="invxsd:HeaderType"	
+          >
+           </xsd:element>
+          <xsd:element name="items" maxOccurs="unbounded"
+           type="invxsd:ItemType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="HeaderType" >
+      <xsd:sequence>
+          <xsd:element name="ddate"  type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="billTo"  type="invxsd:BillToType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="BillToType" >
+      <xsd:sequence>
+          <xsd:element name="customerNumber"  type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="postalAddress"  type="add:PostalAddressType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="ItemType" >
+      <xsd:sequence>
+          <xsd:element name="publication"  type="cat:PublicationType"	
+          >
+           </xsd:element>
+          <xsd:element name="description" maxOccurs="unbounded"
+           type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="price"  type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="discount"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:element name="Invoice" type="invxsd:InvoiceType"></xsd:element>
+    </xsd:schema>  

@@ -1,0 +1,26 @@
+	20
+	
+h1. Enity source : Facture 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | **invoice_csv.Facture:entete** | Entity | [1..1] |  |  | | 
+	 | **invoice_csv.Facture:entete.ddate** | Entity | [1..1] | string fixe Len 8  |  | | 
+	 | invoice_csv.Facture:entete.ddate.day | DataType | [1..1] | integer min value 1 max value 31  |  | | 
+	 | invoice_csv.Facture:entete.ddate.month | DataType | [1..1] | integer min value 1 max value 12  |  | | 
+	 | invoice_csv.Facture:entete.ddate.year | DataType | [1..1] | integer fixe Len 4  |  | | 
+	 | **invoice_csv.Facture:entete.client** | Entity | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.numeroClient | DataType | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.nom | DataType | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.marie | Enum | [1..1] | enum as String |  | | 
+	 | invoice_csv.Facture:entete.client.telephone | DataType | [1..1] |  |  | | 
+	 | **invoice_csv.Facture:entete.client.adresse** | Entity | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.adresse.ligne1 | DataType | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.adresse.ligne2 | DataType | [0..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.adresse.ligne3 | DataType | [0..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.adresse.ville | DataType | [1..1] |  |  | | 
+	 | invoice_csv.Facture:entete.client.adresse.codePostale | DataType | [1..1] |  |  | | 
+	 | **invoice_csv.Facture:articles** | Entity | [0..*] |  |  | | 
+	 | invoice_csv.Facture:articles.description | DataType | [0..*] |  |  | | 
+	 | invoice_csv.Facture:articles.prix | DataType | [1..1] |  | en euro | | 
+	 | invoice_csv.Facture:articles.remise | DataType | [1..1] |  |  | | 
