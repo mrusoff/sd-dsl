@@ -1,0 +1,17 @@
+    import mapping.entitysrc.*
+    EntitySrc entitysrc  {
+    	//path mapping.entitysrc.EntitySrc.a  qn mapping.entitysrc.My
+    	a = 'a'
+    	//path mapping.entitysrc.EntitySrc.b  qn mapping.entitysrc.My
+    	b = 'b'
+    	//path mapping.entitysrc.EntitySrc.n  qn mapping.entitysrc.EntitySrc.n
+    	n = E  {
+    	    //path mapping.entitysrc.EntitySrc.n.civility  qn mapping.entitysrc.Civility
+    	    civility = 'civility'
+    	    //path mapping.entitysrc.EntitySrc.n.ee  qn mapping.entitysrc.E.ee
+    	    ee = Ee  {
+    	        //path mapping.entitysrc.EntitySrc.n.ee.eee  qn mapping.entitysrc.Civility
+    	        eee = 'eee'
+    	    }
+    	}
+    }

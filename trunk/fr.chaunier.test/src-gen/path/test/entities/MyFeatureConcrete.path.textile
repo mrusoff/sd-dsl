@@ -1,0 +1,8 @@
+	2
+	
+h1. Enity source : MyFeatureConcrete 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.entities.MyFeatureConcrete:f | DataType | [1..1] |  |  | | 
+	 | test.entities.MyFeatureConcrete:aAbs | DataType | [1..1] |  |  | | 

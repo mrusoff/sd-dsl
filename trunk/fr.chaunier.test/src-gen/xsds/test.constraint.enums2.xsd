@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:dat="http://www.chaunier.fr/date" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/date"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      <xsd:complexType name="MyEnumsType" >
+      <xsd:sequence>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:simpleType name="HorsNormeOptionEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NON"/>
+      <xsd:enumeration value="SANS_MOTIF"/>
+      <xsd:enumeration value="INCONNU_HorsNormeOption3"/> 
+      <xsd:enumeration value="INCONNU_HorsNormeOption4"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+      <xsd:element name="MyEnums" type="dat:MyEnumsType"></xsd:element>
+    </xsd:schema>  

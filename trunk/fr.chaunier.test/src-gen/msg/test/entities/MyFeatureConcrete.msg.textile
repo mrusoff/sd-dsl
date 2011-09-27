@@ -1,0 +1,10 @@
+h1. entity root : MyFeatureConcrete
+
+p{color:blue}. test heritage abstract
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|f|Name | [1..1] |  | 
+|2|aAbs|Name | [1..1] |  | 

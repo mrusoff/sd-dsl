@@ -1,0 +1,101 @@
+
+h1. package : test.constraint.integers
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| test.constraint.integers  | dat | http://www.chaunier.fr/date 
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| Name |  |  
+|!icons/Property.gif!| DT |  | string par defaut 
+|!icons/Property.gif!| DTS | integer  | definition type string 
+|!icons/Property.gif!| DTS20 | integer max value 2  | definition min len 2 
+|!icons/Property.gif!| DTS02 | integer max value 2  | definition max len 2 
+|!icons/Property.gif!| DTS25 | integer min value 2 max value 5  | definition min len 2 et max len 5 
+|!icons/Property.gif!| DTS22 | integer fixe Len 2  | definition fixe len 2 
+|!icons/Property.gif!| DTSFIXE | integer fixe value 2  | definition fixed value ff 
+|!icons/Property.gif!| DTSDF | integer default 0 default 0  | definition default DEFAUT 
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|MyIntegers|
+|!icons/Entity.gif!|MyIntegers2|
+|!icons/Entity.gif!|MyIntegers3|
+|!icons/Entity.gif!|MyIntegers4|
+
+
+
+h2. Entities
+
+
+h3(#MyIntegers). Class Name : MyIntegers  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| c | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| c4 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| c55 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| c6 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| c7 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| c8 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| d3 | "Name":test.constraint.integers.html##DataTypes | [1..1] | |  
+
+h3(#MyIntegers2). Class Name : MyIntegers2  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| defaultStr | "DT":test.constraint.integers.html##DataTypes | [1..1] | | string par defaut 
+    |!icons/Property.gif!| str | "DTS":test.constraint.integers.html##DataTypes | [1..1] | integer | definition type string 
+    |!icons/Property.gif!| str20 | "DTS20":test.constraint.integers.html##DataTypes | [1..1] | integer max value 2 | definition min len 2 
+    |!icons/Property.gif!| str02 | "DTS02":test.constraint.integers.html##DataTypes | [1..1] | integer max value 2 | definition max len 2 
+    |!icons/Property.gif!| str25 | "DTS25":test.constraint.integers.html##DataTypes | [1..1] | integer min value 2 max value 5 | definition min len 2 et max len 5 
+    |!icons/Property.gif!| str22 | "DTS22":test.constraint.integers.html##DataTypes | [1..1] | integer fixe Len 2 | definition fixe len 2 
+    |!icons/Property.gif!| strFixe | "DTSFIXE":test.constraint.integers.html##DataTypes | [1..1] | integer fixe value 2 | definition fixed value ff 
+    |!icons/Property.gif!| strDef | "DTSDF":test.constraint.integers.html##DataTypes | [1..1] | integer default 0 default 0 | definition default DEFAUT 
+
+h3(#MyIntegers3). Class Name : MyIntegers3  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| defaultStr | "DT":test.constraint.integers.html##DataTypes | [1..1] | | string par defaut 
+    |!icons/Property.gif!| str | "DTS":test.constraint.integers.html##DataTypes | [1..1] | integer | definition type string 
+    |!icons/Property.gif!| str20 | "DTS20":test.constraint.integers.html##DataTypes | [1..1] | integer max value 2 | definition min len 2 
+    |!icons/Property.gif!| str02 | "DTS02":test.constraint.integers.html##DataTypes | [1..1] | integer max value 2 | definition max len 2 
+    |!icons/Property.gif!| str25 | "DTS25":test.constraint.integers.html##DataTypes | [1..1] | integer min value 2 max value 5 | definition min len 2 et max len 5 
+    |!icons/Property.gif!| str22 | "DTS22":test.constraint.integers.html##DataTypes | [1..1] | integer fixe Len 2 | definition fixe len 2 
+    |!icons/Property.gif!| strFixe | "DTSFIXE":test.constraint.integers.html##DataTypes | [1..1] | integer fixe value 2 | definition fixed value ff 
+    |!icons/Property.gif!| strDef | "DTSDF":test.constraint.integers.html##DataTypes | [1..1] | integer default 0 default 0 | definition default DEFAUT 
+
+h3(#MyIntegers4). Class Name : MyIntegers4  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| defaultStr | "DT":test.constraint.integers.html##DataTypes | [1..1] | | surcharge type 
+    |!icons/Property.gif!| str02 | "DTS02":test.constraint.integers.html##DataTypes | [1..1] | integer min value 1 max value 2 | definition max len 2 
+    |!icons/Property.gif!| str25 | "DTS25":test.constraint.integers.html##DataTypes | [1..1] | integer min value 2 max value 5 | definition min len 2 et max len 5 
+    |!icons/Property.gif!| str22 | "DTS22":test.constraint.integers.html##DataTypes | [1..1] | integer fixe Len 2 | definition fixe len 2 
+    |!icons/Property.gif!| strFixe | "DTSFIXE":test.constraint.integers.html##DataTypes | [1..1] | integer fixe value 2 | definition fixed value ff 
+    |!icons/Property.gif!| strDef | "DTSDF":test.constraint.integers.html##DataTypes | [1..1] | integer default 0 default 0 | definition default DEFAUT 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:test="http://www.chaunier.fr/test" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/test"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>Name</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Phone</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Description</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="TestType" >
+      <xsd:sequence>
+          <xsd:element name="fs"  type="test:OnFeatureStringType"	
+          >
+           </xsd:element>
+          <xsd:element name="fd"  type="test:OnFeatureDecimalType"	
+          >
+           </xsd:element>
+          <xsd:element name="fe"  type="test:OnFeatureEnumType"	
+          >
+           </xsd:element>
+          <xsd:element name="fb"  type="test:OnFeatureBoolType"	
+          >
+           </xsd:element>
+          <xsd:element name="fda"  type="test:OnFeatureDateTimeType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyEntityRefType" >
+      <xsd:annotation>
+      <xsd:documentation>to be refered</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="a"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyEntityType" >
+      <xsd:annotation>
+      <xsd:documentation>to be contain</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="a"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="OnFeatureStringType" >
+      <xsd:annotation>
+      <xsd:documentation>test feature pour type string</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="contain"  type="test:MyEntityType"	
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>entity containment</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="OnFeatureDecimalType" >
+      <xsd:sequence>
+          <xsd:element name="c" type="xsd:decimal" />
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="OnFeatureBoolType" >
+      <xsd:sequence>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="OnFeatureDateTimeType" >
+      <xsd:sequence>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="OnFeatureEnumType" >
+      <xsd:sequence>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:simpleType name="HorsNormeOptionEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NON"/>
+      <xsd:enumeration value="SANS_MOTIF"/>
+      <xsd:enumeration value="INCONNU_HorsNormeOption3"/> 
+      <xsd:enumeration value="INCONNU_HorsNormeOption4"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+      <xsd:element name="Test" type="test:TestType"></xsd:element>
+    </xsd:schema>  

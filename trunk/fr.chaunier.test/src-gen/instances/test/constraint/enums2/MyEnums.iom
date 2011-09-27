@@ -1,0 +1,11 @@
+    import test.constraint.enums2.*
+    MyEnums myenums  {
+    	//path test.constraint.enums2.MyEnums.e1  qn test.constraint.enums2.HorsNormeOption
+    	e1 = 'NON'
+    	//path test.constraint.enums2.MyEnums.e2  qn test.constraint.enums2.HorsNormeOption
+    	e2 = 'NON'
+    	//path test.constraint.enums2.MyEnums.e3  qn test.constraint.enums2.HorsNormeOption
+    	e3 = 'NON'
+    	//path test.constraint.enums2.MyEnums.e4  qn test.constraint.enums2.HorsNormeOption
+    	e4 = 'NON'
+    }

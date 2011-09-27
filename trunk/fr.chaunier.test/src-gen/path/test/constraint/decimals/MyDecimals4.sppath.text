@@ -1,0 +1,17 @@
+6
+
+    Enity source : MyDecimals4 
+
+
+//DataType	[1..1]		surcharge type	
+//defaultStr
+//DataType	[1..1]	decimal 	definition max len 2	
+//str02
+//DataType	[1..1]	decimal min Value 2.0 max Value 5.10 	definition min len 2 et max len 5	
+//str25
+//DataType	[1..1]	decimal fixe Len 2 	definition fixe len 2	
+//str22
+//DataType	[1..1]	decimal fixe value 0.2 	definition fixed value ff	
+//strFixe
+//DataType	[1..1]	decimal default 0.00 	definition default DEFAUT	
+//strDef

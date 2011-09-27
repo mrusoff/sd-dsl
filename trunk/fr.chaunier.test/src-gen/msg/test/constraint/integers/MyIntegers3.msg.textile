@@ -1,0 +1,16 @@
+h1. entity root : MyIntegers3
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|defaultStr|DT | [1..1] |  | string par defaut
+|2|str|DTS | [1..1] | integer  | definition type string
+|3|str20|DTS20 | [1..1] | integer max value 2  | definition min len 2
+|4|str02|DTS02 | [1..1] | integer  | definition max len 2
+|5|str25|DTS25 | [1..1] | integer min value 2 max value 5  | definition min len 2 et max len 5
+|6|str22|DTS22 | [1..1] | integer fixe Len 2  | definition fixe len 2
+|7|strFixe|DTSFIXE | [1..1] | integer fixe value 2  | definition fixed value ff
+|8|strDef|DTSDF | [1..1] | integer default 0 default 0  | definition default DEFAUT

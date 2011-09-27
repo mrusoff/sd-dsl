@@ -1,0 +1,12 @@
+	6
+	
+h1. Enity source : MyStrings4 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.constraint.strings.MyStrings4:defaultStr | DataType | [1..1] |  | surcharge type | | 
+	 | test.constraint.strings.MyStrings4:str02 | DataType | [1..1] | string min Len 1 max Len 2  | definition max len 2 overide min len 1 | | 
+	 | test.constraint.strings.MyStrings4:str25 | DataType | [1..1] | string min Len 2 max Len 5 fixe value ffff  | definition min len 2 et max len 5 overide fixed fffff | | 
+	 | test.constraint.strings.MyStrings4:str22 | DataType | [1..1] | string fixe Len 2  | definition fixe len 2 | | 
+	 | test.constraint.strings.MyStrings4:strFixe | DataType | [1..1] | string fixe value ff  | definition fixed value ff | | 
+	 | test.constraint.strings.MyStrings4:strDef | DataType | [1..1] | string default DEFAUT  | definition default DEFAUT | | 

@@ -1,0 +1,15 @@
+    import test.constraint.decimals.*
+    MyDecimals4 mydecimals4  {
+    	//path test.constraint.decimals.MyDecimals4.defaultStr  qn test.constraint.decimals.DT
+    	defaultStr = 0
+    	//path test.constraint.decimals.MyDecimals4.str02  qn test.constraint.decimals.DTS02
+    	str02 = 0
+    	//path test.constraint.decimals.MyDecimals4.str25  qn test.constraint.decimals.DTS25
+    	str25 = 'str25'
+    	//path test.constraint.decimals.MyDecimals4.str22  qn test.constraint.decimals.DTS22
+    	str22 = 'str22'
+    	//path test.constraint.decimals.MyDecimals4.strFixe  qn test.constraint.decimals.DTSFIXE
+    	strFixe = 'strFixe'
+    	//path test.constraint.decimals.MyDecimals4.strDef  qn test.constraint.decimals.DTSDF
+    	strDef = 'strDef'
+    }

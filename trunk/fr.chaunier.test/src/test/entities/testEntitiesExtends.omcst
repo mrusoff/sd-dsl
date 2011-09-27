@@ -1,0 +1,22 @@
+package test.entities prefix test3 namespace "http://www.chaunier.fr/test3" {
+
+import testtypes.*
+	
+	entity MyEntityThird ''{
+		a3 : Name 
+		b3 : Name ? 
+	}
+
+	entity MyEntitySecond extends MyEntityThird ''{
+		a2 : Name 
+		b2 : Name ? 
+	}
+
+	entity MyEntityWhithExtends extends MyEntitySecond {
+		a : Name 
+		b : Name ? 
+	}
+		
+	element MyEntityWhithExtends
+	
+}

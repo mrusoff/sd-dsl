@@ -1,0 +1,37 @@
+
+h1. model mapping 
+
+h2. source : mapping.entitysrc.EntitySrc 
+
+h2. target : mapping.entitydst.EntityDst
+
+h3. mapping view
+
+table{border:1px solid black}.
+| **source** |  | **destination** | | | 
+| a | [0..1]  | -> | my  ( [1..1]  |
+| b | [1..1]  | -> | contain.containted  ( [1..1]  |
+| n.ee.eee | [1..1]  | -> | n1  ( [1..1]  |
+	
+h3. source oriented view
+
+
+table{border:1px solid black}.
+| **source** |  | **destination** | source type | constraint | dest type | constraint | 
+| a |  -> |  my | | |    
+| b |  -> |  contain.containted | | |    
+| n |  -> |   | | |    
+| n.civility |  -> |   | | |    
+| n.ee |  -> |   | | |    
+| n.ee.eee |  -> |  n1 | | |    
+	
+h3. taget oriented view
+
+
+table{border:1px solid black}.
+| **source** |  | **destination** | source type | constraint | dest type | constraint | 
+| a |  -> |  my | | |    
+|  |  -> |  contain | | |    
+| b |  -> |  contain.containted | | |    
+|  |  -> |  civility | | |    
+| n.ee.eee |  -> |  n1 | | |    

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:dat="http://www.chaunier.fr/date" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/date"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>MyDate</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>MyDateMyDate</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>MyTime</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>MyTimeStamp</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="MyDatesType" >
+      <xsd:sequence>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:element name="MyDates" type="dat:MyDatesType"></xsd:element>
+    </xsd:schema>  

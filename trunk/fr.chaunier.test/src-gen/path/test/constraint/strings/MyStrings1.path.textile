@@ -1,0 +1,14 @@
+	8
+	
+h1. Enity source : MyStrings1 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.constraint.strings.MyStrings1:defaultStr | DataType | [1..1] |  | string par defaut | | 
+	 | test.constraint.strings.MyStrings1:str | DataType | [1..1] |  | definition type string | | 
+	 | test.constraint.strings.MyStrings1:str20 | DataType | [1..1] |  | definition min len 2 | | 
+	 | test.constraint.strings.MyStrings1:str02 | DataType | [1..1] |  | definition max len 2 | | 
+	 | test.constraint.strings.MyStrings1:str25 | DataType | [1..1] |  | definition min len 2 et max len 5 | | 
+	 | test.constraint.strings.MyStrings1:str22 | DataType | [1..1] |  | definition fixe len 2 | | 
+	 | test.constraint.strings.MyStrings1:strFixe | DataType | [1..1] |  | definition fixed value ff | | 
+	 | test.constraint.strings.MyStrings1:strDef | DataType | [1..1] |  | definition default DEFAUT | | 

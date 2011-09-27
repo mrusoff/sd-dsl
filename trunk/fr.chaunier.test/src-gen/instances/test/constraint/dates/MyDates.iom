@@ -1,0 +1,11 @@
+    import test.constraint.dates.*
+    MyDates mydates  {
+    	//path test.constraint.dates.MyDates.test1  qn test.constraint.dates.MyDate
+    	test1 = 23242000
+    	//path test.constraint.dates.MyDates.test2  qn test.constraint.dates.MyDateMyDate
+    	test2 = 23242000
+    	//path test.constraint.dates.MyDates.test3  qn test.constraint.dates.MyTime
+    	test3 = 23242000
+    	//path test.constraint.dates.MyDates.test4  qn test.constraint.dates.MyTimeStamp
+    	test4 = 23242000
+    }

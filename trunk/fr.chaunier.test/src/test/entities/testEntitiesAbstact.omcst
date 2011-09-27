@@ -1,0 +1,29 @@
+package test.entities prefix test3 namespace "http://www.chaunier.fr/test3" {
+
+import testtypes.*
+
+	
+	entity MyEntity 'to be contain'{
+		a : Name 
+		b : Name ? 
+		cs : Name * 
+	}
+
+	abstract entity MyAbstract "test abstract" {
+		aAbs : Name 
+	}
+
+	entity MyFeature "test feature" {
+		contain : MyEntity  	"test containment"
+	}
+	
+	entity MyFeatureHerited extends MyFeature "test heritage" {
+		f : Name 
+	}
+
+	entity MyFeatureConcrete extends MyAbstract "test heritage abstract" {
+		f : Name 
+	}
+	
+	element MyFeatureConcrete
+}
