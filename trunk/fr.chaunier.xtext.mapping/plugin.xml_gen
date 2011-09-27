@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.chaunier.fr/xtext/mapping/MapDsl" 
+       class = "fr.chaunier.xtext.mapping.mapDsl.MapDslPackage"
+       genModel = "fr/chaunier/xtext/mapping/MapDsl.genmodel" /> 
+	
+  </extension>
+
+
+
+
+
+</plugin>
