@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:esrc="http://www.chaunier.fr/mapping/entitysrc" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/mapping/entitysrc"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>My</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="EeType" >
+      <xsd:annotation>
+      <xsd:documentation>entity source</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="eee"  type="esrc:CivilityEnum"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="EType" >
+      <xsd:annotation>
+      <xsd:documentation>entity source</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="civility"  type="esrc:CivilityEnum"	
+          >
+           </xsd:element>
+          <xsd:element name="ee"  type="esrc:EeType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="EntitySrcType" >
+      <xsd:annotation>
+      <xsd:documentation>entity source</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="a" minOccurs="0"
+           type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="b" >
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:maxLength value= "2"/>
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="n"  type="esrc:EType"	
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:simpleType name="CivilityEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="Ms"/>
+      <xsd:enumeration value="Miss"/>
+      <xsd:enumeration value="INCONNU_Civility4"/> 
+      <xsd:enumeration value="INCONNU_Civility5"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+      <xsd:element name="EntitySrc" type="esrc:EntitySrcType"></xsd:element>
+    </xsd:schema>  

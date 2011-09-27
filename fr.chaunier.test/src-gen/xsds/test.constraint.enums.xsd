@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:test="http://www.chaunier.fr/test" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/test"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      <xsd:simpleType name="OnOffEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="N"/>
+      <xsd:enumeration value="O"/>
+      <xsd:enumeration value="INCONNU_OnOff3"/> 
+      <xsd:enumeration value="INCONNU_OnOff4"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+      <xsd:simpleType name="CivilityEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="M"/>
+      <xsd:enumeration value="Ms"/>
+      <xsd:enumeration value="Miss"/>
+      <xsd:enumeration value="INCONNU_Civility4"/> 
+      <xsd:enumeration value="INCONNU_Civility5"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+      <xsd:simpleType name="SituationEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="SINGLE"/>
+      <xsd:enumeration value="MARIED"/>
+      <xsd:enumeration value="INCONNU_Situation3"/> 
+      <xsd:enumeration value="INCONNU_Situation4"/>
+      </xsd:restriction> 
+      	</xsd:simpleType>
+    </xsd:schema>  

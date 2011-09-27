@@ -1,0 +1,148 @@
+
+
+	
+h1. package : invoice_xsd
+
+table{border:1px solid black}.
+| **name** | invoice_xsd
+| **namspace** | http://www.chaunier.fr/invoice_xsd
+| **prefix** | invxsd
+
+
+h2.	Classes definition
+
+* !icons/Entity.gif!"Invoice":#Invoice
+* !icons/Entity.gif!"Header":#Header
+* !icons/Entity.gif!"BillTo":#BillTo
+* !icons/Entity.gif!"Item":#Item
+
+
+h2. Types definition
+
+* !icons/Datatype.gif!"InvoiceNumber":#InvoiceNumber
+* !icons/Datatype.gif!"CustNumber":#CustNumber
+* !icons/Datatype.gif!"Description":#Description
+* !icons/Datatype.gif!"Price":#Price
+* !icons/Datatype.gif!"Discount":#Discount
+* !icons/Datatype.gif!"Date":#Date
+
+
+	
+
+
+
+
+
+
+
+
+
+h3(#Invoice). Class Name : Invoice  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| header | "Header":invoice_xsd.html#Header | [1..1] |  |  |
+|2 !icons/Attribute.gif!| items | "Item":invoice_xsd.html#Item | [1..*] |  |  |
+			
+			
+
+
+h3(#Header). Class Name : Header  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| date | "Date":invoice_xsd.html#Date | [1..1] |  |  |
+|2 !icons/Attribute.gif!| billTo | "BillTo":invoice_xsd.html#BillTo | [1..1] |  |  |
+			
+			
+
+
+h3(#BillTo). Class Name : BillTo  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| customerNumber | "CustNumber":invoice_xsd.html#CustNumber | [1..1] |  |  |
+|2 !icons/Attribute.gif!| name | "Person":address.html#Person | [1..1] |  |  |
+|3 !icons/Attribute.gif!| phone | "Phone":address.html#Phone | [1..1] |  |  |
+|4 !icons/Attribute.gif!| address | "Address":address.html#Address | [1..1] |  |  |
+			
+			
+
+
+h3(#Item). Class Name : Item  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| publication | "Publication":catalogue.html#Publication | [1..1] |  |  |
+|2 !icons/Attribute.gif!| description | "Description":invoice_xsd.html#Description | [1..*] |  |  |
+|3 !icons/Attribute.gif!| price | "Price":invoice_xsd.html#Price | [1..1] |  |  |
+|4 !icons/Attribute.gif!| discount | "Discount":invoice_xsd.html#Discount | [1..1] |  |  |
+			
+			
+
+
+	
+
+
+h3(#InvoiceNumber). DataType Name : InvoiceNumber
+
+p{color:blue}. 
+
+
+
+h3(#CustNumber). DataType Name : CustNumber
+
+p{color:blue}. 
+
+
+
+h3(#Description). DataType Name : Description
+
+p{color:blue}. 
+
+
+
+h3(#Price). DataType Name : Price
+
+p{color:blue}. 
+
+
+
+h3(#Discount). DataType Name : Discount
+
+p{color:blue}. 
+
+
+
+h3(#Date). DataType Name : Date
+
+p{color:blue}. 
+
+
+
+
+
+
+
+
+	

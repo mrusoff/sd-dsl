@@ -1,0 +1,13 @@
+	7
+	
+h1. Enity source : MyIntegers 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.constraint.integers.MyIntegers:c | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:c4 | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:c55 | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:c6 | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:c7 | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:c8 | DataType | [1..1] |  |  | | 
+	 | test.constraint.integers.MyIntegers:d3 | DataType | [1..1] |  |  | | 

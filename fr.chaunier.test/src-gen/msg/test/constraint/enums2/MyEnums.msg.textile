@@ -1,0 +1,12 @@
+h1. entity root : MyEnums
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|e1|HorsNormeOption | [1..1] | enum as String | 
+|2|e2|HorsNormeOption | [1..1] | enum as Value | 
+|3|e3|HorsNormeOption | [1..1] | enum fixe Len 2 as Value | 
+|4|e4|HorsNormeOption | [1..1] | enum as Value | 

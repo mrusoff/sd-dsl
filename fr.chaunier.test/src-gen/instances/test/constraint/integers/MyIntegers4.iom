@@ -1,0 +1,15 @@
+    import test.constraint.integers.*
+    MyIntegers4 myintegers4  {
+    	//path test.constraint.integers.MyIntegers4.defaultStr  qn test.constraint.integers.DT
+    	defaultStr = 
+    	//path test.constraint.integers.MyIntegers4.str02  qn test.constraint.integers.DTS02
+    	str02 = 
+    	//path test.constraint.integers.MyIntegers4.str25  qn test.constraint.integers.DTS25
+    	str25 = 'str25'
+    	//path test.constraint.integers.MyIntegers4.str22  qn test.constraint.integers.DTS22
+    	str22 = 'str22'
+    	//path test.constraint.integers.MyIntegers4.strFixe  qn test.constraint.integers.DTSFIXE
+    	strFixe = 'strFixe'
+    	//path test.constraint.integers.MyIntegers4.strDef  qn test.constraint.integers.DTSDF
+    	strDef = 'strDef'
+    }

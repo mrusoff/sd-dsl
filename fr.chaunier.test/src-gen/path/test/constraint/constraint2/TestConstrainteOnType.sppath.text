@@ -1,0 +1,15 @@
+5
+
+    Enity source : TestConstrainteOnType 
+
+
+//DataType	[1..1]	string 		
+//b
+//DataType	[1..1]	decimal 		
+//c
+//DataType	[1..1]	boolean null		
+//d
+//DataType	[1..1]	string min Len 2 		
+//b1
+//DataType	[1..1]	decimal precision 2 		
+//c1

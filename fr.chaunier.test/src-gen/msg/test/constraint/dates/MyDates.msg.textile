@@ -1,0 +1,12 @@
+h1. entity root : MyDates
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|test1|MyDate | [1..1] | date null | 
+|2|test2|MyDateMyDate | [1..1] | date null | 
+|3|test3|MyTime | [1..1] | date null | 
+|4|test4|MyTimeStamp | [1..1] | date null | 

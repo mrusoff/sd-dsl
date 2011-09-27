@@ -1,0 +1,89 @@
+
+h1. package : test.entities
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| test.entities  | test3 | http://www.chaunier.fr/test3 
+
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|MyEntityRef|
+|!icons/Entity.gif!|MyEntity|
+|!icons/Entity.gif!|MyAbstract|
+|!icons/Entity.gif!|MyFeature|
+|!icons/Entity.gif!|MyFeatureHerited|
+|!icons/Entity.gif!|MyFeatureConcrete|
+
+
+
+h2. Entities
+
+
+h3(#MyEntityRef). Class Name : MyEntityRef  
+
+p{color:blue}. to be refered
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| a | "Name":testtypes.html##DataTypes | [1..1] | | test cardinalité 1..1 
+    |!icons/Property.gif!| b | "Name":testtypes.html##DataTypes | [0..1] | | test cardinalité 0..1 
+    |!icons/Property.gif!| cs | "Name":testtypes.html##DataTypes | [0..*] | | test cardinalité 0..n 
+
+h3(#MyEntity). Class Name : MyEntity  
+
+p{color:blue}. to be contain
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| a | "Name":testtypes.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| b | "Name":testtypes.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| cs | "Name":testtypes.html##DataTypes | [0..*] | |  
+
+h3(#MyAbstract). Class Name : MyAbstract  abstract
+
+p{color:blue}. test abstract
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| aAbs | "Name":testtypes.html##DataTypes | [1..1] | |  
+
+h3(#MyFeature). Class Name : MyFeature  
+
+p{color:blue}. test feature
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| contain | "MyEntity":test.entities.html#MyEntity | [1..1] | | test containment 
+    |!icons/Property.gif!| r1 | "MyEntityRef":test.entities.html#MyEntityRef | [1..1] | | test reference 
+
+h3(#MyFeatureHerited). Class Name : MyFeatureHerited  Super types  MyFeature 
+
+p{color:blue}. test heritage
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| f | "Name":testtypes.html##DataTypes | [1..1] | |  
+
+h3(#MyFeatureConcrete). Class Name : MyFeatureConcrete  Super types  MyAbstract 
+
+p{color:blue}. test heritage abstract
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| f | "Name":testtypes.html##DataTypes | [1..1] | |  
