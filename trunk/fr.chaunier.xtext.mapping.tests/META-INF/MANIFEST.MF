@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.chaunier.xtext.mapping.tests
+Bundle-Vendor: philippe chaunier
+Bundle-Version: 0.0.8.qualifier
+Bundle-SymbolicName: fr.chaunier.xtext.mapping.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: fr.chaunier.xtext.mapping,
+ fr.chaunier.xtext.mapping.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext,
+ org.eclipse.xtext.junit4,
+ org.eclipse.xtext.ui.junit,
+ org.junit4,
+ org.eclipse.ui.workbench;resolution:=optional
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
