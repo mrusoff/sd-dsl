@@ -1,5 +1,0 @@
-    import address.*
-    Organisation organisation  {
-    	//path address.Organisation.raisonSociale  qn address.Libelle
-    	raisonSociale = 'raisonSociale'
-    }
