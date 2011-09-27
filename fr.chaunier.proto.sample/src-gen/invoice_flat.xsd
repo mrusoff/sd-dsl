@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:invflat="http://www.chaunier.fr/invoice_flat" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/invoice_flat"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>InvoiceNumber</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>CustNumber</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Name</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Phone</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Description</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>StreetLine</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>City</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>State</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Province</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Zip</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Price</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Discount</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="InvoiceType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="header"  type="invflat:HeaderType"	
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+          <xsd:element name="items" maxOccurs="unbounded"
+           type="invflat:ItemType"	
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="HeaderType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="date"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+          <xsd:element name="billTo"  type="invflat:BillToType"	
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="ItemType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="description" minOccurs="0"
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "100"<xsd:maxLength value= "100"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="price" 
+              <xsd:annotation>
+                			<xsd:documentation></xsd:documentation>
+              		</xsd:annotation>
+              			<xsd:simpleType>
+              				<xsd:restriction base="xsd:integer">
+          				<xsd:minLength value= "8"<xsd:maxLength value= "8"
+              				</xsd:restriction>
+              			</xsd:simpleType>
+              	</xsd:element>
+          <xsd:element name="discount" minOccurs="0"
+              <xsd:annotation>
+                			<xsd:documentation></xsd:documentation>
+              		</xsd:annotation>
+              			<xsd:simpleType>
+              				<xsd:restriction base="xsd:integer">
+          				<xsd:minLength value= "4"<xsd:maxLength value= "4"
+              				</xsd:restriction>
+              			</xsd:simpleType>
+              	</xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="BillToType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="customerNumber" 
+              <xsd:annotation>
+                			<xsd:documentation></xsd:documentation>
+              		</xsd:annotation>
+              			<xsd:simpleType>
+              				<xsd:restriction base="xsd:integer">
+          				<xsd:minLength value= "6"<xsd:maxLength value= "6"
+              				</xsd:restriction>
+              			</xsd:simpleType>
+              	</xsd:element>
+          <xsd:element name="name" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "40"<xsd:maxLength value= "40"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="phone" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "8"<xsd:maxLength value= "8"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="address"  type="invflat:AddressType"	
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="AddressType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="street1" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "38"<xsd:maxLength value= "38"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="street2" minOccurs="0"
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "38"<xsd:maxLength value= "38"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="city" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "40"<xsd:maxLength value= "40"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="state" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "20"<xsd:maxLength value= "20"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="province" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "20"<xsd:maxLength value= "20"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+          <xsd:element name="zip" 
+              <xsd:annotation>
+          <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+          <xsd:restriction base="xsd:string">
+          				<xsd:minLength value= "9"<xsd:maxLength value= "9"
+          </xsd:restriction>
+          </xsd:simpleType>
+          </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:simpleType name="O_NEnum">
+      <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="N"/>
+      <xsd:enumeration value="O"/>
+      <xsd:enumeration value="INCONNU_O_N3"/> 
+      <xsd:enumeration value="INCONNU_O_N4"/> 
+      <xsd:element name="invoice" type="invflat:InvoiceType"></xsd:element>
+      <element name="Invoice" type="c:InvoiceType" abstract="true"></element>
+      }
+      <element name="Header" type="c:HeaderType" abstract="true"></element>
+      }
+      <element name="Item" type="c:ItemType" abstract="true"></element>
+      }
+      <element name="BillTo" type="c:BillToType" abstract="true"></element>
+      }
+      <element name="Address" type="c:AddressType" abstract="true"></element>
+      }
+    </xsd:schema>  

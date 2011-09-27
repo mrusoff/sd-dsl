@@ -1,0 +1,30 @@
+package catalogue prefix cat namespace "http://www.p.chaunier.fr/catalogue" {
+
+	
+	datatype String
+	datatype Date
+	
+	entity Catalogue {
+		name : String 
+		publications : Publication * 
+	} 
+	
+	// XSD : gestion publication en substitution group	
+	abstract entity Publication {
+		title : String
+		date :  Date
+	} 
+	
+	// XSD : gestion publication en substitution group	
+	entity BookType extends Publication {
+		isbn : String
+		publisher : String
+	}
+	
+	// XSD : gestion publication en substitution group	
+	entity Magazine extends Publication {
+		author : String *
+	}
+
+	element Catalogue	
+}	

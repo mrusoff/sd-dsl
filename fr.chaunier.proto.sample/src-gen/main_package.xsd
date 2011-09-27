@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:main="http" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    import main_package;
+    remove : true
+>
+      datatype String {
+        <xsd:complexType name="TestMainType">
+          <xsd:annotation>
+            <xsd:documentation></xsd:documentation>
+          </xsd:annotation>
+             <xsd:sequence>
+          <xsd:element name="attr1" type=xsd:string>
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>	
+             </xsd:sequence>
+      </xsd:complexType>  
+    </xsd:schema>  

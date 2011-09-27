@@ -1,0 +1,140 @@
+
+h1. package : invoice_csv
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| invoice_csv  | icsv | http://www.chaunier.fr/invoice_csv 
+
+h2. Enumeration definition
+
+* !icons/Enumeration.gif!"O_N":#O_N
+
+h2. Data Type definition
+
+* !icons/Datatype.gif!"numeroFacture":#numeroFacture
+* !icons/Datatype.gif!"numeroClient":#numeroClient
+* !icons/Datatype.gif!"Nom":#Nom
+* !icons/Datatype.gif!"Telephone":#Telephone
+* !icons/Datatype.gif!"Description":#Description
+* !icons/Datatype.gif!"ligneAdresse":#ligneAdresse
+* !icons/Datatype.gif!"Ville":#Ville
+* !icons/Datatype.gif!"CodePostale":#CodePostale
+* !icons/Datatype.gif!"Prix":#Prix
+* !icons/Datatype.gif!"Remise":#Remise
+* !icons/Datatype.gif!"Month":#Month
+* !icons/Datatype.gif!"Day":#Day
+* !icons/Datatype.gif!"Year":#Year
+
+h2. Class definition
+
+* !icons/Entity.gif!"Date":#Date
+* !icons/Entity.gif!"Facture":#Facture
+* !icons/Entity.gif!"Entete":#Entete
+* !icons/Entity.gif!"Article":#Article
+* !icons/Entity.gif!"Client":#Client
+* !icons/Entity.gif!"Adresse":#Adresse
+      
+h3(#numeroFacture). DataType Name : numeroFacture
+
+h3(#numeroClient). DataType Name : numeroClient
+
+h3(#Nom). DataType Name : Nom
+
+h3(#Telephone). DataType Name : Telephone
+
+h3(#Description). DataType Name : Description
+
+h3(#ligneAdresse). DataType Name : ligneAdresse
+
+h3(#Ville). DataType Name : Ville
+
+h3(#CodePostale). DataType Name : CodePostale
+
+h3(#Prix). DataType Name : Prix
+
+h3(#Remise). DataType Name : Remise
+
+h3(#Month). DataType Name : Month
+
+h3(#Day). DataType Name : Day
+
+h3(#Year). DataType Name : Year
+
+h3(#Date). Class Name : Date  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| day | "Day":invoice_csv.html#Day | 
+    |!icons/Attribute.gif!| month | "Month":invoice_csv.html#Month | 
+    |!icons/Attribute.gif!| year | "Year":invoice_csv.html#Year | 
+h3(#Facture). Class Name : Facture  
+
+p{color:blue}. ceci est le point d'entrée du message facture
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| entete | "Entete":invoice_csv.html#Entete | 
+    |!icons/Attribute.gif!| articles | "Article":invoice_csv.html#Article | 
+h3(#Entete). Class Name : Entete  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| date | "Date":invoice_csv.html#Date | 
+    |!icons/Attribute.gif!| client | "Client":invoice_csv.html#Client | 
+h3(#Article). Class Name : Article  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| description | "Description":invoice_csv.html#Description | 
+    |!icons/Attribute.gif!| prix | "Prix":invoice_csv.html#Prix | 
+    |!icons/Attribute.gif!| remise | "Remise":invoice_csv.html#Remise | 
+h3(#Client). Class Name : Client  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| numeroClient | "numeroClient":invoice_csv.html#numeroClient | 
+    |!icons/Attribute.gif!| nom | "Nom":invoice_csv.html#Nom | 
+    |!icons/Attribute.gif!| marie | "O_N":invoice_csv.html#O_N | 
+    |!icons/Attribute.gif!| telephone | "Telephone":invoice_csv.html#Telephone | 
+    |!icons/Attribute.gif!| adresse | "Adresse":invoice_csv.html#Adresse | 
+h3(#Adresse). Class Name : Adresse  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+    |!icons/Attribute.gif!| ligne1 | "ligneAdresse":invoice_csv.html#ligneAdresse | 
+    |!icons/Attribute.gif!| ligne2 | "ligneAdresse":invoice_csv.html#ligneAdresse | 
+    |!icons/Attribute.gif!| ligne3 | "ligneAdresse":invoice_csv.html#ligneAdresse | 
+    |!icons/Attribute.gif!| ville | "Ville":invoice_csv.html#Ville | 
+    |!icons/Attribute.gif!| codePostale | "CodePostale":invoice_csv.html#CodePostale | 
+h3(#O_N). Enumeration Name : O_N [
+N 
+O 
+      ]	

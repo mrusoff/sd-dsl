@@ -1,0 +1,35 @@
+package test {
+
+	datatype String 
+	
+	entity Personne {
+		nom : String 
+		prenom : String 
+	}
+	
+	entity Contrat {
+	}
+
+	entity ContratSalarie extends Contrat {
+		type : String
+		salaire : String
+	}
+
+	entity ContratST extends Contrat {
+		type : String
+		taux : String
+	}
+
+	entity Salarie extends Personne {
+		contrat : ContratSalarie
+	}
+
+	entity SousTraitant extends Personne {
+		contrat : ContratST
+	}
+
+	entity Test1 {
+		projetIntervenant : Personne *
+		client : Personne *		
+	}
+}	

@@ -1,0 +1,67 @@
+// definition d'un package pour éviter les conflis de nommage des entités
+// indispenssable pour la génération d'un XSD
+
+
+package invoice_csv  prefix icsv namespace "http://www.chaunier.fr/invoice_csv" {		
+
+// déninition des types de bases
+// un datatype peut représenter un type métier ou technique exemple VARCHAR pour une base de donnée
+							
+datatype numeroFacture		
+datatype numeroClient
+datatype Nom
+datatype Telephone
+datatype Description 
+datatype ligneAdresse 
+datatype Ville
+datatype CodePostale
+datatype Prix
+datatype Remise
+
+datatype Month 	decimal minVal 0 maxVal 12 maxLen 2
+datatype Day 	decimal minVal 0 maxVal 31 maxLen 2
+datatype Year	decimal fixeLen 4
+
+	// structure d'accueil de type complexe
+	entity Date {
+		day : Day 
+		month : Month 
+		year : Year	 
+	}
+// déninition des enumérations
+	enumeration O_N [ N = 0 ; O = 1 ; ]									// enumération de type key,value
+	
+	// description de la structure du message par des entitées
+	
+	entity Facture "ceci est le point d'entrée du message facture" {	// doumentation 
+		entete : Entete 
+		articles : Article *											// * multiple
+	}	
+	entity Entete {
+		date : Date	string fixeLen 8 // format JJMMAAAA
+		client : Client
+	}	
+	entity Article {
+		description : Description *	string maxLen 80			// * multiple
+		prix : Prix decimal maxLen 8 paddle "xxxxx.xx" "en euro"
+		remise : Remise decimal maxLen 4 paddle "x.xx"
+	}	
+	entity Client {
+		numeroClient : numeroClient decimal maxLen 12
+		nom : Nom 					string maxLen 20
+		marie : O_N 				enum as String
+		telephone : Telephone 		string maxLen 12
+		adresse : Adresse
+	}	
+	entity Adresse {
+		ligne1 : ligneAdresse 		string maxLen 80	
+		ligne2 : ligneAdresse ?		string maxLen 80									// ? optionnel
+		ligne3 : ligneAdresse ?		string maxLen 80
+		ville : Ville 				string maxLen 80
+		codePostale : CodePostale 	string fixeLen 5
+	}
+	 
+	element Facture	 
+}
+
+ 

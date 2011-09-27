@@ -1,0 +1,41 @@
+import address.*
+
+package address prefix add namespace "http://www.p.chaunier.fr/add" {
+	
+	datatype PhoneFormat decimal maxLen 12
+	datatype CountryCode string fixeLen 2 // code iso-3666 du apys 
+
+
+entity Address 
+	{
+	line1 string maxLen 38 
+	line2 string maxLen 38  
+	line3 string maxLen 38 
+	line4 string maxLen 38
+	zipCode string maxLen 5 
+	city string maxLen 38
+	countryCode 				"contraint par le type CountryCode"
+	coutry string maxLen 38
+	}
+
+entity Organisation  {
+		raisonSociale string maxLen 20 			 
+		}
+
+entity Person  {
+		civility string maxLen 38 
+		firstName string maxLen 20 
+		secondName string maxLen 20 
+		gender  enum as String 
+}
+
+// specification pas necessaire
+entity Phone {
+		numero 			"contraint par le type PhoneFormat"
+	}
+
+entity Site { }
+
+// pas besoin de specifier  
+
+}

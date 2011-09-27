@@ -1,0 +1,38 @@
+model csv2xsd 
+
+import invoice_xsd.*
+
+// fonction d'aggrégation oject date vers type date 
+define fonction date2xsdDate  
+in invoice_csv.Date [day] 
+in invoice_csv.Date [month] 
+in invoice_csv.Date [year]   
+out invoice_flat.Header [ date ]
+
+module main source invoice_csv.Facture target Invoice "map de la partie facture"  {
+	map module headerMap entete -> header "map entete vers header avec le module header"   
+} 
+
+module headerMap source invoice_csv.Entete target Header "map header vers entete "  {
+	fuction date2xsdDate				
+	map module billToMap client -> billTo
+} 
+
+module billToMap source invoice_csv.Client target BillTo " "  {
+	map atribute numeroClient -> customerNumber 
+	ignore <- marie
+	map atribute nom -> postalAddress.person.firstName
+	map atribute telephone -> postalAddress.contacts
+	map atribute adresse -> postalAddress.adresse 
+}
+
+module adresseMap source invoice_csv.Adresse target address.Address " "  {
+	map atribute ville -> city  
+	map atribute ligne1 -> line1  
+	map atribute ligne2 -> line2
+	ignore -> line3
+	ignore -> line4
+	map atribute codePostale -> zipCode   
+} 
+
+root main

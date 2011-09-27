@@ -1,0 +1,39 @@
+package invoice_xsd /*prefix invxsd namespace "http://www.chaunier.fr/invoice_xsd"*/ {
+
+
+import address.*
+import catalogue.*
+	
+datatype InvoiceNumber
+datatype CustNumber
+datatype Description 
+datatype Price
+datatype Discount
+datatype Date
+
+	// description d'une structure à urbaniser
+	
+	entity Invoice {
+		header : Header 
+		items : Item *
+	}
+//	enumeration O_N [ N = 0 ; O = 1 ; ]	
+
+	entity Header {
+		date : Date
+		billTo : BillTo
+	}
+
+	entity BillTo {
+		customerNumber : CustNumber
+		postalAddress : PostalAddress
+	}
+	
+	entity Item {
+		publication : Publication 
+		description : Description *
+		price : Price 
+		discount : Discount
+	}
+	
+}

@@ -1,0 +1,25 @@
+import invoice_xsd.*
+
+package invoice_xsd prefix invxsd namespace "http://www.chaunier.fr/invoice_xsd" {
+
+
+	datatype InvoiceNumber string maxLen 80
+	
+	entity Invoice { }
+
+	entity Header { 
+		date
+	}
+
+
+	entity BillTo {
+		customerNumber string maxLen 80
+	}
+
+	entity Item {
+		description string
+		price decimal maxLen 20 paddle "NNNNNN.NN"
+		discount decimal maxLen 3 paddle "N.NN"
+	}
+}
+

@@ -1,0 +1,8 @@
+
+package technicaleheader {
+	datatype Date
+	entity TechnicalHeader {
+		dateMessage : Date
+	}
+	 
+}

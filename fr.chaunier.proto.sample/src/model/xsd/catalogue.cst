@@ -1,0 +1,24 @@
+import catalogue.*
+
+package catalogue prefix cat namespace "http://www.p.chaunier.fr/catalogue" {
+
+	entity Catalogue {
+		name string maxLen 20 
+	} 
+
+	entity Publication {
+		title string maxLen 30 
+		date 
+	} 
+	
+	entity BookType  {
+		isbn string maxLen 20
+		publisher string maxLen 20
+	}
+	
+	entity Magazine {
+		author string maxLen 20
+	}
+
+	
+}

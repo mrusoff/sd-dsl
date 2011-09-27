@@ -1,0 +1,33 @@
+package Comp annotations [ " " : " " ]/*prefix comp namespace"Namespace"*/ {
+	
+	datatype String annotations [ "Key" : " " , "Key" : "Value" ]
+	
+	entity Personne annotations ["Key": "Value"]  {
+		nom : String  annotations ["Key": "Value"]
+		prenom : String 
+	}
+		
+	abstract entity Contrat {
+	}
+
+	entity ContratSalarie extends Contrat annotations ["Key": "Value"] {
+		type : String
+		salaire : String
+	}
+
+	entity ContratST extends Contrat {
+		type : String
+		taux : String
+	}
+
+	entity Intervenant {
+		personne : Personne
+		contrat : Contrat
+	}
+
+	entity Test2 {
+		projetIntervenant : Intervenant *
+		client : Personne *
+	}
+} 
+

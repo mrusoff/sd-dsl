@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:cat="http://www.p.chaunier.fr/catalogue" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.p.chaunier.fr/catalogue"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>String</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>Date</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="CatalogueType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="name"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+          <xsd:element name="publications" maxOccurs="unbounded"
+           type="cat:PublicationType"	
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="PublicationType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="title"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+          <xsd:element name="date"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="BookTypeType" abstract="true">
+      <xsd:complexContent>
+      <xsd:extension base="cat:PublicationType"»>
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="isbn"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+          <xsd:element name="publisher"  type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      </xsd:extension>
+      </xsd:complexContent>
+      	</xsd:complexType>  
+      <xsd:complexType name="MagazineType" abstract="true">
+      <xsd:complexContent>
+      <xsd:extension base="cat:PublicationType"»>
+      <xsd:annotation>
+      <xsd:documentation></xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="author" maxOccurs="unbounded"
+           type="xsd:string" 
+          >
+          	<xsd:annotation>
+           	<xsd:documentation></xsd:documentation>
+              </xsd:annotation>
+           </xsd:element>
+             </xsd:sequence>
+      </xsd:extension>
+      </xsd:complexContent>
+      	</xsd:complexType>  
+      <xsd:element name="catalogue" type="cat:CatalogueType"></xsd:element>
+      <element name="Catalogue" type="c:CatalogueType" abstract="true"></element>
+      }
+      <element name="Publication" type="c:PublicationType" abstract="true"></element>
+      }
+      <element name="BookType" type="BookTypeType" substitutionGroup="Publication"></element>
+      <element name="BookType" type="c:BookTypeType" abstract="true"></element>
+      }
+      <element name="Magazine" type="MagazineType" substitutionGroup="Publication"></element>
+      <element name="Magazine" type="c:MagazineType" abstract="true"></element>
+      }
+    </xsd:schema>  

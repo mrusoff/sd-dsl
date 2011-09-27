@@ -1,0 +1,13 @@
+package invoices_types  { //"definition des types métier à partager"
+	datatype numeroFacture		
+	datatype numeroClient
+	datatype Nom
+	datatype Telephone
+	datatype Description 
+	datatype ligneAdresse 
+	datatype Ville
+	datatype CodePostale
+	datatype Date
+	datatype Prix
+	datatype Remise	
+}

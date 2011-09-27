@@ -1,0 +1,29 @@
+import invoice_csv.*
+ 
+Facture facture {
+	entete += Entete {
+		date = "27062011"
+		client = Client {
+			adresse = Adresse {
+				codePostale = 75014
+				ligne1 = ""
+				ligne2 = ""
+			}
+			nom = ""
+			numeroClient = 654654564
+			telephone = 02020202
+			marie = 'N'
+		}
+	}
+	articles += Article {
+		description = ""
+		prix = 202
+		remise = 0
+	}
+	articles += Article {
+		description = ""
+		prix = 21
+		remise = 5
+	}
+}
+
