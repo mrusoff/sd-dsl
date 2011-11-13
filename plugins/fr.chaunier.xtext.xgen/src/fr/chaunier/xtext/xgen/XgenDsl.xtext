@@ -1,0 +1,67 @@
+grammar fr.chaunier.xtext.xgen.XgenDsl with org.eclipse.xtext.common.Terminals
+
+
+generate xgenDsl "http://www.chaunier.fr/xtext/xgen/XgenDsl"
+
+import  "platform:/resource/fr.chaunier.xtext.omc/src-gen/fr/chaunier/xtext/omc/OmcDsl.ecore" as mm 
+
+DomainModelConstraint:
+	imports+=Import*
+	('[' spec =  XsdSpecGen	(description=STRING )? ']')? 
+	(elements+=AbstractElementConstraint)*;
+	
+
+AbstractElementConstraint:
+	PackageConstraint | DataTypeConstraint | EntityConstraint /* | Import */ ;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+PackageConstraint :
+	'package' packageDeclaration=[mm::PackageDeclaration|QualifiedName] ('prefix' prefix=ID) ('namespace' namespace=STRING) '{'
+		(types+=TypeConstraint)*
+	'}' 
+	;
+
+TypeConstraint:
+	( EntityConstraint | DataTypeConstraint )
+	;  
+	
+DataTypeConstraint:
+	'datatype' dataType=[mm::DataType] (constraint=Constraint)?  (description=STRING )?  ;
+
+EntityConstraint:
+	'entity' entity=[mm::Entity|ID] (description=STRING )? '{'
+		(features+=FeatureConstraint)*
+	'}';
+
+FeatureConstraint:
+	AttributeConstraint (constraint=Constraint)?  (description=STRING )? //| Operation
+	;
+
+AttributeConstraint:
+	attribute=[mm::Attribute]  ;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+	
+Constraint :
+	isXsdAtt?='xsdAtt' 
+;
+
+//-------------------------------------------------------------------
+
+XsdSpecGen:
+	(typed?='typed')? ('constrained' (min?='min')? (max?='max')? (fixedAsMinMax?='fixed as min/max')? (fixedAsMax?='fixed as max')? (regex?='regex')? (precision?='precision')?)?  
+	specLines += SpecLine*  
+;	
+
+SpecLine :
+	'info' title=STRING label=STRING   	 
+;
+
+
