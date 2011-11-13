@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: fr.chaunier.xtext.map.ui
 Bundle-Vendor: pilippe chaunier
-Bundle-Version: 0.0.8.quzlifier
+Bundle-Version: 0.0.8.qualifier
 Bundle-SymbolicName: fr.chaunier.xtext.map.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: fr.chaunier.xtext.map;visibility:=reexport,
