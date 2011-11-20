@@ -203,15 +203,22 @@ terminal INT returns ecore::EInt:
 
 
 FileSpecModel:
-	name=ID 'applied on ' entity=[Entity] ('root element' element=ID)?  (description=STRING )? 
+	name=ID 'applied on ' entity=[Entity] ('root element' element=ID)? (description=STRING )? 
 	file=FileNature 
 	specLines += SpecLine*  
 ;	
 
 SpecLine :
+	SpecInfo | SpecVersion 
+;
+
+SpecInfo : 
 	'info' title=STRING label=STRING   	 
 ;
 
+SpecVersion : 
+	'version' version=STRING ('comment' comment=STRING)?   	 
+;
 FileNature :
 	'format' nature=(EdiNature | CsvNature  | FlatNature | XmlNature | DBNature | OtherNature )
 ;	
