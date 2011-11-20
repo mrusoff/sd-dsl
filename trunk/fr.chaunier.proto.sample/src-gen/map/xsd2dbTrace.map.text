@@ -1,3 +1,0 @@
-model xsd2dbTrace
-header.ddate ( [1..1]  )  ->   dateInvoice  ( [1..1]  )
-header.billTo.customerNumber ( [1..1]  )  ->   customerNumberInvoice  ( [1..1]  )
