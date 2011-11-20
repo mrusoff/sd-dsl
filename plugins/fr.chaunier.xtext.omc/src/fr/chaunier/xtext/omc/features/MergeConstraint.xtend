@@ -15,9 +15,10 @@ import fr.chaunier.xtext.omc.omcDsl.OmcDslFactory
 class MergeConstraint {
 
   def getMergedConstraint(Attribute att) {
-  	if ( att == null ) {
+  	if ( att == null ) 
   		return null 
-  	} 
+  	if ( att.type == null ) 
+  		return null 
 	if ( att.type.referenced instanceof DataType ) {
 		var dt = att.type.referenced as DataType
 		if (dt.constraint != null)
