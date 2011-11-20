@@ -3,11 +3,14 @@ package fr.chaunier.xtext.omc.renderer;
 import com.google.inject.Inject;
 
 import fr.chaunier.xtext.omc.features.Cardinality;
+import fr.chaunier.xtext.omc.features.ConstraintResult;
 import fr.chaunier.xtext.omc.features.ConstraintType;
 import fr.chaunier.xtext.omc.features.ElementType;
 import fr.chaunier.xtext.omc.omcDsl.Attribute;
 import fr.chaunier.xtext.omc.omcDsl.DataType;
 import fr.chaunier.xtext.omc.omcDsl.Entity;
+import fr.chaunier.xtext.omc.omcDsl.Enumeration;
+import fr.chaunier.xtext.omc.omcDsl.EnumerationLiteral;
 import fr.chaunier.xtext.omc.omcDsl.Reference;
 
 
@@ -48,7 +51,6 @@ public class TextileEntityRenderer implements IEntityRenderer {
 		  	return featureRendrerer.constraint(dt.getConstraint()) ;  	
 	}
 
-	  
 		// buid cardinality for attribute	
 	 	/* (non-Javadoc)
 		 * @see fr.chaunier.xtext.emc.renderer.IIEntityRenderer#cardinality(fr.chaunier.xtext.emc.emcDsl.Attribute)
@@ -124,5 +126,23 @@ public class TextileEntityRenderer implements IEntityRenderer {
 		  	IconsRenderer ir = new  IconsRenderer();
 		  	return ir.getIconType(ct, featureRendrerer.getIconPath());
 		}
+
+		public String enumerationString(Enumeration e) {
+			StringBuffer str = new StringBuffer();
+	      	for (EnumerationLiteral el : e.getEnumerationLiterals()) {
+	      		str.append("(");
+				str.append(el.getName());
+				str.append(",");
+				str.append(el.getPersistedValue());
+				str.append(')');
+			} 
+	      	return str.toString();
+		}
+
+		@Override
+		public ConstraintResult constraintResultInFeature(Attribute a) {
+			return null;
+		}
+
 	
 }
