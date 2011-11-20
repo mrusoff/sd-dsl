@@ -26,6 +26,54 @@ class TextileGenerator implements IGenerator {
 		}
 	}
 
+	def dumpSpec(String title,PathMapFeatureRule pairMap) '''
+«var omHelper = new OmHelper()»
+«val entitySrc = omHelper.QualifiedName(pairMap.source)»
+«val entityTarget = omHelper.QualifiedName(pairMap.target)»
+|**Model** |«title»|
+|**Source** |«entitySrc.toString»|
+|**Target** |«entityTarget.toString»|
+	'''
+
+	def getReference(Attribute a) {
+	if ( a == null) 
+		return ""
+	if ( a.type == null) 
+		return ""
+	 if (a.type.referenced == null ) 
+	 	return ""
+	var omHelper = new OmHelper()
+	omHelper.QualifiedName(a.type.referenced).toString
+	}
+
+	def getPath(ModelMap mdl) {
+		var builder = new CompletePathMappingBuilder()
+		return builder.map(mdl)
+	} 
+  
+  
+	def renderRule(PathMapFeatureRule pathMap,Pair<String,String> mapFromTo) {
+		val rule = pathMap.getMapArgs(mapFromTo)
+		if ( rule != null ) return rule.name
+		else return ' '	
+	}
+
+  def dumpModel(PathMapFeatureRule pairMap) '''	
+
+«val iconPath = '../../icons/'»
+
+table{border:1px solid black}.
+|_. **Source** |_. Name |_. [..] |_. Constraint |_. |_. **Target** |_. Name |_. [..] |_. Constraint  |_. Rule
+	«FOR mapFromTo:pairMap.pathMaps»
+	«var cf = pairMap.getFeatureFrom(mapFromTo.first) as Attribute»
+	«var st = pairMap.getFeatureTo(mapFromTo.second)  as Attribute»
+	«var msgRenderer = MessageFactory::messageInstance»
+	«msgRenderer.setIconPath(iconPath)»
+    «val iconCf=msgRenderer.elementType(cf)»
+    «val iconSt=msgRenderer.elementType(st)»
+	     | «mapFromTo.first» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)» | -> | «mapFromTo.second»  | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderRule(pairMap,mapFromTo)» 
+	«ENDFOR»
+     '''
 
   def compileTxt(TransformationGroup grp) '''
 h1. transformation group : «grp.name»
@@ -49,57 +97,25 @@ def dumpSequence(TransformationGroup grp) {
 	   	 else
 	   	 	workOk=false
 	   	}
-		stringBuilder.append(dumpModel(t.model.name,current))
+		stringBuilder.append(dumpSpec(t.model.name,current))
+		stringBuilder.append("p.\n")
+		stringBuilder.append(dumpModel(current))
+		stringBuilder.append("p.\n")
 	}
-	if (workOk)
-	  stringBuilder.append(dumpModel("result mapping",previous))
+	if (workOk) {
+	  	stringBuilder.append(dumpSpec("result mapping",previous))
+		stringBuilder.append("p.\n")
+	  	stringBuilder.append(dumpModel(previous))
+		stringBuilder.append("p.\n")
+	}
     else
     	stringBuilder.append('Erreur entité destination premier mapping incompatible avec entité source second mapping')
     return stringBuilder.toString	
 }
 
 
-  def dumpModel(String title,PathMapFeatureRule pairMap) '''	
 
-«val iconPath = '../../icons/'»
-
-h3.	model «title»  source : «pairMap.source.name» target : «pairMap.target.name»
-		
-table{border:1px solid black}.
-|_. **Source** |_. Name |_. [..] |_. Constraint |_. |_. **Target** |_. Name |_. [..] |_. Constraint  |_. Rule
-	«FOR mapFromTo:pairMap.pathMaps»
-	«var cf = pairMap.getFeatureFrom(mapFromTo.first) as Attribute»
-	«var st = pairMap.getFeatureTo(mapFromTo.second)  as Attribute»
-	«var msgRenderer = MessageFactory::messageInstance»
-	«msgRenderer.setIconPath(iconPath)»
-    «val iconCf=msgRenderer.elementType(cf)»
-    «val iconSt=msgRenderer.elementType(st)»
-	     | «mapFromTo.first» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)» | -> | «mapFromTo.second»  | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderRule(pairMap,mapFromTo)» 
-	«ENDFOR»
-     '''
-
-	def getReference(Attribute a) {
-	if ( a == null) 
-		return ""
-	if ( a.type == null) 
-		return ""
-	 if (a.type.referenced == null ) 
-	 	return ""
-	var omHelper = new OmHelper()
-	omHelper.QualifiedName(a.type.referenced).toString
-	}
 	   
-	def getPath(ModelMap mdl) {
-		var builder = new CompletePathMappingBuilder()
-		return builder.map(mdl)
-	} 
-  
-  
-	def renderRule(PathMapFeatureRule pathMap,Pair<String,String> mapFromTo) {
-		val rule = pathMap.getMapArgs(mapFromTo)
-		if ( rule != null ) return rule.name
-		else return ' '	
-	}
   
   
   
