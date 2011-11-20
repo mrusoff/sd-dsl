@@ -1,7 +1,0 @@
-    import test.entities.*
-    MyFeatureConcrete myfeatureconcrete  {
-    	//path test.entities.MyFeatureConcrete.f  qn testtypes.Name
-    	f = 'f'
-    	//path test.entities.MyFeatureConcrete.aAbs  qn testtypes.Name
-    	aAbs = 'aAbs'
-    }
