@@ -10,6 +10,8 @@ import fr.chaunier.xtext.omc.features.ElementType;
 import fr.chaunier.xtext.omc.omcDsl.Attribute;
 import fr.chaunier.xtext.omc.omcDsl.DataType;
 import fr.chaunier.xtext.omc.omcDsl.Entity;
+import fr.chaunier.xtext.omc.omcDsl.Enumeration;
+import fr.chaunier.xtext.omc.omcDsl.EnumerationLiteral;
 import fr.chaunier.xtext.omc.omcDsl.Reference;
 
 
@@ -34,11 +36,21 @@ public class TextileMessageRenderer implements IEntityRenderer {
 	 * @see fr.chaunier.xtext.emc.renderer.IIEntityRenderer#constraintInFeature(fr.chaunier.xtext.emc.emcDsl.Attribute)
 	 */
 //	@Override
+	public ConstraintResult constraintResultInFeature(Attribute a) {
+		if ( a == null ) 
+			return null ;
+		BuildConstraintResult builder = new BuildConstraintResult();
+			return builder.constraintString(a);
+		  }
+		  
+
 	public String constraintInFeature(Attribute a) {
 		if ( a == null ) 
 			return null ;
 		BuildConstraintResult builder = new BuildConstraintResult();
 			ConstraintResult res = builder.constraintString(a);
+			if ( res == null ) 
+			   return "";
 		  	return featureRendrerer.constraint(res.getConstraint()) ; 	
 		  }
 		  
@@ -59,6 +71,8 @@ public class TextileMessageRenderer implements IEntityRenderer {
 //	 	@Override
 		public String cardinality(Attribute att) {
 			if ( att == null) 
+				return "" ;
+			if ( att.getType() == null) 
 				return "" ;
 	 		String res = new String() ;
 			if (att.getType().isMulti())res="[0..*]" ;
@@ -164,5 +178,17 @@ public class TextileMessageRenderer implements IEntityRenderer {
 		  	IconsRenderer ir = new  IconsRenderer();
 		  	return ir.getIconType(ct, featureRendrerer.getIconPath());
 		}
-	
+
+		public String enumerationString(Enumeration e) {
+			StringBuffer str = new StringBuffer();
+	      	for (EnumerationLiteral el : e.getEnumerationLiterals()) {
+	      		str.append("(");
+				str.append(el.getName());
+				str.append(",");
+				str.append(el.getPersistedValue());
+				str.append(')');
+			} 
+	      	return str.toString();
+		}
+		
 }
