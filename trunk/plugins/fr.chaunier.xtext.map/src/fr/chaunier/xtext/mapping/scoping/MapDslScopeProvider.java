@@ -36,17 +36,18 @@ import fr.chaunier.xtext.omc.omcDsl.Type;
  *
  */
 public class MapDslScopeProvider extends AbstractDeclarativeScopeProvider {
-//	/*
+	/*
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		System.out.println(
-				"Path: scope_" + reference.getEContainingClass().getName() + "_" + reference.getName()
+				"Map: scope_" + reference.getEContainingClass().getName() + "_" + reference.getName()
 				+ "(" + context.eClass().getName() + ", ..)"
 			);
 		return super.getScope(context, reference);
 	}
-	//*/
+	*/
 
+	
 	/**
 	 * Utility method to turn a list of attributes into a SimpleScope.
 	 */
