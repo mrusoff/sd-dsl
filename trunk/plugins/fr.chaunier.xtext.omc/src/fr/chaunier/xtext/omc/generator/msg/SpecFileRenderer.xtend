@@ -10,6 +10,10 @@ import fr.chaunier.xtext.omc.omcDsl.FileSpecModel
 import fr.chaunier.xtext.omc.omcDsl.FlatNature
 import fr.chaunier.xtext.omc.omcDsl.OtherNature
 import fr.chaunier.xtext.omc.omcDsl.XmlNature
+import fr.chaunier.xtext.omc.omcDsl.SpecLine
+import fr.chaunier.xtext.omc.omcDsl.SpecInfo
+import fr.chaunier.xtext.omc.omcDsl.SpecVersion
+
 
 class SpecFileRenderer {
 	
@@ -21,7 +25,7 @@ class SpecFileRenderer {
 |«"Description"»|«rootEntity.description»|
 |«"Format"»|«fileFormat(spec)»|
  		«FOR line:spec.specLines»
-|«line.title»|«line.label»|
+ 		«dumpSpec(line)»
  		«ENDFOR»
 «ENDIF» 		
 	'''
@@ -62,5 +66,16 @@ class SpecFileRenderer {
  			return spec.element
  		else return rootEntity.name	
 	}
+
+	def dispatch dumpSpec(SpecLine psec) '''
+	'''
+
+	def dispatch dumpSpec(SpecInfo spec) '''
+		**«spec.title»** | «spec.label»
+	''' 
+
+	def dispatch dumpSpec(SpecVersion spec) '''
+		**version : «spec.version»** | «spec.comment»
+	''' 
 	
 }
