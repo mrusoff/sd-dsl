@@ -6,8 +6,9 @@ import  "platform:/resource/fr.chaunier.xtext.omc/src-gen/fr/chaunier/xtext/omc/
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
 
 ModelMap :
+	('[' spec =  FileSpecModel ']')? 
 	'model' name=QualifiedName (documentation=STRING)?
-	'Entity source' entityFrom=[mm::Entity|QualifiedName] 'Entity target' entityTo=[mm::Entity|QualifiedName] 
+	'Entity source' entityFrom=[mm::Entity|QualifiedName] (sourcePath=STRING)? 'Entity target' entityTo=[mm::Entity|QualifiedName] (targetPath=STRING)? 
 	imports+=Import*
 	actions+=Action*;
 	
@@ -97,3 +98,18 @@ terminal DATE returns ecore::EDate : ('0'..'1') '0'..'9' '.' '0'..'3' '0'..'9' '
 terminal INT returns ecore::EInt:
 	'this one has been deactivated';
 
+FileSpecModel:
+	specLines += SpecLine*  
+;
+	
+SpecLine :
+	SpecInfo | SpecVersion
+;
+
+SpecInfo : 
+	'info' title=STRING label=STRING   	 
+;
+
+SpecVersion : 
+	'version' version=STRING comment=STRING   	 
+;
