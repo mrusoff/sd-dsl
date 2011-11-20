@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/palert/" targetNamespace="http://www.example.org/palert/">
+
+
+    <complexType name="header">
+    	<sequence>
+    		<element name="typeEnregistrement" type="string"></element>
+    		<element name="numeroIndex" type="string"></element>
+    		<element name="codeOperateur" type="string"></element>
+    		<element name="producteurDonnees" type="string"></element>
+    		<element name="typeFlux" type="string"></element>
+    		<element name="nomFichier" type="string"></element>
+    		<element name="dateEenvoi" type="string"></element>
+    		<element name="typeEnregistrement" type="string"></element>
+    		<element name="encodage" type="string"></element>
+    	</sequence>
+    </complexType>
+
+
+    <complexType name="debut">
+    	<sequence>
+    		<element name="typeEnregistrement" type="string"></element>
+    		<element name="numeroIndex" type="string"></element>
+    		<element name="iDColis"> </element>
+    		<element name="iDColisMaitre"> </element>
+    		<element name="nombreColis"> </element>
+    		<element name="codeDeService"> </element>
+    		<element name="codeCityssimo"> </element>
+    		<element name="iDStation"> </element>
+    		<element name="numeroOperateur"> </element>
+    		<element name="iDColisRelabellise"> </element>
+    		<element name="iDColisMaitreRelabellise"> </element>
+    		<element name="numeroOperateurRelabellise"> </element>
+    		<element name="iDColisRelabellise"> </element>
+    		<element name="numeroOperateurRelabellise"> </element>
+    		<element name="dateExpedition"> </element>
+    		<element name="dateEvenement"> </element>
+    		<element name="paysProvenance"> </element>
+    		<element name="paysDestination"> </element>
+    		<element name="nomExpediteur"> </element>
+    		<element name="nom2Expediteur"> </element>
+    		<element name="adresse1Expediteur"> </element>
+    		<element name="adresse2Expediteur"> </element>
+    		<element name="villeExpediteur"> </element>
+    		<element name="codePostalExpediteur"> </element>
+    		<element name="etatExpediteur"> </element>
+    		<element name="codePaysExpediteur"> </element>
+    		<element name="telephoneExpediteur"> </element>
+    		<element name="mailExpediteur"> </element>
+
+    		<element name="statutDestinataire"> </element>
+    		<element name="nomDestinataire"> </element>
+    		<element name="prenomDestinataire"> </element>
+    		<element name="nom2Destinataire"> </element>
+    		<element name="adresse1Destinataire"> </element>
+    		<element name="adresse2Destinataire"> </element>
+    		<element name="adresse3Destinataire"> </element>
+    		<element name="adresse4Destinataire"> </element>
+    		<element name="villeDestinataire"> </element>
+    		<element name="codePostalDestinataire"> </element>
+    		<element name="EtatDestinataire"> </element>
+    		<element name="codePaysDestinataire"> </element>
+    		<element name="portes1Destinataire"> </element>
+    		<element name="portes2Destinataire"> </element>
+    		<element name="telephonePorteDestinataire"> </element>
+    		<element name="instructionDestinataire"> </element>
+    		<element name="telephoneDestinataire"> </element>
+    		<element name="telephoneMobileDestinataire"> </element>
+    		<element name="mailDestinataire"> </element>
+
+    		<element name="typeDeContenu"> </element>
+    		<element name="codeRegate"> </element>
+    		<element name="description"> </element>
+    		<element name="valeurPaiementALivraison"> </element>
+    		<element name="codeDeviseValeurPaiementALivraison"> </element>
+    		<element name="taxeContreRembourssement"> </element>
+    		<element name="codeDeviseTaxeRembourssement"> </element>
+    		<element name="valeurTransport"> </element>
+    		<element name="codeDeviseValeurTransport"> </element>
+    		<element name="valeurAssurance"> </element>
+    		<element name="codeDeviseValeurAssurance"> </element>
+    		<element name="taxeAssurance"> </element>
+    		<element name="codeDeviseTaxeAssurance"> </element>
+<!-- 
+CONTENT_TYPE
+OOH_REGATE_CODE
+DESCRIPTION
+CASH_ON_DELIVERY_VALUE_DECLARED
+CASH_ON_DELIVERY_CURRENCY_CODE
+CASH_ON_DELIVERY_TAX_AMOUNT
+CASH_ON_DELIVERY_TAX_CURRENCY_CODE
+TRANSPORTATION_AMOUNT_VALUE
+TRANSPORTATION_AMOUNT_CURRENCY
+INSURANCE_VALUE
+INSURANCE_CURRENCY_CODE
+INSURANCE_TAX_AMOUNT
+INSURANCE_TAX_CURRENCY_CODE
+-->
+    		<element name="hauteur"> </element>
+    		<element name="longueur"> </element>
+    		<element name="largeur"> </element>
+    		<element name="volume"> </element>
+    		<element name="poidsMesure"> </element>
+    		<element name="poidsDeclare"> </element>
+    		<element name="typePackaging"> </element>
+    		<element name="recommande"> </element>
+    		<element name="taxeRecommande"> </element>
+    		<element name="codeDeviseTaxeRecommande"> </element>
+    		<element name="extraPoidsVolume"> </element>
+    		<element name="taxeExtraPoidsVolume"> </element>
+    		<element name="codeDeviseTaxeExtraPoidsVolume"> </element>
+    		<element name="francTaxeEtDroits"> </element>
+    		<element name="taxeFrancTaxeEtDroits"> </element>
+    		<element name="codeDeviseTaxeFrancTaxeEtDroits"> </element>
+    		<element name="contreRemboursement"> </element>
+    		<element name="taxeContreRemboursement"> </element>
+    		<element name="codeDeviseTaxeContreRemboursement"> </element>
+    		
+    		
+<!-- 
+HEIGHT
+LENGTH
+WIDTH
+VOLUME
+WEIGHT_MEASURED
+WEIGHT_DECLARED
+PACKAGING_TYPE
+CERTIFIED
+CERTIFICATION_TAX_AMOUNT
+CERTIFICATION_TAX_CURRENCY_CODE
+EXTRA_WEIGHT_OR_VOLUME
+EXTRA_WEIGHT_OR_VOLUME_TAX_AMOUNT
+EXTRA_WEIGHT_OR_VOLUME_TAX_CURRENCY_CODE
+ISLAND_EXTRA_FEE
+ISLAND_EXTRA_FEE_TAX_AMOUNT
+ISLAND_EXTRA_FEE_TAX_CURRENCY_CODE
+FREE_DUTY_AND_TAXE
+FREE_DUTY_AND_TAXE_TAX_AMOUNT
+FREE_DUTY_AND_TAXE_TAX_CURRENCY_CODE
+ACKNOWELEDGEMENT
+ACKNOWELEDGEMENT_TAX_AMOUNT
+ACKNOWELEDGEMENT_TAX_CURRENCY_CODE
+-->
+
+    		<element name="optionRetour"> </element>
+    		<element name="taxeOptionRetour"> </element>
+    		<element name="deviseTaxeOptionRetour"> </element>
+    		<element name="livraisonSamedi"> </element>
+    		<element name="taxeLivraisonSamedi"> </element>
+    		<element name="deviseTaxeLivraisonSamedi"> </element>
+    		<element name="tVA"> </element>
+    		<element name="montantTVA"> </element>
+    		<element name="deviseTVA"> </element>
+    		<element name="pourcentageTVA"> </element>
+    		<element name="montantTtotal"> </element>
+    		<element name="DeviseMontantTotal"> </element>
+
+<!-- 
+RETURN_OPTION
+RETURN_OPTION_TAX_AMOUNT
+RETURN_OPTION_TAX_CURRENCY_CODE
+SATURDAY_DELIVERY
+SATURDAY_DELIVERY_TAX_AMOUNT
+SATURDAY_DELIVERY_TAX_CURRENCY_CODE
+VAT_CODE
+VAT_AMOUNT_VALUE
+VAT_CURRENCY_CODE
+VAT_PERCENTAGE
+TOTAL_AMOUNT_VALUE
+TOTAL_AMOUNT_CURRENCY_CODE
+-->
+
+    		<element name="codeSource1"> </element>
+    		<element name="zoneTariffaire"> </element>
+    		<element name="lotAcheminementChrono"> </element>
+    		<element name="triDistribution"> </element>
+    		<element name="contenuCodebrRoutage"> </element>
+    		<element name="versionFichierRoutageChrono"> </element>
+    		<element name="nomCommercialChargeur"> </element>
+    		<element name="referenceCommande"> </element>
+    		<element name="codeAvoirPromotion"> </element>
+
+<!--
+SOURCE_CODE1
+TARIFF_ZONE
+HDL_LOT
+DISTRIBUTION_SORT
+CAB_CONTENT 
+ROUTING_FILE_VERSION
+NOM_COMMERCIAL_CHARGEUR
+REFERENCE_COMMANDE
+CODE_AVOIR_PROMOTION
+-->
+    		
+<!-- 
+CONSIGNEE_STATUT
+CONSIGNEE_NAME
+CONSIGNEE_SURNAME
+CONSIGNEE_NAME_2
+CONSIGNEE_ADRESS_1
+CONSIGNEE_ADRESS_2
+CONSIGNEE_ADDRESS_3
+CONSIGNEE_ADDRESS_4
+CONSIGNEE_TOWN
+CONSIGNEE_ZIP_CODE
+CONSIGNEE_STATE
+CONSIGNEE_COUNTRY_CODE
+CONSIGNEE_DOOR_1
+CONSIGNEE_DOOR_2
+CONSIGNEE_DOORPHONE
+CONSIGNEE_INSTRUCTIONS
+CONSIGNEE_PHONE
+CONSIGNEE_MOBILE
+CONSIGNEE_EMAIL
+-->
+<!-- 
+COUNTRY_FROM_CODE
+COUNTRY_TO_CODE
+LOCALISATION_STATION
+CONSIGNOR_NAME
+CONSIGNOR_NAME_2
+CONSIGNOR_ADDRESS_1
+CONSIGNOR_ADDRESS_2
+CONSIGNOR_TOWN
+CONSIGNOR_ZIP_CODE
+CONSIGNOR_STATE
+CONSIGNOR_COUNTRY_CODE
+CONSIGNOR_PHONE
+CONSIGNOR_EMAIL
+ -->    		
+    	</sequence>
+    </complexType>
+
+<!-- 
+PARCEL_ID				
+MASTER_PARCEL_ID
+PARCELS_COUNT
+SERVICE_CODE
+CITYSSIMO_CODE
+STATION_ID
+OPERATOR_CODE
+RELABELLED_PARCEL_ID
+RELABELLED_MASTER_PARCEL_ID
+RELABELLED_OPERATOR_CODE
+RELABELLED_TO_PARCEL_ID
+RELABELLED_TO_OPERATOR_CODE
+SHIPMENT_DATE
+EVENT_DATE_TIME
+COUNTRY_FROM_CODE
+COUNTRY_TO_CODE
+LOCALISATION_STATION
+CONSIGNOR_NAME
+CONSIGNOR_NAME_2
+CONSIGNOR_ADDRESS_1
+CONSIGNOR_ADDRESS_2
+CONSIGNOR_TOWN
+CONSIGNOR_ZIP_CODE
+CONSIGNOR_STATE
+CONSIGNOR_COUNTRY_CODE
+CONSIGNOR_PHONE
+CONSIGNOR_EMAIL
+CONSIGNEE_STATUT
+CONSIGNEE_NAME
+CONSIGNEE_SURNAME
+CONSIGNEE_NAME_2
+CONSIGNEE_ADRESS_1
+CONSIGNEE_ADRESS_2
+CONSIGNEE_ADDRESS_3
+CONSIGNEE_ADDRESS_4
+CONSIGNEE_TOWN
+CONSIGNEE_ZIP_CODE
+CONSIGNEE_STATE
+CONSIGNEE_COUNTRY_CODE
+CONSIGNEE_DOOR_1
+CONSIGNEE_DOOR_2
+CONSIGNEE_DOORPHONE
+CONSIGNEE_INSTRUCTIONS
+CONSIGNEE_PHONE
+CONSIGNEE_MOBILE
+CONSIGNEE_EMAIL
+CONTENT_TYPE
+OOH_REGATE_CODE
+DESCRIPTION
+CASH_ON_DELIVERY_VALUE_DECLARED
+CASH_ON_DELIVERY_CURRENCY_CODE
+CASH_ON_DELIVERY_TAX_AMOUNT
+CASH_ON_DELIVERY_TAX_CURRENCY_CODE
+TRANSPORTATION_AMOUNT_VALUE
+TRANSPORTATION_AMOUNT_CURRENCY
+INSURANCE_VALUE
+INSURANCE_CURRENCY_CODE
+INSURANCE_TAX_AMOUNT
+INSURANCE_TAX_CURRENCY_CODE
+HEIGHT
+LENGTH
+WIDTH
+VOLUME
+WEIGHT_MEASURED
+WEIGHT_DECLARED
+PACKAGING_TYPE
+CERTIFIED
+CERTIFICATION_TAX_AMOUNT
+CERTIFICATION_TAX_CURRENCY_CODE
+EXTRA_WEIGHT_OR_VOLUME
+EXTRA_WEIGHT_OR_VOLUME_TAX_AMOUNT
+EXTRA_WEIGHT_OR_VOLUME_TAX_CURRENCY_CODE
+ISLAND_EXTRA_FEE
+ISLAND_EXTRA_FEE_TAX_AMOUNT
+ISLAND_EXTRA_FEE_TAX_CURRENCY_CODE
+FREE_DUTY_AND_TAXE
+FREE_DUTY_AND_TAXE_TAX_AMOUNT
+FREE_DUTY_AND_TAXE_TAX_CURRENCY_CODE
+ACKNOWELEDGEMENT
+ACKNOWELEDGEMENT_TAX_AMOUNT
+ACKNOWELEDGEMENT_TAX_CURRENCY_CODE
+RETURN_OPTION
+RETURN_OPTION_TAX_AMOUNT
+RETURN_OPTION_TAX_CURRENCY_CODE
+SATURDAY_DELIVERY
+SATURDAY_DELIVERY_TAX_AMOUNT
+SATURDAY_DELIVERY_TAX_CURRENCY_CODE
+VAT_CODE
+VAT_AMOUNT_VALUE
+VAT_CURRENCY_CODE
+VAT_PERCENTAGE
+TOTAL_AMOUNT_VALUE
+TOTAL_AMOUNT_CURRENCY_CODE
+SOURCE_CODE1
+TARIFF_ZONE
+HDL_LOT
+DISTRIBUTION_SORT
+CAB_CONTENT 
+ROUTING_FILE_VERSION
+NOM_COMMERCIAL_CHARGEUR
+REFERENCE_COMMANDE
+CODE_AVOIR_PROMOTION
+ -->
+
+
+    <element name="root" type="string"></element>
+</schema>

@@ -1,0 +1,15 @@
+    import test.constraint.strings.*
+    MyStrings4 mystrings4  {
+    	//path test.constraint.strings.MyStrings4.defaultStr  qn test.constraint.strings.DT
+    	defaultStr = 0
+    	//path test.constraint.strings.MyStrings4.str02  qn test.constraint.strings.DTS02
+    	str02 = 'str02'
+    	//path test.constraint.strings.MyStrings4.str25  qn test.constraint.strings.DTS25
+    	str25 = 'str25'
+    	//path test.constraint.strings.MyStrings4.str22  qn test.constraint.strings.DTS22
+    	str22 = 'str22'
+    	//path test.constraint.strings.MyStrings4.strFixe  qn test.constraint.strings.DTSFIXE
+    	strFixe = 'strFixe'
+    	//path test.constraint.strings.MyStrings4.strDef  qn test.constraint.strings.DTSDF
+    	strDef = 'strDef'
+    }

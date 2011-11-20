@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:dat="http://www.chaunier.fr/date" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/date"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+>
+      	<xsd:annotation>
+      <xsd:documentation>Name</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DT</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTS</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTS20</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTS02</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTS25</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTS22</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTSFIXE</xsd:documentation>
+      </xsd:annotation>
+      	<xsd:annotation>
+      <xsd:documentation>DTSDF</xsd:documentation>
+      </xsd:annotation>
+      <xsd:complexType name="MyStrings2Type" >
+      <xsd:sequence>
+          <xsd:element name="defaultStr"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>string par defaut</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="str"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition type string</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="str20"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition min len 2</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="str02"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition max len 2</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="str25"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition min len 2 et max len 5</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="str22"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition fixe len 2</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="strFixe"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition fixed value ff</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="strDef"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>definition default DEFAUT</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:element name="MyStrings2" type="dat:MyStrings2Type"></xsd:element>
+    </xsd:schema>  

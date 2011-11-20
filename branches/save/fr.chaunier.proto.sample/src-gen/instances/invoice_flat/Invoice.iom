@@ -1,0 +1,43 @@
+    import invoice_flat.*
+    Invoice invoice  {
+    	//path invoice_flat.Invoice.header  qn invoice_flat.Invoice.header
+    	header = Header  {
+    	    //path invoice_flat.Invoice.header.ddate  qn invoice_flat.Date
+    	    ddate = 'ddate'
+    	    //path invoice_flat.Invoice.header.billTo  qn invoice_flat.Header.billTo
+    	    billTo = BillTo  {
+    	        //path invoice_flat.Invoice.header.billTo.customerNumber  qn invoice_flat.CustNumber
+    	        customerNumber = 0
+    	        //path invoice_flat.Invoice.header.billTo.name  qn invoice_flat.Name
+    	        name = 'name'
+    	        //path invoice_flat.Invoice.header.billTo.maried  qn invoice_flat.O_N
+    	        maried = 'N'
+    	        //path invoice_flat.Invoice.header.billTo.phone  qn invoice_flat.Phone
+    	        phone = 'phone'
+    	        //path invoice_flat.Invoice.header.billTo.address  qn invoice_flat.BillTo.address
+    	        address = Address  {
+    	            //path invoice_flat.Invoice.header.billTo.address.street1  qn invoice_flat.StreetLine
+    	            street1 = 'street1'
+    	            //path invoice_flat.Invoice.header.billTo.address.street2  qn invoice_flat.StreetLine
+    	            street2 = 'street2'
+    	            //path invoice_flat.Invoice.header.billTo.address.city  qn invoice_flat.City
+    	            city = 'city'
+    	            //path invoice_flat.Invoice.header.billTo.address.state  qn invoice_flat.State
+    	            state = 'state'
+    	            //path invoice_flat.Invoice.header.billTo.address.province  qn invoice_flat.Province
+    	            province = 'province'
+    	            //path invoice_flat.Invoice.header.billTo.address.zip  qn invoice_flat.Zip
+    	            zip = 'zip'
+    	        }
+    	    }
+    	}
+    	//path invoice_flat.Invoice.items  qn invoice_flat.Invoice.items
+    	items += Item  {
+    	    //path invoice_flat.Invoice.items.description  qn invoice_flat.Description
+    	    description = 'description'
+    	    //path invoice_flat.Invoice.items.price  qn invoice_flat.Price
+    	    price = 0
+    	    //path invoice_flat.Invoice.items.discount  qn invoice_flat.Discount
+    	    discount = 0
+    	}
+    }

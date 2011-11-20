@@ -1,0 +1,43 @@
+
+h1. package : test.constraint.constraint2
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| test.constraint.constraint2  | test | http://www.chaunier.fr/test 
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| ConstraintString1 | string  |  
+|!icons/Property.gif!| ConstraintDecimal1 | decimal  |  
+|!icons/Property.gif!| ConstraintBool | boolean null |  
+|!icons/Property.gif!| ConstraintString2 | string min Len 2  |  
+|!icons/Property.gif!| ConstraintDecimal2 | decimal precision 2  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|TestConstrainteOnType|
+
+
+
+h2. Entities
+
+
+h3(#TestConstrainteOnType). Class Name : TestConstrainteOnType  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| b | "ConstraintString1":test.constraint.constraint2.html##DataTypes | [1..1] | string |  
+    |!icons/Property.gif!| c | "ConstraintDecimal1":test.constraint.constraint2.html##DataTypes | [1..1] | decimal |  
+    |!icons/Property.gif!| d | "ConstraintBool":test.constraint.constraint2.html##DataTypes | [1..1] | boolean null|  
+    |!icons/Property.gif!| b1 | "ConstraintString2":test.constraint.constraint2.html##DataTypes | [1..1] | string min Len 2 |  
+    |!icons/Property.gif!| c1 | "ConstraintDecimal2":test.constraint.constraint2.html##DataTypes | [1..1] | decimal precision 2 |  

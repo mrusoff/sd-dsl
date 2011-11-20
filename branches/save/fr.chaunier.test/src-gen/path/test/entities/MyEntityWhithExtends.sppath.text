@@ -1,0 +1,17 @@
+6
+
+    Enity source : MyEntityWhithExtends 
+
+
+//DataType	[1..1]			
+//a
+//DataType	[0..1]			
+//b
+//DataType	[1..1]			
+//a2
+//DataType	[0..1]			
+//b2
+//DataType	[1..1]			
+//a3
+//DataType	[0..1]			
+//b3

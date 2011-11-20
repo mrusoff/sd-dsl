@@ -1,0 +1,7 @@
+	1
+	
+h1. Enity source : MobilePhone 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | address.MobilePhone:numero | DataType | [1..1] |  |  | | 

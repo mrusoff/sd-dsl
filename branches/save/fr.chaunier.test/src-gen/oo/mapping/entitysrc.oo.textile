@@ -1,0 +1,66 @@
+
+h1. package : mapping.entitysrc
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| mapping.entitysrc  | esrc | http://www.chaunier.fr/mapping/entitysrc 
+
+h2(#Enumerations). Enumerations  
+	  
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| Civility | [(((] | |
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| My |  |  
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|Ee|
+|!icons/Entity.gif!|E|
+|!icons/Entity.gif!|EntitySrc|
+
+
+
+h2. Entities
+
+
+h3(#Ee). Class Name : Ee  
+
+p{color:blue}. entity source
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| eee | "Civility":mapping.entitysrc.html##Enumerations | [1..1] | |  
+
+h3(#E). Class Name : E  
+
+p{color:blue}. entity source
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| civility | "Civility":mapping.entitysrc.html##Enumerations | [1..1] | |  
+    |!icons/Property.gif!| ee | "Ee":mapping.entitysrc.html#Ee | [1..1] | |  
+
+h3(#EntitySrc). Class Name : EntitySrc  
+
+p{color:blue}. entity source
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| a | "My":mapping.entitysrc.html##DataTypes | [0..1] | |  
+    |!icons/Property.gif!| b | "My":mapping.entitysrc.html##DataTypes | [1..1] | |  
+    |!icons/Property.gif!| n | "E":mapping.entitysrc.html#E | [1..1] | |  

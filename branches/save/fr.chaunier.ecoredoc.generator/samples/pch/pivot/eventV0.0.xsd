@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:com="http://www.telintrans.fr/common"
+	 xmlns:evt="http://www.coliposte.fr/event"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:srv="http://www.coliposte.fr/service"
+	 targetNamespace="http://www.coliposte.fr/event"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+
+	<!--xsd:complexType name="TraceEvenementType">
+		<xsd:sequence>
+			<xsd:element name="equipement"
+				type="evt:codeEquipementType" maxOccurs="1" minOccurs="0">
+			</xsd:element>
+			<xsd:element name="commenataireRefection" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType-->
+	<xsd:import namespace="http://www.coliposte.fr/service" schemaLocation="serviceV0.0.xsd"/>
+
+	<!-- 
+	<xsd:complexType name="codeEquipementType">
+		<xsd:sequence>
+            <xsd:element name="code" type="xsd:string"></xsd:element>
+            <xsd:element name="libelle" type="xsd:string"></xsd:element>
+
+        </xsd:sequence>
+	</xsd:complexType>
+	-->
+	<xsd:complexType name="EvenementType">
+		<xsd:annotation>
+			<xsd:documentation>information évènement traité</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dateFlashage" type="xsd:dateTime">
+				<xsd:annotation>
+					<xsd:documentation>date de l'évènement (date et heure)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codeEvenement" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>code de l'évènement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ControleType">
+		<xsd:sequence>
+			<xsd:element name="cabHorsNorme" type="srv:RaisonHorsNormeCabType" minOccurs="0"/>
+			<xsd:element name="cleeHorsNorme" type="srv:RaisonHorsNormeCleeType" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AcheminementType">
+		<xsd:sequence>
+			<xsd:element name="FausseDirection" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

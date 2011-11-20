@@ -1,0 +1,73 @@
+grammar fr.chaunier.xtext.prjdsl.PrjDsl with org.eclipse.xtext.common.Terminals
+
+generate prjDsl "http://www.chaunier.fr/xtext/prjdsl/PrjDsl"
+
+import  "platform:/resource/fr.chaunier.xtext.omcst.om/src-gen/fr/chaunier/xtext/omcst/om/OmcstDsl.ecore" as mm 
+import  "platform:/resource/fr.chaunier.xtext.mapping/src-gen/fr/chaunier/xtext/mapping/MapDsl.ecore" as map 
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore 
+
+TransformationModel: 
+
+//	imports+=Import*
+	(elements+=TransformationGroup)*;
+
+ 	
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+TransformationGroup :
+	"sequence" name=ID '{'
+	(sequences+=Transformation)*
+	'}'
+;
+
+Transformation :
+	"transformation mapping" model=[map::ModelMap]
+	'from' fileFrom=FileNature 'to' fileTo=FileNature 
+	;
+
+FileNature :
+	nature=(EdiNature | CsvNature  | FlatNature | XmlNature | DBNature)
+	('generation Xsd' generationSpec=GenerationSpec)?   	 
+;	
+
+//segment="&#10;" field="*" component="^" sub-component="~"
+EdiNature : 
+	'EDI' delimiter=DelimiteurSpec 
+;	
+
+CsvNature :
+	'CSV' delimiter=DelimiteurSpec 
+;	
+
+DelimiteurSpec :
+	'field' fied=STRING ('component' component=DELIMCHAR)? ('sub component' subComponent=DELIMCHAR)? ('segment' segment=STRING)?
+;
+
+enum ConstraintSelection :
+	none="none" | all="all" | onlytype="onlyType" | maxVal="maxValue"
+	;
+
+GenerationSpec :
+	'constraint' constraint=ConstraintSelection 	
+;
+
+FlatNature :
+	'Flat' generationSpec=GenerationSpec 
+;	
+
+XmlNature :
+	'XML' generationSpec=GenerationSpec
+;	
+
+DBNature :
+	'DB' generationSpec=GenerationSpec
+;	
+
+terminal DELIMCHAR returns ecore::EChar : ('~'|'^'|'*'|'-'|'_'|','|';'|'/t') ;

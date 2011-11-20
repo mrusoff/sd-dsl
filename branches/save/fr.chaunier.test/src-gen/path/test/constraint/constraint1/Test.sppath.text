@@ -1,0 +1,33 @@
+14
+
+    Enity source : Test 
+
+
+//Entity	[1..1]			
+//fs
+//Entity	[1..1]		entity containment	
+//fs.contain
+//DataType	[1..1]			
+//fs.contain.a
+//Entity	[1..1]			
+//fd
+//DataType	[1..1]			
+//fd.c
+//Entity	[1..1]			
+//fe
+//Enum	[1..1]	enum as String		
+//fe.e1
+//Enum	[1..1]	enum as Value		
+//fe.e2
+//Enum	[1..1]	enum fixe Len 2 as Value		
+//fe.e3
+//Enum	[1..1]	enum as Value		
+//fe.e4
+//Entity	[1..1]			
+//fb
+//DataType	[1..1]			
+//fb.d
+//Entity	[1..1]			
+//fda
+//DataType	[1..1]			
+//fda.e

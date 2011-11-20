@@ -1,0 +1,17 @@
+6
+
+    Enity source : EntitySrc 
+
+
+//DataType	[0..1]			
+//a
+//DataType	[1..1]			
+//b
+//Entity	[1..1]			
+//n
+//Enum	[1..1]			
+//n.civility
+//Entity	[1..1]			
+//n.ee
+//Enum	[1..1]			
+//n.ee.eee

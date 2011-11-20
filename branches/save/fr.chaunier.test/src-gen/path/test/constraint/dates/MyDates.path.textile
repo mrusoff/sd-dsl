@@ -1,0 +1,10 @@
+	4
+	
+h1. Enity source : MyDates 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.constraint.dates.MyDates:test1 | DataType | [1..1] | date null |  | | 
+	 | test.constraint.dates.MyDates:test2 | DataType | [1..1] | date null |  | | 
+	 | test.constraint.dates.MyDates:test3 | DataType | [1..1] | date null |  | | 
+	 | test.constraint.dates.MyDates:test4 | DataType | [1..1] | date null |  | | 

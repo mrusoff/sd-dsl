@@ -1,0 +1,25 @@
+package mapping.entitysrc prefix esrc namespace "http://www.chaunier.fr/mapping/entitysrc" {
+
+
+datatype My
+
+enumeration Civility [ M = 1 ; Ms = 2 ; Miss = 3 ;]  
+
+	entity Ee 'entity source'{
+		eee : Civility
+	}
+
+	entity E 'entity source'{
+		civility : Civility
+		ee : Ee
+	}
+	
+	entity EntitySrc 'entity source'{
+		a : My ?	
+		b : My string maxLen 2	
+		n : E 	
+	}
+
+
+	element EntitySrc
+}

@@ -1,0 +1,37 @@
+    import test.constraint.constraint1.*
+    Test test  {
+    	//path test.constraint.constraint1.Test.fs  qn test.constraint.constraint1.Test.fs
+    	fs = OnFeatureString  {
+    	    //path test.constraint.constraint1.Test.fs.contain  qn test.constraint.constraint1.OnFeatureString.contain
+    	    contain = MyEntity  {
+    	        //path test.constraint.constraint1.Test.fs.contain.a  qn test.constraint.constraint1.Name
+    	        a = 'a'
+    	    }
+    	}
+    	//path test.constraint.constraint1.Test.fd  qn test.constraint.constraint1.Test.fd
+    	fd = OnFeatureDecimal  {
+    	    //path test.constraint.constraint1.Test.fd.c  qn test.constraint.constraint1.Name
+    	    c = 0
+    	}
+    	//path test.constraint.constraint1.Test.fe  qn test.constraint.constraint1.Test.fe
+    	fe = OnFeatureEnum  {
+    	    //path test.constraint.constraint1.Test.fe.e1  qn test.constraint.constraint1.HorsNormeOption
+    	    e1 = 'NON'
+    	    //path test.constraint.constraint1.Test.fe.e2  qn test.constraint.constraint1.HorsNormeOption
+    	    e2 = 'NON'
+    	    //path test.constraint.constraint1.Test.fe.e3  qn test.constraint.constraint1.HorsNormeOption
+    	    e3 = 'NON'
+    	    //path test.constraint.constraint1.Test.fe.e4  qn test.constraint.constraint1.HorsNormeOption
+    	    e4 = 'NON'
+    	}
+    	//path test.constraint.constraint1.Test.fb  qn test.constraint.constraint1.Test.fb
+    	fb = OnFeatureBool  {
+    	    //path test.constraint.constraint1.Test.fb.d  qn test.constraint.constraint1.Name
+    	    d = true
+    	}
+    	//path test.constraint.constraint1.Test.fda  qn test.constraint.constraint1.Test.fda
+    	fda = OnFeatureDateTime  {
+    	    //path test.constraint.constraint1.Test.fda.e  qn test.constraint.constraint1.Name
+    	    e = 23242000
+    	}
+    }

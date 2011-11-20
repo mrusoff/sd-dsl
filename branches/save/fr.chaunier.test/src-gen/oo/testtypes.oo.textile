@@ -1,0 +1,22 @@
+
+h1. package : testtypes
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| testtypes  | test | http://www.chaunier.fr/test 
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| Name |  |  
+|!icons/Property.gif!| ConstraintString1 | string  |  
+|!icons/Property.gif!| ConstraintDecimal1 | decimal  |  
+|!icons/Property.gif!| ConstraintBool | boolean null |  
+|!icons/Property.gif!| ConstraintString2 | string min Len 2  |  
+|!icons/Property.gif!| ConstraintDecimal2 | decimal precision 2  |  
+
+
+
+

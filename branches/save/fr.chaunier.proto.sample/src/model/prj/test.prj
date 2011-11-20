@@ -1,0 +1,5 @@
+sequence test
+{
+	transformation mapping csv2xsd from CSV field ";" to XML constraint all
+	transformation mapping xsd2dbTrace from XML constraint all to EDI field "*"
+}

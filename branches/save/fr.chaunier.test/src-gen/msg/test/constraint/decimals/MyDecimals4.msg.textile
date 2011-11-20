@@ -1,0 +1,14 @@
+h1. entity root : MyDecimals4
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|defaultStr|DT | [1..1] |  | surcharge type
+|2|str02|DTS02 | [1..1] | decimal  | definition max len 2
+|3|str25|DTS25 | [1..1] | decimal min Value 2.0 max Value 5.10  | definition min len 2 et max len 5
+|4|str22|DTS22 | [1..1] | decimal fixe Len 2  | definition fixe len 2
+|5|strFixe|DTSFIXE | [1..1] | decimal fixe value 0.2  | definition fixed value ff
+|6|strDef|DTSDF | [1..1] | decimal default 0.00  | definition default DEFAUT

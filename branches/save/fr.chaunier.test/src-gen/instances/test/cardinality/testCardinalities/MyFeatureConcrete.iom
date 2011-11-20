@@ -1,0 +1,7 @@
+    import test.cardinality.testCardinalities.*
+    MyFeatureConcrete myfeatureconcrete  {
+    	//path test.cardinality.testCardinalities.MyFeatureConcrete.f  qn testtypes.Name
+    	f = 'f'
+    	//path test.cardinality.testCardinalities.MyFeatureConcrete.aAbs  qn testtypes.Name
+    	aAbs = 'aAbs'
+    }

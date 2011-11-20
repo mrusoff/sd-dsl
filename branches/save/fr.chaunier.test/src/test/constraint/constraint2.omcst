@@ -1,0 +1,20 @@
+
+package test.constraint.constraint2 prefix test namespace "http://www.chaunier.fr/test" {
+	
+	
+datatype ConstraintString1 string 
+datatype ConstraintDecimal1 decimal 
+datatype ConstraintBool boolean
+datatype ConstraintString2 string minLen 2
+datatype ConstraintDecimal2 decimal precision 2
+
+	entity TestConstrainteOnType {
+		b : ConstraintString1
+		c : ConstraintDecimal1
+		d : ConstraintBool
+		b1 : ConstraintString2
+		c1 : ConstraintDecimal2
+	}
+	
+	element TestConstrainteOnType
+}

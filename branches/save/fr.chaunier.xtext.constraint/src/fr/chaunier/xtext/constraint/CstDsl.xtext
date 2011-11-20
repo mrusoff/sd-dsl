@@ -1,0 +1,135 @@
+grammar fr.chaunier.xtext.constraint.CstDsl with org.eclipse.xtext.common.Terminals
+
+generate cstDsl "http://www.chaunier.fr/xtext/constraint/CstDsl"
+
+import  "platform:/resource/fr.chaunier.xtext.om/src-gen/fr/chaunier/xtext/om/OmDsl.ecore" as mm 
+
+DomainModelConstraint:
+//	fileSpecification=FileSpecification
+	imports+=Import*
+	(elements+=AbstractElementConstraint)*;
+	
+
+Specification:
+	FileSpecification | FreeSpecification
+;
+
+FileSpecification:
+	format= 'XSD' | 'DTD' | 'FLAT' | 'CSV' 'delimiter' delimiter = STRING | 'DB'  
+;	
+FreeSpecification:
+	'line' lines+=STRING* 
+;
+
+AbstractElementConstraint:
+	PackageConstraint | DataTypeConstraint | EntityConstraint /* | Import */ ;
+
+Import:
+	'import' importedNamespace=QualifiedNameWithWildCard;
+
+QualifiedNameWithWildCard:
+	QualifiedName '.*'?;
+
+QualifiedName:
+	ID ('.' ID)*;
+
+PackageConstraint :
+	'package' packageDeclaration=[mm::PackageDeclaration] ('prefix' prefix=QualifiedName) ('namespace' namespace=STRING) '{'
+		(types+=TypeConstraint)*
+	'}' 
+	;
+
+
+TypeConstraint:
+	( EntityConstraint | DataTypeConstraint | EnumerationConstraint )
+	;  
+	
+DataTypeConstraint:
+	'datatype' dataType=[mm::DataType] (constraint=Constraint)?  (description=STRING )?  ;
+
+EnumerationConstraint:
+	'enum' enumerate=[mm::Enumeration] (constraint=Constraint)?  (description=STRING )?  ;
+
+EntityConstraint:
+	'entity' entity=[mm::Entity] (description=STRING )? '{'
+		(features+=FeatureConstraint)*
+	'}';
+
+FeatureConstraint:
+	AttributeConstraint (constraint=Constraint)?  (description=STRING )? //| Operation
+	;
+
+AttributeConstraint:
+	attribute=[mm::Attribute]  ;
+
+
+	
+Constraint :
+   (BoolConstraint | StringConstraint | DateTimeConstraint | DecimalConstraint | EnumConstraint) 
+	;
+
+BoolConstraint:
+    constraint="boolean" 
+    ;
+
+StringConstraint:
+    constraint="string" constraintRef=AllConstraint
+    ("regexp" regularExpression=STRING)?
+
+    ;
+
+DateTimeConstraint:
+    constraint="datetime"
+//    accuracy=DateTimeAccuracy
+    dataType=[mm::DataType]
+    (hasDefault?="default" defaultValue=STRING)?
+    ;
+
+//enum DateTimeAccuracy:
+//    Month="month" | Year="year" | Day = "day" | Hour = "hour" | Minute = "minute" |
+//    Second = "second" | Millisecond = "millisecond"
+//    ;
+
+DecimalConstraint:
+    constraint="decimal" constraintRef=NumberConstraint
+    ;
+
+enum EnumUsage:
+	asString="as String" | asValue="as Value"  ;
+	
+
+EnumConstraint:
+   'enum' (usage=EnumUsage) ("fixeLen" fixeLen=INT)?
+    (hasDefault?="default" defaultValueAsString=ID)?
+    ; 
+
+NumberConstraint:	 
+	(
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+	("minVal" minValue=INT)? 
+	("maxVal" maxValue=INT)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(isId?="id")? 
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsdA.")? 
+	);
+	
+AllConstraint:	 
+	(
+	(hasDefault?="default" defaultValue=STRING)? 
+    (isFixed?="fixed" fixedValue=STRING)?
+    ("minLen" minLen=INT)? 
+    ("maxLen" maxLen=INT)? 
+    ("fixeLen" fixeLen=INT)? 
+    ("paddle" paddle=STRING)?
+	(isId?="id")? 
+	(nullable?="nullable")?
+	(derived?="derived" (writable?="writable")?)?
+	(isXSDAtt?="xsdA.")? 
+	)
+;

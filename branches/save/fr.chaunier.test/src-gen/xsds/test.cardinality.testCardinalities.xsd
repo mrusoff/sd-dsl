@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:test3="http://www.chaunier.fr/test3" 
+attributeFormDefault="unqualified" 
+elementFormDefault="unqualified" 
+targetNamespace="http://www.chaunier.fr/test3"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:test="http://www.chaunier.fr/test"
+>
+<xsd:import schemaLocation="testtypes.xsd" namespace="http://www.chaunier.fr/test"></xsd:import>
+      <xsd:complexType name="MyEntityRefType" >
+      <xsd:annotation>
+      <xsd:documentation>to be refered</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="a"  type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>test cardinalité 1..1</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="b" minOccurs="0"
+           type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>test cardinalité 0..1</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+          <xsd:element name="cs" maxOccurs="unbounded"
+           type="xsd:string" 
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>test cardinalité 0..n</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyEntityType" >
+      <xsd:annotation>
+      <xsd:documentation>to be contain</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="a"  type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="b" minOccurs="0"
+           type="xsd:string" 
+          >
+           </xsd:element>
+          <xsd:element name="cs" maxOccurs="unbounded"
+           type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyAbstractType" abstract="true">
+      <xsd:annotation>
+      <xsd:documentation>test abstract</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="aAbs"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyFeatureType" >
+      <xsd:annotation>
+      <xsd:documentation>test feature</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="contain"  type="test3:MyEntityType"	
+          >
+          		<xsd:annotation>
+          		<xsd:documentation>test containment</xsd:documentation>
+          		</xsd:annotation>
+           </xsd:element>
+      </xsd:sequence>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyFeatureHeritedType" >
+      <xsd:complexContent>
+      <xsd:extension base="test3:MyFeatureType">
+      <xsd:annotation>
+      <xsd:documentation>test heritage</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="f"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      </xsd:extension>
+      </xsd:complexContent>
+      	</xsd:complexType>  
+      <xsd:complexType name="MyFeatureConcreteType" >
+      <xsd:complexContent>
+      <xsd:extension base="test3:MyAbstractType">
+      <xsd:annotation>
+      <xsd:documentation>test heritage abstract</xsd:documentation>
+      </xsd:annotation>
+      <xsd:sequence>
+          <xsd:element name="f"  type="xsd:string" 
+          >
+           </xsd:element>
+      </xsd:sequence>
+      </xsd:extension>
+      </xsd:complexContent>
+      	</xsd:complexType>  
+      <xsd:element name="myAbstract" type="test3:MyAbstractType" abstract="true"></xsd:element>
+      <xsd:element name="myFeatureConcrete" type="test3:MyFeatureConcreteType" substitutionGroup="test3:myAbstract"></xsd:element>
+    </xsd:schema>  

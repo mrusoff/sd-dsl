@@ -1,0 +1,104 @@
+
+
+	
+h1. package : catalogue
+
+table{border:1px solid black}.
+| **name** | catalogue
+| **namspace** | org.toto
+| **prefix** | cat
+
+
+h2.	Classes definition
+
+* !icons/Entity.gif!"Catalogue":#Catalogue
+* !icons/Entity.gif!"Publication":#Publication
+* !icons/Entity.gif!"BookType":#BookType
+* !icons/Entity.gif!"Magazine":#Magazine
+
+
+h2. Types definition
+
+* !icons/Datatype.gif!"String":#String
+* !icons/Datatype.gif!"Date":#Date
+
+
+	
+
+
+
+h3(#Catalogue). Class Name : Catalogue  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| name | "String":catalogue.html#String | [1..1] |  |  |
+			
+			
+
+
+h3(#Publication). Class Name : Publication  
+
+p{color:blue}. 
+
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| title | "String":catalogue.html#String | [1..1] |  |  |
+|2 !icons/Attribute.gif!| author | "String":catalogue.html#String | [1..*] |  |  |
+|3 !icons/Attribute.gif!| date | "Date":catalogue.html#Date | [1..1] |  |  |
+			
+			
+
+
+h3(#BookType). Class Name : BookType  
+
+p{color:blue}. 
+
+ Super types  Publication
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Semantic |_. Constraint  |_. Documentation  |_.
+|1 !icons/Attribute.gif!| title | "String":catalogue.html#String | [1..1] |  |  |
+|2 !icons/Attribute.gif!| author | "String":catalogue.html#String | [1..*] |  |  |
+|3 !icons/Attribute.gif!| date | "Date":catalogue.html#Date | [1..1] |  |  |
+|4 !icons/Attribute.gif!| isbn | "String":catalogue.html#String | [1..1] |  |  |
+|5 !icons/Attribute.gif!| publisher | "String":catalogue.html#String | [1..1] |  |  |
+			
+			
+
+
+h3(#Magazine). Class Name : Magazine  
+
+p{color:blue}. 
+
+ Super types  Publication
+			
+
+
+
+h3(#String). DataType Name : String
+
+p{color:blue}. 
+
+
+
+h3(#Date). DataType Name : Date
+
+p{color:blue}. 
+
+
+
+
+
+
+
+
+	

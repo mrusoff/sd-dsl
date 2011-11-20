@@ -1,0 +1,13 @@
+import invoice_csv
+
+entity invoice_flat.BillTo: maried 
+
+entity invoice_csv.Facture: entete.client.adresse.codePostale 
+
+entity invoice_flat.BillTo : address.city
+
+entity invoice_xsd.BillTo : postalAddress.adresse
+
+entity invoice_xsd2.BillTo : postalAddress.person.firstName
+
+entity invoice_xsd2.BillTo : postalAddress.person.gender

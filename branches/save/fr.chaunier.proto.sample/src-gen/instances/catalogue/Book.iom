@@ -1,0 +1,11 @@
+    import catalogue.*
+    Book book  {
+    	//path catalogue.Book.isbn  qn catalogue.String
+    	isbn = 'isbn'
+    	//path catalogue.Book.publisher  qn catalogue.String
+    	publisher = 'publisher'
+    	//path catalogue.Book.title  qn catalogue.String
+    	title = 'title'
+    	//path catalogue.Book.ddate  qn catalogue.Date
+    	ddate = 'ddate'
+    }

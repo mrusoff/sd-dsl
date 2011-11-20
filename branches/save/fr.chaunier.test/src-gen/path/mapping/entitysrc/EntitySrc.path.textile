@@ -1,0 +1,12 @@
+	6
+	
+h1. Enity source : EntitySrc 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | mapping.entitysrc.EntitySrc:a | DataType | [0..1] |  |  | | 
+	 | mapping.entitysrc.EntitySrc:b | DataType | [1..1] |  |  | | 
+	 | **mapping.entitysrc.EntitySrc:n** | Entity | [1..1] |  |  | | 
+	 | mapping.entitysrc.EntitySrc:n.civility | Enum | [1..1] |  |  | | 
+	 | **mapping.entitysrc.EntitySrc:n.ee** | Entity | [1..1] |  |  | | 
+	 | mapping.entitysrc.EntitySrc:n.ee.eee | Enum | [1..1] |  |  | | 

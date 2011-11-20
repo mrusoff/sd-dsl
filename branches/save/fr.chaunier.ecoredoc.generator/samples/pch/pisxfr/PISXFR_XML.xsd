@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_PISXFR/0_Ressources/InputFormats/Schema.xsd2"
+	 targetNamespace="http://www.tibco.com/schemas/CLP_PriseEnCharge/Echanges/PriseEnCharge/IN_PISXFR/0_Ressources/InputFormats/Schema.xsd2"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:element name="enregistrement_hhh">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="site_emission" type="xsd:string"/>
+				<xsd:element name="site_reception" type="xsd:string"/>
+				<xsd:element name="fichier_cible" type="xsd:string"/>
+				<xsd:element name="arbo_cible" type="xsd:string"/>
+				<xsd:element name="appli_receptrice" type="xsd:string"/>
+				<xsd:element name="arbo_appli_cible" type="xsd:string"/>
+				<xsd:element name="equipement_recep" type="xsd:string"/>
+				<xsd:element name="compteur" type="xsd:string"/>
+				<xsd:element name="horodatage_fichier" type="xsd:string"/>
+				<xsd:element name="nb_enregs" type="xsd:string"/>
+				<xsd:element name="nom_fichier_orig" type="xsd:string"/>
+				<xsd:element name="version_norme" type="xsd:string"/>
+				<xsd:element name="equipement_emetteur" type="xsd:string"/>
+				<xsd:element name="application_emettrice" type="xsd:string"/>
+				<xsd:element name="donnees_complementaires" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enregistrement_bbb">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="id_bordereau" type="xsd:string"/>
+				<xsd:element name="date_expedition" type="xsd:string"/>
+				<xsd:element name="date_validation" type="xsd:string"/>
+				<xsd:element name="code_tournee" type="xsd:string"/>
+				<xsd:element name="code_regate" type="xsd:string"/>
+				<xsd:element ref="enregistrement_ddd" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enreg_bbb">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="id_bordereau" type="xsd:string"/>
+				<xsd:element name="date_expedition" type="xsd:string"/>
+				<xsd:element name="date_validation" type="xsd:string"/>
+				<xsd:element name="code_tournee" type="xsd:string"/>
+				<xsd:element name="code_regate" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enreg_ddd">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="code_produit" type="xsd:string"/>
+				<xsd:element name="no_colis" type="xsd:string"/>
+				<xsd:element name="poids_annonce" type="xsd:string"/>
+				<xsd:element name="code_postal_desti_annonce" type="xsd:string"/>
+				<xsd:element name="crbt_annonce" type="xsd:string"/>
+				<xsd:element name="valeur_declaree_annonce" type="xsd:string"/>
+				<xsd:element name="livraison_samedi_annonce" type="xsd:string"/>
+				<xsd:element name="hors_gabarit_annonce" type="xsd:string"/>
+				<xsd:element name="code_situation" type="xsd:string"/>
+				<xsd:element name="code_justification" type="xsd:string"/>
+				<xsd:element name="poids_mesure" type="xsd:string"/>
+				<xsd:element name="valeur_declaree_mesure" type="xsd:string"/>
+				<xsd:element name="crbt_mesure" type="xsd:string"/>
+				<xsd:element name="hors_gabarit_mesure" type="xsd:string"/>
+				<xsd:element name="code_postal_desti_mesure" type="xsd:string"/>
+				<xsd:element name="date_evt" type="xsd:string"/>
+				<xsd:element name="heure_evt" type="xsd:string"/>
+				<xsd:element name="pays_destinataire_mesure" type="xsd:string"/>
+				<xsd:element name="pays_destinataire_annonce" type="xsd:string"/>
+				<xsd:element name="accuse_reception_annonce" type="xsd:string"/>
+				<xsd:element name="ftd_annonce" type="xsd:string"/>
+				<xsd:element name="livraison_relais_annonce" type="xsd:string"/>
+				<xsd:element name="suivi_sac_direct_annonce" type="xsd:string"/>
+				<xsd:element name="code_client_annonce" type="xsd:string"/>
+				<xsd:element name="recommandation_annonce" type="xsd:string"/>
+				<xsd:element name="type_prepa_annonce" type="xsd:string"/>
+				<xsd:element name="type_prepa_mesure" type="xsd:string"/>
+				<xsd:element name="devise_crbt" type="xsd:string"/>
+				<xsd:element name="devise_valeur_declaree" type="xsd:string"/>
+				<xsd:element name="code_justification2" type="xsd:string"/>
+				<xsd:element name="accuse_reception_mesure" type="xsd:string"/>
+				<xsd:element name="ftd_mesure" type="xsd:string"/>
+				<xsd:element name="recommandation_mesure" type="xsd:string"/>
+				<xsd:element name="valeur_ftd" type="xsd:string"/>
+				<xsd:element name="code_equipement" type="xsd:string"/>
+				<xsd:element name="libelle_equipement" type="xsd:string"/>
+				<xsd:element name="commentaire_refection" type="xsd:string"/>
+				<xsd:element name="longueur" type="xsd:string"/>
+				<xsd:element name="largeur" type="xsd:string"/>
+				<xsd:element name="hauteur" type="xsd:string"/>
+				<xsd:element name="cod_bordereau" type="xsd:string"/>
+				<xsd:element name="cab_illisible" type="xsd:string"/>
+				<xsd:element name="fausse_direction" type="xsd:string"/>
+				<xsd:element name="cle_erronee" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enregistrement_ddd">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="code_produit" type="xsd:string"/>
+				<xsd:element name="no_colis" type="xsd:string"/>
+				<xsd:element name="poids_annonce" type="xsd:string"/>
+				<xsd:element name="code_postal_desti_annonce" type="xsd:string"/>
+				<xsd:element name="crbt_annonce" type="xsd:string"/>
+				<xsd:element name="valeur_declaree_annonce" type="xsd:string"/>
+				<xsd:element name="livraison_samedi_annonce" type="xsd:string"/>
+				<xsd:element name="hors_gabarit_annonce" type="xsd:string"/>
+				<xsd:element name="code_situation" type="xsd:string"/>
+				<xsd:element name="code_justification" type="xsd:string"/>
+				<xsd:element name="poids_mesure" type="xsd:string"/>
+				<xsd:element name="valeur_declaree_mesure" type="xsd:string"/>
+				<xsd:element name="crbt_mesure" type="xsd:string"/>
+				<xsd:element name="hors_gabarit_mesure" type="xsd:string"/>
+				<xsd:element name="code_postal_desti_mesure" type="xsd:string"/>
+				<xsd:element name="date_evt" type="xsd:string"/>
+				<xsd:element name="heure_evt" type="xsd:string"/>
+				<xsd:element name="pays_destinataire_mesure" type="xsd:string"/>
+				<xsd:element name="pays_destinataire_annonce" type="xsd:string"/>
+				<xsd:element name="accuse_reception_annonce" type="xsd:string"/>
+				<xsd:element name="ftd_annonce" type="xsd:string"/>
+				<xsd:element name="livraison_relais_annonce" type="xsd:string"/>
+				<xsd:element name="suivi_sac_direct_annonce" type="xsd:string"/>
+				<xsd:element name="code_client_annonce" type="xsd:string"/>
+				<xsd:element name="recommandation_annonce" type="xsd:string"/>
+				<xsd:element name="type_prepa_annonce" type="xsd:string"/>
+				<xsd:element name="type_prepa_mesure" type="xsd:string"/>
+				<xsd:element name="devise_crbt" type="xsd:string"/>
+				<xsd:element name="devise_valeur_declaree" type="xsd:string"/>
+				<xsd:element name="code_justification2" type="xsd:string"/>
+				<xsd:element name="accuse_reception_mesure" type="xsd:string"/>
+				<xsd:element name="ftd_mesure" type="xsd:string"/>
+				<xsd:element name="recommandation_mesure" type="xsd:string"/>
+				<xsd:element name="valeur_ftd" type="xsd:string"/>
+				<xsd:element name="code_equipement" type="xsd:string"/>
+				<xsd:element name="libelle_equipement" type="xsd:string"/>
+				<xsd:element name="commentaire_refection" type="xsd:string"/>
+				<xsd:element name="longueur" type="xsd:string"/>
+				<xsd:element name="largeur" type="xsd:string"/>
+				<xsd:element name="hauteur" type="xsd:string"/>
+				<xsd:element name="cod_bordereau" type="xsd:string"/>
+				<xsd:element name="cab_illisible" type="xsd:string"/>
+				<xsd:element name="fausse_direction" type="xsd:string"/>
+				<xsd:element name="cle_erronee" type="xsd:string"/>
+				<xsd:element ref="enregistrement_ddd002" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="enregistrement_ddd002">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="type_enregistrement" type="xsd:string"/>
+				<xsd:element name="type_flux" type="xsd:string"/>
+				<xsd:element name="code_produit" type="xsd:string"/>
+				<xsd:element name="no_colis" type="xsd:string"/>
+				<xsd:element name="nom_destinataire" type="xsd:string"/>
+				<xsd:element name="adresse1_destinataire" type="xsd:string"/>
+				<xsd:element name="adresse2_destinataire" type="xsd:string"/>
+				<xsd:element name="adresse3_destinataire" type="xsd:string"/>
+				<xsd:element name="ville_destinataire" type="xsd:string"/>
+				<xsd:element name="regime_transport" type="xsd:string"/>
+				<xsd:element name="code_tva" type="xsd:string"/>
+				<xsd:element name="mode_port" type="xsd:string"/>
+				<xsd:element name="ref_remettant" type="xsd:string"/>
+				<xsd:element name="commentaire1" type="xsd:string"/>
+				<xsd:element name="commentaire2" type="xsd:string"/>
+				<xsd:element name="remboursement_droits" type="xsd:string"/>
+				<xsd:element name="livraison_destinataire" type="xsd:string"/>
+				<xsd:element name="traitement_manuel" type="xsd:string"/>
+				<xsd:element name="remise_signature" type="xsd:string"/>
+				<xsd:element name="alerte_destinataire" type="xsd:string"/>
+				<xsd:element name="tel_destinataire" type="xsd:string"/>
+				<xsd:element name="livraison_soir" type="xsd:string"/>
+				<xsd:element name="id_colis_partenaire" type="xsd:string"/>
+				<xsd:element name="email_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="tel_mobile_destinataire" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="type_alerte_destinataire" type="xsd:string" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="enregistrement_hhh"/>
+				<xsd:element ref="enregistrement_bbb" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:header="http://www.coliposte.fr/header"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 xmlns:bomshr="http://www.coliposte.fr/business_shared"
+	 targetNamespace="http://www.coliposte.fr/header"
+	 elementFormDefault="unqualified"
+	 attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.coliposte.fr/business_shared" schemaLocation="business_shared.xsd"/>
+	<xsd:complexType name="HeaderType">
+		<xsd:annotation>
+			<xsd:documentation>infos d identification du message et SLA</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="canal" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="type" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="siteSource" type="bomshr:SiteType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="siteDestination" type="bomshr:SiteType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="enveloppeSource" type="bomshr:EnveloppeType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="enveloppeDestination" type="bomshr:EnveloppeType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="dateReception" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="instanceIDTibco" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="typedeFlux" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation/>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string"/>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="nomFichier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="versionFichier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="identifiantFichier" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="dateEmisPart" type="xsd:dateTime" minOccurs="0"/>
+			<xsd:element name="dateReceptTradX" type="xsd:dateTime" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,19 @@
+    import test.constraint.strings.*
+    MyStrings2 mystrings2  {
+    	//path test.constraint.strings.MyStrings2.defaultStr  qn test.constraint.strings.DT
+    	defaultStr = 'defaultStr'
+    	//path test.constraint.strings.MyStrings2.str  qn test.constraint.strings.DTS
+    	str = 'str'
+    	//path test.constraint.strings.MyStrings2.str20  qn test.constraint.strings.DTS20
+    	str20 = 'str20'
+    	//path test.constraint.strings.MyStrings2.str02  qn test.constraint.strings.DTS02
+    	str02 = 'str02'
+    	//path test.constraint.strings.MyStrings2.str25  qn test.constraint.strings.DTS25
+    	str25 = 'str25'
+    	//path test.constraint.strings.MyStrings2.str22  qn test.constraint.strings.DTS22
+    	str22 = 'str22'
+    	//path test.constraint.strings.MyStrings2.strFixe  qn test.constraint.strings.DTSFIXE
+    	strFixe = 'strFixe'
+    	//path test.constraint.strings.MyStrings2.strDef  qn test.constraint.strings.DTSDF
+    	strDef = 'strDef'
+    }

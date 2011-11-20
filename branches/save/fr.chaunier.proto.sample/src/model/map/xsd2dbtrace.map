@@ -1,0 +1,15 @@
+model xsd2dbTrace Entity source invoice_xsd.Invoice Entity target db.trace_db.Trace
+
+map all {
+	
+	//DataType	[1..1]			
+	from header.ddate to dateInvoice
+	from header.billTo.customerNumber to customerNumberInvoice
+
+	//DataType	[1..1]	decimal 		
+	//db.trace_db.Trace:customerNumber
+	//DataType	[1..1]			
+	//db.trace_db.Trace:invoiceNumber
+	//DataType	[1..1]			
+	//db.trace_db.Trace:totalAmount
+}

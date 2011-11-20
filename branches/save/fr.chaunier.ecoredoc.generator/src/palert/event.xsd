@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Created with Liquid XML Studio - 30 Day Trial Edition 7.0.2.746 (http://www.liquid-technologies.com)-->
+<xsd:schema xmlns:evt="http://www.coliposte.fr/event"
+	 xmlns:com="http://www.telintrans.fr/common"
+	 xmlns:srv="http://www.coliposte.fr/service"
+	 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	 targetNamespace="http://www.coliposte.fr/event"
+	 elementFormDefault="qualified"
+	 attributeFormDefault="unqualified">
+	<xsd:complexType name="EvenementType">
+		<xsd:annotation>
+			<xsd:documentation>information évènement traité</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="dateFlashage" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>date de l'évènement (date et heure)</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="codeEvenement" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>code de l'évènement</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

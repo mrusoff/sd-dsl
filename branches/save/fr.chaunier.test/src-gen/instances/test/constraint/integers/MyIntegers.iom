@@ -1,0 +1,17 @@
+    import test.constraint.integers.*
+    MyIntegers myintegers  {
+    	//path test.constraint.integers.MyIntegers.c  qn test.constraint.integers.Name
+    	c = 
+    	//path test.constraint.integers.MyIntegers.c4  qn test.constraint.integers.Name
+    	c4 = 
+    	//path test.constraint.integers.MyIntegers.c55  qn test.constraint.integers.Name
+    	c55 = 
+    	//path test.constraint.integers.MyIntegers.c6  qn test.constraint.integers.Name
+    	c6 = 
+    	//path test.constraint.integers.MyIntegers.c7  qn test.constraint.integers.Name
+    	c7 = 
+    	//path test.constraint.integers.MyIntegers.c8  qn test.constraint.integers.Name
+    	c8 = 
+    	//path test.constraint.integers.MyIntegers.d3  qn test.constraint.integers.Name
+    	d3 = 
+    }

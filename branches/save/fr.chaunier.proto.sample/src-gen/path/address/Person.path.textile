@@ -1,0 +1,10 @@
+	4
+	
+h1. Enity source : Person 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | address.Person:civility | Enum | [0..1] |  | civilité | | 
+	 | address.Person:firstName | DataType | [0..1] |  | prenom | | 
+	 | address.Person:secondName | DataType | [0..1] |  | nom | | 
+	 | address.Person:gender | Enum | [1..1] |  | situation familiale | | 

@@ -1,0 +1,14 @@
+	8
+	
+h1. Enity source : MyDecimals3 
+	
+table{border:1px solid black}.
+|_. Path |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+	 | test.constraint.decimals.MyDecimals3:defaultStr | DataType | [1..1] |  | string par defaut | | 
+	 | test.constraint.decimals.MyDecimals3:str | DataType | [1..1] | decimal  | definition type string | | 
+	 | test.constraint.decimals.MyDecimals3:str20 | DataType | [1..1] | decimal max Value 2.0  | definition min len 2 | | 
+	 | test.constraint.decimals.MyDecimals3:str02 | DataType | [1..1] | decimal  | definition max len 2 | | 
+	 | test.constraint.decimals.MyDecimals3:str25 | DataType | [1..1] | decimal min Value 2.0 max Value 5.10  | definition min len 2 et max len 5 | | 
+	 | test.constraint.decimals.MyDecimals3:str22 | DataType | [1..1] | decimal fixe Len 2  | definition fixe len 2 | | 
+	 | test.constraint.decimals.MyDecimals3:strFixe | DataType | [1..1] | decimal fixe value 0.2  | definition fixed value ff | | 
+	 | test.constraint.decimals.MyDecimals3:strDef | DataType | [1..1] | decimal default 0.00  | definition default DEFAUT | | 

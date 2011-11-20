@@ -1,0 +1,16 @@
+h1. entity root : MyStrings1
+
+p{color:blue}. 
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|defaultStr|Name | [1..1] |  | string par defaut
+|2|str|Name | [1..1] |  | definition type string
+|3|str20|Name | [1..1] |  | definition min len 2
+|4|str02|Name | [1..1] |  | definition max len 2
+|5|str25|Name | [1..1] |  | definition min len 2 et max len 5
+|6|str22|Name | [1..1] |  | definition fixe len 2
+|7|strFixe|Name | [1..1] |  | definition fixed value ff
+|8|strDef|Name | [1..1] |  | definition default DEFAUT

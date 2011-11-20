@@ -1,0 +1,5 @@
+    import address.*
+    Phone phone  {
+    	//path address.Phone.numero  qn address.PhoneFormat
+    	numero = 'numero'
+    }

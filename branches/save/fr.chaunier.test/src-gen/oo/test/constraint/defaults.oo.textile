@@ -1,0 +1,50 @@
+
+h1. package : test.constraint.defaults
+
+table{border:1px solid black}.
+| **name** | **prefix** | **namspace** | 
+| test.constraint.defaults  | dat | http://www.chaunier.fr/date 
+
+
+h2(#DataTypes). DataTypes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Constraint  |_. Documentation  |_.
+|!icons/Property.gif!| Name |  |  
+|!icons/Property.gif!| DT |  | string par defaut 
+|!icons/Property.gif!| DTS | string  | definition type string 
+|!icons/Property.gif!| DTS20 | string min Len 2  | definition min len 2 
+|!icons/Property.gif!| DTS02 | string max Len 2  | definition max len 2 
+|!icons/Property.gif!| DTS25 | string min Len 2 max Len 5  | definition min len 2 et max len 5 
+|!icons/Property.gif!| DTS22 | string fixe Len 2  | definition fixe len 2 
+|!icons/Property.gif!| DTSFIXE | string fixe value ff  | definition fixed value ff 
+|!icons/Property.gif!| DTSDF | string default DEFAUT  | definition default DEFAUT 
+
+
+h2. Entites
+
+table{border:1px solid black}.
+|_.|_. Name  |_. Documentation  |_.
+|!icons/Entity.gif!|MyStrings2|
+
+
+
+h2. Entities
+
+
+h3(#MyStrings2). Class Name : MyStrings2  
+
+p{color:blue}. 
+
+h4. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+    |!icons/Property.gif!| defaultStr | "DT":test.constraint.defaults.html##DataTypes | [1..1] | | string par defaut 
+    |!icons/Property.gif!| str | "DTS":test.constraint.defaults.html##DataTypes | [1..1] | string | definition type string 
+    |!icons/Property.gif!| str20 | "DTS20":test.constraint.defaults.html##DataTypes | [1..1] | string min Len 2 | definition min len 2 
+    |!icons/Property.gif!| str02 | "DTS02":test.constraint.defaults.html##DataTypes | [1..1] | string max Len 2 | definition max len 2 
+    |!icons/Property.gif!| str25 | "DTS25":test.constraint.defaults.html##DataTypes | [1..1] | string min Len 2 max Len 5 | definition min len 2 et max len 5 
+    |!icons/Property.gif!| str22 | "DTS22":test.constraint.defaults.html##DataTypes | [1..1] | string fixe Len 2 | definition fixe len 2 
+    |!icons/Property.gif!| strFixe | "DTSFIXE":test.constraint.defaults.html##DataTypes | [1..1] | string fixe value ff | definition fixed value ff 
+    |!icons/Property.gif!| strDef | "DTSDF":test.constraint.defaults.html##DataTypes | [1..1] | string default DEFAUT | definition default DEFAUT 

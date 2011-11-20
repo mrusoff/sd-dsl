@@ -1,0 +1,16 @@
+h1. entity root : Address
+
+p{color:blue}. definition adresse localisation d'un site
+
+h2. Attributes
+
+table{border:1px solid black}.
+|_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
+|1|line1|Libelle | [0..1] |  | 
+|2|line2|Libelle | [0..1] |  | 
+|3|line3|Libelle | [0..1] |  | 
+|4|line4|Libelle | [0..1] |  | 
+|5|zipCode|ZipCode | [0..1] |  | code postal
+|6|city|City | [0..1] |  | 
+|7|countryCode|CountryCode | [0..1] |  | 
+|8|coutry|Libelle | [0..1] |  | 

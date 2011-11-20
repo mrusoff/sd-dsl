@@ -1,0 +1,13 @@
+4
+
+    Enity source : Book 
+
+
+//DataType	[1..1]			
+//isbn
+//DataType	[1..1]			
+//publisher
+//DataType	[1..1]			
+//title
+//DataType	[1..1]			
+//ddate
