@@ -55,8 +55,8 @@ class OoTextileGenerator implements IGenerator  {
 
   def compileTxtSummary(PackageDeclaration pac,Iterable<Entity> entities) '''
 «val importManager = new ImportManager()» 
-«val h = new OmHelper()»
-«val iconPath = '../' + Helpers::getRelativeRoot(h.QualifiedName(pac)) + 'icons'»
+«val OmHelper = new OmHelper()»
+«val iconPath = '../' + Helpers::getRelativeRoot(OmHelper.QualifiedName(pac)) + 'icons/'»
 
 h1. package : «pac.name»
 
@@ -76,25 +76,16 @@ table{border:1px solid black}.
 
 ////////// summury
 
-	def enumerationString(Enumeration en) {
-		var res = '['
-	      for (l:en.enumerationLiterals) {
-			res = res + '(' l.name + ',' + l.persistedValue +') ' 
-			}
-		res = res + ']'	 
-	}
-
-//!"«t.name»":#«t.name»
-
   // draw enumerations table
   def enumsTxt(Iterable<Enumeration> enums,ImportManager importManager,String iconPath) '''
 	«IF enums.size > 0» 
+«var entityRenderer = EntityFactory::entityInstance»
 h2(#Enumerations). Enumerations  
 	  
 table{border:1px solid black}.
 |_.|_. Name |_. Constraint  |_. Documentation  |_.
       «FOR e:enums»	
-|!«iconPath»+/Property.gif!| «e.name» | «e.enumerationString» | |
+|!«iconPath»Enumeration.gif!| «e.name» | «entityRenderer.enumerationString(e)» | |
       «ENDFOR»
 
 	«ENDIF»
@@ -113,7 +104,7 @@ h2(#DataTypes). DataTypes
 table{border:1px solid black}.
 |_.|_. Name |_. Constraint  |_. Documentation  |_.
      «FOR dt:datatypes»	
-|!«iconPath»/Property.gif!| «dt.name» | «entityRenderer.constraintInFeature(dt)» | «dt.description» 
+|!«iconPath»DataType.gif!| «dt.name» | «entityRenderer.constraintInFeature(dt)» | «dt.description» 
       «ENDFOR»
 
 	«ENDIF»
@@ -126,8 +117,8 @@ h2. Entites
 
 table{border:1px solid black}.
 |_.|_. Name  |_. Documentation  |_.
-      «FOR t:entities»	
-|!«iconPath»/Entity.gif!|«t.name»|
+      «FOR e:entities»	
+|!«iconPath»Entity.gif!|«e.linkHtml»«e.name»|
       «ENDFOR»
 
 	«ENDIF»
@@ -138,8 +129,8 @@ table{border:1px solid black}.
 
   def compileTxtBody(PackageDeclaration pac,Iterable<Entity> entities) '''
     «val importManager = new ImportManager()» 
-«val h = new OmHelper()»
-«val iconPath = Helpers::getRelativeRoot(h.QualifiedName(pac)) + 'icons'»
+«val OmHelper = new OmHelper()»
+«val iconPath = '../' + Helpers::getRelativeRoot(OmHelper.QualifiedName(pac)) + 'icons/'»
 «val body = bodyTxt(entities, importManager,iconPath)»
 «val pcks = importManager.getImportPackages(pac)»
 «FOR i:pcks»
@@ -162,17 +153,17 @@ h2. Entities
 
 def entityDetailTxt(Entity e, ImportManager importManager,String iconPath) '''
 
-h3(#«e.name»). Class Name : «e.name» «IF e.superType!=null» Super types  «e.superType.name»«ENDIF» «IF e.isAbstract»abstract«ENDIF»
+h3(#«e.name»). Class Name : «e.name» «IF e.superType!=null» Super types  «e.linkHtml»«e.superType.name»«ENDIF» «IF e.isAbstract»abstract«ENDIF»
 
 p{color:blue}. «e.description»
 
-h4. Attributes
-
+«IF e.features.size != 0»
 table{border:1px solid black}.
 |_.|_. Name |_. Type |_. Cardinality |_. Constraint  |_. Documentation  |_.
     «FOR f:e.features»
        «featureTxt(f, importManager,iconPath)»
     «ENDFOR»
+«ENDIF»    
   '''
 
  def dispatch featureTxt(Feature f, ImportManager importManager,String iconPath) '''
@@ -181,29 +172,15 @@ table{border:1px solid black}.
   def dispatch featureTxt(Attribute a, ImportManager importManager,String iconPath) '''
 «var entityRenderer = EntityFactory::entityInstance»
 «entityRenderer.setIconPath(iconPath)»
-|!«iconPath»/Property.gif!| «a.name» | «a.type.referenced.linkHtml» | «entityRenderer.cardinality(a)» | «entityRenderer.constraintInFeature(a)»| «a.description» 
+|!«iconPath»Property.gif!| «a.name» | «a.type.referenced.linkHtml» | «entityRenderer.cardinality(a)» | «entityRenderer.constraintInFeature(a)»| «a.description» 
    '''
 
   
   def dispatch featureTxt(Reference r, ImportManager importManager,String iconPath) '''
 «var entityRenderer = EntityFactory::entityInstance»
 «entityRenderer.setIconPath(iconPath)»
-|!«iconPath»/Property.gif!| «r.name» | «r.type.referenced.linkHtml» | «entityRenderer.cardinality(r)» | | «r.description» 
+|!«iconPath»Property.gif!| «r.name» | «r.type.referenced.linkHtml» | «entityRenderer.cardinality(r)» | | «r.description» 
    '''
-
-
- // feature evaluator
-  def constraintInFeature(Attribute a,MultiCellsFeatureRenderer renderer) {
-  	if ( a.constraint == null ) return ''
-  	return renderer.constraint(a.constraint)  	
-  }
-  
-  def constraintInFeature(DataType dt,MultiCellsFeatureRenderer renderer) {
-  	if ( dt.constraint == null ) return ''
-  	return renderer.constraint(dt.constraint)  	
-  }
-  
-  
   
   def linkHtml(Type type) {
     	val om = new OmHelper()
