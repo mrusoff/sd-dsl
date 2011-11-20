@@ -27,7 +27,7 @@ class MessageTextileGenerator implements IGenerator  {
  */
 	override void doGenerate(Resource input, IFileSystemAccess fsa) {
 		var generatorExtensions = new MsgGeneratorExtensions()
-		var concreteEntities = new HashSet<Entity>()
+//		var concreteEntities = new HashSet<Entity>()
 		var generation = false   
 	    for(fileSpec : input.allContentsIterable.filter(typeof(FileSpecModel))) {
 	      	fsa.generateFile(generatorExtensions.fileName(fileSpec.entity), compileTextile(fileSpec.entity,true))
