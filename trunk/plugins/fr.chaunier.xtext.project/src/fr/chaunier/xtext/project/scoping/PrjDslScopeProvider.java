@@ -26,6 +26,7 @@ import fr.chaunier.xtext.project.prjDsl.TransformationGroup;
  *
  */
 public class PrjDslScopeProvider extends AbstractDeclarativeScopeProvider {
+/*
 	@Override
 	public IScope getScope(EObject context, EReference reference) {
 		System.out.println(
@@ -34,6 +35,7 @@ public class PrjDslScopeProvider extends AbstractDeclarativeScopeProvider {
 			);
 		return super.getScope(context, reference);
 	}
+*/
 	
 //Prj: scope_FileSpec_entity(FileSpec, ..)
 	public TransformationGroup getTransformationGroup(EObject current) {
