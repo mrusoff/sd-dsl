@@ -5,8 +5,16 @@
 package fr.chaunier.xtext.mapping.generator
 
 import fr.chaunier.xtext.mapping.CompletePathMappingBuilder
+import fr.chaunier.xtext.mapping.FunctionArgs
+import fr.chaunier.xtext.mapping.MapArgs
 import fr.chaunier.xtext.mapping.PathMapFeatureRule
+import fr.chaunier.xtext.mapping.RuleArgs
+import fr.chaunier.xtext.mapping.SetArgs
 import fr.chaunier.xtext.mapping.mapDsl.ModelMap
+import fr.chaunier.xtext.mapping.mapDsl.FileSpecModel
+import fr.chaunier.xtext.mapping.mapDsl.SpecInfo
+import fr.chaunier.xtext.mapping.mapDsl.SpecVersion
+import fr.chaunier.xtext.mapping.mapDsl.SpecLine
 import fr.chaunier.xtext.omc.FeaturePathBuilder
 import fr.chaunier.xtext.omc.Helpers
 import fr.chaunier.xtext.omc.InstancePathManager
@@ -17,7 +25,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.internal.xtend.util.Pair
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
-import fr.chaunier.xtext.mapping.*
 
 import static extension org.eclipse.xtext.xtend2.lib.ResourceExtensions.*
 
@@ -43,18 +50,27 @@ class TextileGenerator implements IGenerator {
 	«var pairMap = builder.map(mdl)»
    	«val entityHelper = new OmHelper()»
     «val iconPath = '../' + Helpers::getRelativeRoot(entityHelper.QualifiedName(mdl)) + 'icons/'»
+«dumpSpec(mdl)»
 	«dumpMappingView(mdl,pairMap,iconPath)»
 	«dumpFromView(mdl,pairMap)»
 	«dumpToView(mdl,pairMap)»
 
 '''
- 
-	def dumpMappingView(ModelMap mdl,PathMapFeatureRule pairMap,String iconPath) '''
 
-h1. model **«mdl.name»** mapping view  
-
+	def dumpSpec(ModelMap mdl) '''
 «var omHelper = new OmHelper()»
-h2. source : **«omHelper.QualifiedName(mdl.entityFrom)»** target : **«omHelper.QualifiedName(mdl.entityTo)»**
+«val entitySrc = omHelper.QualifiedName(mdl.entityFrom)»
+«val entityTarget = omHelper.QualifiedName(mdl.entityTo)»
+|**Model**»|«mdl.name»|
+|**Source**|«entitySrc.toString»|
+|**Target**|«entityTarget.toString»|
+«dumpSpec(mdl.spec)»
+'''
+ 
+def dumpMappingView(ModelMap mdl,PathMapFeatureRule pairMap,String iconPath) '''
+«var omHelper = new OmHelper()»
+
+	h3. mapping
 
 table{border:1px solid black}.
 |_. **Source** |_. |_. Feature |_. [..] |_. Constraint |_. |_. **Target** |_. |_. Feature |_. [..] |_. Constraint  |_. Rule
@@ -65,10 +81,13 @@ table{border:1px solid black}.
 	«msgRenderer.setIconPath(iconPath)»
     «val iconCf=msgRenderer.elementType(cf)»
     «val iconSt=msgRenderer.elementType(st)»
- |«mapFromTo.first» | «msgRenderer.constraintType(cf)» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)»  | -> | «mapFromTo.second»  | «msgRenderer.constraintType(st)» | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderArgs(pairMap,mapFromTo)» 
+    «val src= getPath(mdl.sourcePath,mapFromTo.first)»
+    «val target=getPath(mdl.targetPath,mapFromTo.second)»
+ |«src» | «msgRenderer.constraintType(cf)» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)»  | -> | «target»  | «msgRenderer.constraintType(st)» | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderArgs(pairMap,mapFromTo)» 
 	«ENDFOR»
 '''
 
+	
 	def getReference(Attribute a) {
 	var omHelper = new OmHelper()
 	if ( a == null ) return ""
@@ -78,7 +97,7 @@ table{border:1px solid black}.
 
 	def dumpFromView(ModelMap mdl,PathMapFeatureRule pairMap) '''
 	
-	h3. source oriented view
+	h3. source oriented mapping view
 	
 	«var path = new FeaturePathBuilder()»
 	«var instanceManager = new InstancePathManager(mdl.entityFrom)»
@@ -88,13 +107,15 @@ table{border:1px solid black}.
 	| **source** |  | **destination** | 
 	«FOR pFrom:instanceManager.paths»
 	«val pTo = pairMap.getPathFrom(pFrom)» 
-	| «pFrom» |  -> |  «pTo» |     
+    «val src= getPath(mdl.sourcePath,pFrom)»
+    «val target=getPath(mdl.targetPath,pTo)»
+	| «src» |  -> |  «target» |     
 	«ENDFOR»
 	'''
 
 	def dumpToView(ModelMap mdl,PathMapFeatureRule pairMap) '''
 		
-	h3. taget oriented view
+	h3. taget oriented view mapping
 	
 	«var path = new FeaturePathBuilder()»
 	«var instanceManager = new InstancePathManager(mdl.entityTo)»
@@ -104,7 +125,9 @@ table{border:1px solid black}.
 	| **source** |  | **destination** |  
 	«FOR pTo:instanceManager.paths»
 	«val pFrom = pairMap.getPathTo(pTo)» 
-	| «pFrom» |  -> |  «pTo» | 
+    «val src= getPath(mdl.sourcePath,pFrom)»
+    «val target=getPath(mdl.targetPath,pTo)»
+	| «src» |  -> |  «target».«pTo» | 
 	«ENDFOR»
 	'''
 
@@ -131,6 +154,32 @@ def dispatch renderArgs(FunctionArgs args) {
 	return args.name + ' ' + args.operation 
 }
 
+	def getPath(String prefix,String body) {
+		if ( body == null )
+			return ""
+		if ( prefix != null){
+			return prefix+'.'+body
+		} else return body
+	}
+
+
+	def dumpSpec(FileSpecModel specs) {
+		if ( specs != null )
+		for ( sl : specs.specLines )
+			 dumpSpec(sl)
+	} 
+	
+
+	def dispatch dumpSpec(SpecLine psec) '''
+	'''
+
+	def dispatch dumpSpec(SpecInfo spec) '''
+		**«spec.title»** | «spec.label»
+	''' 
+
+	def dispatch dumpSpec(SpecVersion spec) '''
+		**version : «spec.version»** | «spec.comment»
+	''' 
 }
 
 
