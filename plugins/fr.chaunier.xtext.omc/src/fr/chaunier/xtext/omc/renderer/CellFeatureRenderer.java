@@ -196,7 +196,7 @@ public class CellFeatureRenderer implements IFeatureRenderer {
 		if (cst.getDefaultValue() !=null) {
 			strBuilder.append("!"+iconPath + "/");
 			strBuilder.append("Default.gif! ");
-			strBuilder.append(cst.getDefaultValue());
+			strBuilder.append(toStr(cst.getDefaultValue()));
 			strBuilder.append(" ");
 		}
 
@@ -279,5 +279,6 @@ public class CellFeatureRenderer implements IFeatureRenderer {
 			return te.getString().getValue() ;
 		return "";
 	}
+	
 
 }
