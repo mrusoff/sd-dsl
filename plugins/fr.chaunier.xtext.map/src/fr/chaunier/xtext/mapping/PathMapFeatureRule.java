@@ -16,6 +16,26 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 		private Entity source ;
 		private Entity target ;
 		
+		// memorize path model forvcall sub model
+		private String callPathFrom = "" ;
+		public String getCallPathFrom() {
+			return callPathFrom;
+		}
+
+		public void setCallPathFrom(String callPathFrom) {
+			this.callPathFrom = callPathFrom;
+		}
+
+		public String getCallPathTo() {
+			return callPathTo;
+		}
+
+		public void setCallPathTo(String callPathTo) {
+			this.callPathTo = callPathTo;
+		}
+
+		private String callPathTo = "";
+		
 		// set the link representation from -> to in path string
 		private List<Pair<String,String>> pathMaps = new ArrayList<Pair<String,String>>();
 		// set the feature link from the path representation
@@ -59,13 +79,14 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 //			pathRuleMaps.add(new Pair<String,String>(from,to));
 //		}
 
+		/*
 		public String getPathFrom(String pathTo) {
 			for ( Pair<String,String> map:pathMaps ) {
 				if ( pathTo.equals( map.getFirst())) 
 					return map.getSecond();
 			}
 			return null;
-		}
+		}*/
 
 		public List<String> getPathsFrom(String pathTo) {
 			List<String> paths = new ArrayList<String>() ; 
@@ -78,22 +99,6 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 			return paths;
 		}
 
-		public Pair<String,String> getPathFromPair(String pathTo) {
-			for ( Pair<String,String> map:pathMaps ) {
-				if ( pathTo.equals( map.getFirst())) 
-					return map;
-			}
-			return null;
-		}
-
-		public String getPathTo(String pathFrom) {
-			for ( Pair<String,String> map:pathMaps ) {
-				if ( pathFrom.equals( map.getSecond())) 
-					return map.getFirst();
-			}
-			return null;
-		}
-		
 		public List<String> getPathsTo(String pathFrom) {
 			List<String> paths = new ArrayList<String>() ; 
 			if ( pathFrom == null )
@@ -105,6 +110,7 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 			return paths;
 		}
 
+		/*
 		public Pair<String,String> getPathToPair(String pathFrom) {
 			for ( Pair<String,String> map:pathMaps ) {
 				if ( pathFrom.equals( map.getSecond())) 
@@ -113,6 +119,36 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 			return null;
 		}
 
+		public Pair<String,String> getPathFromPair(String pathTo) {
+			for ( Pair<String,String> map:pathMaps ) {
+				if ( pathTo.equals( map.getFirst())) 
+					return map;
+			}
+			return null;
+		}*/
+
+		public List<Pair<String,String>> getPathsToPair(String pathFrom) {
+			List<Pair<String,String>> paths = new ArrayList<Pair<String,String>>() ; 
+			if ( pathFrom == null )
+				return paths; 
+			for ( Pair<String,String> map:pathMaps ) {
+				if ( pathFrom.equals( map.getSecond())) 
+					paths.add(map);
+			}
+			return paths;
+		}
+
+		public List<Pair<String,String>> getPathsFromPair(String pathTo) {
+			List<Pair<String,String>> paths = new ArrayList<Pair<String,String>>() ; 
+			if ( pathTo == null )
+				return paths;
+			for ( Pair<String,String> map:pathMaps ) {
+				if ( pathTo.equals( map.getFirst())) 
+					paths.add(map);
+			}		
+			return paths;
+		}
+		
 		public Feature getFeatureFrom(String pathFrom) {
 			return pathFromFeatures.get(pathFrom);
 		}
