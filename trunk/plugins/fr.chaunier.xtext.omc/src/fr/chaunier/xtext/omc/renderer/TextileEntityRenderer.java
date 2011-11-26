@@ -139,7 +139,7 @@ public class TextileEntityRenderer implements IEntityRenderer {
 	      	return str.toString();
 		}
 
-		@Override
+//		@Override
 		public ConstraintResult constraintResultInFeature(Attribute a) {
 			return null;
 		}
