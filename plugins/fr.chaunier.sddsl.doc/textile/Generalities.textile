@@ -1,0 +1,36 @@
+h1. generalities
+
+Agile modeling for button up SOA creation.
+
+
+h2. Centered on pivot format
+
+Pivot format is a central concept of shared semantics.
+
+This tools address opportunity of to work on low level sementics in message analyse to prepare higth sementics modelisation
+
+
+h2. Models
+
+OMC	: Object Constrained Model
+
+h3. hight level constraints
+
+h3. Shared constraints
+
+h3. shared structures
+
+h3. Object view
+
+h3. Message view
+
+h3. technical specification
+
+h4. formats
+
+h2. Map	: Mapping Model
+
+
+
+h2. Prj : Project Model
+
