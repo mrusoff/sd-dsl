@@ -3,9 +3,16 @@
  */
 package fr.chaunier.xtext.omc;
 
+import org.eclipse.xtext.generator.IGenerator;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class OmcDslRuntimeModule extends fr.chaunier.xtext.omc.AbstractOmcDslRuntimeModule {
+
+//	@Override
+//	public Class<? extends IGenerator> bindIGenerator() {
+//		return fr.chaunier.xtext.omc.generator.OmcDslGenerator.class;
+//	}
 
 }
