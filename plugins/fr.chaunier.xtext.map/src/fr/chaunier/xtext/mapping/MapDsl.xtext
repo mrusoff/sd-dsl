@@ -10,8 +10,16 @@ ModelMap :
 	'model' name=QualifiedName (documentation=STRING)?
 	'Entity source' entityFrom=[mm::Entity|QualifiedName] (sourcePath=STRING)? 'Entity target' entityTo=[mm::Entity|QualifiedName] (targetPath=STRING)? 
 	imports+=Import*
-	actions+=Action*;
-	
+	actions+=Action*
+	embeddedModelMap+=EmbeddedModelMap*
+;
+
+EmbeddedModelMap :	
+	'embedded model' name=QualifiedName (documentation=STRING)?
+	('Entity source' entityFrom=[mm::Entity|QualifiedName])? ('Entity target' entityTo=[mm::Entity|QualifiedName])?  
+	actions+=Action*
+;
+
 Import:
 	'import' importedNamespace=QualifiedNameWithWildCard;
 
@@ -23,24 +31,47 @@ QualifiedName:
 
 
 Action : 
-	FunctionDef | RuleDef | MapGroup  
+	FunctionDef | RuleDef | MapGroup //| MapConcrete  
 ; 
 
-MapGroup : 'map' name=ID '{' 
+MapGroup : 'map' name=ID (description=STRING )? '{' 
 	(featurePath+=FeatureAll)*	
 '}'
 ;
+/*
+MapConcrete : 'concrete' in=InOut name=ID path=Path concreteEntity=[mm::Entity|QualifiedName]'{' 
+	(concretePath+=ConcreteParam)*	
+'}'
+;
+
+ConcreteParam: 
+	from=ConcreteFeaturePathFrom to=ConcreteFeaturePathTo  
+;
+
+ConcreteFeaturePathFrom :
+	'from' path=Path 
+;
+
+ConcreteFeaturePathTo :
+	'to' path=Path
+;
+*/
 
 FeatureAll :
-	FeatureSet | FeaturePath 
+	FeatureSet | FeaturePath | EntityFeatureCall
 ;
 
 FeatureSet :
-	'set' in=InOut path=Path '=' value = TerminalExpression
+	'set' in=InOut path=Path '=' value = TerminalExpression (description=STRING )?
+;
+
+EntityFeatureCall :
+	'call map module' from=FeaturePathFrom  to=FeaturePathTo (call=[EmbeddedModelMap|QualifiedName])?  ('rule' rule=[RuleDef])? (description=STRING )?
 ;
 
 FeaturePath :
-	from=FeaturePathFrom to=FeaturePathTo (forEach?='for each')?  ('rule' rule=[RuleDef] args+=STRING*)? 
+	from=FeaturePathFrom to=FeaturePathTo (forEach?='for each')?  ('rule' rule=[RuleDef])?  (description=STRING )? 
+
 ;
 
 FeaturePathFrom :
