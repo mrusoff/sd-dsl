@@ -3,6 +3,7 @@ package fr.chaunier.xtext.mapping
 import fr.chaunier.xtext.mapping.mapDsl.FeatureAll
 import fr.chaunier.xtext.mapping.mapDsl.FeaturePath
 import fr.chaunier.xtext.mapping.mapDsl.FeatureSet
+import fr.chaunier.xtext.mapping.mapDsl.EntityFeatureCall
 import fr.chaunier.xtext.mapping.mapDsl.FunctionDef
 import fr.chaunier.xtext.mapping.mapDsl.InOut
 import fr.chaunier.xtext.mapping.mapDsl.MapGroup
@@ -53,6 +54,8 @@ class CompletePathMappingBuilder {
 	
 	def dispatch mapActionTxt(RuleDef fd,PathMapFeatureRule maps) {}
 	
+//	def dispatch mapActionTxt(MapConcrete fd,PathMapFeatureRule maps) {}
+
 	// for eatch featurePath in MapGroup
 	def dispatch mapActionTxt(MapGroup mg,PathMapFeatureRule maps) {
 	for (fp:mg.featurePath)
@@ -65,12 +68,26 @@ class CompletePathMappingBuilder {
 		return null 
 	}
 	
+	// dump sub model
+	def dispatch mapFeatureString(EntityFeatureCall efc,PathMapFeatureRule maps) {
+	  if ( efc.from != null )
+	  	 maps.callPathFrom = pathString(efc.from.path)+'.'
+	  else  maps.callPathFrom = "" ;
+ 	  if ( efc.to != null )
+ 	  	 maps.callPathFrom = pathString(efc.to.path)+'.'
+	  else  maps.callPathTo = "" ;
+	  for (f:efc.call.actions) {
+		 mapActionTxt(f,maps)
+	  }
+	  return null
+	}
+	
 	def dispatch mapFeatureString(FeatureSet fs,PathMapFeatureRule maps) {
 		var mapArgs = new SetArgs()
 		mapArgs.value = fs.value
 		if ( fs.in == InOut::IN ) {
-			maps.addMaps(pathString(fs.path),null,getFeature(fs.path),null,mapArgs)
-		} else maps.addMaps(null,pathString(fs.path),null,getFeature(fs.path),mapArgs) 
+			maps.addMaps(prefixedPathString(maps.callPathFrom,fs.path),null,getFeature(fs.path),null,mapArgs)
+		} else maps.addMaps(null,prefixedPathString(maps.callPathTo,fs.path),null,getFeature(fs.path),mapArgs) 
 		return null 
 	}
 	
@@ -79,12 +96,12 @@ class CompletePathMappingBuilder {
 		if ( fp.rule != null ) {
 			mapArgs = new RuleArgs()
 			mapArgs.name = fp.rule.name
-			mapArgs.args = fp.args
+//			mapArgs.args = fp.args
 			mapArgs.rule = fp.rule 	
 			mapArgs.description = fp.rule.description
 //			mapArgs.operation = fp.rule.operation
 		}
-		maps.addMaps(pathString(fp.from.path),pathString(fp.to.path),getFeature(fp.from.path),getFeature(fp.to.path),mapArgs)
+		maps.addMaps(prefixedPathString(maps.callPathFrom, fp.from.path),prefixedPathString(maps.callPathTo,fp.to.path),getFeature(fp.from.path),getFeature(fp.to.path),mapArgs)
 		return null 
 	}
 	
@@ -99,6 +116,11 @@ class CompletePathMappingBuilder {
 	def pathString(Path path) {
 		var map = mapFeatureString(path,'')
 		''+map
+	}
+
+	def prefixedPathString(String prefix,Path path) {
+		var map = mapFeatureString(path,'')
+		return prefix+map
 	}
 
 	// concatenation of préfixe with . separator
