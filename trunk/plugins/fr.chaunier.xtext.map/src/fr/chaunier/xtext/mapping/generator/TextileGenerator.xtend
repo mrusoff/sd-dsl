@@ -54,7 +54,6 @@ class TextileGenerator implements IGenerator {
 	«dumpMappingView(mdl,pairMap,iconPath)»
 	«dumpFromView(mdl,pairMap)»
 	«dumpToView(mdl,pairMap)»
-
 '''
 
 	def dumpSpec(ModelMap mdl) '''
@@ -92,8 +91,11 @@ table{border:1px solid black}.
 	var omHelper = new OmHelper()
 	if ( a == null ) return ""
 	if ( a.type == null || a.type.referenced == null ) return ""
-	omHelper.QualifiedName(a.type.referenced).toString
-	}
+	var qn = omHelper.QualifiedName(a.type.referenced)
+	if ( qn != null )
+		qn.toString
+	else ""
+	} 
 
 	def dumpFromView(ModelMap mdl,PathMapFeatureRule pairMap) '''
 	
@@ -106,10 +108,13 @@ table{border:1px solid black}.
 	table{border:1px solid black}.
 	| **source** |  | **destination** | 
 	«FOR pFrom:instanceManager.paths»
-	«val pTo = pairMap.getPathFrom(pFrom)» 
+	«val pTos = pairMap.getPathsFrom(pFrom)» 
+	«FOR pTo:pTos»
+	«var args = pairMap.getMapArgs(pFrom,pTo)»
     «val src= getPath(mdl.sourcePath,pFrom)»
     «val target=getPath(mdl.targetPath,pTo)»
-	| «src» |  -> |  «target» |     
+	| «src» |  -> |  «target» | «renderArgs(args)»    
+	«ENDFOR»
 	«ENDFOR»
 	'''
 
@@ -124,10 +129,13 @@ table{border:1px solid black}.
 	table{border:1px solid black}.
 	| **source** |  | **destination** |  
 	«FOR pTo:instanceManager.paths»
-	«val pFrom = pairMap.getPathTo(pTo)» 
+	«val pFroms = pairMap.getPathsTo(pTo)»
+	«FOR pFrom : pFroms» 
     «val src= getPath(mdl.sourcePath,pFrom)»
     «val target=getPath(mdl.targetPath,pTo)»
-	| «src» |  -> |  «target».«pTo» | 
+	«var args = pairMap.getMapArgs(pFrom,pTo)»
+	| «src» |  -> |  «target».«pTo» | «renderArgs(args)» 
+	«ENDFOR»
 	«ENDFOR»
 	'''
 
@@ -139,6 +147,8 @@ def renderArgs(PathMapFeatureRule pathMap,Pair<String,String> mapFromTo) {
 	}
 
 def dispatch renderArgs(MapArgs args) {
+	if (args == null ) 
+		return ""
 	return args.name
 }
 	
