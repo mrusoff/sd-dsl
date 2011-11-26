@@ -4,8 +4,8 @@
 package fr.chaunier.xtext.mapping.generator
 
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IGenerator
 
 class MapDslGenerator implements IGenerator {
 	
