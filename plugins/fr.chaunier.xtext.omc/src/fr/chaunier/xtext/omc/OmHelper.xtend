@@ -31,8 +31,14 @@ class OmHelper {
   	}
   	
   	def concreteEntity(Entity entity) {
-	      (entity.superType != null && entity.superType.isAbstract)  
+	      if (entity.superType != null && entity.superType.isAbstract) 
+	      	return true
+	      if (entity.superType != null)
+	      	concreteEntity(entity.superType)
+	      else false			
   	}
+  	
+  	// old return (entity.superType != null && entity.superType.isAbstract)
 
 	def searchConcreteEntitiesInPackage(PackageDeclaration pack) {
 	    var listConcrete = new ArrayList<Entity>()
