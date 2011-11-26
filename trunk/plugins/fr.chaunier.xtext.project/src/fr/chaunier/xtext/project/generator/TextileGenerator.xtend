@@ -63,7 +63,7 @@ class TextileGenerator implements IGenerator {
 «val iconPath = '../../icons/'»
 
 table{border:1px solid black}.
-|_. **Source** |_. Name |_. [..] |_. Constraint |_. |_. **Target** |_. Name |_. [..] |_. Constraint  |_. Rule
+|_. **Source** |_. |_. Feature |_. [..] |_. Constraint |_. |_. **Target** |_. |_. « »Feature |_. [..] |_. Constraint  |_. Rule
 	«FOR mapFromTo:pairMap.pathMaps»
 	«var cf = pairMap.getFeatureFrom(mapFromTo.first) as Attribute»
 	«var st = pairMap.getFeatureTo(mapFromTo.second)  as Attribute»
@@ -71,7 +71,7 @@ table{border:1px solid black}.
 	«msgRenderer.setIconPath(iconPath)»
     «val iconCf=msgRenderer.elementType(cf)»
     «val iconSt=msgRenderer.elementType(st)»
-	     | «mapFromTo.first» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)» | -> | «mapFromTo.second»  | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderRule(pairMap,mapFromTo)» 
+	     | «mapFromTo.first» | «msgRenderer.constraintType(cf)» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)» | -> | «mapFromTo.second»  | «msgRenderer.constraintType(st)» | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderRule(pairMap,mapFromTo)» 
 	«ENDFOR»
      '''
 
@@ -98,15 +98,15 @@ def dumpSequence(TransformationGroup grp) {
 	   	 	workOk=false
 	   	}
 		stringBuilder.append(dumpSpec(t.model.name,current))
-		stringBuilder.append("p.\n")
+		stringBuilder.append("p. \n")
 		stringBuilder.append(dumpModel(current))
-		stringBuilder.append("p.\n")
+		stringBuilder.append("p. \n")
 	}
 	if (workOk) {
 	  	stringBuilder.append(dumpSpec("result mapping",previous))
-		stringBuilder.append("p.\n")
+		stringBuilder.append("p. \n")
 	  	stringBuilder.append(dumpModel(previous))
-		stringBuilder.append("p.\n")
+		stringBuilder.append("p. \n")
 	}
     else
     	stringBuilder.append('Erreur entité destination premier mapping incompatible avec entité source second mapping')
