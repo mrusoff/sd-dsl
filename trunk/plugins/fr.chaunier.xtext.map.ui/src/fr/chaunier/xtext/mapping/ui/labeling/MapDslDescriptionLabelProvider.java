@@ -3,6 +3,7 @@
 */
 package fr.chaunier.xtext.mapping.ui.labeling;
 
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
 
 /**
@@ -11,6 +12,12 @@ import org.eclipse.xtext.ui.label.DefaultDescriptionLabelProvider;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
 public class MapDslDescriptionLabelProvider extends DefaultDescriptionLabelProvider {
+
+	
+	@Override
+	public String image(IEObjectDescription description) {
+		return description.getEClass().getName() + ".gif"; 
+	}
 
 /*
 	//Labels and icons can be computed like this:
