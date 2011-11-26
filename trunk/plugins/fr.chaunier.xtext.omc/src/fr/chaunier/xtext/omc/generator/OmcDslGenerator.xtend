@@ -9,7 +9,6 @@ import org.eclipse.xtext.generator.IGenerator
 import fr.chaunier.xtext.omc.generator.oo.OoTextileGenerator 
 import fr.chaunier.xtext.omc.generator.msg.MessageTextileGenerator 
 import fr.chaunier.xtext.omc.generator.instance.InstanceGenerator 
-import fr.telintrans.generator.doc.DefaultDocTextileGenerator 
 
 class OmcDslGenerator implements IGenerator {
 	
