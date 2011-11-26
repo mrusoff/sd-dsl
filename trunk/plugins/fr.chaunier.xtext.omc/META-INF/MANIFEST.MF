@@ -24,6 +24,7 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xtend2.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: fr.chaunier.xtext.omc,
+ fr.chaunier.xtext.omc.features,
  fr.chaunier.xtext.omc.formatting,
  fr.chaunier.xtext.omc.generator,
  fr.chaunier.xtext.omc.generator.msg,
@@ -38,4 +39,5 @@ Export-Package: fr.chaunier.xtext.omc,
  fr.chaunier.xtext.omc.serializer,
  fr.chaunier.xtext.omc.services,
  fr.chaunier.xtext.omc.validation
+
 
