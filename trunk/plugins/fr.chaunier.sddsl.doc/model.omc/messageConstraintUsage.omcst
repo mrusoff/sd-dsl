@@ -1,0 +1,42 @@
+[
+	message applied on Message format XML 
+	
+]
+
+package constraintusage {
+
+entity Message {
+	person1 : Personne1
+	person2 : Personne2
+	person3 : Personne3
+}
+
+// without constraint on data type
+datatype Name "name whithout constraint"
+datatype Phone "phone whithout constraint"
+
+	entity Personne1 {
+		name : Name string 				"name typed by feature"
+		phone : Phone integer			"phone typed by feature"
+	}
+
+// shared constraints on data type
+datatype NameWhithType string 						"name whith type"
+datatype PhoneWhithType integer  maxVal 9999999999 	"name whoth type and constraint"
+
+	entity Personne2 {
+		name : NameWhithType string maxLen 35	"constraints overided by feature"
+		phone : PhoneWhithType					"phone typed by datatype"
+	}
+	
+// shared constraints on data type
+datatype NameWhithConstraint string maxLen 35 
+datatype PhoneWhithConstraint integer maxVal 9999999999
+
+	entity Personne3 {
+		name : Name 						"constrint in datatype"
+		phone : Phone integer fixeLen 10 	"owerided by feature"	
+	}	
+		
+	
+}

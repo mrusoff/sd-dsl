@@ -1,0 +1,20 @@
+[
+	CARDINALITY applied on MyEntity format CSV delim. field ';'
+	info "source" "ma source" 
+	info "destination" "ma destination"
+]
+
+datatype Name
+
+package cardinality.usage prefix test3  {
+
+import testtypes.*
+
+	entity MyEntity 'test cardinalities'{
+		const11 : Name 	"cardinalité 1..1 by default"
+		const01 : Name ?  "test cardinalité 0..1"
+		const0n : Name * "test cardinalité 0..n"
+		const1N : Name + "test cardinalité 1..n"
+	}
+}
+

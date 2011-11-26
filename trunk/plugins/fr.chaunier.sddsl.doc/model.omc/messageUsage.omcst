@@ -1,0 +1,15 @@
+// declaration of message root
+[
+	message applied on Personne format EDI delim. field ';'
+]
+
+package startusage {
+
+datatype Name 	"datatype name for simple field sementic"
+datatype Phone 	
+
+	entity Personne "personne definition" {
+		name : Name  			"have name"
+		phone : Phone 			"have phone"
+	}
+}
