@@ -1,0 +1,9 @@
+package modelusage {
+
+import  startusage.*
+
+	entity Customer {
+		person : Personne
+	}
+}
+
