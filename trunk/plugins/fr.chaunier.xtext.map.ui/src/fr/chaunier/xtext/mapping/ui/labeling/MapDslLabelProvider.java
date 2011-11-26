@@ -3,10 +3,17 @@
 */
 package fr.chaunier.xtext.mapping.ui.labeling;
 
+import static org.eclipse.xtext.util.Strings.notNull;
+
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
+
+import fr.chaunier.xtext.mapping.mapDsl.FeaturePath;
+import fr.chaunier.xtext.mapping.mapDsl.FeatureSet;
+
 
 /**
  * Provides labels for a EObjects.
@@ -20,15 +27,26 @@ public class MapDslLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-/*
-	//Labels and icons can be computed like this:
-	
-	String text(MyModel ele) {
-	  return "my "+ele.getName();
+	@Override
+	protected Object doGetImage(Object element) {
+		if (element instanceof EObject) {
+			return ((EObject) element).eClass().getName() + ".gif";
+		}
+		return super.doGetImage(element);
 	}
-	 
-    String image(MyModel ele) {
-      return "MyModel.gif";
-    }
-*/
+
+	public String text(FeaturePath fp) {
+		StringBuilder builder = new StringBuilder();
+//		builder.append(notNull(fp.getFrom().getPath().getAttribute()+' '+fp.getTo()));
+		return builder.toString();
+	}
+
+	public String text(FeatureSet entity) {
+		StringBuilder builder = new StringBuilder();
+//		builder.append(notNull(entity.getName()));
+//		builder.append(" : ");
+//		builder.append(datatype.getType().getReferenced().getName());
+		return builder.toString();
+	}
+
 }
