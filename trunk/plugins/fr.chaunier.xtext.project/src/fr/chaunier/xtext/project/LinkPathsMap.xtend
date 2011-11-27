@@ -21,7 +21,7 @@ class LinkPathsMap {
 					var featureFirst = first.getFeatureFrom(pathFromFirst)  // recheche feature 1°	
 					var featureSecond = second.getFeatureTo(pathToSecond)
 //				println("add " + pathFromFirst + ' ' + pathToSecond);
-					result.addMaps(pathFromFirst,pathToSecond,featureFirst,featureSecond,null)			
+					result.addMaps(pathFromFirst,pathToSecond,featureFirst,featureSecond,null,"")			
 			    }
 //				println("find to second " + pathToSecond);
 			}
