@@ -16,7 +16,7 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 		private Entity source ;
 		private Entity target ;
 		
-		// memorize path model forvcall sub model
+		// memorize path model for call sub model
 		private String callPathFrom = "" ;
 		public String getCallPathFrom() {
 			return callPathFrom;
@@ -35,7 +35,7 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 		}
 
 		private String callPathTo = "";
-		
+
 		// set the link representation from -> to in path string
 		private List<Pair<String,String>> pathMaps = new ArrayList<Pair<String,String>>();
 		// set the feature link from the path representation
@@ -44,6 +44,8 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 		private Map<String,Feature> pathToFeatures = new HashMap<String,Feature>();
 		// set the rule the pair path representation of link
 		private Map<Pair<String,String>,MapArgs> linkToRule = new HashMap<Pair<String,String>,MapArgs>();
+		// set the description the pair path representation of link
+		private Map<Pair<String,String>,String> mapDescriptions = new HashMap<Pair<String,String>,String>();
 		
 		public PathMapFeatureRule(Entity source,Entity target) {
 			this.source = source ;
@@ -66,12 +68,13 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 //		return pathRuleMaps;
 //	    }
 		
-		public void addMaps(String from,String to,Feature featureFrom , Feature featureTo,MapArgs mapArgs) {
+		public void addMaps(String from,String to,Feature featureFrom , Feature featureTo,MapArgs mapArgs,String description) {
 			Pair<String,String> link = new Pair<String,String>(from,to);
 			pathMaps.add(link);
 			pathFromFeatures.put(from, featureFrom);
 			pathToFeatures.put(to, featureTo);
 			linkToRule.put(link, mapArgs);
+			mapDescriptions.put(link, description);
 		}
 		
 
@@ -163,6 +166,10 @@ import fr.chaunier.xtext.omc.omcDsl.Feature;
 		
 		public MapArgs getMapArgs(String from,String to) {
 			return linkToRule.get(new Pair<String,String>(from,to));
+		}
+		
+		public String getMapDescription(Pair<String,String> pair) {
+			return mapDescriptions.get(pair);
 		}
 
 	}

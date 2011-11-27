@@ -44,7 +44,7 @@ class CompletePathMappingBuilder {
 				mapArgs.name = fd.name
 				mapArgs.description = fd.description
 				mapArgs.operation = fd.operation
-				maps.addMaps(pathString(in),pathString(out),getFeature(in),getFeature(out),mapArgs)
+				maps.addMaps(pathString(in),pathString(out),getFeature(in),getFeature(out),mapArgs,fd.description)
 			}  
 		}  
 //				maps.addMaps(pathString(param.path),null,getFeature(param.path),null,null)
@@ -86,8 +86,8 @@ class CompletePathMappingBuilder {
 		var mapArgs = new SetArgs()
 		mapArgs.value = fs.value
 		if ( fs.in == InOut::IN ) {
-			maps.addMaps(prefixedPathString(maps.callPathFrom,fs.path),null,getFeature(fs.path),null,mapArgs)
-		} else maps.addMaps(null,prefixedPathString(maps.callPathTo,fs.path),null,getFeature(fs.path),mapArgs) 
+			maps.addMaps(prefixedPathString(maps.callPathFrom,fs.path),null,getFeature(fs.path),null,mapArgs,fs.description)
+		} else maps.addMaps(null,prefixedPathString(maps.callPathTo,fs.path),null,getFeature(fs.path),mapArgs,fs.description) 
 		return null 
 	}
 	
@@ -101,7 +101,7 @@ class CompletePathMappingBuilder {
 			mapArgs.description = fp.rule.description
 //			mapArgs.operation = fp.rule.operation
 		}
-		maps.addMaps(prefixedPathString(maps.callPathFrom, fp.from.path),prefixedPathString(maps.callPathTo,fp.to.path),getFeature(fp.from.path),getFeature(fp.to.path),mapArgs)
+		maps.addMaps(prefixedPathString(maps.callPathFrom, fp.from.path),prefixedPathString(maps.callPathTo,fp.to.path),getFeature(fp.from.path),getFeature(fp.to.path),mapArgs,fp.description)
 		return null 
 	}
 	

@@ -31,31 +31,14 @@ QualifiedName:
 
 
 Action : 
-	FunctionDef | RuleDef | MapGroup //| MapConcrete  
+	FunctionDef | RuleDef | MapGroup 
 ; 
 
 MapGroup : 'map' name=ID (description=STRING )? '{' 
 	(featurePath+=FeatureAll)*	
 '}'
 ;
-/*
-MapConcrete : 'concrete' in=InOut name=ID path=Path concreteEntity=[mm::Entity|QualifiedName]'{' 
-	(concretePath+=ConcreteParam)*	
-'}'
-;
 
-ConcreteParam: 
-	from=ConcreteFeaturePathFrom to=ConcreteFeaturePathTo  
-;
-
-ConcreteFeaturePathFrom :
-	'from' path=Path 
-;
-
-ConcreteFeaturePathTo :
-	'to' path=Path
-;
-*/
 
 FeatureAll :
 	FeatureSet | FeaturePath | EntityFeatureCall
@@ -66,7 +49,7 @@ FeatureSet :
 ;
 
 EntityFeatureCall :
-	'call map module' from=FeaturePathFrom  to=FeaturePathTo (call=[EmbeddedModelMap|QualifiedName])?  ('rule' rule=[RuleDef])? (description=STRING )?
+	'call map module' from=FeaturePathFrom  to=FeaturePathTo (call=[EmbeddedModelMap|QualifiedName])?  ('rule' rule=[RuleDef] ('args' args=STRING)?)? (description=STRING )?
 ;
 
 FeaturePath :
