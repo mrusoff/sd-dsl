@@ -1,0 +1,42 @@
+[ 
+	INVOICE_XSD applied on Invoice format XML
+	info "source" "my file source"
+	info "targe" "my file target"  
+]
+
+package pivot.invoice  {
+
+
+import pivot.address.*
+import pivot.catalogue.*
+	
+datatype InvoiceNumber
+datatype CustNumber
+datatype Description 
+datatype Price
+datatype Discount
+datatype Date
+
+	entity Invoice {
+		header : Header 
+		items : Item *
+	}
+
+	entity Header {
+		ddate : Date
+		billTo : BillTo
+	}
+
+	entity BillTo {
+		customerNumber : CustNumber
+		postalAddress : PostalAddress
+	}
+	
+	entity Item {
+		publication : Publication 
+		description : Description *
+		price : Price 
+		discount : Discount
+	}
+	
+}
