@@ -1,0 +1,75 @@
+[ 
+	INVOICECSV applied on Facture root element facture "point d'entrée" 
+	format CSV delim. field ';' 
+	info "source" "my file source"
+	info "targe" "my file target"  
+]
+
+// definition d'un package pour éviter les conflis de nommage des entités
+// indispenssable pour la génération d'un XSD
+
+
+package invoice.csv  {		
+
+// low level type semantic 
+//  
+		
+datatype NumeroFacture		
+datatype NumeroClient
+datatype Nom
+datatype Telephone
+datatype Description 
+datatype LigneAdresse 
+datatype Ville
+datatype CodePostale
+datatype PrixEuro   decimal maxVal 999999.99 "en Euro"
+
+datatype Mois 	integer minVal 1 maxVal 12 
+datatype Jour 	integer minVal 1 maxVal 31 
+datatype Annee	integer fixeLen 4
+
+
+	// structure d'accueil de type complexe
+	entity Date {
+		day : Jour 
+		month : Mois 
+		year : Annee	 
+	}
+// déninition des enumérations
+	enumeration O_N [ N = 0 ; O = 1 ; ]									// enumération de type key,value
+	
+	
+	entity Facture "invoice entry point" {	// doumentation 
+		entete : Entete 
+		articles : Article *											// * multiple
+	}	
+	entity Entete {
+		ddate : Date	string fixeLen 8 // format JJMMAAAA
+		client : Client
+	}	
+	entity Article {
+		description : Description * string maxLen 80			// * multiple
+		prix : PrixEuro 
+		remise : PrixEuro  
+	}
+		
+	entity Client {
+		numeroClient : NumeroClient integer maxVal 999999999999 annotations ["ex":"0909999009" ]
+		nom : Nom 					string maxLen 20
+		marie : O_N 				enum as String annotations ["ex":"mon exemple" ]
+		telephone : Telephone 		string maxLen 12
+		adresse : Adresse
+	}	
+	entity Adresse {
+		
+		ligne1 : LigneAdresse 		string maxLen 80	
+		ligne2 : LigneAdresse ?		string maxLen 80									// ? optionnel
+		ligne3 : LigneAdresse ?		string maxLen 80
+		ville : Ville 				string maxLen 80
+		codePostale : CodePostale 	string fixeLen 5
+	}
+//	element Facture
+
+}
+
+ 
