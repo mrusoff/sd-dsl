@@ -72,7 +72,7 @@ def dumpMappingView(ModelMap mdl,PathMapFeatureRule pairMap,String iconPath) '''
 	h3. mapping
 
 table{border:1px solid black}.
-|_. **Source** |_. |_. Feature |_. [..] |_. Constraint |_. |_. **Target** |_. |_. Feature |_. [..] |_. Constraint  |_. Rule
+|_. **Source** |_. |_. Feature |_. [..] |_. Constraint |_. |_. **Target** |_. |_. Feature |_. [..] |_. Constraint  |_. Rule  |_. Documentation
 		«FOR mapFromTo:pairMap.pathMaps»
 	«var cf = pairMap.getFeatureFrom(mapFromTo.first) as Attribute»
 	«var st = pairMap.getFeatureTo(mapFromTo.second)  as Attribute»
@@ -82,7 +82,8 @@ table{border:1px solid black}.
     «val iconSt=msgRenderer.elementType(st)»
     «val src= getPath(mdl.sourcePath,mapFromTo.first)»
     «val target=getPath(mdl.targetPath,mapFromTo.second)»
- |«src» | «msgRenderer.constraintType(cf)» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)»  | -> | «target»  | «msgRenderer.constraintType(st)» | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderArgs(pairMap,mapFromTo)» 
+    «var description = pairMap.getMapDescription(mapFromTo)»
+ |«src» | «msgRenderer.constraintType(cf)» | «getReference(cf)» | «msgRenderer.cardinality(cf)» | «msgRenderer.constraintInFeature(cf)»  | -> | «target»  | «msgRenderer.constraintType(st)» | «getReference(st)» | «msgRenderer.cardinality(st)» | «msgRenderer.constraintInFeature(st)» | «renderArgs(pairMap,mapFromTo)» | «description»
 	«ENDFOR»
 '''
 
