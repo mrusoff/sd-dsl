@@ -14,4 +14,4 @@ Add your content here.  Format your content with:
 
 http://code.google.com/images/code_sm.png
 
-http://svn.codespot.com/a/eclipselabs.org/sd-dsl/wiki/wiki/introduction/png
+http://svn.codespot.com/a/eclipselabs.org/sd-dsl/wiki/wiki/introduction.png
