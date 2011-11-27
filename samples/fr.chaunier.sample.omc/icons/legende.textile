@@ -1,0 +1,40 @@
+h1. Légendes
+
+h2. types
+
+table{border:1px solid black}.
+|_. icon |_. Légende
+| !Entity.gif! |  Entity
+| !Reference.gif! |  Reference
+| !Datatype.gif! |  Datatype
+| !Enumeration.gif! |  Enumeration
+ 
+h2. Constraints
+
+table{border:1px solid black}.
+|_. icon |_. Légende |_. Applied On
+| !string.gif! | String | !MinLengthFacet.gif! !MaxLengthFacet.gif! !IdentityConstraintDefinitionKey.gif! !Default.gif! !EqualFacet.gif! !PatternFacet.gif!
+| !number.gif!| integer | !MinInclusiveFacet.gif! !MaxInclusiveFacet.gif! !IdentityConstraintDefinitionKey.gif! !Default.gif! !EqualFacet.gif! !PatternFacet.gif!
+| !decimal.gif!| decimal | !MinInclusiveFacet.gif! !MaxInclusiveFacet.gif! !IntDigitsFacet.gif! !FractionDigitsFacet.gif! !Default.gif! !EqualFacet.gif! !PatternFacet.gif!
+| boolean| boolean |
+| date | date | 
+
+h3. On type 
+
+table{border:1px solid black}.
+|_. icon |_. Légende |_. Applied On
+| !MinLengthFacet.gif! | Min Length |    
+| !MaxLengthFacet.gif! | Max Length |   
+| !MinInclusiveFacet.gif! | Min value Inclusive |
+| !MaxInclusiveFacet.gif! | Max value Inclusive |
+| !IntDigitsFacet.gif! | Integer part Digits |
+| !FractionDigitsFacet.gif! | Fraction Digits |
+| !Default.gif! | default |
+| !EqualFacet.gif! | fixed value |
+| !PatternFacet.gif! | regex or paddle |
+| !IdentityConstraintDefinitionKey.gif! | key |
+ 
+
+
+
+         
