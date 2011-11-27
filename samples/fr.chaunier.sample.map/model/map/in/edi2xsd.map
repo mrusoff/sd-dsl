@@ -1,0 +1,32 @@
+model invoice.in.edi2xsd Entity source invoice.edi.Header Entity target Invoice  
+
+import invoice.edi.*
+import pivot.invoice.*
+
+define rule truncate 
+
+
+
+map header "map the header part" {
+		
+	from customer  to header.billTo.customerNumber
+}
+
+map billTo "map the billTo part" {
+//	from entete.client.nom to header.billTo.postalAddress.person.firstName 
+//	from entete.client.telephone to header.billTo.postalAddress.phone.numero 
+//	from entete.client.adresse.ligne1 to header.billTo.postalAddress.adresse.line1 rule truncate  "80" 
+
+//	from entete.client.adresse.ligne2 to header.billTo.postalAddress.adresse.line2 rule truncate "80"
+//	from entete.client.adresse.ligne3 to header.billTo.postalAddress.adresse.line3 rule truncate "80"
+//	from entete.client.adresse.ville to header.billTo.postalAddress.adresse.city
+//	from entete.client.adresse.codePostale to header.billTo.postalAddress.adresse.zipCode
+}
+
+map items "map the items parts" {		
+//	from articles to items for each
+//	from articles.description to items.description
+//	from articles.prix to items.price
+//	from articles.remise to items.discount
+}
+

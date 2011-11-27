@@ -1,0 +1,15 @@
+
+model invoice.out.xsd2db Entity source Invoice Entity target InvoiceDB
+
+
+import pivot.invoice.*
+import invoice.db.*
+
+map all {
+	
+	from header.ddate to dateInvoice
+	from header.billTo.customerNumber to customerNumberInvoice
+	
+	from items.description to items.description 
+	from items.price to items.price 
+}

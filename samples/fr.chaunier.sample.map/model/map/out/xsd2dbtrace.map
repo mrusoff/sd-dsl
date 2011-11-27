@@ -1,0 +1,11 @@
+
+model invoice.out.xsd2dbTrace Entity source Invoice Entity target Trace
+
+import pivot.invoice.*
+import trace.db.*
+
+map all {
+	
+	from header.ddate to dateInvoice
+	from header.billTo.customerNumber to customerNumberInvoice
+}
