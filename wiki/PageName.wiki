@@ -13,3 +13,5 @@ Add your content here.  Format your content with:
   * Automatic links to other wiki pages
 
 http://code.google.com/images/code_sm.png
+
+http://svn.codespot.com/a/eclipselabs.org/sd-dsl/wiki/wiki/introduction/png
