@@ -1,0 +1,28 @@
+[ 
+	TRACE applied on Trace format DB
+	info "source" "my file source"
+	info "targe" "my file target"  
+]
+
+// les type de bases sount déclarés en datatype pour être agnostique quand à la technique de sérialisation csv,flat,old xml,xml xsd
+
+package trace.db  {
+	
+datatype InvoiceNumber
+datatype CustNumber
+datatype Amount decimal precision 6 scale 2
+datatype Date
+
+	enumeration O_N [ N = 0 ; O = 1 ; ]
+	
+	// description d'une structure à urbaniser
+	
+	entity Trace {
+		dateInvoice : Date date
+		customerNumberInvoice : CustNumber integer maxVal 999999999  
+		invoiceNumber : InvoiceNumber string maxLen 10
+		totalAmount : Amount 
+	}
+		
+
+}

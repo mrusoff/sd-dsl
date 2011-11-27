@@ -1,0 +1,41 @@
+[ 
+	INVOICE applied on Invoice format XML
+	info "source" "my file source"
+	info "targe" "my file target"  
+]
+
+package pivot.invoiceV2  {
+
+
+import pivot.address.*
+import pivot.catalogue.*
+	
+datatype InvoiceNumber
+datatype CustNumber
+datatype Description string
+datatype Amount decimal precision 10 scale 2 
+datatype Date
+
+	entity Invoice {
+		header : Header 
+		items : Item *
+		delivery : PostalAddress
+	}
+
+	entity Header {
+		ddate : Date
+		billTo : BillTo
+	}
+
+	entity BillTo {
+		customerNumber : CustNumber
+		postalAddress : PostalAddress
+	}
+	
+	entity Item {
+		publication : Publication string maxLen 80
+		description : Description *
+		price : Amount decimal maxVal 99999.00 
+		discount : Amount decimal maxVal 999.00
+	}
+}
