@@ -1,0 +1,37 @@
+model invoice.in.csv2xsd Entity source Facture Entity target Invoice  
+
+import invoice.csv.*
+import pivot.invoice.*
+
+define rule truncate 
+
+
+fonction enteteDate "concate separate fields on date" {
+	In  entete.ddate.day
+	In  entete.ddate.month
+	In  entete.ddate.year
+	Out header.ddate
+}
+
+map header "map the header part" {
+		
+	from entete.client.numeroClient to header.billTo.customerNumber
+}
+
+map billTo "map the billTo part" {
+	from entete.client.nom to header.billTo.postalAddress.person.firstName 
+	from entete.client.telephone to header.billTo.postalAddress.phone.numero 
+	from entete.client.adresse.ligne1 to header.billTo.postalAddress.adresse.line1 rule truncate  
+	from entete.client.adresse.ligne2 to header.billTo.postalAddress.adresse.line2 rule truncate 
+	from entete.client.adresse.ligne3 to header.billTo.postalAddress.adresse.line3 rule truncate 
+	from entete.client.adresse.ville to header.billTo.postalAddress.adresse.city
+	from entete.client.adresse.codePostale to header.billTo.postalAddress.adresse.zipCode
+}
+
+map items "map the items parts" {		
+	from articles to items for each
+	from articles.description to items.description
+	from articles.prix to items.price
+	from articles.remise to items.discount
+}
+

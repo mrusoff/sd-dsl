@@ -1,0 +1,17 @@
+
+sequence csv2TraceDB	// end to end mapping sequence 
+{
+	mapping invoice.in.csv2xsd			// entry to pivot
+	mapping invoice.out.xsd2dbTrace  	// pivot to out
+}
+
+sequence csv2DB
+{
+	
+	mapping invoice.in.csv2xsd
+	mapping invoice.out.xsd2db
+
+}
+	
+	
+	
