@@ -2,8 +2,8 @@
 
 = Install =
 
-* Eclipse Indigo SR1
-* XText 2.1
-* Textile
+Eclipse Indigo SR1
 
+XText 2.1
 
+Textile for reports production
