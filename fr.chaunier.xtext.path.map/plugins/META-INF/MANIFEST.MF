@@ -1,0 +1,40 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.chaunier.xtext.path.map
+Bundle-Vendor: philippe chaunier
+Bundle-Version: 0.0.8.qualifier
+Bundle-SymbolicName: fr.chaunier.xtext.path.map; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;bundle-version="2.1.0";visibility:=reexport,
+ org.eclipse.xtext.xbase;bundle-version="2.1.0";resolution:=optional;visibility:=reexport,
+ org.apache.log4j;bundle-version="1.2.15";visibility:=reexport,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ fr.chaunier.xtext.omc;bundle-version="0.0.8",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.apache.commons.logging,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.xtend2.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: fr.chaunier.xtext.path.map,
+ fr.chaunier.xtext.path.map.formatting,
+ fr.chaunier.xtext.path.map.generator,
+ fr.chaunier.xtext.path.map.parser.antlr,
+ fr.chaunier.xtext.path.map.parser.antlr.internal,
+ fr.chaunier.xtext.path.map.pathDsl,
+ fr.chaunier.xtext.path.map.pathDsl.impl,
+ fr.chaunier.xtext.path.map.pathDsl.util,
+ fr.chaunier.xtext.path.map.scoping,
+ fr.chaunier.xtext.path.map.serializer,
+ fr.chaunier.xtext.path.map.services,
+ fr.chaunier.xtext.path.map.utils,
+ fr.chaunier.xtext.path.map.validation
+
